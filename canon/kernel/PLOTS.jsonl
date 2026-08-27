@@ -1,0 +1,9 @@
+{"id":"FP-001","name":"木牌‘药’","status":"PARTIAL-PAYOFF","opened_ch":1,"last_advanced_ch":2,"target_window":null,"sleep_reason":null,"notes":"新人确实被当成人体药材；木牌是否还有分类/追踪功能未解"}
+{"id":"FP-002","name":"‘万物皆药，人亦如此’","status":"ACTIVE","opened_ch":1,"last_advanced_ch":2,"target_window":"LONG-TERM","sleep_reason":null,"notes":"第一层含义兑现；更深层保留"}
+{"id":"FP-004","name":"周玄尸体","status":"ACTIVE","opened_ch":2,"last_advanced_ch":2,"target_window":"第一卷后半段","sleep_reason":null,"notes":"尸体送内山，用途未知，不得遗忘"}
+{"id":"FP-005","name":"赵石去向/药房变化","status":"ADVANCED","opened_ch":1,"last_advanced_ch":4,"target_window":"HIGH-PRIORITY","sleep_reason":null,"notes":"CH004确认存活并回归，但身体与行为改变；原因未解"}
+{"id":"FP-006","name":"《盗气残篇》","status":"PARTIAL-PAYOFF","opened_ch":3,"last_advanced_ch":4,"target_window":"ACTIVE","sleep_reason":null,"notes":"前半部分真实可用；长期安全、缺页与代价未解"}
+{"id":"FP-007","name":"七日杀人交易","status":"ACTIVE","opened_ch":3,"last_advanced_ch":4,"target_window":"IMMINENT","sleep_reason":null,"notes":"目标身份未知；考核已提前"}
+{"id":"FP-008","name":"本批血虫异常","status":"ACTIVE","opened_ch":3,"last_advanced_ch":3,"target_window":"第一卷必须产生真实影响","sleep_reason":null,"notes":"至少三例异常爆体；赵石变化是否直接相关仍未知"}
+{"id":"FP-009","name":"‘天地亦食修士’","status":"ACTIVE","opened_ch":3,"last_advanced_ch":4,"target_window":"SERIES-MYSTERY","sleep_reason":null,"notes":"仅以灵气流失、寒意、饥饿增加证据，终极机制未知"}
+{"id":"FP-010","name":"残篇缺页 / ‘所盗之气，终非己物’","status":"ACTIVE","opened_ch":4,"last_advanced_ch":4,"target_window":null,"sleep_reason":null,"notes":"缺失内容、灵气留存机制与韩鸦所知程度未解"}

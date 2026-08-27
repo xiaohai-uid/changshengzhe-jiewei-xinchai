@@ -1,0 +1,17 @@
+{"id":"CHAR-0001","type":"character","canonical_name":"陈缺","aliases":[],"status":"alive","first_chapter":1,"last_seen_chapter":4,"notes":"17岁；青河县药铺学徒出身；下品木灵根"}
+{"id":"CHAR-0002","type":"character","canonical_name":"赵石","aliases":[],"status":"alive","first_chapter":1,"last_seen_chapter":4,"notes":"同批新人；丙九十八；下品火灵根"}
+{"id":"CHAR-0003","type":"character","canonical_name":"韩鸦","aliases":[],"status":"alive","first_chapter":2,"last_seen_chapter":4,"notes":"左眼下有黑痣；白骨山外山灰衣弟子"}
+{"id":"CHAR-0004","type":"character","canonical_name":"顾长槐","aliases":[],"status":"alive","first_chapter":2,"last_seen_chapter":3,"notes":"白骨山外山执事；开府境"}
+{"id":"CHAR-0005","type":"character","canonical_name":"周玄","aliases":[],"status":"dead","first_chapter":2,"last_seen_chapter":2,"notes":"本批最快引气新人；CH002死亡后尸体送内山"}
+{"id":"PLACE-0001","type":"place","canonical_name":"青河县","aliases":[],"first_chapter":1,"notes":"陈缺来处"}
+{"id":"PLACE-0002","type":"place","canonical_name":"白骨山","aliases":[],"first_chapter":1,"notes":"当前第一卷主要舞台"}
+{"id":"PLACE-0003","type":"place","canonical_name":"白骨山外山","aliases":["外山"],"first_chapter":1,"notes":"新人及外山弟子活动区域"}
+{"id":"PLACE-0004","type":"place","canonical_name":"西院","aliases":[],"first_chapter":2,"notes":"CH003进行黑液筛查"}
+{"id":"PLACE-0005","type":"place","canonical_name":"药房","aliases":["药房方向"],"first_chapter":1,"notes":"赵石曾被送入；具体内部机制未知"}
+{"id":"TEXT-0001","type":"text","canonical_name":"《养气诀》","aliases":[],"first_chapter":1,"notes":"白骨山发给新人的标准功法"}
+{"id":"TEXT-0002","type":"text","canonical_name":"《盗气残篇》","aliases":["残篇"],"first_chapter":3,"notes":"韩鸦交给陈缺；后部破损；前半已被陈缺部分验证"}
+{"id":"MECH-0001","type":"mechanism","canonical_name":"血虫","aliases":["白色虫卵","透明细虫"],"first_chapter":1,"notes":"白骨山人为加入新人修炼体系的养药机制；不是所有修士必需"}
+{"id":"ITEM-0001","type":"item","canonical_name":"丙九十七木牌","aliases":["陈缺木牌"],"first_chapter":1,"notes":"正面丙九十七；背面药"}
+{"id":"ITEM-0002","type":"item","canonical_name":"引气丹","aliases":[],"first_chapter":1,"notes":"白骨山给新人三粒；陈缺发现其中有血虫卵"}
+{"id":"ITEM-0003","type":"item","canonical_name":"催气丹","aliases":[],"first_chapter":2,"notes":"韩鸦给陈缺；陈缺判断含类似火舌藤的催血成分"}
+{"id":"ITEM-0004","type":"item","canonical_name":"验虫针","aliases":[],"first_chapter":3,"notes":"顾长槐用于检测虫气；对陈缺显示极弱虫气"}

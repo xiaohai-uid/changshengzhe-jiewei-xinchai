@@ -1,49 +1,38 @@
-# LOAD ORDER
+# LOAD ORDER V3
 
-## 冷启动续写
+每次用户说“继续 / 写下一章”时，采用分层冷启动，不整书重读。
 
-每次“继续 / 写下一章”优先按以下顺序加载，避免随着篇幅增长全量重读：
+## 必读 HOT
 
 1. `PROJECT_RULES.md`
 2. `MANIFEST.md`
-3. `tracking/CONTEXT_CARD.md`
-4. `planning/ROLLING_OUTLINE.md`
-5. 最近 3 章正文的结尾或必要段落
-6. 仅定点读取本章涉及的角色、伏笔、规则文件
+3. `canon/CANON_CORE.md`
+4. `tracking/CONTEXT_CARD.md`
+5. `planning/ARC_MAP.md` 当前 Arc + `planning/ROLLING_OUTLINE.md` 当前章
+6. 最近 1—3 个 `tracking/chapter-records/`，必要时读取上章结尾全文
 7. `style/STYLE_GUIDE.md`
 8. `quality/CHAPTER_GATE.md`
 
-如果本章涉及世界真相/信息差，再额外读取：
+## 定点读取 PERMANENT/WARM
 
-- `tracking/AUTHOR_TRUTH.md`
-- `tracking/READER_KNOWN.md`
-- `state/KNOWLEDGE_MATRIX.md`
+根据本章合同中的永久 ID，只读取相关：
+- `canon/kernel/ENTITIES.jsonl`
+- `FACTS.jsonl`
+- `KNOWLEDGE.jsonl`
+- `TIMELINE.jsonl`
+- `RELATIONSHIPS.jsonl`
+- `PLOTS.jsonl`
+- `PROMISES.jsonl`
+- `INFO_GAPS.jsonl`
 
-如果出现旧事实争议，再按需回查：
+遇到旧事实争议，再按 `source_chapter` / Fact ID / Entity ID / FP-P-S ID 回查 Chapter Record 或正式正文。禁止因为“不确定”就默认补全。
 
-- `state/CHAPTER_LEDGER.md`
-- `tracking/chapter-records/CHxxx.md`
-- 对应正式正文
-- 当前 Snapshot + 后续 State Diff
+## Context Receipt
 
-## 事实冲突裁决顺序
-
-1. `main` 已发布正文
-2. `state/CHAPTER_LEDGER.md`
-3. `tracking/TRACKING_STATE.json`
-4. LIVE / KNOWLEDGE / RELATIONSHIP / PLOT 等派生视图
-5. Rolling Outline / 旧卷纲
-
-计划不得覆盖已经发生的正文事实。
+起草 Candidate 前创建/刷新 `quality/receipts/CHxxx_CONTEXT_RECEIPT.md`，记录实际读取依赖。关键 Canon 源缺失时，本章标 BLOCKED/UNSAFE，不能假装已完成连续性检查。
 
 ## 写作流程
 
-PREWRITE：LOAD → CAUSAL CHECK → REPETITION CHECK → KNOWLEDGE/INFO-GAP CHECK → CHAPTER CONTRACT
+LOAD → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → PREWRITE GATE → WRITE → PRECOMMIT → EXTRACT CANDIDATE → 用户确认 → CANON PROMOTION → POSTCOMMIT → NEXT CAUSAL HOOK。
 
-WRITE：只让角色依据其可见证据行动；人物真实发展优先于过时死纲。
-
-PRECOMMIT：CONTINUITY → POWER-COST → INFO-GAP → PLOT FUNCTION → ANTI-AI → ENDING CHECK
-
-POSTCOMMIT：EXTRACT → TRACKING STATE → STATE DIFF → CHAPTER RECORD → LEDGER → ROLLING OUTLINE → CONTEXT CARD
-
-每5章 Snapshot；每10章 Continuity Audit。
+旧卷纲与真实正文因果冲突时，以已发生正文和当前 Canon 为准。

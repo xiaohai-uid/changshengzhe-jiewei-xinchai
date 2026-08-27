@@ -1,0 +1,4 @@
+{"id":"REL-0001","from":"CHAR-0001","to":"CHAR-0003","valid_from_chapter":4,"source_chapter":4,"state":{"trust":1,"dependence":3,"caution":9,"fear":5,"interest_binding":"active","control":"韩鸦掌握陈缺剔虫秘密；韩鸦信息优势明显"},"notes":"陈缺已独立验证残篇，因此对韩鸦依赖较CH003下降；韩鸦真实目的未知"}
+{"id":"REL-0002","from":"CHAR-0003","to":"CHAR-0001","valid_from_chapter":3,"source_chapter":3,"state":{"trust":"low","utility":"high","caution":"medium-high","leverage":"high"},"notes":"韩鸦尚不知道陈缺已真正无虫引气"}
+{"id":"REL-0003","from":"CHAR-0001","to":"CHAR-0002","valid_from_chapter":4,"source_chapter":4,"state":{"relationship":"初步朋友","trust":"medium","worry":"high","caution":"increased"},"notes":"赵石药房回归后的异常使陈缺同时担忧与警惕；尚非完全共享秘密对象"}
+{"id":"REL-0004","from":"CHAR-0001","to":"CHAR-0004","valid_from_chapter":3,"source_chapter":3,"state":{"threat":"high","direct_confrontation_capacity":"very-low","strategy":"隐藏、观察、避免特殊关注"},"notes":"顾长槐掌握白骨山制度与血虫技术远多于陈缺"}
