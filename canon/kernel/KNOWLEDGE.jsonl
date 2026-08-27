@@ -4,7 +4,7 @@
 {"id":"KN-0004","character":"CHAR-0001","topic":"《盗气残篇》前半至少部分真实可用","state":"KNOWS-PARTIAL","valid_from_chapter":4,"source_chapter":4}
 {"id":"KN-0005","character":"CHAR-0001","topic":"《盗气残篇》长期安全与完整代价","state":"UNKNOWN/SUSPECTS-RISK","valid_from_chapter":4,"source_chapter":4}
 {"id":"KN-0006","character":"CHAR-0001","topic":"本批血虫异常","state":"KNOWS-PARTIAL","valid_from_chapter":3,"source_chapter":3}
-{"id":"KN-0007","character":"CHAR-0001","topic":"整个修仙世界存在更大系统性养殖问题","state":"SUSPECTS-WEAK","valid_from_chapter":3,"source_chapter":3}
+{"id":"KN-0007","character":"CHAR-0001","topic":"修仙体系可能存在超出白骨山血虫的更深层问题","state":"SUSPECTS-WEAK","valid_from_chapter":3,"source_chapter":3,"note":"只允许怀疑存在更深代价/问题；不得写成陈缺已经认定整个修仙文明都是养殖体系"}
 {"id":"KN-0008","character":"CHAR-0001","topic":"天地亦食修士的终极机制","state":"UNKNOWN","valid_from_chapter":3,"source_chapter":3}
 {"id":"KN-0009","character":"CHAR-0001","topic":"赵石药房经历的真实原因","state":"UNKNOWN/SUSPECTS-ABNORMAL","valid_from_chapter":4,"source_chapter":4}
 {"id":"KN-0010","character":"CHAR-0003","topic":"陈缺剔除血虫","state":"KNOWS","valid_from_chapter":3,"source_chapter":3}
@@ -16,3 +16,4 @@
 {"id":"KN-0016","character":"CHAR-0004","topic":"《盗气残篇》存在","state":"UNKNOWN","valid_from_chapter":4,"source_chapter":4}
 {"id":"KN-0017","character":"CHAR-0002","topic":"新人是人体药材","state":"UNKNOWN/BELIEVES-OTHERWISE-LAST-CONFIRMED","valid_from_chapter":1,"source_chapter":1}
 {"id":"KN-0018","character":"CHAR-0002","topic":"血虫导致其口渴/红线/腹胀","state":"FALSE-BELIEF-LAST-CONFIRMED","valid_from_chapter":1,"source_chapter":1,"note":"CH004回归后的当前认知尚未建立，不得擅自延续或改写"}
+{"id":"KN-0019","character":"CHAR-0001","topic":"当前已知修炼境界粗略顺序","state":"KNOWS-PARTIAL","value":"引气→炼身→开府；更高境界与各境界完整机制未知","valid_from_chapter":3,"source_chapter":3}
