@@ -23,19 +23,20 @@
   "candidate_branch": "chapter/CH005",
   "canon_horizon": 4,
   "next_chapter": 5,
-  "state_revision": 2,
+  "state_revision": 3,
   "chapters": {
-    "1": {"status":"canonical","title":"入门先死三成"},
-    "2": {"status":"canonical","title":"最安全的人，往往死得最快"},
-    "3": {"status":"canonical","title":"不能永远假装废物"},
-    "4": {"status":"canonical","title":"借来的东西，总要还"},
+    "1": {"status":"canonical-published-revision","title":"入门先死三成"},
+    "2": {"status":"canonical-published-revision","title":"最安全的人，往往死得最快"},
+    "3": {"status":"canonical-published-revision","title":"不能永远假装废物"},
+    "4": {"status":"canonical-published-revision","title":"借来的东西，总要还"},
     "5": {"status":"candidate-not-written"}
   },
   "hot_state": {
     "protagonist":"CHAR-0001",
     "location":"PLACE-0003",
     "cultivation":"首次真正无虫引气成功；仅有极少残余木属灵气；无战斗术法",
-    "body":["无正常血虫","验虫针曾测得极弱虫气","右臂酸痛","灵气衰减时后腰寒意","修炼后异常饥饿"],
+    "known_realm_order":"引气→炼身→开府；更高境界及完整机制未知",
+    "body":["无正常血虫","验虫针曾测得极弱虫气","右臂/经络酸痛","灵气衰减时后腰寒意","修炼后异常饥饿"],
     "immediate_pressure":"韩鸦在门外宣布七日考核提前",
     "active_entities":["CHAR-0002","CHAR-0003","CHAR-0004"],
     "active_plots":["FP-005","FP-006","FP-007","FP-008","FP-009","FP-010"],
@@ -46,6 +47,7 @@
     "chapter":5,
     "primary":"承接考核提前，让七日考核真正启动",
     "must":["赵石异常进入可验证互动","不暴露陈缺真正引气","FP-005/FP-007/FP-008至少两条发生碰撞","陈缺至少做一个改变局势的主动选择"],
-    "avoid":["整章孤立实验","偷听/装弱/热水伪装作为主要破局","无规则纯恐怖异变","再次以规则实验作为整章主要解决算法"]
+    "avoid":["整章孤立实验","偷听/装弱/热水伪装作为主要破局","无规则纯恐怖异变","再次以规则实验作为整章主要解决算法","新境界只报名称不给读者尺度"],
+    "length_rule":"正文2800—4000字，常规目标3200—3600字；后25%不得清仓式压缩"
   }
 }
