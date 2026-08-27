@@ -1,0 +1,96 @@
+{
+  "spec": 1,
+  "architecture_version": "2.0",
+  "book": "长生者皆为薪柴",
+  "volume": "第一卷·白骨山",
+  "canonical_branch": "main",
+  "imported_through_chapter": 4,
+  "next_chapter": 5,
+  "state_revision": 1,
+  "chapters": {
+    "1": {"status": "canonical", "title": "入门先死三成"},
+    "2": {"status": "canonical", "title": "最安全的人，往往死得最快"},
+    "3": {"status": "canonical", "title": "不能永远假装废物"},
+    "4": {"status": "canonical", "title": "借来的东西，总要还"}
+  },
+  "protagonist": {
+    "name": "陈缺",
+    "age": 17,
+    "origin": "青河县药铺学徒",
+    "spiritual_root": "下品木灵根",
+    "location": "白骨山外山·丙九十七住所",
+    "public_status": "已引气的普通新人",
+    "real_status": "已通过盗气残篇完成首次真正无虫引气",
+    "cultivation": "首次真正引气成功，丹田仅存极少木属灵气，无战斗术法",
+    "body": ["无正常血虫寄生", "验虫针曾检测极弱虫气", "右臂酸痛", "灵气衰减时后腰寒意", "修炼后异常饥饿"],
+    "items": ["盗气残篇", "剩余引气丹", "催气丹残余", "木牌丙九十七/药", "小刀"],
+    "goals": ["活过提前的七日考核", "隐藏真实修炼", "观察赵石异常", "查明残篇代价"]
+  },
+  "entities": {
+    "韩鸦": {
+      "role": "外山灰衣弟子",
+      "goal": "UNKNOWN",
+      "knows": ["陈缺剔除血虫", "盗气残篇存在", "白骨山人体药材机制"],
+      "does_not_know": ["陈缺已真正无虫引气"],
+      "relation_to_protagonist": "低信任、高控制、高利用价值"
+    },
+    "赵石": {
+      "role": "同批新人·丙九十八",
+      "status": "存活但药房处理后异常",
+      "observed_changes": ["腹部恢复平坦且消瘦", "腕部红线消失留暗红痕迹", "行为异常平静", "食指敲腿两下", "身上有湿土混血淡味"],
+      "cause": "UNKNOWN"
+    },
+    "顾长槐": {
+      "role": "外山执事",
+      "cultivation": "开府",
+      "knows": ["本批血虫异常", "陈缺有极弱虫气反应"],
+      "does_not_know": ["陈缺已真正无虫引气"]
+    },
+    "周玄": {
+      "status": "DEAD",
+      "corpse": "送往内山",
+      "corpse_use": "UNKNOWN"
+    }
+  },
+  "plots": {
+    "FP-001": {"name": "木牌药", "status": "PARTIAL-PAYOFF"},
+    "FP-002": {"name": "万物皆药，人亦如此", "status": "ACTIVE-LONG-TERM"},
+    "FP-004": {"name": "周玄尸体", "status": "ACTIVE"},
+    "FP-005": {"name": "赵石去向/药房变化", "status": "ADVANCED-HIGH-PRIORITY"},
+    "FP-006": {"name": "盗气残篇", "status": "ADVANCED-PARTIAL-PAYOFF"},
+    "FP-007": {"name": "七日杀人交易", "status": "ACTIVE-PRIMARY"},
+    "FP-008": {"name": "血虫异常", "status": "ACTIVE"},
+    "FP-009": {"name": "天地亦食修士", "status": "ADVANCED-SLIGHTLY-SERIES-MYSTERY"},
+    "FP-010": {"name": "残篇缺页/所盗之气终非己物", "status": "PLANTED-ACTIVE"}
+  },
+  "promises": {
+    "P-001": {"text": "盗气残篇必须持续产生真实剧情价值，而非一次性工具", "status": "advanced"},
+    "P-002": {"text": "韩鸦不能被写成单纯好人或无条件导师", "status": "open"},
+    "P-003": {"text": "七日考核不得是普通考试或擂台赛", "status": "open"},
+    "P-004": {"text": "赵石必须回归且其变化有可追踪规则原因", "status": "advanced"},
+    "P-005": {"text": "本批血虫异常必须真实影响第一卷事件", "status": "open"},
+    "P-006": {"text": "周玄尸体后续必须回收", "status": "open"},
+    "P-007": {"text": "真正修炼存在更深代价，但终极含义不得提前一次性解释", "status": "open"}
+  },
+  "info_gaps": {
+    "S-001": {"question": "韩鸦真实目的是什么", "revealed": false},
+    "S-002": {"question": "韩鸦要求杀死的逃亡者是谁", "revealed": false},
+    "S-003": {"question": "药房对赵石做了什么", "revealed": false},
+    "S-004": {"question": "盗气残篇灵气流失、寒意、饥饿的真实机制是什么", "revealed": false},
+    "S-005": {"question": "修士食天地、天地食修士的终极机制是什么", "revealed": false},
+    "S-006": {"question": "周玄尸体送入内山后的用途是什么", "revealed": false},
+    "S-007": {"question": "整个修仙世界是否存在更大系统性问题", "revealed": false}
+  },
+  "knowledge_rules": {
+    "陈缺": "只能把整个修仙界问题视为弱怀疑，不能当成事实",
+    "韩鸦": "不得默认知道陈缺已真正引气",
+    "顾长槐": "不得默认知道残篇或陈缺无虫引气",
+    "赵石": "药房经历后的当前认知必须由后续正文建立，不能提前补写"
+  },
+  "next_contract": {
+    "chapter": 5,
+    "primary": "承接考核提前，让七日考核真正启动",
+    "must": ["赵石异常进入可验证互动", "不暴露陈缺真正引气", "FP-005/FP-007/FP-008至少两条发生碰撞"],
+    "avoid": ["整章孤立实验", "偷听/装弱/热水伪装作为主要破局", "无规则纯恐怖异变"]
+  }
+}
