@@ -1,6 +1,6 @@
 {
   "spec": 2,
-  "architecture_version": "3.0",
+  "architecture_version": "3.1",
   "role": "projection",
   "authority_note": "本文件是冷启动投影，不是唯一 Canon。权威源见 MANIFEST 与 canon/kernel/README.md。",
   "canonical_sources": [
@@ -16,38 +16,71 @@
     "canon/kernel/PROMISES.jsonl",
     "canon/kernel/INFO_GAPS.jsonl"
   ],
+  "writing_pipeline": [
+    "LOAD",
+    "MACRO_ALIGNMENT",
+    "CONTEXT_RECEIPT",
+    "CAUSAL_CHECK",
+    "REPETITION_PATTERN_CHECK",
+    "SCENE_CARD",
+    "PUBLISHED_PROSE_ANCHOR",
+    "WRITE",
+    "PUBLICATION_GATE",
+    "CONTINUITY_PRECOMMIT",
+    "USER_CONFIRMATION",
+    "CANON_PROMOTION"
+  ],
   "book": "长生者皆为薪柴",
   "volume": "第一卷·白骨山",
   "current_arc": "ARC-V01-01",
   "canonical_branch": "main",
-  "candidate_branch": "chapter/CH005",
-  "canon_horizon": 4,
-  "next_chapter": 5,
-  "state_revision": 3,
+  "candidate_branch": "chapter/CH007",
+  "canon_horizon": 6,
+  "next_chapter": 7,
+  "state_revision": 5,
   "chapters": {
     "1": {"status":"canonical-published-revision","title":"入门先死三成"},
     "2": {"status":"canonical-published-revision","title":"最安全的人，往往死得最快"},
     "3": {"status":"canonical-published-revision","title":"不能永远假装废物"},
     "4": {"status":"canonical-published-revision","title":"借来的东西，总要还"},
-    "5": {"status":"candidate-not-written"}
+    "5": {"status":"canonical-published","title":"先把人分开"},
+    "6": {"status":"canonical-published","title":"白绳上的黑点"},
+    "7": {"status":"candidate-not-written"}
   },
   "hot_state": {
     "protagonist":"CHAR-0001",
-    "location":"PLACE-0003",
-    "cultivation":"首次真正无虫引气成功；仅有极少残余木属灵气；无战斗术法",
+    "location":"白骨山外山七日考核南二复验路径",
+    "cultivation":"真正无虫引气已成功，但CH006动用残余木属灵气后几乎耗尽；无战斗术法",
     "known_realm_order":"引气→炼身→开府；更高境界及完整机制未知",
-    "body":["无正常血虫","验虫针曾测得极弱虫气","右臂/经络酸痛","灵气衰减时后腰寒意","修炼后异常饥饿"],
-    "immediate_pressure":"韩鸦在门外宣布七日考核提前",
-    "active_entities":["CHAR-0002","CHAR-0003","CHAR-0004"],
-    "active_plots":["FP-005","FP-006","FP-007","FP-008","FP-009","FP-010"],
+    "body":["无正常血虫","验虫针曾测得极弱虫气","CH006后右臂/经络疼痛加重","后腰寒意再次出现","此前修炼后曾异常饥饿"],
+    "public_assessment_mark":"白绳边缘黑墨点；进入二验；完整含义未知",
+    "immediate_pressure":"与四名青绳新人一同被点入南二，其中包括韩鸦交易目标",
+    "zhao_state":"被白绳打黑结后转入更深观察路径；明确试图避免再次回药房",
+    "active_entities":["CHAR-0002","CHAR-0003","CHAR-0004","TARGET-0001"],
+    "active_plots":["FP-004","FP-005","FP-006","FP-007","FP-008","FP-009","FP-010"],
     "active_promises":["P-002","P-003","P-004","P-005","P-007"],
-    "protected_info_gaps":["S-001","S-002","S-003","S-004","S-005","S-007"]
+    "protected_info_gaps":["S-001","S-002","S-003","S-004","S-005","S-006","S-007","S-008","S-009"]
   },
   "next_contract": {
-    "chapter":5,
-    "primary":"承接考核提前，让七日考核真正启动",
-    "must":["赵石异常进入可验证互动","不暴露陈缺真正引气","FP-005/FP-007/FP-008至少两条发生碰撞","陈缺至少做一个改变局势的主动选择"],
-    "avoid":["整章孤立实验","偷听/装弱/热水伪装作为主要破局","无规则纯恐怖异变","再次以规则实验作为整章主要解决算法","新境界只报名称不给读者尺度"],
+    "chapter":7,
+    "primary":"让TARGET-0001从‘韩鸦指定目标’进入真实人物层，并让陈缺在南二获得对其计划的第一部分证据，而不是直接站队",
+    "must":[
+      "锁定TARGET-0001姓名与最小背景，并沿用同一永久ID",
+      "解释刮掉木牌‘药’字为何未触发宗门即时惩罚：木牌前号/册籍才是主要管理依据，刮字不是骗过身份检查的技术",
+      "目标必须按自己的利益试探陈缺，不能一见面主动倾倒真相",
+      "目标逃亡方案只揭露一部分，并体现其愿意让部分不稳定新人承担风险",
+      "给目标的激进判断至少一个来自本人经历的合理证据",
+      "陈缺不立即服从韩鸦，也不立即帮助目标"
+    ],
+    "avoid":[
+      "后台标签或章节编号进入正文",
+      "短句瀑布和提纲扩写感",
+      "目标靠神秘台词主动暴露全部底牌",
+      "韩鸦突然出现解释完整考核制度",
+      "陈缺通过看多个样本精准通关",
+      "在CH007完整揭示赵石药房经历或终极世界真相"
+    ],
+    "publication_gate":"必须先生成 Scene Card，并回读至少一段已发布优质正文作为 prose anchor；Publication Gate 与 Continuity Gate 任一 FAIL 均不得交稿",
     "length_rule":"正文2800—4000字，常规目标3200—3600字；后25%不得清仓式压缩"
   }
 }
