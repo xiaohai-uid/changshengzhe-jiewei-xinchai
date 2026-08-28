@@ -6,10 +6,10 @@ CURRENT_BOOK: 《长生者皆为薪柴》
 CURRENT_PHASE: PHASE_I_我为什么会被吃
 CURRENT_VOLUME: 第一卷·白骨山
 CURRENT_ARC: ARC-V01-01
-CANON_HORIZON: CH005
-CURRENT_CANON_CHAPTER: CH005
+CANON_HORIZON: CH006
+CURRENT_CANON_CHAPTER: CH006
 CURRENT_SNAPSHOT: canon/snapshots/STATE_SNAPSHOT_V2.2.md
-LATEST_STATE_DIFF: state/diffs/CH005_STATE_DIFF.md
+LATEST_STATE_DIFF: state/diffs/CH006_STATE_DIFF.md
 CANON_KERNEL: canon/kernel/
 WORLD_BIBLE: canon/WORLD_BIBLE.md
 CULTIVATION_SYSTEM: canon/CULTIVATION_SYSTEM.md
@@ -26,9 +26,9 @@ SCENE_CARD_TEMPLATE: quality/SCENE_CARD_TEMPLATE.md
 PUBLICATION_GATE: quality/PUBLICATION_GATE.md
 CHAPTER_GATE: quality/CHAPTER_GATE.md
 STYLE_GUIDE: style/STYLE_GUIDE.md
-NEXT_CHAPTER: CH006
+NEXT_CHAPTER: CH007
 CANON_BRANCH: main
-CANDIDATE_BRANCH: chapter/CH006-rewrite
+CANDIDATE_BRANCH: chapter/CH007
 TRACKING_STATE_ROLE: projection
 
 ## Authority Order
@@ -56,6 +56,15 @@ TRACKING_STATE_ROLE: projection
 **Rolling Outline → Scene Card → Published Prose Anchor → Write → Publication Gate → Continuity Precommit。**
 
 Publication Gate 与 Continuity Gate 同为硬门；任一失败都不得交 Candidate。
+
+## Current Publication Safeguards
+
+- 正文禁止章节编号/Canon/FP等后台语言泄漏。
+- 正常自然段优先2—5句；连续3个一句式叙述段默认 Publication FAIL。
+- 禁止把 Rolling Outline 逐项扩写成测试报告式正文。
+- 每章写前必须回读已发布正文作为 prose anchor。
+- 必须检查高层胜利算法重复，不只检查具体招式重复。
+- 配角必须拥有独立目标；进入场景前要能回答“如果陈缺不在，他今天会做什么”。
 
 ## Canon Policy
 
