@@ -15,15 +15,15 @@ Canonical Source of Truth 由以下几类文件共同构成，而不是某一个
 
 ## Canon Horizon
 
-当前 Canon Horizon：`CH004`。
+当前 Canon Horizon：`CH006`。
 
 只有已确认章节才能推进 Canon Horizon。正在创作的章节属于 Candidate，不得提前写入 `main` 的 Canon Kernel。
 
 ## Candidate → Canon
 
-章节工作分支（当前 `chapter/CH005`）是 Candidate Plane。
+下一章工作分支建议为 `chapter/CH007`，属于 Candidate Plane。
 
-候选章节通过 PREWRITE / PRECOMMIT 后，在该分支内完成候选事实提取和所有派生更新；只有全部校验通过且用户确认，才把这一整组变化晋升/合并到 `main`。失败时 Candidate 可以重写，但 `main` 不受污染。
+候选章节通过 Scene Card / Publication Gate / PRECOMMIT 后，在该分支内完成候选事实提取和所有派生更新；只有全部校验通过且用户确认，才把这一整组变化晋升/合并到 `main`。失败时 Candidate 可以重写，但 `main` 不受污染。
 
 ## Temporal Rule
 
@@ -32,6 +32,8 @@ Canon 数据尽量使用 `valid_from_chapter` / `valid_to_chapter` 描述有效�
 ## Entity Rule
 
 长期实体使用永久 ID。名称变化、别名和身份变化不得产生新的实体 ID。一次性无持续价值的物件/路人不强行编号。
+
+当前交易目标在姓名锁定前使用永久占位 ID `TARGET-0001`；后续姓名揭示时只更新 `canonical_name`，不得另建一个角色实体造成串人。
 
 ## Unknown Rule
 
