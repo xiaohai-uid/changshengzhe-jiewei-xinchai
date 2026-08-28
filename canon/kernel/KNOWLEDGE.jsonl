@@ -17,3 +17,16 @@
 {"id":"KN-0017","character":"CHAR-0002","topic":"新人是人体药材","state":"UNKNOWN/BELIEVES-OTHERWISE-LAST-CONFIRMED","valid_from_chapter":1,"source_chapter":1}
 {"id":"KN-0018","character":"CHAR-0002","topic":"血虫导致其口渴/红线/腹胀","state":"FALSE-BELIEF-LAST-CONFIRMED","valid_from_chapter":1,"source_chapter":1,"note":"CH004回归后的当前认知尚未建立，不得擅自延续或改写"}
 {"id":"KN-0019","character":"CHAR-0001","topic":"当前已知修炼境界粗略顺序","state":"KNOWS-PARTIAL","value":"引气→炼身→开府；更高境界与各境界完整机制未知","valid_from_chapter":3,"source_chapter":3}
+{"id":"KN-0020","character":"CHAR-0001","topic":"七日考核初分组依据","state":"KNOWS-PARTIAL","value":"至少大量参考饮水、腕线、腹胀、西院/药房、验虫与锻体液等既往身体/虫反应记录；完整用途未知","valid_from_chapter":5,"source_chapter":5}
+{"id":"KN-0021","character":"CHAR-0001","topic":"赵石对黑色药液/虫性刺激存在可重复异常反应","state":"KNOWS","valid_from_chapter":5,"source_chapter":5}
+{"id":"KN-0022","character":"CHAR-0001","topic":"赵石如何知道两文钱借口","state":"UNKNOWN","valid_from_chapter":5,"source_chapter":5}
+{"id":"KN-0023","character":"CHAR-0001","topic":"韩鸦交易目标识别","state":"KNOWS-PARTIAL","value":"目标是青绳、同龄左右、偏矮窄肩、右手虎口旧裂口且木牌‘药’字被刮掉的少年；姓名与计划未知","valid_from_chapter":5,"source_chapter":5}
+{"id":"KN-0024","character":"CHAR-0001","topic":"白绳第一轮筛查流程","state":"KNOWS","value":"药布、负重、按《养气诀》调息、多次腕部与脉门检查；完全无反应者可能被要求‘补一遍’","valid_from_chapter":6,"source_chapter":6}
+{"id":"KN-0025","character":"CHAR-0001","topic":"所谓‘补一遍’的具体内容","state":"UNKNOWN","valid_from_chapter":6,"source_chapter":6}
+{"id":"KN-0026","character":"CHAR-0001","topic":"自身真灵气与普通血虫表征在筛查中的差异","state":"KNOWS-PARTIAL","value":"推动真木属灵气会产生可被触脉察觉的气路变化，但不会自动出现普通宿主式皮下游动凸痕；检查者如何解释该差异仍未知","valid_from_chapter":6,"source_chapter":6}
+{"id":"KN-0027","character":"CHAR-0001","topic":"白绳黑点与二验含义","state":"UNKNOWN","valid_from_chapter":6,"source_chapter":6}
+{"id":"KN-0028","character":"CHAR-0001","topic":"赵石当前自身目标","state":"KNOWS","value":"赵石明确试图避免再次被送回药房，会主动压制/隐瞒筛查不适","valid_from_chapter":6,"source_chapter":6}
+{"id":"KN-0029","character":"CHAR-0001","topic":"赵石筛查反应差异","state":"KNOWS","value":"腹侧疼痛和暗红环痕加深明显，但未出现普通宿主同样清楚的皮下游动凸痕；不能据此断定体内已无血虫","valid_from_chapter":6,"source_chapter":6}
+{"id":"KN-0030","character":"CHAR-0001","topic":"与韩鸦交易目标的当前接触路径","state":"KNOWS","value":"自己与四名青绳被点入同一南二路径，其中包括交易目标","valid_from_chapter":6,"source_chapter":6}
+{"id":"KN-0031","character":"CHAR-0002","topic":"自身首要短期目标","state":"KNOWS","value":"避免再次被送回药房","valid_from_chapter":6,"source_chapter":6}
+{"id":"KN-0032","character":"CHAR-0003","topic":"CH006陈缺动用残余真灵气并被点黑墨","state":"UNKNOWN","valid_from_chapter":6,"source_chapter":6}
