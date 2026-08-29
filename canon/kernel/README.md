@@ -1,10 +1,10 @@
 # Canon Kernel V3
 
-本目录是《长生者皆为薪柴》的规范化 Canon 数据层，面向百万至五百万字长期连载。
+本目录是《长生者皆为薪柴》的规范化 Canon 数据层，面向长期连载。
 
 ## 权威模型
 
-Canonical Source of Truth 由以下几类文件共同构成，而不是某一个巨大状态文件：
+Canonical Source of Truth 由以下几类文件共同构成：
 
 1. `canon/CANON_CORE.md`：不可轻易改变的世界硬规则。
 2. `manuscript/`：已经被用户确认并进入 `main` 的正式正文。
@@ -15,15 +15,15 @@ Canonical Source of Truth 由以下几类文件共同构成，而不是某一个
 
 ## Canon Horizon
 
-当前 Canon Horizon：`CH006`。
+当前 Canon Horizon：`CH007`。
 
-只有已确认章节才能推进 Canon Horizon。正在创作的章节属于 Candidate，不得提前写入 `main` 的 Canon Kernel。
+只有已确认章节才能推进 Canon Horizon。正在创作的章节属于 Candidate，不得提前进入 Canon Kernel。
 
 ## Candidate → Canon
 
-下一章工作分支建议为 `chapter/CH007`，属于 Candidate Plane。
+下一章工作分支为 `chapter/CH008`，属于 Candidate Plane。
 
-候选章节通过 Scene Card / Publication Gate / PRECOMMIT 后，在该分支内完成候选事实提取和所有派生更新；只有全部校验通过且用户确认，才把这一整组变化晋升/合并到 `main`。失败时 Candidate 可以重写，但 `main` 不受污染。
+候选章节必须完成 Context Receipt / Scene Card / Post-Draft / Publication / Expectation-Payoff / Continuity / Final Delivery，并由GitHub Actions对候选分支精确HEAD严格验证成功；用户确认后，才晋升到 `main`。
 
 ## Temporal Rule
 
@@ -33,7 +33,9 @@ Canon 数据尽量使用 `valid_from_chapter` / `valid_to_chapter` 描述有效�
 
 长期实体使用永久 ID。名称变化、别名和身份变化不得产生新的实体 ID。一次性无持续价值的物件/路人不强行编号。
 
-当前交易目标在姓名锁定前使用永久占位 ID `TARGET-0001`；后续姓名揭示时只更新 `canonical_name`，不得另建一个角色实体造成串人。
+当前交易目标在姓名锁定前使用永久占位 ID `TARGET-0001`；后续姓名揭示时只更新 `canonical_name`，不得另建角色实体。
+
+CH007新增 `CHAR-0006` 老周与 `PLACE-0006` 南二，仅锁正文已出现的职责/功能，不外推境界、职衔或更远路线。
 
 ## Unknown Rule
 
