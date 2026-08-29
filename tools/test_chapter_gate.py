@@ -33,6 +33,13 @@ class ChapterGateTests(unittest.TestCase):
         self.assertIn("canon", hit_names)
         self.assertIn("author_chapter_ref", hit_names)
 
+    def test_markdown_chapter_heading_is_not_scanned_as_prose_backend_reference(self):
+        text = "# 《长生者皆为薪柴》\n\n## 第八章：好药不能当废料\n\n陈缺把药篓放下。"
+        prose = gate.prose_without_headings(text)
+        self.assertNotIn("第八章", prose)
+        hit_names = {name for name, pattern in gate.BACKEND_PATTERNS.items() if pattern.search(prose)}
+        self.assertNotIn("author_chapter_ref", hit_names)
+
     def _write(self, root: Path, rel: str, content: str) -> Path:
         path = root / rel
         path.parent.mkdir(parents=True, exist_ok=True)
