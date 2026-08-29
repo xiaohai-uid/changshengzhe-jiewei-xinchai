@@ -1,6 +1,8 @@
-# PUBLICATION GATE V1
+# PUBLICATION GATE V2
 
 > 目标：在连续性正确之外，强制判断正文是否像真实可发布的长篇小说。任何硬 FAIL 都必须重写，不得带病交稿。
+>
+> **重要：Publication PASS 只代表“小说质感/场景写法”通过，不代表可以直接交用户。** 仍必须继续通过 `EXPECTATION_PAYOFF_GATE` 与 Continuity Precommit，并由 `WORKFLOW_STATE_MACHINE` 推进到 `USER_REVIEW`。
 
 ## 1. Scene First
 
@@ -30,6 +32,8 @@ Scene Card 中不得出现 CHxxx、FP-xxx、KNOWS/UNKNOWN、Canon、Ledger、Sta
 
 普通样本只保留对场景真正有戏剧价值的 1—2 个，其余压缩进连续叙事。章节必须由人物欲望、阻力、选择、后果推动。
 
+特别检查：如果正文里的事件顺序、信息顺序、章尾句几乎能逐项对应 Rolling Outline 的“任务列表”，即使语言很小说化，也按“提纲扩写”处理，退回 Scene Card 重构。
+
 ## 5. 胜利算法检查
 
 每章检查最近 5 章的高层破局模型，而不只检查具体手段。
@@ -46,6 +50,8 @@ Scene Card 中不得出现 CHxxx、FP-xxx、KNOWS/UNKNOWN、Canon、Ledger、Sta
 陈缺判断正确可以获得主动权，但成功后至少应新增一项：身体代价、记录风险、关系债、暴露面、责任、资源消耗或新的错误认知风险。
 
 连续两次“判断正确且主要只有收益”，默认 FAIL。
+
+但“有成本”不是在本 Gate 里要求把所有收益拿走；收益是否被过度归零由 `EXPECTATION_PAYOFF_GATE` 继续审查。
 
 ## 7. 配角主体性
 
@@ -66,17 +72,35 @@ Scene Card 中不得出现 CHxxx、FP-xxx、KNOWS/UNKNOWN、Canon、Ledger、Sta
 ## 9. Reader Experience
 
 交稿前回答：
-1. 本章读者最想知道的一个主问题是什么？
+1. 本章读者最想知道/看到的一个主问题是什么？
 2. 本章是否真正改变了这个问题，而不是只增加一条症状？
 3. 情绪状态是否至少发生一次变化？
 4. 是否有一个明确的小兑现，而非全靠悬念？
 5. 章尾是否由本章因果自然推出下一步，而非神秘人/门响/金句式硬切？
+6. 本章主要是在“人物行动”，还是叙述者替人物总结作者规划？
 
-## 10. 发布结论
+## 10. Anti-AI 最终检查
 
-最终结论只允许：
-- PASS：可以作为 Candidate 交用户；
+交稿前重新回看正文，而不是只看规则表：
+
+- 是否出现短句瀑布；
+- 是否把一个动作拆成感知/解释/总结三层重复；
+- 是否读者已经看懂，陈缺又替读者复述一次；
+- 是否频繁使用“不是……而是…… / 他没有……只是……”；
+- 是否为了章尾钩子强行写出一句像策划案标题的总结句；
+- 是否整章像把 Scene Card 的每一问依次完成。
+
+命中明显模式：REWRITE。
+
+## 11. 发布结论
+
+本 Gate 结论只允许：
+- PASS：小说场景/叙事层可以进入下一道 Gate；
 - REWRITE：小说感/节奏/人物/算法存在硬问题；
-- BLOCKED：关键 Canon/资料缺失。
+- BLOCKED：关键资料或 Scene Card 前提缺失。
 
-Continuity Gate PASS 但 Publication Gate FAIL 时，仍不得交稿。
+**Continuity PASS 但 Publication FAIL：不得交稿。**
+
+**Publication PASS 但 Expectation/Payoff 或 Continuity 未 PASS：同样不得交稿。**
+
+最终是否允许展示 Candidate，只以 `quality/workflow/CHxxx_WORKFLOW.md` 是否到达 `USER_REVIEW` 为准。
