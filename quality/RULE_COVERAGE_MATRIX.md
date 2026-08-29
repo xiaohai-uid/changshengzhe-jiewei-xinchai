@@ -1,4 +1,4 @@
-# RULE COVERAGE MATRIX V2
+# RULE COVERAGE MATRIX V3
 
 > 目的：解决“规则存在，但没有任何 Gate 真正检查”的问题。
 >
@@ -14,7 +14,7 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 - `COUNT`：字数、段落、一句段连续数、关键词命中数等机械统计；
 - `SOURCE`：对应 Canon / State / Knowledge / Planning 来源路径与事实 ID；
 - `DIFF`：场景前后人物状态/资源/关系的明确变化；
-- `COMPARE`：与最近章节、Rolling Outline、Scene Card 的结构比较；
+- `COMPARE`：与最近章节、Rolling Outline、Scene Card、Memory Anchor Ledger 的结构比较；
 - `NONE-HIT`：对明确可扫描的违禁项执行搜索后 0 命中；
 - `CI`：GitHub Actions workflow run id + branch + exact head_sha + conclusion。
 
@@ -87,7 +87,20 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | ALG-001 | 最近高层破局算法不得机械重复 | NARRATIVE_PATTERN / STYLE | POST_DRAFT | 最近5章 compare | REWRITE |
 | ALG-002 | 对手吃亏必须来自合理利益选择，不靠集体降智 | PROJECT_RULES | POST_DRAFT | opponent goal/choice consequence | REWRITE |
 
-## 七、伏笔、反转与长篇压缩
+## 七、记忆锚、人物辨识度与回响
+
+| Rule ID | 硬规则 | 主要来源 | 检查阶段 | 最低证据 | FAIL |
+|---|---|---|---|---|---|
+| MEM-001 | Scene Card必须回答“三个月后最可能记住什么”，允许NO NEW ANCHOR但必须明确 | MEMORY_ANCHOR_SYSTEM / SCENE_CARD | PREWRITE/POST_DRAFT | Scene Card第9问 + Post-Draft记录 | BLOCKED/REWRITE |
+| MEM-002 | 新记忆锚必须来自具体场面、人物选择、关系、物件或世界冲突，不能只因句子漂亮 | MEMORY_ANCHOR_SYSTEM | POST_DRAFT | Candidate具体位置 + 为什么值得记 | REWRITE |
+| MEM-003 | 禁止为了名场面硬造哲理金句、固定口头禅、象征物或破坏人物逻辑 | MEMORY_ANCHOR_SYSTEM / PUBLICATION | POST_DRAFT/PUBLICATION | forced_memorability_risk + 语境证据 | REWRITE |
+| MEM-004 | 已有记忆锚回响必须增加新情绪/关系/信息/权力或含义，不得无增值复读 | MEMORY_ANCHOR_LEDGER | POST_DRAFT | Anchor ID + previous meaning + new meaning | REWRITE |
+| MEM-005 | 重要人物关键对白/选择应逐渐形成可识别关注点与利益逻辑，避免所有角色共用作者式聪明声音 | MEMORY_ANCHOR_SYSTEM / STYLE | POST_DRAFT/PUBLICATION | 隐名测试 + 人物动机证据 | REWRITE |
+| MEM-006 | Arc收束时必须自然留下：可复述场面、主要人物强性格瞬间、可继续回响锚、一句话阶段变化 | MEMORY_ANCHOR_SYSTEM / MEMORY_ANCHOR_LEDGER | ARC AUDIT | Arc Memory Audit四项证据 | REPLAN/REWRITE |
+
+说明：`MEM-001~005` 每章必须在Post-Draft Rule Coverage中出现；没有新锚时可以PASS/NA，但必须有明确证据和理由。`MEM-006` 非Arc收束章可标NA，理由写明“Arc ongoing”。
+
+## 八、伏笔、反转与长篇压缩
 
 | Rule ID | 硬规则 | 主要来源 | 检查阶段 | 最低证据 | FAIL |
 |---|---|---|---|---|---|
@@ -97,7 +110,7 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | LEN-001 | 一个世界观结论主证明完成后，不换地图重复证明 | PROJECT_RULES 2M | MACRO/POST | prior proof + new function | REPLAN |
 | LEN-002 | 不新增只负责讲观点的NPC/重复副本凑长度 | PROJECT_RULES 2M | MACRO/POST | character independent function | REPLAN |
 
-## 八、交稿前最终规则
+## 九、交稿前最终规则
 
 | Rule ID | 硬规则 | 主要来源 | 检查阶段 | 最低证据 | FAIL |
 |---|---|---|---|---|---|
@@ -107,9 +120,9 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | FINAL-004 | 最终稿修改后必须重跑受影响检查 | FINAL_DELIVERY_GATE | FINAL | revision history / SHA change | RECHECK |
 | FINAL-005 | 只有 Final Delivery PASS + WF-006 外部CI成功，运行时才可进入 USER_REVIEW | WORKFLOW / FINAL_DELIVERY | FINAL+EXTERNAL | Final report + exact-head CI success | BLOCKED |
 
-## 九、维护规则
+## 十、维护规则
 
-1. `PROJECT_RULES / STYLE_GUIDE / Gate / Executable Validator` 新增硬规则时，必须同步本矩阵。
+1. `PROJECT_RULES / STYLE_GUIDE / Gate / MEMORY_ANCHOR_SYSTEM / Executable Validator` 新增硬规则时，必须同步本矩阵。
 2. 每条硬规则只允许一个“最终责任 Gate/执行阶段”，其他Gate可以预检，避免所有文档都模糊负责。
 3. 用户指出一个本应被规则拦截却漏出的错误时：
    - 登记到 `quality/FAILURE_MEMORY.md`；
@@ -118,5 +131,7 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
    - 为其设计可验证证据；
    - 若可机械化，优先增加到 `tools/chapter_gate.py` 与自动测试；
    - 从下一章开始作为回归测试。
-4. 每10章Audit检查一次本矩阵是否存在“规则已新增但无人负责”的orphan rule。
-5. External CI规则不能由Post-Draft报告自我证明；必须读取GitHub Actions真实结果。
+4. 每5章Snapshot同时执行Memory Anchor Review，清理一次性细节、检查过度使用与人物记忆缺口。
+5. 每10章Audit检查一次本矩阵是否存在“规则已新增但无人负责”的orphan rule。
+6. 每Arc收束执行MEM-006，不允许靠最后一章硬塞名场面补齐。
+7. External CI规则不能由Post-Draft报告自我证明；必须读取GitHub Actions真实结果。
