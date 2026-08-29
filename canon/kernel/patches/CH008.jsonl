@@ -1,0 +1,15 @@
+{"kind":"fact","id":"KFACT-CH008-001","source_chapter":8,"status":"canonical","certainty":"confirmed_by_dialogue","payload":{"subject":"CHAR-0001","predicate":"south_two_work_access","value":"次日早饭后先去南二做拆药、记废料；二验等叫，二者并行"}}
+{"kind":"fact","id":"KFACT-CH008-002","source_chapter":8,"status":"canonical","certainty":"observed","payload":{"subject":"CHAR-0001","predicate":"right_arm_condition","value":"普通外敷伤膏后表层筋肉稍松、握手不再牵得整臂发颤，但右手仍抬不到肩高，经脉伤势未解决"}}
+{"kind":"fact","id":"KFACT-CH008-003","source_chapter":8,"status":"canonical","certainty":"confirmed","payload":{"subject":"CHAR-0001","predicate":"inventory_gain","value":"韩鸦给的一小包普通外敷伤膏；已用少量，章末仍剩大半包"}}
+{"kind":"fact","id":"KFACT-CH008-004","source_chapter":8,"status":"canonical","certainty":"confirmed_by_dialogue","payload":{"subject":"CHAR-0003","predicate":"narrowed_instruction","value":"次日不再要求陈缺故意制造废料；只观察TARGET-0001西门行动，不主动接触，二验叫走时照常去"}}
+{"kind":"fact","id":"KFACT-CH008-005","source_chapter":8,"status":"canonical","certainty":"observed","payload":{"subject":"CHAR-0003","predicate":"south_two_knowledge_channel","value":"韩鸦在南二核对四名青绳时亲耳听见老周安排丙九十七次日继续来南二工作"}}
+{"kind":"fact","id":"KFACT-CH008-006","source_chapter":8,"status":"canonical","certainty":"observed","payload":{"subject":"TARGET-0001","predicate":"ch008_transfer","value":"从南二西门废料外运返回后，被韩鸦与另外三名青绳一起核对并带离南二"}}
+{"kind":"knowledge","id":"KKNOW-CH008-001","source_chapter":8,"status":"canonical","payload":{"knower":"CHAR-0001","state":"KNOWS","content":"韩鸦知道自己被南二留用，且愿意在如何利用南二位置的具体手段上调整"}}
+{"kind":"knowledge","id":"KKNOW-CH008-002","source_chapter":8,"status":"canonical","payload":{"knower":"CHAR-0001","state":"SUSPECTS","content":"自己活着以及南二位置对韩鸦当前计划有用；韩鸦完整目的和底线仍未知"}}
+{"kind":"knowledge","id":"KKNOW-CH008-003","source_chapter":8,"status":"canonical","payload":{"knower":"CHAR-0003","state":"KNOWS","content":"陈缺右臂受伤、被南二继续留用；TARGET-0001当日三次随废料从西门出去及其若干行为，后者来自陈缺报告"}}
+{"kind":"relationship","id":"KREL-CH008-001","source_chapter":8,"status":"canonical","payload":{"between":["CHAR-0001","CHAR-0003"],"change":"韩鸦仍占绝对控制优势，但陈缺第一次凭南二组织价值争到有限执行边界；新增普通伤膏这一工具性资源债/利益绑定"}}
+{"kind":"timeline","id":"KTL-CH008-001","source_chapter":8,"status":"canonical","payload":{"sequence":["TARGET-0001随废料返回南二","韩鸦核对并带走四名青绳","陈缺收尾后在石廊与韩鸦谈判","韩鸦给伤膏并收窄次日任务","陈缺试药后回南廊","守门弟子安排其次日先去南二、二验等叫"],"end_state":"陈缺留宿南廊草席区"}}
+{"kind":"plot","id":"KPLOT-CH008-001","source_chapter":8,"status":"canonical","payload":{"plot":"FP-007 七日杀人交易","state":"ADVANCED","change":"原始杀人交易未取消，但次日具体要求暂时收窄为只观察TARGET-0001西门行动"}}
+{"kind":"plot","id":"KPLOT-CH008-002","source_chapter":8,"status":"canonical","payload":{"plot":"P-003 七日考核","state":"ADVANCED","change":"南二工作、白绳二验与人员分流被明确表现为并行制度"}}
+{"kind":"info_gap","id":"KGAP-CH008-001","source_chapter":8,"status":"canonical","payload":{"subject":"TARGET-0001","unknown":["姓名","背景","完整逃亡路线","同伙","韩鸦为何要其死亡"]}}
+{"kind":"info_gap","id":"KGAP-CH008-002","source_chapter":8,"status":"canonical","payload":{"subject":"CHAR-0001","unknown":["白绳黑点/二验完整含义","韩鸦完整目的与底线","赵石当前精确位置"]}}
