@@ -1,8 +1,8 @@
-# CHAPTER WORKFLOW STATE MACHINE V4
+# CHAPTER WORKFLOW STATE MACHINE V5
 
 > 目的：把“规则很多”升级为“每一步都有产物、证据、版本绑定，并由外部执行器验证”。
 >
-> 总原则：**FAIL CLOSED + EVIDENCE REQUIRED + REVISION BOUND + EXTERNAL CI VERIFIED。**
+> 总原则：**FAIL CLOSED + EVIDENCE REQUIRED + REVISION BOUND + MEMORY CHECKED + EXTERNAL CI VERIFIED。**
 
 ## 一、当前系列架构硬校验
 
@@ -11,6 +11,7 @@ HOT LOAD时必须从 `MANIFEST.md` 确认：
 - `PLANNING_ARCHITECTURE = SERIES_V2_8V_2M`
 - 目标总量约200万字
 - 当前卷/Arc/Canon Horizon与Context Card一致
+- `MEMORY_ANCHOR_SYSTEM` 与 `MEMORY_ANCHOR_LEDGER` 路径有效
 
 加载到旧“12卷 / 350万—500万 / 第一卷110—130章”并试图驱动当前正文，视为 `DEPRECATED CONFLICT`，保持BLOCKED。
 
@@ -32,6 +33,13 @@ HOT LOAD时必须从 `MANIFEST.md` 确认：
 
 任何状态不能跳跃。
 
+Memory Anchor不是额外状态节点，而是嵌入：
+- LOADED：必须加载System/Ledger；
+- SCENE_READY：必须完成Scene Card第9问；
+- POST_DRAFT_PASS：必须完成MEM-001~006覆盖；
+- PUBLICATION_PASS：必须检查强造/复读/人物辨识度；
+- CANON：只有此时正式更新Memory Anchor Ledger。
+
 `EXTERNAL_CI_PASS`不能由Markdown自报。它只能来自GitHub Actions真实结果：候选分支当前HEAD对应的 `Chapter Quality Gate` conclusion=`success`。
 
 ## 三、版本原则
@@ -42,8 +50,8 @@ HOT LOAD时必须从 `MANIFEST.md` 确认：
 
 正文发生修改：
 - 错字/标点：至少重跑Mechanical Lint + Final Delivery，并产生新SHA；
-- 句段/对白：相关Style checks + Publication + Final失效；
-- 事件/动机/知识/能力/资源/关系/章尾：Post-Draft、Publication、Expectation/Payoff、Continuity、Final全部失效。
+- 句段/对白：相关Style/MEM checks + Publication + Final失效；
+- 事件/动机/知识/能力/资源/关系/记忆锚/章尾：Post-Draft、Publication、Expectation/Payoff、Continuity、Final全部失效。
 
 任何候选分支新commit都会改变HEAD；旧的External CI success因此自动失效。
 
@@ -56,6 +64,7 @@ HOT LOAD时必须从 `MANIFEST.md` 确认：
 默认状态。以下任一存在即保持BLOCKED：
 - HOT LOAD不完整；
 - 关键Canon/planning源失败；
+- Memory Anchor System/Ledger缺失；
 - 规划架构冲突；
 - Context Receipt缺失；
 - 用户改方向导致旧Candidate失效；
@@ -65,7 +74,7 @@ HOT LOAD时必须从 `MANIFEST.md` 确认：
 
 必须存在 `quality/receipts/CHxxx_CONTEXT_RECEIPT.md`。
 
-Receipt至少记录：Canon Horizon、系列架构、HOT来源、最近正文、Published Prose Anchor、当前卷/Arc/Outline、相关Canon IDs、人物状态/知识/能力、Expectation/Payoff方向、质量规则版本。
+Receipt至少记录：Canon Horizon、系列架构、HOT来源、最近正文、Published Prose Anchor、当前卷/Arc/Outline、相关Canon IDs、人物状态/知识/能力、Expectation/Payoff方向、Memory Anchor System版本、可能调用Anchor IDs/NO PLANNED ECHO、当前Arc Memory Gap、质量规则版本。
 
 ### 2. MACRO_ALIGNED
 
@@ -77,7 +86,8 @@ Receipt至少记录：Canon Horizon、系列架构、HOT来源、最近正文、
 5. 读者正在等什么具体兑现；
 6. 删掉本章会损失什么；
 7. 是否重复已经完成主证明的结论；
-8. 是否为了旧章号/卷长继续拖。
+8. 是否为了旧章号/卷长继续拖；
+9. 是否自然承担某个Memory Anchor建立/回响；没有也可以但必须明确。
 
 存在明显问题：退回规划。
 
@@ -85,7 +95,9 @@ Receipt至少记录：Canon Horizon、系列架构、HOT来源、最近正文、
 
 必须存在 `quality/scene-cards/CHxxx_SCENE_CARD.md`。
 
-必须通过：人物欲望、现实阻力、有限信息、信息不足处选择、现实收益、双向代价、场景净变化、配角独立行动。
+必须通过：人物欲望、现实阻力、有限信息、信息不足处选择、现实收益、双向代价、场景净变化、配角独立行动，以及Scene Card第9问。
+
+第9问允许 `NO NEW ANCHOR`；为了补记忆点硬造金句/怪癖/象征物：FAIL。
 
 Scene Card仍像任务清单：FAIL。
 
@@ -105,13 +117,15 @@ Scene Card仍像任务清单：FAIL。
 
 必须生成 `quality/reviews/CHxxx_POST_DRAFT_AUDIT.md`。
 
-按 `quality/POST_DRAFT_AUDIT.md` 完成：Mechanical Lint、Rule Coverage、因果/人物反证、Knowledge/Power Claim Audit、Outline Leakage Audit、Expectation/Payoff资产Diff预审、Anti-AI/Redundancy、Reader Clean Read、Failure Memory Regression。
+按 `quality/POST_DRAFT_AUDIT.md` 完成：Mechanical Lint、Rule Coverage、因果/人物反证、Knowledge/Power Claim Audit、Outline Leakage Audit、Expectation/Payoff资产Diff预审、Anti-AI/Redundancy、Reader Clean Read、Memory Anchor Audit、Failure Memory Regression。
 
 报告必须PASS且revision/SHA完全匹配。
 
+`MEM-001~006` 必须全部出现在Rule Coverage；非Arc收束章MEM-006可NA但必须说明“Arc ongoing”。
+
 ### 6. PUBLICATION_PASS
 
-执行 `quality/PUBLICATION_GATE.md`。小说质感、场景结构、段落、对话、章尾、胜利算法全部PASS。
+执行 `quality/PUBLICATION_GATE.md`。小说质感、场景结构、段落、对话、章尾、胜利算法、Memory/Distinctiveness全部PASS。
 
 ### 7. EXPECTATION_PAYOFF_PASS
 
@@ -119,7 +133,7 @@ Scene Card仍像任务清单：FAIL。
 
 ### 8. CONTINUITY_PASS
 
-执行Precommit：Canon/正文无冲突；Knowledge无越权；状态/时间/物品/伤势连续；能力来源/进入/代价/受益者一致；Candidate变化可抽取。
+执行Precommit：Canon/正文无冲突；Knowledge无越权；状态/时间/物品/伤势连续；能力来源/进入/代价/受益者一致；Candidate变化可抽取；Memory Anchor Diff仅为proposal，不提前写入正式Ledger。
 
 ### 9. FINAL_DELIVERY_PASS
 
@@ -127,9 +141,10 @@ Scene Card仍像任务清单：FAIL。
 
 必须确认：
 - Post-Draft / Publication / Payoff / Continuity全部对应同一revision/SHA；
-- Rule Coverage所有相关Rule ID PASS/NA；
+- Rule Coverage所有Rule ID PASS/NA，包括MEM类；
 - Failure Memory ACTIVE项全部通过；
 - 最终稿完成Clean Read；
+- Memory final read已执行，且没有为了“记忆点”强造内容；
 - Gate后没有未审修改。
 
 随后将Candidate、Receipt、Scene Card、所有Review报告和workflow状态一起提交到当前候选分支。提交后不再改稿。
@@ -161,6 +176,7 @@ Scene Card仍像任务清单：FAIL。
 - Candidate Facts/Knowledge/Timeline/Relationship/Plots转Canon；
 - 更新Kernel/Ledger/Chapter Record/State Projection；
 - 更新Narrative Pattern/Commercial Rhythm/Rolling Outline/Context Card；
+- 执行Memory Anchor Diff：只把用户确认后真正值得保留的锚新增/升级到正式Ledger；
 - 写Commit Receipt；
 - POSTCOMMIT校验Canon Horizon。
 
@@ -189,16 +205,21 @@ EXTERNAL_CI: PENDING
 USER_DECISION:
 ```
 
+Memory Anchor检查结果写入Scene Card与Post-Draft，不新增一个可被手工伪造的“MEMORY_GATE=PASS”字段。
+
 `EXTERNAL_CI`字段只表示尚待外部验证，不能靠手工改成PASS取得交稿权。交稿权来自实际Actions API结果。
 
 ## 六、硬禁止
 
 - 没有Receipt写正文；
 - 没有Scene Card写正文；
+- 没加载Memory Anchor System/Ledger却宣称完成记忆审查；
 - Gate只在脑内执行；
 - DRAFTED直接交用户；
 - Post-Draft Audit缺失仍继续；
 - Rule Coverage只写“全部正常”而无证据；
+- MEM类Rule ID缺失；
+- 为满足MEM规则硬造金句/口头禅/象征物；
 - Gate通过后修改正文却不重跑；
 - Final Delivery PASS后不提交候选分支/不跑CI就交稿；
 - 用旧CI结果对应新HEAD；
@@ -207,8 +228,8 @@ USER_DECISION:
 - 使用废弃12卷规划驱动当前章节；
 - 为命中旧卷长继续已经完成的Arc。
 
-## 七、当前CH007
+## 七、当前章节权威
 
-上一版CH007已REWRITE且非Canon；旧 `chapter/CH007` 为历史候选分支。
+当前Canon Horizon、Next Chapter和Candidate Branch一律从 `MANIFEST.md` 读取。
 
-新CH007使用 `chapter/CH007-v2`，从CH006 Canon Horizon重新冷启动，并执行V4状态链。旧Candidate姓名、编号、南二布局、运输细节均无权威。
+本状态机不再写死“当前CH007/CH008”等易过期章节信息，避免冷启动污染。
