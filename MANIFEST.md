@@ -1,6 +1,6 @@
 # MANIFEST
 
-SCHEMA_VERSION: V5
+SCHEMA_VERSION: V6
 PLANNING_ARCHITECTURE: SERIES_V2_8V_2M
 TARGET_TOTAL_WORDS: ~2000000_CN_CHARS
 PLANNING_RANGE_WORDS: 1900000-2100000_CN_CHARS
@@ -27,8 +27,12 @@ CHARACTER_LONG_ARCS: planning/CHARACTER_LONG_ARCS.md
 CURRENT_CONTEXT_CARD: tracking/CONTEXT_CARD.md
 CURRENT_ROLLING_OUTLINE: planning/ROLLING_OUTLINE.md
 SCENE_CARD_TEMPLATE: quality/SCENE_CARD_TEMPLATE.md
+RULE_COVERAGE_MATRIX: quality/RULE_COVERAGE_MATRIX.md
+POST_DRAFT_AUDIT: quality/POST_DRAFT_AUDIT.md
 PUBLICATION_GATE: quality/PUBLICATION_GATE.md
 EXPECTATION_PAYOFF_GATE: quality/EXPECTATION_PAYOFF_GATE.md
+FINAL_DELIVERY_GATE: quality/FINAL_DELIVERY_GATE.md
+FAILURE_MEMORY: quality/FAILURE_MEMORY.md
 CHAPTER_GATE: quality/CHAPTER_GATE.md
 WORKFLOW_STATE_MACHINE: quality/WORKFLOW_STATE_MACHINE.md
 CURRENT_WORKFLOW: quality/workflow/CH007_WORKFLOW.md
@@ -45,7 +49,7 @@ TRACKING_STATE_ROLE: projection
 - 全书目标约200万字，不再采用旧350万—500万/12卷规划。
 - 当前结构为8卷，约580—620章；单章仍以3200—3600字为常规目标。
 - 若自然终局早于190万字，不为凑字数扩写重复Arc。
-- 若规划将突破约210万字，必须先做Macro Drift Audit，证明新增篇幅来自真实人物/因果需要，而不是“还能写”。
+- 若规划将突破约210万字，必须先做Macro Drift Audit。
 - 压缩优先合并重复证明和相邻理念卷，不删除核心真相链与已承诺人物弧。
 
 ## Authority Order
@@ -53,60 +57,78 @@ TRACKING_STATE_ROLE: projection
 1. 用户在当前交互中的明确决定/修订。
 2. `main` 已确认正文 + `canon/CANON_CORE.md`。
 3. `canon/WORLD_BIBLE.md` / `canon/CULTIVATION_SYSTEM.md` 等作者层硬世界规则。
-4. `canon/kernel/` 规范化 Canon + `state/CHAPTER_LEDGER.md`。
-5. Snapshot / State Diff（历史恢复与迁移依据）。
-6. state/tracking 人类可读投影。
-7. planning：总纲约束未来方向，但不得覆盖过去正文。
-8. quality/research：只校准阅读体验与规划方法，不拥有 Canon 权威。
+4. `canon/kernel/` 规范化Canon + `state/CHAPTER_LEDGER.md`。
+5. Snapshot / State Diff。
+6. state/tracking人类可读投影。
+7. planning：约束未来，不覆盖过去正文。
+8. quality/research：只校准阅读体验，不拥有Canon权威。
 
 ## Planning Authority
 
-规划层内部优先级：
-
 **Series Master终点/底层命题 > Volume Blueprint卷级功能 > Current Volume Detail > ARC_MAP当前Arc > ROLLING_OUTLINE短期章纲。**
 
-如果短期因果与旧章号计划冲突，允许改章号/Arc节奏；如果连续剧情偏离卷级功能，必须显式重算。
+短期因果与旧章号冲突时允许改章号/Arc节奏；连续偏离卷级功能必须显式重算。
 
-商业阅读体验属于planning/quality层约束：可以改变未来事件节奏、收益结构、卷长和场景选择，但不能覆盖已发布事实、人物真实利益或世界硬规则。
+商业阅读体验可以改变未来事件节奏、收益结构、卷长和场景选择，但不能覆盖已发布事实、人物利益或世界硬规则。
 
 ## Writing Authority
 
 规划层不能直接生成正文。正文必须经过：
 
-**Rolling Outline → Context Receipt → Scene Card → Published Prose Anchor → Write → Publication Gate → Expectation/Payoff Gate → Continuity Precommit → User Review。**
+**Rolling Outline → Context Receipt → Scene Card → Published Prose Anchor → Write → Freeze Revision → Post-Draft Audit → Publication Gate → Expectation/Payoff Gate → Continuity Precommit → Final Delivery Gate → User Review。**
 
 并同步 `quality/WORKFLOW_STATE_MACHINE.md`。
 
-Publication Gate、Expectation/Payoff Gate、Continuity Precommit三者同为硬门；任一失败都不得交Candidate。
+以下均为交稿硬门：
+- Post-Draft Audit
+- Publication Gate
+- Expectation/Payoff Gate
+- Continuity Precommit
+- Final Delivery Gate
+
+任何一项非PASS不得交Candidate。
+
+所有写后PASS必须绑定同一 `candidate_revision_id`。正文修改后按Final Delivery失效规则重跑。
+
+## Rule Audit Authority
+
+- `quality/RULE_COVERAGE_MATRIX.md`：交稿级硬规则总登记；每条规则必须有责任Gate和证据。
+- `quality/FAILURE_MEMORY.md`：用户已指出/系统已识别的漏检失败，ACTIVE项每章强制回归测试。
+- `quality/POST_DRAFT_AUDIT.md`：写完后的证据化自审。
+- `quality/FINAL_DELIVERY_GATE.md`：验证最终交给用户的版本确实是被审过的版本。
+
+规则新增但未进入Rule Coverage Matrix，视为流程配置不完整。
 
 ## Current Publication Safeguards
 
 - 正文禁止章节编号/Canon/FP等后台语言泄漏。
-- 正常自然段优先2—5句；连续3个一句式叙述段默认Publication FAIL。
-- 禁止把Rolling Outline逐项扩写成测试报告式正文。
-- 每章写前必须回读已发布正文作为prose anchor。
-- 必须检查高层胜利算法重复，不只检查具体招式重复。
-- 配角必须拥有独立目标；进入场景前能回答“如果陈缺不在，他今天会做什么”。
-- 每章/小周期检查“期待→兑现→升级”，避免长期只留下秘密与危险。
-- 代价可以污染收益，但禁止习惯性把重大获得立即清零。
-- 信息可以是奖励，但不能长期成为唯一主奖励。
-- 没有Context Receipt / Scene Card / Gate PASS记录，不允许交完整正文。
+- 正常自然段优先2—5句；连续3个一句式叙述段默认FAIL。
+- 禁止把Rolling Outline逐项扩写成正文。
+- 每章写前回读Published Prose Anchor。
+- 检查高层胜利算法重复。
+- 配角必须有独立目标。
+- 每章/小周期检查“期待→兑现→升级”。
+- 代价可以污染收益，但不能习惯性清零。
+- 信息不能长期成为唯一主奖励。
+- 没有Context Receipt / Scene Card / Post-Draft Audit / Rule Coverage / Final Delivery PASS，不允许交完整正文。
+- Gate只能通过证据，不接受“脑内检查过”。
+- Gate通过后改正文，旧PASS按影响范围自动失效。
 
 ## Current Candidate Status
 
 - CH007前一Candidate：`REWRITE`，未进入Canon。
 - 当前CH007工作流：`BLOCKED`。
 - 前一Candidate中新姓名、编号、南二具体器物/流程、逃亡执行细节没有Canon权威。
-- CH007必须从CH006 Canon Horizon重新执行完整冷启动与门禁。
+- CH007必须从CH006 Canon Horizon重新执行V3完整门禁。
 
 ## Canon Policy
 
 - `main`只放已确认有效Canon。
 - Candidate章节在用户确认前不得推进Canon Horizon。
 - 已发布正文不因后续规划改变而偷偷重写。
-- Canon状态改变优先关闭旧temporal fact并新增新fact，不抹掉历史。
+- Canon状态改变优先关闭旧temporal fact并新增new fact，不抹掉历史。
 - UNKNOWN / SUSPECTS不得自动升级成事实。
 - Revision必须执行Change Impact Protocol。
 - 作者层锁定的未来世界真相只能按`TRUTH_REVEAL_LADDER`分层进入正文。
 
-核心原则：**正文决定过去；Canon描述真实世界；Tracking描述现在；Outline约束未来；Scene Card隔离后台与小说；Publication Gate保证成品像小说；Expectation/Payoff Gate保证高压之后有真实累计；Rolling Outline服从真实因果；Workflow State Machine防止跳步交稿；200万目标防止情绪与理念被过度拉长。**
+核心原则：**正文决定过去；Canon描述真实世界；Tracking描述现在；Outline约束未来；Scene Card隔离后台与小说；Post-Draft Audit负责写后找错；Rule Coverage保证没有孤儿规则；Failure Memory防止同错复发；Final Delivery保证交稿版本就是审查版本；200万目标防止情绪与理念被过度拉长。**
