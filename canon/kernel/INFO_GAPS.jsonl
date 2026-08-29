@@ -1,9 +1,9 @@
-{"id":"S-001","question":"韩鸦真实目的是什么","status":"UNREVEALED","opened_ch":3,"last_touched_ch":6,"planned_reveal_window":null}
-{"id":"S-002","question":"韩鸦要求处理的逃亡者姓名、背景、真实计划与逃亡路线是什么","status":"PARTIAL-IDENTIFICATION","opened_ch":3,"last_touched_ch":6,"planned_reveal_window":"NEAR-TERM","notes":"CH005已可按外观/刮字/青绳识别；CH006已进入同一南二路径；姓名与完整计划仍未揭示"}
+{"id":"S-001","question":"韩鸦真实目的是什么","status":"UNREVEALED","opened_ch":3,"last_touched_ch":7,"planned_reveal_window":null,"notes":"CH007交易目标得到独立验证，但韩鸦为何要求处理对方仍未揭示"}
+{"id":"S-002","question":"韩鸦要求处理的逃亡者姓名、背景、真实计划与逃亡路线是什么","status":"PARTIAL-IDENTIFICATION","opened_ch":3,"last_touched_ch":7,"planned_reveal_window":"NEAR-TERM","notes":"CH007确认其利用南二废药外运试探西侧门，并愿意牺牲部分药材收益增加机会；姓名、完整路线、时间、同伙仍未揭示"}
 {"id":"S-003","question":"药房对赵石做了什么","status":"UNREVEALED","opened_ch":1,"last_touched_ch":6,"planned_reveal_window":"ADVANCE-SOON-NOT-FULL-DUMP","notes":"CH005-006已出现可重复后遗症与特殊处置，但不能直接写成已洗虫"}
-{"id":"S-004","question":"《盗气残篇》灵气流失、寒意、饥饿的真实机制是什么","status":"UNREVEALED","opened_ch":4,"last_touched_ch":6,"planned_reveal_window":null}
+{"id":"S-004","question":"《盗气残篇》灵气流失、寒意、饥饿的真实机制是什么","status":"UNREVEALED","opened_ch":4,"last_touched_ch":7,"planned_reveal_window":null,"notes":"CH007只延续右臂痛/后腰寒意与近空灵气，不新增解释"}
 {"id":"S-005","question":"‘修士食天地，天地亦食修士’的终极机制是什么","status":"UNREVEALED","opened_ch":3,"last_touched_ch":6,"planned_reveal_window":"SERIES-LONG"}
 {"id":"S-006","question":"周玄尸体送入内山后的用途是什么","status":"UNREVEALED","opened_ch":2,"last_touched_ch":2,"planned_reveal_window":"第一卷后半段"}
 {"id":"S-007","question":"整个修仙世界是否存在更大系统性问题","status":"UNREVEALED","opened_ch":3,"last_touched_ch":3,"planned_reveal_window":"SERIES-LONG"}
 {"id":"S-008","question":"赵石如何知道陈缺在CH002药房门口编造的‘两文钱’借口","status":"UNREVEALED","opened_ch":5,"last_touched_ch":5,"planned_reveal_window":"NEAR/MID-TERM"}
-{"id":"S-009","question":"白绳黑点、赵石白绳黑结以及‘二验/南二’在分流制度中分别意味着什么","status":"UNREVEALED","opened_ch":6,"last_touched_ch":6,"planned_reveal_window":"NEAR-TERM","notes":"允许逐步通过处置后果显形，禁止角色一次解释完整颜色分类表"}
+{"id":"S-009","question":"白绳黑点、赵石白绳黑结以及‘二验/南二’在分流制度中分别意味着什么","status":"PARTIAL","opened_ch":6,"last_touched_ch":7,"planned_reveal_window":"NEAR-TERM","notes":"CH007确认南二至少是现实药材处理/临时使用节点，且陈缺可在二验未完成时被留下做事；黑点、黑结及完整分类意义仍未揭示"}
