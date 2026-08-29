@@ -1,4 +1,4 @@
-# FINAL DELIVERY GATE V2
+# FINAL DELIVERY GATE V3
 
 > 目的：防止“前面的 Gate 都跑过，但正文后来又改了，最后交给用户的版本其实没有被完整检查”。
 >
@@ -9,8 +9,8 @@
 必须同时存在并 PASS：
 
 - Context Receipt
-- Scene Card
-- Post-Draft Audit
+- Scene Card（含Memory第9问）
+- Post-Draft Audit（含Memory Anchor Audit）
 - Publication Gate
 - Expectation / Payoff Gate
 - Continuity Precommit
@@ -38,8 +38,8 @@ result: PASS|REWRITE|BLOCKED
 ### 修改失效规则
 
 - 只改错字/标点：至少重跑 Mechanical Lint + Final Clean Read，并产生新SHA。
-- 改句子、段落、对白：重跑相关 STYLE Rule IDs + Publication + Final。
-- 改事件、动机、知识、能力、资源、关系、章尾：Post-Draft Audit、Publication、Expectation/Payoff、Continuity、Final全部失效并重跑。
+- 改句子、段落、对白：重跑相关 STYLE/MEM Rule IDs + Publication + Final。
+- 改事件、动机、知识、能力、资源、关系、记忆锚候选/回响、章尾：Post-Draft Audit、Publication、Expectation/Payoff、Continuity、Final全部失效并重跑。
 
 禁止“改完以后凭感觉认为不影响”。
 
@@ -82,13 +82,25 @@ result: PASS|REWRITE|BLOCKED
 ### 9. 成本
 收益有代价吗？代价是否又把收益彻底清零？
 
-### 10. 章尾
+### 10. 记忆与辨识度
+不看Scene Card答案，读完整章后重新问：
+
+> 三个月后，普通读者最可能记得这一章什么？
+
+允许答案是“没有新的强锚，本章主要完成X”。
+
+若有记忆点，继续问：
+- 它是否来自场面/人物/关系，而非作者刻意写金句？
+- 若是旧Anchor回响，是否真的增值？
+- 人物关键对白/选择是否符合其独有关注点？
+
+### 11. 章尾
 最后300字是否在收束本章后果，而不是突然写一句“策划案金句”？
 
-### 11. 删除测试
+### 12. 删除测试
 尝试删掉关键反转后的解释段、最后总结、陈缺主题判断句；若删后更清楚、更有力，则原文应删。
 
-### 12. 同书测试
+### 13. 同书测试
 把本章随机一段与CH001—CH003/最近高质量正文并排看：是否明显像另一种AI脚本/剧情报告文体？明显漂移：REWRITE。
 
 ## 四、Rule Coverage完整性
@@ -96,11 +108,13 @@ result: PASS|REWRITE|BLOCKED
 读取 `RULE_COVERAGE_MATRIX.md` 与本章Post-Draft Report。
 
 要求：
-- 本章触发的所有Rule IDs已有PASS/NA；
+- 所有delivery-critical Rule IDs已有PASS/NA，包括MEM-001~006；
 - NA均有理由；
 - 无UNKNOWN；
 - 无orphan hard rule；
-- `FAILURE_MEMORY` ACTIVE回归测试全部通过。
+- `FAILURE_MEMORY` ACTIVE回归测试全部通过；
+- `MEMORY_ANCHOR_SYSTEM.md` 与 `tracking/MEMORY_ANCHOR_LEDGER.md` 已加载；
+- Candidate阶段只提出Anchor Diff，不提前改正式Ledger。
 
 任何缺口：BLOCKED。
 
@@ -151,5 +165,13 @@ result: PASS|REWRITE|BLOCKED
 4. 分析为什么Gate/Validator/CI没抓住；
 5. 更新Gate、Rule Coverage、自动测试或校验器；
 6. 从下一章起成为ACTIVE regression test。
+
+若用户指出“人物/场面不够有记忆度”，先判断是：
+- 单章本来无需新锚；
+- Arc整体确实缺记忆残余；
+- 已有锚没有被保护/增值；
+- 人物声音趋同。
+
+禁止第一反应就是往正文补一句金句。
 
 目标：同一种生产错误尽量只让用户指出一次。
