@@ -1,9 +1,9 @@
-{"id":"FP-001","name":"木牌‘药’","status":"PARTIAL-PAYOFF","opened_ch":1,"last_advanced_ch":5,"target_window":null,"sleep_reason":null,"notes":"新人确实被当成人体药材；CH005交易目标把木牌背面‘药’字刮掉但木牌仍被正常收取；CH007需解释刮字为何未触发即时惩罚，不能靠宗门人员失察"}
+{"id":"FP-001","name":"木牌‘药’","status":"PARTIAL-PAYOFF","opened_ch":1,"last_advanced_ch":5,"target_window":null,"sleep_reason":null,"notes":"新人确实被当成人体药材；CH005交易目标刮掉木牌背面‘药’字但木牌仍被正常收取；CH007场景未自然触及身份核验，不强插解释，后续遇册籍/编号时再自然显形"}
 {"id":"FP-002","name":"‘万物皆药，人亦如此’","status":"ACTIVE","opened_ch":1,"last_advanced_ch":2,"target_window":"LONG-TERM","sleep_reason":null,"notes":"第一层含义兑现；更深层保留"}
 {"id":"FP-004","name":"周玄尸体","status":"ACTIVE","opened_ch":2,"last_advanced_ch":2,"target_window":"第一卷后半段","sleep_reason":null,"notes":"尸体送内山，用途未知，不得遗忘"}
-{"id":"FP-005","name":"赵石去向/药房变化","status":"ADVANCED","opened_ch":1,"last_advanced_ch":6,"target_window":"HIGH-PRIORITY","sleep_reason":null,"notes":"CH005黑液刺激反应被复测；CH006赵石明确避免回药房，筛查异常暴露后白绳被打黑结并转入更深观察路径；药房具体处理、黑结含义、当前精确去向未解"}
-{"id":"FP-006","name":"《盗气残篇》","status":"PARTIAL-PAYOFF","opened_ch":3,"last_advanced_ch":6,"target_window":"ACTIVE","sleep_reason":null,"notes":"前半真实可用；CH006残余真灵气主动推动后几乎耗尽，右臂痛与后腰寒意复现；长期安全、缺页与代价未解"}
-{"id":"FP-007","name":"七日杀人交易","status":"ADVANCED","opened_ch":3,"last_advanced_ch":6,"target_window":"IMMINENT","sleep_reason":null,"notes":"CH005目标进入可识别人物层；CH006陈缺与目标被考核正常流程点入同一南二路径；姓名、背景、逃亡路线、韩鸦完整动机未解"}
-{"id":"FP-008","name":"本批血虫异常","status":"ADVANCED","opened_ch":3,"last_advanced_ch":6,"target_window":"第一卷必须产生真实影响","sleep_reason":null,"notes":"至少三例异常爆体；赵石在CH005-006对虫性/药布刺激呈现与普通宿主不同反应并被特殊处置；不能据此断定其体内已无血虫，异常根因仍未揭示"}
-{"id":"FP-009","name":"‘天地亦食修士’","status":"ACTIVE","opened_ch":3,"last_advanced_ch":6,"target_window":"SERIES-MYSTERY","sleep_reason":null,"notes":"灵气流失、寒意、饥饿为可见证据；CH006推动残余真灵气后衰减与寒意再次出现；终极机制未知"}
+{"id":"FP-005","name":"赵石去向/药房变化","status":"ADVANCED","opened_ch":1,"last_advanced_ch":6,"target_window":"HIGH-PRIORITY","sleep_reason":null,"notes":"CH005黑液刺激反应被复测；CH006被白绳打黑结并转入更深观察；CH007未出场，不凭规划自动推进"}
+{"id":"FP-006","name":"《盗气残篇》","status":"PARTIAL-PAYOFF","opened_ch":3,"last_advanced_ch":6,"target_window":"ACTIVE","sleep_reason":null,"notes":"前半真实可用；CH006残余真灵气主动推动后几乎耗尽；CH007没有恢复成解法，右臂痛与寒意延续；长期安全、缺页与代价未解"}
+{"id":"FP-007","name":"七日杀人交易","status":"ADVANCED","opened_ch":3,"last_advanced_ch":7,"target_window":"IMMINENT","sleep_reason":null,"notes":"CH005目标可识别；CH006同入南二；CH007陈缺独立确认TARGET-0001利用废药外运试探西侧门，并与其首次有限对话；姓名、背景、完整路线、韩鸦完整动机仍未解"}
+{"id":"FP-008","name":"本批血虫异常","status":"ADVANCED","opened_ch":3,"last_advanced_ch":6,"target_window":"第一卷必须产生真实影响","sleep_reason":null,"notes":"至少三例异常爆体；赵石CH005-006反应差异并被特殊处置；CH007不抢线；不能据此断定其体内已无血虫，异常根因仍未揭示"}
+{"id":"FP-009","name":"‘天地亦食修士’","status":"ACTIVE","opened_ch":3,"last_advanced_ch":6,"target_window":"SERIES-MYSTERY","sleep_reason":null,"notes":"灵气流失、寒意、饥饿为可见证据；终极机制未知；CH007只延续身体状态"}
 {"id":"FP-010","name":"残篇缺页 / ‘所盗之气，终非己物’","status":"ACTIVE","opened_ch":4,"last_advanced_ch":6,"target_window":null,"sleep_reason":null,"notes":"缺失内容、灵气留存机制与韩鸦所知程度未解；CH006残余木属灵气继续快速衰减"}
