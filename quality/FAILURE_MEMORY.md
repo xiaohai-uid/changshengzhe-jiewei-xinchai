@@ -1,4 +1,4 @@
-# FAILURE MEMORY V1
+# FAILURE MEMORY V2
 
 > 目的：把用户已经人工指出过的质量问题转化为永久回归测试，避免同一种错误再次消耗用户人工。
 >
@@ -165,7 +165,7 @@
 **回归测试**：
 - Post-Draft Audit 文件是否存在？
 - Rule Coverage 是否逐条有证据？
-- Final Delivery 是否绑定同一 revision？
+- Final Delivery 是否绑定同一 revision/SHA？
 
 任一缺失：BLOCKED，不得交稿。
 
@@ -175,12 +175,12 @@
 
 **Status**：ACTIVE
 
-**历史风险**：即使此前没有明确发生，也属于当前系统最容易出现的漏洞：先审一版，再润色/重写数段，最后交出另一版。
+**历史风险**：先审一版，再润色/重写数段，最后交出另一版。
 
 **对应规则**：WF-004, WF-005, FINAL-004
 
 **回归测试**：
-- 所有 Gate 的 candidate_revision_id 是否一致？
+- 所有Gate的candidate_revision_id与candidate_sha256是否一致？
 - final_text_changed_after_last_gate = NO？
 - 若YES，是否按修改级别重跑？
 
@@ -188,15 +188,47 @@
 
 ---
 
+## FM-011 · 规则写得很硬，但没有真实执行器
+
+**Status**：ACTIVE
+
+**历史表现**：系统曾经已经有“FAIL CLOSED / 必须PASS”等Markdown规则，但仓库实际上没有 `.github/workflows` 和可运行校验器；因此所谓硬门仍主要依赖作者自觉。
+
+**风险**：规则文字看起来越来越严格，却仍可能被跳过；用户无法区分“文档宣称通过”和“实际执行过”。
+
+**对应规则**：WF-003, WF-006, FINAL-005
+
+**结构修复**：
+- `tools/chapter_gate.py` 执行机械/产物/版本一致性校验；
+- `tools/test_chapter_gate.py` 提供回归与端到端测试；
+- `.github/workflows/chapter-quality.yml` 在候选分支运行严格验证；
+- Candidate/report全部绑定revision + SHA；
+- 外部CI结果必须对应候选分支当前精确HEAD。
+
+**回归测试**：
+1. 当前仓库是否仍存在校验器、测试与GitHub Actions workflow？
+2. 自动测试是否通过？
+3. 当前Candidate所在分支的 `Chapter Quality Gate` 是否真实运行？
+4. run conclusion是否为`success`？
+5. run.head_sha是否与候选分支当前HEAD一致？
+6. CI后是否又发生新commit？
+
+任一不成立：BLOCKED，禁止交稿。
+
+**重要边界**：这只能强制机械规则、报告存在性、版本一致性和流程证据；不能把“人物是否好看、场景是否真正自然”100%编译成程序。文学判断仍需Post-Draft/Publication/Final Clean Read，但不能再省略这些判断的报告。
+
+---
+
 # 用户纠错后的系统修复协议
 
 以后用户指出一个明显违反既有规则的问题时，不只回复“会注意”。必须内部完成：
 
-1. 定位 Failure Memory 是否已有同类项；
-2. 有：说明为什么回归测试没生效并修 Gate；
-3. 无：新增 FM 编号；
-4. 映射到 Rule ID；
+1. 定位Failure Memory是否已有同类项；
+2. 有：说明为什么回归测试没生效并修Gate/Validator/Test；
+3. 无：新增FM编号；
+4. 映射到Rule ID；
 5. 增加可验证检查证据；
-6. 下一章 Final Delivery 强制执行。
+6. 能机械化的错误优先增加自动测试；
+7. 下一章Final Delivery + External CI强制执行。
 
-目标：**同一种生产错误最多让用户指出一次。**
+目标：**同一种生产错误尽量只让用户指出一次。**
