@@ -16,8 +16,8 @@ class ChapterGateTests(unittest.TestCase):
         self.assertEqual(gate.max_consecutive_one_sentence_narrative(gate.paragraphs(text)), 0)
 
     def test_rule_matrix_extracts_rule_ids(self):
-        text = "| WF-001 | a |\n| STYLE-003 | b |\n| PAY-004 | c |"
-        self.assertEqual(gate.rule_ids_from_matrix(text), {"WF-001", "STYLE-003", "PAY-004"})
+        text = "| WF-001 | a |\n| STYLE-003 | b |\n| PAY-004 | c |\n| MEM-004 | d |"
+        self.assertEqual(gate.rule_ids_from_matrix(text), {"WF-001", "STYLE-003", "PAY-004", "MEM-004"})
 
     def test_coverage_extracts_status(self):
         text = "| WF-001 | PASS | evidence |\n| PAY-004 | NA | no power use |"
@@ -32,6 +32,12 @@ class ChapterGateTests(unittest.TestCase):
         self.assertIn("chapter_id", hit_names)
         self.assertIn("canon", hit_names)
         self.assertIn("author_chapter_ref", hit_names)
+
+    def test_markdown_chapter_title_is_not_scanned_as_backend_leak(self):
+        text = "# 《长生者皆为薪柴》\n\n## 第八章：好药不能当废料\n\n石门打开了。"
+        scan = gate.prose_text(text)
+        self.assertNotIn("第八章", scan)
+        self.assertFalse(gate.BACKEND_PATTERNS["author_chapter_ref"].search(scan))
 
     def _write(self, root: Path, rel: str, content: str) -> Path:
         path = root / rel
@@ -69,13 +75,15 @@ class ChapterGateTests(unittest.TestCase):
         self._write(
             root,
             "quality/RULE_COVERAGE_MATRIX.md",
-            "| Rule ID | hard rule |\n|---|---|\n| WF-001 | receipt |\n| STYLE-003 | no backend leakage |\n",
+            "| Rule ID | hard rule |\n|---|---|\n| WF-001 | receipt |\n| STYLE-003 | no backend leakage |\n| MEM-001 | memory question checked |\n",
         )
+        self._write(root, "quality/MEMORY_ANCHOR_SYSTEM.md", "# MEMORY ANCHOR SYSTEM\n")
+        self._write(root, "tracking/MEMORY_ANCHOR_LEDGER.md", "# MEMORY ANCHOR LEDGER\n")
         self._write(root, f"quality/receipts/{chapter}_CONTEXT_RECEIPT.md", "chapter: CH007\nstatus: PASS\n")
         self._write(root, f"quality/scene-cards/{chapter}_SCENE_CARD.md", "scene: test\nstatus: PASS\n")
 
         common = f"candidate_revision_id: {revision}\ncandidate_sha256: {digest}\nresult: PASS\n"
-        post = common + "\n| Rule ID | Status | Evidence | Note |\n|---|---|---|---|\n| WF-001 | PASS | receipt | ok |\n| STYLE-003 | PASS | 0 hit | ok |\n"
+        post = common + "\n| Rule ID | Status | Evidence | Note |\n|---|---|---|---|\n| WF-001 | PASS | receipt | ok |\n| STYLE-003 | PASS | 0 hit | ok |\n| MEM-001 | PASS | scene memory question answered | no forced anchor |\n"
         self._write(root, f"quality/reviews/{chapter}_POST_DRAFT_AUDIT.md", post)
         self._write(root, f"quality/reviews/{chapter}_PUBLICATION_GATE.md", common)
         self._write(root, f"quality/reviews/{chapter}_EXPECTATION_PAYOFF_GATE.md", common)
@@ -107,6 +115,19 @@ class ChapterGateTests(unittest.TestCase):
             finally:
                 gate.ROOT = old_root
             self.assertTrue(any("candidate_sha256 mismatch" in error for error in errors), errors)
+
+    def test_strict_delivery_requires_memory_anchor_ledger(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            candidate = self._strict_fixture(root)
+            (root / "tracking/MEMORY_ANCHOR_LEDGER.md").unlink()
+            old_root = gate.ROOT
+            gate.ROOT = root
+            try:
+                errors, _warnings = gate.validate("CH007", candidate, strict_delivery=True)
+            finally:
+                gate.ROOT = old_root
+            self.assertTrue(any("MEMORY_ANCHOR_LEDGER" in error for error in errors), errors)
 
 
 if __name__ == "__main__":
