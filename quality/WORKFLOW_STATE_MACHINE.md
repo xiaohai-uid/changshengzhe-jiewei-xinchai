@@ -1,6 +1,6 @@
-# CHAPTER WORKFLOW STATE MACHINE V1
+# CHAPTER WORKFLOW STATE MACHINE V2
 
-> 目的：把“应该执行的规则”变成不可跳步的交稿状态机。避免出现已经写了规则，但实际写章时跳过 LOAD / Scene Card / Gate 仍把失败稿交用户的情况。
+> 目的：把“应该执行的规则”变成不可跳步的交稿状态机。避免已经写了规则，但实际写章时跳过 LOAD / Scene Card / Gate 仍把失败稿交用户。
 
 ## 一、总原则：FAIL CLOSED
 
@@ -10,9 +10,23 @@
 
 **不能因为作者/模型“记得自己做过”就跳状态。**
 
-如果关键文件读取失败、Receipt 缺失、Scene Card 缺失、任一 Gate 非 PASS，则停在当前状态或退回 `BLOCKED/REWRITE`，不得向用户展示 Candidate 正文。
+如果关键文件读取失败、Receipt缺失、Scene Card缺失、任一Gate非PASS，则停在当前状态或退回 `BLOCKED/REWRITE`，不得向用户展示Candidate正文。
 
-## 二、状态链
+## 二、当前系列架构硬校验
+
+HOT LOAD时必须从 `MANIFEST.md` 确认：
+
+- `PLANNING_ARCHITECTURE = SERIES_V2_8V_2M`
+- 目标总量约200万字
+- 当前卷/Arc/Canon Horizon与Context Card一致
+
+如果任何加载到的旧规划仍以“12卷 / 350万—500万 / 第一卷110—130章”为当前有效结构，必须视为**DEPRECATED CONFLICT**：
+
+1. 不得进入 `LOADED`；
+2. 先以Manifest → Series Master → Volume Blueprints → Current Volume Detail的权威顺序解析；
+3. 旧规划只能作为历史资料，不得驱动正文。
+
+## 三、状态链
 
 `BLOCKED`
 → `LOADED`
@@ -25,18 +39,19 @@
 → `USER_REVIEW`
 → `CANON`
 
-## 三、各状态进入条件
+## 四、各状态进入条件
 
 ### 0. BLOCKED
 
 默认状态。
 
 常见原因：
-- 未完成 HOT LOAD；
-- 关键 Canon / planning 源无法读取；
-- 上一 Candidate 被判 REWRITE；
-- 当前 Arc 的阶段收益/因果方向尚未厘清；
-- 用户要求重新研究/改方向，旧 Candidate 失效。
+- 未完成HOT LOAD；
+- 关键Canon / planning源无法读取；
+- 规划架构版本冲突；
+- 上一Candidate被判REWRITE；
+- 当前Arc阶段收益/因果方向尚未厘清；
+- 用户要求重新研究/改方向，旧Candidate失效。
 
 ### 1. LOADED
 
@@ -44,29 +59,33 @@
 
 `quality/receipts/CHxxx_CONTEXT_RECEIPT.md`
 
-Receipt 至少记录：
+Receipt至少记录：
 - Canon Horizon；
-- HOT 文件读取结果；
-- 最近 1—3 Chapter Records / 上章结尾；
-- Published Prose Anchor 实际回读位置；
-- 当前 Volume / Arc / Rolling Outline；
-- 相关 Canon Kernel IDs；
-- 当前人物 State / Knowledge / Ability；
-- `quality/EXPECTATION_PAYOFF_GATE.md` 已读取。
+- `SERIES_V2_8V_2M`架构确认；
+- HOT文件读取结果；
+- 最近1—3 Chapter Records / 上章结尾；
+- Published Prose Anchor实际回读位置；
+- 当前Volume / Arc / Rolling Outline；
+- 当前卷容量锚与本Arc在八卷规划中的功能；
+- 相关Canon Kernel IDs；
+- 当前人物State / Knowledge / Ability；
+- `quality/EXPECTATION_PAYOFF_GATE.md`已读取。
 
-缺一关键源，不得进入 LOADED。
+缺一关键源，不得进入LOADED。
 
 ### 2. MACRO_ALIGNED
 
-Receipt 或工作流记录中必须回答：
-- 本章属于哪个 Arc；
+Receipt或工作流记录中必须回答：
+- 本章属于哪个Arc；
 - 推进卷级哪个核心问题；
 - 当前真相层允许到哪里；
 - 本章推进哪条人物长期弧；
 - 当前短周期读者正在等待什么具体兑现；
-- 如果删掉本章，Arc/卷损失什么。
+- 如果删掉本章，Arc/卷损失什么；
+- 本章是否在重复一个已经完成主证明的世界观结论；
+- 当前Arc是否出现“为了旧章号/旧卷长继续拖”的风险。
 
-若最后一项答案接近“没有”，退回规划层重做。
+若最后两项存在明显风险，退回规划层重做。
 
 ### 3. SCENE_READY
 
@@ -74,28 +93,28 @@ Receipt 或工作流记录中必须回答：
 
 `quality/scene-cards/CHxxx_SCENE_CARD.md`
 
-并通过 Scene Isolation：
-- 不直接翻译 Rolling Outline；
-- 不含 CH/FP/Canon 等后台任务语言；
+并通过Scene Isolation：
+- 不直接翻译Rolling Outline；
+- 不含CH/FP/Canon等后台任务语言；
 - 有人物欲望、现场阻力、有限信息、选择、后果；
 - 重要配角即使陈缺不在也有自己的行动；
 - 能回答“场景结束人物实际多了什么/少了什么”。
 
 ### 4. DRAFTED
 
-正文 Candidate 已写出，但**此状态禁止交用户**。
+正文Candidate已写出，但**此状态禁止交用户**。
 
 必须完成：
-- 2800—4000 字检查；
-- 约 3000—3300 字 MIDWRITE CAPACITY CHECK；
-- 1—2 个核心事件限制；
-- prose anchor 风格复核。
+- 2800—4000字检查；
+- 约3000—3300字MIDWRITE CAPACITY CHECK；
+- 1—2个核心事件限制；
+- prose anchor风格复核。
 
 ### 5. PUBLICATION_PASS
 
 必须执行 `quality/PUBLICATION_GATE.md` 并结论为 `PASS`。
 
-若 `REWRITE`：退回 `SCENE_READY` 或 `DRAFTED`，按问题性质重写。
+若 `REWRITE`：退回 `SCENE_READY` 或 `DRAFTED`。
 
 若 `BLOCKED`：退回 `BLOCKED`。
 
@@ -110,38 +129,38 @@ Receipt 或工作流记录中必须回答：
 - 代价没有习惯性把收益归零；
 - 主角主动性与奖励类型没有长期重复。
 
-非 PASS 不得交稿。
+非PASS不得交稿。
 
 ### 7. CONTINUITY_PASS
 
-执行 Precommit：
-- 正文与已发布正文/Canon Kernel/Chapter Ledger 无冲突；
-- UNKNOWN/SUSPECTS 未偷升事实；
+执行Precommit：
+- 正文与已发布正文/Canon Kernel/Chapter Ledger无冲突；
+- UNKNOWN/SUSPECTS未偷升事实；
 - 能力来源、进入、代价、受益者一致；
 - 伤势、位置、物品、时间、关系连续；
-- Candidate Facts/Knowledge/Timeline/Relationship/FP-P-S 已可抽取。
+- Candidate Facts/Knowledge/Timeline/Relationship/FP-P-S已可抽取。
 
 ### 8. USER_REVIEW
 
-**只有到达此状态，才允许向用户展示完整 Candidate 正文。**
+**只有到达此状态，才允许向用户展示完整Candidate正文。**
 
-展示时仍明确：Candidate 尚未进入 Canon。
+展示时仍明确：Candidate尚未进入Canon。
 
-用户要求重写/否决：状态退回 `BLOCKED` 或相应阶段，旧 Candidate 不得作为事实使用。
+用户要求重写/否决：状态退回 `BLOCKED` 或相应阶段，旧Candidate不得作为事实使用。
 
 ### 9. CANON
 
 仅在用户明确确认正文后：
 - 固化正文；
-- Candidate 状态转 Canon；
-- 更新 Kernel / Ledger / Chapter Record / State Projection；
-- 更新 Narrative Pattern / Commercial Rhythm / Rolling Outline / Context Card；
-- 写 Commit Receipt；
-- POSTCOMMIT 校验 Horizon。
+- Candidate状态转Canon；
+- 更新Kernel / Ledger / Chapter Record / State Projection；
+- 更新Narrative Pattern / Commercial Rhythm / Rolling Outline / Context Card；
+- 写Commit Receipt；
+- POSTCOMMIT校验Horizon。
 
-## 四、每章工作流文件
+## 五、每章工作流文件
 
-每个当前 Candidate 必须有：
+每个当前Candidate必须有：
 
 `quality/workflow/CHxxx_WORKFLOW.md`
 
@@ -150,6 +169,7 @@ Receipt 或工作流记录中必须回答：
 ```text
 CHAPTER: CHxxx
 CANON_HORIZON: CHxxx-1
+SERIES_ARCHITECTURE: SERIES_V2_8V_2M
 CURRENT_STATE: BLOCKED|LOADED|...
 CONTEXT_RECEIPT: path / MISSING
 SCENE_CARD: path / MISSING
@@ -160,17 +180,21 @@ USER_DECISION: PENDING|APPROVED|REWRITE
 NOTES:
 ```
 
-## 五、硬禁止
+## 六、硬禁止
 
-- 没有 Context Receipt 就写正文；
-- 没有 Scene Card 就从 Rolling Outline 扩写正文；
-- Gate 只是“脑内检查”而没有工作流状态；
-- `DRAFTED` 状态直接把正文发用户；
-- 用户否决后继续把旧 Candidate 的姓名、事实、道具当 Canon；
-- 为赶更新跳过 Gate。
+- 没有Context Receipt就写正文；
+- 没有Scene Card就从Rolling Outline扩写正文；
+- Gate只是“脑内检查”而没有工作流状态；
+- `DRAFTED`状态直接把正文发用户；
+- 用户否决后继续把旧Candidate的姓名、事实、道具当Canon；
+- 为赶更新跳过Gate；
+- 使用已经废弃的12卷/350—500万旧规划驱动当前章节；
+- 为命中旧卷长或总字数而继续已经完成的Arc。
 
-## 六、当前 CH007
+## 七、当前 CH007
 
-上一版 CH007 Candidate 已判 `REWRITE`，未进入 Canon。
+上一版CH007 Candidate已判 `REWRITE`，未进入Canon。
 
-因此 CH007 必须从 CH006 Canon Horizon 重新冷启动；旧 Candidate 中新增姓名、编号、南二细节和逃亡执行细节均不具 Canon 权威。
+因此CH007必须从CH006 Canon Horizon重新冷启动；旧Candidate中新增姓名、编号、南二细节和逃亡执行细节均不具Canon权威。
+
+当前系列宏观基线：八卷/约200万字；第一卷约70—75章；当前七日考核Arc计划约CH011/12收束，但真实因果优先。
