@@ -1,0 +1,65 @@
+name: Chapter Quality Gate
+
+on:
+  push:
+    branches:
+      - 'chapter/**'
+    paths:
+      - 'candidate/**'
+      - 'quality/**'
+      - 'tools/**'
+      - 'MANIFEST.md'
+      - 'PROJECT_RULES.md'
+      - 'LOAD_ORDER.md'
+      - 'style/**'
+  pull_request:
+    paths:
+      - 'candidate/**'
+      - 'quality/**'
+      - 'tools/**'
+      - 'MANIFEST.md'
+      - 'PROJECT_RULES.md'
+      - 'LOAD_ORDER.md'
+      - 'style/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validator regression tests
+        run: python -m unittest discover -s tools -p 'test_chapter_gate.py' -v
+
+      - name: Resolve current Candidate
+        id: candidate
+        shell: bash
+        run: |
+          chapter="$(awk -F': ' '$1=="NEXT_CHAPTER" {print $2}' MANIFEST.md | tr -d '\r')"
+          echo "chapter=$chapter" >> "$GITHUB_OUTPUT"
+          echo "path=candidate/${chapter}.md" >> "$GITHUB_OUTPUT"
+
+      - name: Fail-closed delivery validation
+        shell: bash
+        run: |
+          chapter='${{ steps.candidate.outputs.chapter }}'
+          candidate='${{ steps.candidate.outputs.path }}'
+          if [[ -f "$candidate" ]]; then
+            python tools/chapter_gate.py --chapter "$chapter" --candidate "$candidate" --strict-delivery
+          elif [[ "$GITHUB_REF_NAME" == chapter/* ]]; then
+            echo "ERROR: chapter branch has no $candidate"
+            exit 1
+          else
+            echo "No active Candidate file; validator tests only."
+          fi
