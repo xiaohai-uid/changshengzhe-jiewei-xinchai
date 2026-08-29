@@ -1,6 +1,6 @@
-# LOAD ORDER V5
+# LOAD ORDER V6
 
-每次用户说“继续 / 写下一章”时，采用分层冷启动。目标不是重读全书，而是同时保证：上一章因果、当前 Arc、当前卷终点、全书真相方向与正式小说文风都被加载。
+每次用户说“继续 / 写下一章”时，采用分层冷启动。目标不是重读全书，而是同时保证：上一章因果、当前 Arc、当前卷终点、全书真相方向、正式小说文风，以及当前短周期的**期待/兑现方向**都被加载。
 
 ## A. 每章必读 HOT
 
@@ -15,6 +15,12 @@
 9. `quality/SCENE_CARD_TEMPLATE.md`
 10. `quality/CHAPTER_GATE.md`
 11. `quality/PUBLICATION_GATE.md`
+12. `quality/EXPECTATION_PAYOFF_GATE.md`
+13. `quality/NARRATIVE_PATTERN_LEDGER.md`
+14. `quality/WORKFLOW_STATE_MACHINE.md`
+
+当前卷发生重要商业节奏重算时，定点读取最新研究基线：
+`quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md`。
 
 ## A2. Published Prose Anchor（每章强制）
 
@@ -28,6 +34,16 @@
 - 章节世界内部语言，而不是后台管理语言。
 
 若 Candidate 出现明显短句瀑布、提纲扩写、研究报告腔，优先回到已发布正文重新校准，而不是仅靠抽象 Style Guide 修补。
+
+## A3. Expectation / Payoff Anchor（每章强制）
+
+起草前必须知道当前小周期的三件事：
+
+1. **EXPECTATION**：读者现在具体在等陈缺得到/做到/改变什么？
+2. **PAYOFF**：本章负责兑现、部分兑现，还是推进兑现条件？
+3. **UPGRADE**：兑现之后，新问题怎样从获得的东西自然长出来？
+
+如果只能回答“别死 / 别暴露 / 看下一关是什么”，且前面已经连续高压，则标记商业节奏风险，先回规划层重算，不得依靠正文临时制造爽点。
 
 ## B. 书级方向 WARM/PERMANENT
 
@@ -43,7 +59,7 @@
 - `planning/TRUTH_REVEAL_LADDER.md`
 - `planning/CHARACTER_LONG_ARCS.md`
 
-原则：**短期因果决定本章怎么发生；卷纲决定本章为什么值得发生；总纲决定这件事最终把整本书推向哪里。**
+原则：**短期因果决定本章怎么发生；卷纲决定本章为什么值得发生；总纲决定这件事最终把整本书推向哪里；期待/兑现层决定读者为什么愿意继续跟。**
 
 ## C. 定点读取 Canon Kernel
 
@@ -73,6 +89,13 @@
 ### 核心人物做重大选择
 必须检查 `planning/CHARACTER_LONG_ARCS.md`，防止人物为了赶大纲突然性格漂移。
 
+### 推进能力/身份/资源兑现
+必须检查：
+- 该收益是否已有世界内来源；
+- 是否与人物能力和组织利益相容；
+- 是否留下现实资产；
+- 新成本是否合理而非为了“有代价”立即把收益清零。
+
 ## E. Context Receipt
 
 起草 Candidate 前创建/刷新 `quality/receipts/CHxxx_CONTEXT_RECEIPT.md`，记录实际读取依赖。
@@ -84,9 +107,14 @@
 - 最近正文锚；
 - Published Prose Anchor 实际读取章节；
 - 本章若涉及的新境界/势力/真相层；
-- 是否读取当前卷细纲。
+- 是否读取当前卷细纲；
+- 当前 EXPECTATION / PAYOFF / UPGRADE；
+- `EXPECTATION_PAYOFF_GATE` 已读取；
+- `WORKFLOW_STATE_MACHINE` 当前状态。
 
 关键 Canon 或规划源读取失败时，本章标 `BLOCKED/UNSAFE`，不能假装已完成连续性检查。
+
+Context Receipt 实际存在后，章节工作流才允许从 `BLOCKED` 进入 `LOADED`。
 
 ## F. Scene Isolation
 
@@ -96,9 +124,13 @@ Rolling Outline 不能直接展开成正文。
 
 如果 Scene Card 仍像“任务列表”，不得进入 WRITE。
 
+Scene Card 还必须能落地回答：人物若成功，实际会多得到什么；代价是否把这个得到全部取消。
+
 ## G. 写作流程
 
-LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE GATE → WRITE → MIDWRITE CAPACITY CHECK → PUBLICATION GATE → PRECOMMIT → EXTRACT CANDIDATE → 用户确认 → CANON PROMOTION → POSTCOMMIT → NEXT CAUSAL HOOK。
+**LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE GATE → WRITE → MIDWRITE CAPACITY CHECK → PUBLICATION GATE → EXPECTATION/PAYOFF GATE → CONTINUITY PRECOMMIT → EXTRACT CANDIDATE → 用户确认 → CANON PROMOTION → POSTCOMMIT → NEXT CAUSAL HOOK。**
+
+严格同步 `quality/workflow/CHxxx_WORKFLOW.md`。
 
 ### MACRO ALIGNMENT 必答
 
@@ -106,10 +138,27 @@ LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PAT
 1. 这章属于哪个 Arc？
 2. 它推进当前卷哪个核心问题？
 3. 它推进/保护了哪条长期人物弧或真相层？
-4. 如果删掉这章，卷级结构损失什么？若答案是“几乎没有”，则本章合同需要重做。
+4. 当前短周期读者在等待什么兑现？
+5. 如果删掉这章，卷级结构和期待曲线分别损失什么？若答案是“几乎没有”，则本章合同需要重做。
 
-## H. 冲突优先级
+## H. Candidate 展示硬条件
+
+只有工作流到达 `USER_REVIEW` 才允许向用户展示完整正文。
+
+也就是说必须同时满足：
+
+- Context Receipt 存在；
+- Scene Card 存在且 PASS；
+- Publication Gate = PASS；
+- Expectation/Payoff Gate = PASS；
+- Continuity Precommit = PASS。
+
+任一缺失：不得交稿。
+
+## I. 冲突优先级
 
 已发布正文事实 > Canon Core / World Bible > 当前有效人物状态 > 卷级终点 > 当前 Arc > Rolling Outline > 早期具体章号计划。
+
+商业节奏优化不能覆盖已发布事实，也不能迫使人物违背自身利益。
 
 如果卷纲和已发生正文冲突，修订卷纲；如果短期剧情连续偏离卷级功能，必须在 Arc Audit 中显式重算，而不是悄悄变成想到哪写到哪。
