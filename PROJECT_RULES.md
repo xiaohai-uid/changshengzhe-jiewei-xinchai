@@ -94,7 +94,7 @@
 
 `quality/reviews/CHxxx_POST_DRAFT_AUDIT.md`
 
-并按 `quality/POST_DRAFT_AUDIT.md` 完成机械扫描、规则覆盖、因果/人物反证、Knowledge/Power claim审计、Outline泄漏审计、资产Diff、Anti-AI清扫、Reader Clean Read、Failure Memory回归测试。
+并按 `quality/POST_DRAFT_AUDIT.md` 完成机械扫描、规则覆盖、因果/人物反证、Knowledge/Power claim审计、Outline泄漏审计、资产Diff、Anti-AI清扫、Memory Anchor Audit、Reader Clean Read、Failure Memory回归测试。
 
 没有报告：BLOCKED。
 
@@ -120,8 +120,8 @@
 
 正文修改后按影响范围重跑：
 - 错字/标点：Mechanical Lint + Final Delivery，并生成新SHA；
-- 句段/对白：相关Style checks + Publication + Final；
-- 事件/动机/知识/能力/资源/关系/章尾：Post-Draft / Publication / Payoff / Continuity / Final全部重跑。
+- 句段/对白：相关Style/MEM checks + Publication + Final；
+- 事件/动机/知识/能力/资源/关系/记忆锚/章尾：Post-Draft / Publication / Payoff / Continuity / Final全部重跑。
 
 禁止“审的是A稿，交的是B稿”。
 
@@ -192,6 +192,60 @@ Final Delivery PASS 后，必须把以下内容提交到 `MANIFEST.md` 指定的
 
 力量仍然必须付费；付完成本以后，陈缺应逐渐留下可累积的东西。
 
+## 记忆锚与人物辨识度
+
+追读与记忆分开管理：
+
+- `EXPECTATION/PAYOFF` 解决“为什么继续读”；
+- `MEMORY ANCHOR` 解决“为什么三个月后还记得”。
+
+正式规则见：
+- `quality/MEMORY_ANCHOR_SYSTEM.md`
+- `tracking/MEMORY_ANCHOR_LEDGER.md`
+
+### 单章规则
+
+每个Scene Card必须回答：
+
+> 如果读者三个月后只记得这个场景一样东西，最可能是什么？
+
+允许明确写 `NO NEW ANCHOR`。普通过渡章、承接章、恢复章不要求强造名场面。
+
+如果自然产生记忆锚，应优先来自：
+- 可复述场面；
+- 只有该人物会做出的选择/动作；
+- 从利益冲突自然长出的台词；
+- 有意义变化潜力的物件/数字/标记；
+- 关系债、约定、共同秘密；
+- 低频主题命题。
+
+禁止：
+- 为“深刻”硬写哲理金句；
+- 给角色分配固定口头禅；
+- 用粗体/独段/重复强调逼读者记；
+- 已有锚点无增值复读；
+- 为制造名场面破坏人物逻辑或世界规则。
+
+### Arc规则
+
+Arc结束前至少应自然留下：
+1. 一个可复述场面锚；
+2. 一个主要人物强性格瞬间；
+3. 一个可继续回响的物件/关系/台词/行为锚；
+4. 一句普通读者能说清的阶段变化。
+
+不足时回Arc结构检查，不允许只在最后一章硬补。
+
+### 记忆增值
+
+锚点回响必须增加至少一项：新情绪、新关系、新信息、新权力关系或新含义。
+
+同一句话、同一个物件、同一个动作只做机械提醒，不算有效回响。
+
+核心原则：
+
+> **先让事情值得记，再让系统负责不忘。**
+
 ## 单章字数与容量硬规则
 
 - 正文章节按 **2800—4000字** 控制；常规目标 **3200—3600字**。
@@ -212,12 +266,13 @@ Final Delivery PASS 后，必须把以下内容提交到 `MANIFEST.md` 指定的
 
 ## 更新节奏
 
-- 每章：State Diff + Narrative Pattern / Commercial Rhythm + Post-Draft Audit。
-- 每5章：CANON SNAPSHOT + 期待/兑现曲线回顾 + Failure Pattern回顾。
-- 每10章：CONTINUITY AUDIT + Narrative Pattern + Macro Drift Audit + Rule Coverage orphan audit。
-- 每卷：重建 CANON MAJOR VERSION。
+- 每章：State Diff + Narrative Pattern / Commercial Rhythm + Post-Draft Audit + Memory Anchor Check。
+- 每5章：CANON SNAPSHOT + 期待/兑现曲线回顾 + Failure Pattern回顾 + Memory Anchor Review。
+- 每10章：CONTINUITY AUDIT + Narrative Pattern + Macro Drift Audit + Rule Coverage orphan audit + 人物辨识度回顾。
+- 每Arc：Arc Memory Audit。
+- 每卷：重建 CANON MAJOR VERSION，并筛选少量值得跨卷保留的核心记忆锚。
 
-审计检查：性格漂移、越权知识、境界能力冲突、伤势道具、时间线、世界规则、伏笔遗忘、重复爽点、配角工具化、无代价成功、长期负收益、纯信息奖励、主动性停滞，以及“规则存在但无人负责检查/没有执行器”。
+审计检查：性格漂移、越权知识、境界能力冲突、伤势道具、时间线、世界规则、伏笔遗忘、重复爽点、配角工具化、无代价成功、长期负收益、纯信息奖励、主动性停滞、人物声音趋同、记忆锚机械复读，以及“规则存在但无人负责检查/没有执行器”。
 
 发现问题优先修未来剧情，不偷偷重写已经发布事实。
 
@@ -255,6 +310,8 @@ Rolling Outline只规定因果方向、阶段期待与可能收益，不得逐�
 
 200万版本减少“观点NPC”：能由已有角色承担且不违背利益时，不新增专门讲世界观观点的人。
 
+重要人物的辨识度优先建立在关注点、利益、回避方式、动作选择和语言逻辑上，不靠固定口头禅。
+
 ## 叙事风格
 
 简洁、强节奏、具体观察、推理基于可见证据、少量短句强化节点、信息逐层递进。
@@ -262,6 +319,8 @@ Rolling Outline只规定因果方向、阶段期待与可能收益，不得逐�
 禁止机械复制句式，尤其控制“陈缺心里一沉 / 他忽然明白 / 原来如此 / 真正的问题是——”等。
 
 自然段规则：同一动作链、观察链、思考链尽量合段；通常一段2—5句；对话按说话人换段；只有关键死亡、发现、反转、答案允许一句独占一段。禁止全篇短句碎段造成AI感。
+
+至少保留具体质感，但不得把“有记忆点”误解为“每章必须有一句可以截图传播的话”。
 
 ## 研究使用规则
 
@@ -273,6 +332,6 @@ Rolling Outline只规定因果方向、阶段期待与可能收益，不得逐�
 
 ## 质量优先级
 
-**逻辑连续性 > 人物真实 > 规则审计与执行完整性 > 期待与兑现 > 情绪不过度拉长 > 强行爽 > 赶剧情 > 提前完成卷纲 > 凑字数。**
+**逻辑连续性 > 人物真实 > 规则审计与执行完整性 > 期待与兑现 > 记忆辨识度与长期回响 > 情绪不过度拉长 > 强行爽 > 赶剧情 > 提前完成卷纲 > 凑字数。**
 
-商业化优化的目标不是降低逻辑，而是选择更有情绪回报、更能累积主动权的合理因果。
+商业化优化的目标不是降低逻辑，而是选择更有情绪回报、更能累积主动权、也更能留下人物与场面记忆的合理因果。
