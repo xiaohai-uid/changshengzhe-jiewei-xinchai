@@ -1,0 +1,33 @@
+# CH008 WORKFLOW
+
+CHAPTER: CH008
+CANON_HORIZON: CH007
+SERIES_ARCHITECTURE: SERIES_V2_8V_2M
+CANDIDATE_BRANCH: chapter/CH008
+CANDIDATE_PATH: candidate/CH008.md
+CURRENT_VOLUME_TARGET: ~70-75 chapters
+CURRENT_ARC_TARGET: ~CH001-CH011/12
+CURRENT_STATE: BLOCKED
+CANDIDATE_REVISION_ID: NONE
+CANDIDATE_SHA256: NONE
+CONTEXT_RECEIPT: MISSING
+SCENE_CARD: MISSING
+POST_DRAFT_AUDIT: PENDING
+RULE_COVERAGE: PENDING
+FAILURE_REGRESSION: PENDING
+PUBLICATION_GATE: PENDING
+EXPECTATION_PAYOFF_GATE: PENDING
+CONTINUITY_PRECOMMIT: PENDING
+FINAL_DELIVERY_GATE: PENDING
+EXTERNAL_CI: PENDING
+USER_DECISION: PENDING
+
+## Hard constraints
+
+- Start only from confirmed CH007《一篓坏药》.
+- CH007 durable asset (南二次日工作入口/懂药可用记录) must remain real and cause a consequence.
+- 韩鸦截至CH007未被正文证明知道这项变化；CH008若得知必须给可见合理渠道。
+- 陈缺真木属灵气仍几乎耗尽，不能恢复成解法。
+- Limited negotiation is not power reversal; 韩鸦仍掌握剔虫把柄与明显境界/制度优势。
+- TARGET-0001姓名/路线/同伙不得由规划直接灌入。
+- Complete executable gate chain + exact-head external CI required before user display.
