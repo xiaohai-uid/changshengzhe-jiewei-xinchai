@@ -1,8 +1,10 @@
-# POST-DRAFT AUDIT V1
+# POST-DRAFT AUDIT V2
 
 > 目的：正文写完以后，不立刻进入 Publication Gate，而是先把 Candidate 当成“可能有错的稿件”进行一次证据化审查。
 >
 > 本协议专门解决：规则很多，但作者写完后只凭记忆/感觉说“应该没问题”，最后由用户人工指出违规。
+>
+> V2新增Memory Anchor Audit：不仅检查“有没有写坏”，还检查人物、场面、关系和物件是否留下可识别记忆，以及已有锚点是否被低价值复读。
 
 ## 一、核心原则
 
@@ -25,11 +27,11 @@ Candidate 完成后先冻结一个版本，生成：
 - 修改涉及的 Gate 自动失效；
 - 至少重新跑 Mechanical Lint + 被修改部分对应 Rule IDs + Final Delivery Gate。
 
-如果修改改变事件、人物选择、知识、收益、能力或章尾，则 Publication / Expectation-Payoff / Continuity 必须全部重跑。
+如果修改改变事件、人物选择、知识、收益、能力、关系、记忆锚候选或章尾，则 Publication / Expectation-Payoff / Continuity 必须全部重跑。
 
 ### 3. 不允许“已检查”式结论
 
-每个关键 PASS 必须给证据。可用：段落号、原句、计数、来源事实、前后状态 Diff、最近章节比较。
+每个关键 PASS 必须给证据。可用：段落号、原句、计数、来源事实、前后状态 Diff、最近章节比较、Memory Anchor Ledger对照。
 
 ---
 
@@ -52,6 +54,7 @@ paragraph_count:
 mechanical_lint: PASS/REWRITE
 rule_coverage: PASS/REWRITE/BLOCKED
 adversarial_review: PASS/REWRITE
+memory_anchor_audit: PASS/REWRITE
 reader_clean_read: PASS/REWRITE
 result: PASS/REWRITE/BLOCKED
 ```
@@ -127,7 +130,7 @@ Post-Draft Audit PASS 只允许进入后续 Publication Gate，不等于可以�
 
 打开 `quality/RULE_COVERAGE_MATRIX.md`。
 
-只要本章相关的 delivery-critical Rule ID，都必须填：
+所有delivery-critical Rule ID都必须填，不只填“本章感觉相关”的规则：
 
 | Rule ID | Status | Evidence | Note |
 |---|---|---|---|
@@ -221,8 +224,6 @@ Post-Draft Audit PASS 只允许进入后续 Publication Gate，不等于可以�
 ---
 
 # 七、PASS E · Outline Leakage Audit
-
-这是上次 CH007 失败的专门回归测试。
 
 将 Rolling Outline / Scene Card 与正文并排比较：
 
@@ -326,7 +327,86 @@ Post-Draft Audit PASS 只允许进入后续 Publication Gate，不等于可以�
 
 ---
 
-# 十一、PASS I · Regression Tests
+# 十一、PASS I · Memory Anchor Audit
+
+读取：
+- `quality/MEMORY_ANCHOR_SYSTEM.md`
+- `tracking/MEMORY_ANCHOR_LEDGER.md`
+- 当前Scene Card第9问
+
+必须记录：
+
+```text
+scene_memory_answer:
+new_anchor_candidate: YES/NO
+anchor_type: SCENE/LINE/BEHAVIOR/OBJECT/RELATIONSHIP/THEME/NA
+existing_anchor_echoed: ID/NO
+meaning_added_or_changed:
+forced_memorability_risk: PASS/REWRITE
+anchor_diff_proposal: NONE / proposed change after Canon Promotion
+```
+
+### I1. 新锚不是硬要求
+
+`new_anchor_candidate = NO` 完全允许。
+
+如果本章主要功能是承接、兑现、过渡、恢复、移动、准备，只要场景成立，不因“没有名场面”判FAIL。
+
+对应：`MEM-001`。
+
+### I2. 新锚必须自然
+
+若有新Anchor Candidate，必须能指出正文中的具体画面/动作/台词/物件/关系变化，并回答：
+
+- 去掉作者解释后还成立吗？
+- 是否与人物当下利益有关？
+- 是否具有本书/本人物辨识度？
+
+仅因为“句子很漂亮”不得登记。
+
+对应：`MEM-002/003`。
+
+### I3. 旧锚回响必须增值
+
+若出现Ledger已有锚：
+
+必须写出本次比上次多了什么：
+- 新情绪；
+- 新关系；
+- 新信息；
+- 新权力关系；
+- 新含义。
+
+如果只是原句/物件机械提醒，没有增值：REWRITE或删除回响。
+
+对应：`MEM-004`。
+
+### I4. 人物辨识度
+
+对本章最重要的1—2名角色，选一个关键对白或选择，问：
+
+> 隐去姓名后，它是否符合这个人物独有的关注点、利益与回避方式？
+
+不要求“百分百猜中”，但若所有角色都说成同一种作者式聪明话，应重写。
+
+对应：`MEM-005`。
+
+### I5. Arc收束额外审计
+
+若本章是Arc收束章，必须读取Ledger的Arc Memory Audit，确认：
+
+1. 可复述场面锚；
+2. 主要人物强性格瞬间；
+3. 可继续回响锚；
+4. 一句话阶段变化。
+
+不足：`REPLAN/REWRITE`，不得靠最后一页临时塞名场面。
+
+对应：`MEM-006`。
+
+---
+
+# 十二、PASS J · Regression Tests
 
 读取 `quality/FAILURE_MEMORY.md`。
 
@@ -336,7 +416,7 @@ Post-Draft Audit PASS 只允许进入后续 Publication Gate，不等于可以�
 
 ---
 
-# 十二、审查结论
+# 十三、审查结论
 
 只能是：
 
@@ -349,4 +429,6 @@ Post-Draft Audit PASS 只允许进入后续 Publication Gate，不等于可以�
 - 句式/段落问题 → 可以局部改稿；
 - 知识越权/连续性问题 → 修改相关场景并重跑 Continuity；
 - 提纲扩写/人物工具化/因果错误 → 退回 Scene Card 重构；
-- 当前正向期待不存在 → 退回 Rolling Outline / Arc 规划，不在正文里硬补爽点。
+- 当前正向期待不存在 → 退回 Rolling Outline / Arc 规划，不在正文里硬补爽点；
+- 记忆锚强造/无增值复读 → 删除或重写相关场景；
+- Arc整体缺乏任何可复述残余 → 回Arc结构层重算，禁止只补金句。
