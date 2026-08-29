@@ -1,6 +1,6 @@
 # MANIFEST
 
-SCHEMA_VERSION: V3
+SCHEMA_VERSION: V4
 PLANNING_ARCHITECTURE: SERIES_V1_12V
 CURRENT_BOOK: 《长生者皆为薪柴》
 CURRENT_PHASE: PHASE_I_我为什么会被吃
@@ -24,7 +24,12 @@ CURRENT_CONTEXT_CARD: tracking/CONTEXT_CARD.md
 CURRENT_ROLLING_OUTLINE: planning/ROLLING_OUTLINE.md
 SCENE_CARD_TEMPLATE: quality/SCENE_CARD_TEMPLATE.md
 PUBLICATION_GATE: quality/PUBLICATION_GATE.md
+EXPECTATION_PAYOFF_GATE: quality/EXPECTATION_PAYOFF_GATE.md
 CHAPTER_GATE: quality/CHAPTER_GATE.md
+WORKFLOW_STATE_MACHINE: quality/WORKFLOW_STATE_MACHINE.md
+CURRENT_WORKFLOW: quality/workflow/CH007_WORKFLOW.md
+NARRATIVE_PATTERN_LEDGER: quality/NARRATIVE_PATTERN_LEDGER.md
+COMMERCIAL_RESEARCH_BASELINE: quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md
 STYLE_GUIDE: style/STYLE_GUIDE.md
 NEXT_CHAPTER: CH007
 CANON_BRANCH: main
@@ -40,6 +45,7 @@ TRACKING_STATE_ROLE: projection
 5. Snapshot / State Diff（历史恢复与迁移依据）。
 6. state/tracking 人类可读投影。
 7. planning：总纲约束未来方向，但不得覆盖过去正文。
+8. quality/research：只校准阅读体验与规划方法，不拥有 Canon 权威。
 
 ## Planning Authority
 
@@ -49,13 +55,17 @@ TRACKING_STATE_ROLE: projection
 
 如果短期因果与旧章号计划冲突，允许改章号/Arc节奏；如果连续剧情正在偏离卷级核心功能，必须显式重算而不是自然漂移。
 
+商业阅读体验属于 planning/quality 层约束：它可以改变未来事件的节奏、收益结构和场景选择，但不能覆盖已发布事实、人物真实利益或世界硬规则。
+
 ## Writing Authority
 
 规划层不能直接生成正文。正文必须经过：
 
-**Rolling Outline → Scene Card → Published Prose Anchor → Write → Publication Gate → Continuity Precommit。**
+**Rolling Outline → Scene Card → Published Prose Anchor → Write → Publication Gate → Expectation/Payoff Gate → Continuity Precommit → User Review。**
 
-Publication Gate 与 Continuity Gate 同为硬门；任一失败都不得交 Candidate。
+并同步 `quality/WORKFLOW_STATE_MACHINE.md`。
+
+Publication Gate、Expectation/Payoff Gate、Continuity Precommit 三者同为硬门；任一失败都不得交 Candidate。
 
 ## Current Publication Safeguards
 
@@ -65,6 +75,17 @@ Publication Gate 与 Continuity Gate 同为硬门；任一失败都不得交 Can
 - 每章写前必须回读已发布正文作为 prose anchor。
 - 必须检查高层胜利算法重复，不只检查具体招式重复。
 - 配角必须拥有独立目标；进入场景前要能回答“如果陈缺不在，他今天会做什么”。
+- 每章/小周期必须检查“期待 → 兑现 → 升级”，避免长期只留下秘密与危险。
+- 代价可以污染收益，但禁止习惯性把重大获得立即清零。
+- 信息可以是奖励，但不能长期成为唯一主奖励。
+- 没有 Context Receipt / Scene Card / Gate PASS 记录，不允许交完整正文。
+
+## Current Candidate Status
+
+- CH007 前一 Candidate：`REWRITE`，未进入 Canon。
+- 当前 CH007 工作流：`BLOCKED`。
+- 前一 Candidate 中新增的姓名、编号、南二具体器物/流程、逃亡执行细节没有 Canon 权威。
+- CH007 必须从 CH006 Canon Horizon 重新执行完整冷启动与门禁。
 
 ## Canon Policy
 
@@ -76,4 +97,4 @@ Publication Gate 与 Continuity Gate 同为硬门；任一失败都不得交 Can
 - Revision 必须执行 Change Impact Protocol。
 - 作者层已经锁定的未来世界真相只能按 `TRUTH_REVEAL_LADDER` 分层进入正文，不能因为仓库里已经写明就让角色提前知道。
 
-核心原则：**正文决定过去；Canon 描述真实世界；Tracking 描述现在；Outline 约束未来方向；Scene Card 隔离后台与小说；Publication Gate 保证成品像小说；Rolling Outline 服从真实因果。**
+核心原则：**正文决定过去；Canon 描述真实世界；Tracking 描述现在；Outline 约束未来方向；Scene Card 隔离后台与小说；Publication Gate 保证成品像小说；Expectation/Payoff Gate 保证高压之后有真实累计；Rolling Outline 服从真实因果；Workflow State Machine 防止跳步交稿。**
