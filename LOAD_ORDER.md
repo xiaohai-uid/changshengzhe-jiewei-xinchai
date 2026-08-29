@@ -1,53 +1,66 @@
-# LOAD ORDER V6
+# LOAD ORDER V7
 
-每次用户说“继续 / 写下一章”时，采用分层冷启动。目标不是重读全书，而是同时保证：上一章因果、当前 Arc、当前卷终点、全书真相方向、正式小说文风，以及当前短周期的**期待/兑现方向**都被加载。
+每次用户说“继续 / 写下一章”时采用分层冷启动。目标同时保证：上一章因果、当前Arc、当前卷终点、全书真相方向、正式小说文风、期待/兑现方向，以及**写后审查规则**都被加载。
 
 ## A. 每章必读 HOT
 
 1. `PROJECT_RULES.md`
 2. `MANIFEST.md`
 3. `tracking/CONTEXT_CARD.md`
-4. `planning/ARC_MAP.md` 当前 Arc
+4. `planning/ARC_MAP.md` 当前Arc
 5. `planning/ROLLING_OUTLINE.md` 当前章
-6. 当前卷细纲中与本 Arc 相关部分：当前为 `planning/volumes/V01_DETAIL.md`
-7. 最近 1—3 个 `tracking/chapter-records/`；必要时回读上章结尾全文
+6. 当前卷细纲相关部分：`planning/volumes/V01_DETAIL.md`
+7. 最近1—3个 `tracking/chapter-records/`；必要时回读上章结尾全文
 8. `style/STYLE_GUIDE.md`
 9. `quality/SCENE_CARD_TEMPLATE.md`
 10. `quality/CHAPTER_GATE.md`
-11. `quality/PUBLICATION_GATE.md`
-12. `quality/EXPECTATION_PAYOFF_GATE.md`
-13. `quality/NARRATIVE_PATTERN_LEDGER.md`
-14. `quality/WORKFLOW_STATE_MACHINE.md`
+11. `quality/WORKFLOW_STATE_MACHINE.md`
+12. `quality/RULE_COVERAGE_MATRIX.md`
+13. `quality/POST_DRAFT_AUDIT.md`
+14. `quality/PUBLICATION_GATE.md`
+15. `quality/EXPECTATION_PAYOFF_GATE.md`
+16. `quality/FINAL_DELIVERY_GATE.md`
+17. `quality/FAILURE_MEMORY.md`
+18. `quality/NARRATIVE_PATTERN_LEDGER.md`
 
-当前卷发生重要商业节奏重算时，定点读取最新研究基线：
+当前卷发生重要商业节奏重算时，定点读取：
 `quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md`。
+
+### HOT完整性硬规则
+
+Context Receipt 必须记录上述质量规则的版本/路径。缺失 `RULE_COVERAGE / POST_DRAFT / FINAL_DELIVERY / FAILURE_MEMORY` 任一项，本章不得进入 LOADED。
+
+---
 
 ## A2. Published Prose Anchor（每章强制）
 
-每次起草正文前，必须回读至少 2 段已经发布并被确认质量稳定的正式正文，优先从当前卷最近章节与 CH001—CH003 中选择。
+起草前回读至少2段已发布且质量稳定的正文，优先最近章节与CH001—CH003。
 
-用途不是复制句子，而是重新校准：
+校准：
 - 自然段长度；
-- 动作、观察、心理如何合段；
+- 动作/观察/心理合段方式；
 - 对话密度；
 - 推理如何藏进行为；
-- 章节世界内部语言，而不是后台管理语言。
+- 世界内部语言。
 
-若 Candidate 出现明显短句瀑布、提纲扩写、研究报告腔，优先回到已发布正文重新校准，而不是仅靠抽象 Style Guide 修补。
+Candidate出现短句瀑布、提纲扩写、研究报告腔时，必须重新回到Prose Anchor，不只靠抽象规则修补。
+
+---
 
 ## A3. Expectation / Payoff Anchor（每章强制）
 
-起草前必须知道当前小周期的三件事：
+写前必须知道：
+1. EXPECTATION：读者具体在等陈缺得到/做到/改变什么；
+2. PAYOFF：本章负责兑现、部分兑现还是推进条件；
+3. UPGRADE：兑现后新问题怎样从获得自然长出。
 
-1. **EXPECTATION**：读者现在具体在等陈缺得到/做到/改变什么？
-2. **PAYOFF**：本章负责兑现、部分兑现，还是推进兑现条件？
-3. **UPGRADE**：兑现之后，新问题怎样从获得的东西自然长出来？
+如果只能回答“别死 / 别暴露 / 看下一关”，且前面已连续高压，先回规划层重算。
 
-如果只能回答“别死 / 别暴露 / 看下一关是什么”，且前面已经连续高压，则标记商业节奏风险，先回规划层重算，不得依靠正文临时制造爽点。
+---
 
-## B. 书级方向 WARM/PERMANENT
+## B. 书级 WARM / PERMANENT
 
-以下不要求每章全量塞入上下文，但在冷启动、Arc切换、每5章Snapshot、每10章Audit、出现新世界观/境界/势力时必须定点读取：
+Arc切换、每5章Snapshot、每10章Audit、新世界观/境界/势力时定点读取：
 
 - `canon/CANON_CORE.md`
 - `canon/WORLD_BIBLE.md`
@@ -59,106 +72,131 @@
 - `planning/TRUTH_REVEAL_LADDER.md`
 - `planning/CHARACTER_LONG_ARCS.md`
 
-原则：**短期因果决定本章怎么发生；卷纲决定本章为什么值得发生；总纲决定这件事最终把整本书推向哪里；期待/兑现层决定读者为什么愿意继续跟。**
+原则：短期因果决定怎么发生；卷纲决定为什么值得；总纲决定最终方向；期待/兑现决定为什么继续读；Rule Coverage决定交稿前有没有漏规则。
 
-## C. 定点读取 Canon Kernel
+---
 
-根据本章合同中的永久 ID，只读取相关：
-- `canon/kernel/ENTITIES.jsonl`
-- `FACTS.jsonl`
-- `KNOWLEDGE.jsonl`
-- `TIMELINE.jsonl`
-- `RELATIONSHIPS.jsonl`
-- `PLOTS.jsonl`
-- `PROMISES.jsonl`
-- `INFO_GAPS.jsonl`
+## C. Canon Kernel 定点读取
 
-遇到旧事实争议，再按 `source_chapter` / Fact ID / Entity ID / FP-P-S ID 回查 Chapter Record 或正式正文。禁止因为“不确定”就默认补全。
+根据本章涉及永久ID读取：
+- ENTITIES
+- FACTS
+- KNOWLEDGE
+- TIMELINE
+- RELATIONSHIPS
+- PLOTS
+- PROMISES
+- INFO_GAPS
+
+有争议时按source_chapter/Fact ID回查正文。禁止因为“不确定”默认补全。
+
+---
 
 ## D. 新概念读取规则
 
-### 首次出现新境界
-必须读取 `canon/CULTIVATION_SYSTEM.md` 对应境界；正文只给当前场景所需的最小尺度，不一次百科讲完。
+### 新境界
+读取 `CULTIVATION_SYSTEM` 对应层；正文只给当前场景所需最小尺度。
 
-### 首次出现新势力/新地域
-必须读取 `canon/FACTIONS_GEOGRAPHY.md` 与当前卷 Blueprint，确认该势力为何存在、资源来源、受益者和成本承担者。
+### 新势力/地域
+读取 `FACTIONS_GEOGRAPHY` 与当前卷Blueprint。
 
 ### 推进世界真相
-必须检查 `planning/TRUTH_REVEAL_LADDER.md`：本卷允许推进到哪一层，哪些答案仍应保持 UNKNOWN。
+检查 `TRUTH_REVEAL_LADDER`，不得越层。
 
-### 核心人物做重大选择
-必须检查 `planning/CHARACTER_LONG_ARCS.md`，防止人物为了赶大纲突然性格漂移。
+### 核心人物重大选择
+检查 `CHARACTER_LONG_ARCS`。
 
 ### 推进能力/身份/资源兑现
-必须检查：
-- 该收益是否已有世界内来源；
-- 是否与人物能力和组织利益相容；
-- 是否留下现实资产；
-- 新成本是否合理而非为了“有代价”立即把收益清零。
+检查来源、组织利益、耐久残余与成本，禁止为了“有代价”立即清零。
+
+---
 
 ## E. Context Receipt
 
-起草 Candidate 前创建/刷新 `quality/receipts/CHxxx_CONTEXT_RECEIPT.md`，记录实际读取依赖。
+起草前创建/刷新 `quality/receipts/CHxxx_CONTEXT_RECEIPT.md`。
 
 至少登记：
 - Canon Horizon；
-- 当前 Arc / Volume；
-- 相关 Fact / Knowledge / FP-P-S；
+- SERIES_V2_8V_2M确认；
+- 当前Arc/Volume；
+- Fact/Knowledge/FP-P-S；
 - 最近正文锚；
-- Published Prose Anchor 实际读取章节；
-- 本章若涉及的新境界/势力/真相层；
-- 是否读取当前卷细纲；
-- 当前 EXPECTATION / PAYOFF / UPGRADE；
-- `EXPECTATION_PAYOFF_GATE` 已读取；
-- `WORKFLOW_STATE_MACHINE` 当前状态。
+- Published Prose Anchor；
+- 当前卷细纲；
+- 新境界/势力/真相层；
+- EXPECTATION/PAYOFF/UPGRADE；
+- Rule Coverage版本；
+- Failure Memory版本；
+- Workflow当前状态。
 
-关键 Canon 或规划源读取失败时，本章标 `BLOCKED/UNSAFE`，不能假装已完成连续性检查。
+关键源失败：BLOCKED/UNSAFE。
 
-Context Receipt 实际存在后，章节工作流才允许从 `BLOCKED` 进入 `LOADED`。
+---
 
 ## F. Scene Isolation
 
 Rolling Outline 不能直接展开成正文。
 
-写正文前必须先按 `quality/SCENE_CARD_TEMPLATE.md` 把本章翻译成角色世界内部场景。Scene Card 必须脱离 CH/FP/Canon/Knowledge 等后台标签，只保留人物欲望、现场阻力、有限信息、选择与后果。
+必须先生成 `quality/scene-cards/CHxxx_SCENE_CARD.md`。Scene Card只保留人物欲望、现场阻力、有限信息、选择、现实收益、代价与净变化。
 
-如果 Scene Card 仍像“任务列表”，不得进入 WRITE。
+Scene Card像任务列表：不得进入WRITE。
 
-Scene Card 还必须能落地回答：人物若成功，实际会多得到什么；代价是否把这个得到全部取消。
+---
 
-## G. 写作流程
+## G. 完整写作流程
 
-**LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE GATE → WRITE → MIDWRITE CAPACITY CHECK → PUBLICATION GATE → EXPECTATION/PAYOFF GATE → CONTINUITY PRECOMMIT → EXTRACT CANDIDATE → 用户确认 → CANON PROMOTION → POSTCOMMIT → NEXT CAUSAL HOOK。**
+**LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE → WRITE → MIDWRITE → FREEZE REVISION → POST-DRAFT AUDIT → PUBLICATION → EXPECTATION/PAYOFF → CONTINUITY PRECOMMIT → FINAL DELIVERY → USER REVIEW → CANON PROMOTION → POSTCOMMIT → NEXT CAUSAL HOOK。**
 
 严格同步 `quality/workflow/CHxxx_WORKFLOW.md`。
 
 ### MACRO ALIGNMENT 必答
 
-写章前内部必须能回答：
-1. 这章属于哪个 Arc？
-2. 它推进当前卷哪个核心问题？
-3. 它推进/保护了哪条长期人物弧或真相层？
-4. 当前短周期读者在等待什么兑现？
-5. 如果删掉这章，卷级结构和期待曲线分别损失什么？若答案是“几乎没有”，则本章合同需要重做。
+1. 属于哪个Arc？
+2. 推进卷级哪个核心问题？
+3. 保护/推进哪条人物弧或真相层？
+4. 读者在等待什么兑现？
+5. 删掉本章会损失什么？
+6. 是否重复已经完成的证明/情绪？
 
-## H. Candidate 展示硬条件
+---
 
-只有工作流到达 `USER_REVIEW` 才允许向用户展示完整正文。
+## H. 写后审查（强制）
 
-也就是说必须同时满足：
+正文完成后不是“顺手看一遍”，而是必须：
 
-- Context Receipt 存在；
-- Scene Card 存在且 PASS；
-- Publication Gate = PASS；
-- Expectation/Payoff Gate = PASS；
-- Continuity Precommit = PASS。
+1. 冻结 `candidate_revision_id`；
+2. 生成 `CHxxx_POST_DRAFT_AUDIT.md`；
+3. 对 `RULE_COVERAGE_MATRIX` 逐条取证；
+4. 执行 `FAILURE_MEMORY` ACTIVE回归测试；
+5. 后续Gate全部绑定同一revision；
+6. 执行 Final Delivery Clean Read。
+
+正文修改后按 `FINAL_DELIVERY_GATE` 失效规则重跑。
+
+---
+
+## I. Candidate 展示硬条件
+
+只有 workflow = `USER_REVIEW` 才允许展示完整正文。
+
+必须同时满足：
+- Context Receipt存在；
+- Scene Card存在；
+- Post-Draft Audit = PASS；
+- Rule Coverage = PASS；
+- Publication = PASS；
+- Expectation/Payoff = PASS；
+- Continuity = PASS；
+- Failure Regression = PASS；
+- Final Delivery = PASS；
+- 所有结果绑定同一revision。
 
 任一缺失：不得交稿。
 
-## I. 冲突优先级
+---
 
-已发布正文事实 > Canon Core / World Bible > 当前有效人物状态 > 卷级终点 > 当前 Arc > Rolling Outline > 早期具体章号计划。
+## J. 冲突优先级
 
-商业节奏优化不能覆盖已发布事实，也不能迫使人物违背自身利益。
+已发布正文事实 > Canon Core / World Bible > 当前有效人物状态 > 卷级终点 > 当前Arc > Rolling Outline > 早期具体章号计划。
 
-如果卷纲和已发生正文冲突，修订卷纲；如果短期剧情连续偏离卷级功能，必须在 Arc Audit 中显式重算，而不是悄悄变成想到哪写到哪。
+商业节奏不能覆盖人物利益；旧12卷规划不能覆盖SERIES_V2_8V_2M。
