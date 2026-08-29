@@ -1,4 +1,4 @@
-# RULE COVERAGE MATRIX V1
+# RULE COVERAGE MATRIX V2
 
 > 目的：解决“规则存在，但没有任何 Gate 真正检查”的问题。
 >
@@ -15,9 +15,12 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 - `SOURCE`：对应 Canon / State / Knowledge / Planning 来源路径与事实 ID；
 - `DIFF`：场景前后人物状态/资源/关系的明确变化；
 - `COMPARE`：与最近章节、Rolling Outline、Scene Card 的结构比较；
-- `NONE-HIT`：对明确可扫描的违禁项执行搜索后 0 命中。
+- `NONE-HIT`：对明确可扫描的违禁项执行搜索后 0 命中；
+- `CI`：GitHub Actions workflow run id + branch + exact head_sha + conclusion。
 
 任何硬规则若只能靠“作者感觉”判断，必须在 Post-Draft Audit 中增加一个可观察问题，不能直接 PASS。
+
+`WF-006` 属于外部执行规则：Post-Draft 阶段可以标 `NA`，理由必须明确写“External CI only after final candidate commit”；它最终由运行时 Actions 结果负责，不能因Post-Draft的NA而免除。
 
 ## 二、工作流与事实权威
 
@@ -26,8 +29,9 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | WF-001 | HOT LOAD / Context Receipt 未完成不得写正文 | PROJECT_RULES / LOAD_ORDER | PREWRITE | Receipt 路径 + loaded sources | BLOCKED |
 | WF-002 | Scene Card 未完成不得从 Outline 进入正文 | SCENE_CARD / CHAPTER_GATE | PREWRITE | Scene Card 路径 | BLOCKED |
 | WF-003 | 所有 Gate 必须按状态机顺序执行 | WORKFLOW_STATE_MACHINE | ALL | workflow state history | BLOCKED |
-| WF-004 | Gate PASS 必须绑定同一 Candidate Revision | POST_DRAFT / FINAL_DELIVERY | POSTWRITE | revision_id / fingerprint | RECHECK |
-| WF-005 | 任意正文修改使受影响的下游 PASS 失效 | FINAL_DELIVERY | POSTWRITE | revision change log | RECHECK |
+| WF-004 | Gate PASS 必须绑定同一 Candidate Revision 与正文SHA | POST_DRAFT / FINAL_DELIVERY | POSTWRITE | revision_id + candidate_sha256 | RECHECK |
+| WF-005 | 任意正文修改使受影响的下游 PASS 失效 | FINAL_DELIVERY | POSTWRITE | revision change log / SHA change | RECHECK |
+| WF-006 | 完整Candidate只有在当前候选分支精确HEAD的 `Chapter Quality Gate` 外部CI成功后才能交用户 | MANIFEST / WORKFLOW / FINAL_DELIVERY | EXTERNAL CI | Actions run id + branch + head_sha=current HEAD + conclusion=success | BLOCKED |
 | CAN-001 | 已发布正文事实高于未来规划 | MANIFEST / PROJECT_RULES | CONTINUITY | source chapter / fact | REWRITE |
 | CAN-002 | 已发布事实不得静默 Retcon | CHANGE_IMPACT_PROTOCOL | CONTINUITY | no-conflict / revision receipt | BLOCKED |
 | KNOW-001 | 角色不得使用不该知道的信息 | KNOWLEDGE MATRIX | CONTINUITY | claim → knowledge source | REWRITE |
@@ -97,20 +101,22 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 
 | Rule ID | 硬规则 | 主要来源 | 检查阶段 | 最低证据 | FAIL |
 |---|---|---|---|---|---|
-| FINAL-001 | Post-Draft Audit 必须存在且与最终稿 revision 一致 | POST_DRAFT_AUDIT | FINAL | report path + revision | BLOCKED |
+| FINAL-001 | Post-Draft Audit 必须存在且与最终稿 revision/SHA 一致 | POST_DRAFT_AUDIT | FINAL | report path + revision + SHA | BLOCKED |
 | FINAL-002 | 所有 delivery-critical Rule ID 都必须 PASS/NA 且 NA 有理由 | 本矩阵 | FINAL | coverage table | BLOCKED |
 | FINAL-003 | 最终稿必须脱离规划文件做一次 Clean Read | FINAL_DELIVERY_GATE | FINAL | clean-read result | REWRITE |
-| FINAL-004 | 最终稿修改后必须重跑受影响检查 | FINAL_DELIVERY_GATE | FINAL | revision history | RECHECK |
-| FINAL-005 | 只有 Final Delivery Gate PASS 才能进入 USER_REVIEW | WORKFLOW | FINAL | workflow state | BLOCKED |
+| FINAL-004 | 最终稿修改后必须重跑受影响检查 | FINAL_DELIVERY_GATE | FINAL | revision history / SHA change | RECHECK |
+| FINAL-005 | 只有 Final Delivery PASS + WF-006 外部CI成功，运行时才可进入 USER_REVIEW | WORKFLOW / FINAL_DELIVERY | FINAL+EXTERNAL | Final report + exact-head CI success | BLOCKED |
 
 ## 九、维护规则
 
-1. `PROJECT_RULES / STYLE_GUIDE / Gate` 新增硬规则时，必须同步本矩阵。
-2. 每条硬规则只允许一个“最终责任 Gate”，其他 Gate 可以预检，避免所有文档都模糊负责。
+1. `PROJECT_RULES / STYLE_GUIDE / Gate / Executable Validator` 新增硬规则时，必须同步本矩阵。
+2. 每条硬规则只允许一个“最终责任 Gate/执行阶段”，其他Gate可以预检，避免所有文档都模糊负责。
 3. 用户指出一个本应被规则拦截却漏出的错误时：
    - 登记到 `quality/FAILURE_MEMORY.md`；
    - 找出对应 Rule ID；
    - 若无 Rule ID，新增；
    - 为其设计可验证证据；
+   - 若可机械化，优先增加到 `tools/chapter_gate.py` 与自动测试；
    - 从下一章开始作为回归测试。
-4. 每10章 Audit 检查一次本矩阵是否存在“规则已新增但无人负责”的 orphan rule。
+4. 每10章Audit检查一次本矩阵是否存在“规则已新增但无人负责”的orphan rule。
+5. External CI规则不能由Post-Draft报告自我证明；必须读取GitHub Actions真实结果。
