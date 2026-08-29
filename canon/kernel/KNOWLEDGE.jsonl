@@ -30,3 +30,8 @@
 {"id":"KN-0030","character":"CHAR-0001","topic":"与韩鸦交易目标的当前接触路径","state":"KNOWS","value":"自己与四名青绳被点入同一南二路径，其中包括交易目标","valid_from_chapter":6,"source_chapter":6}
 {"id":"KN-0031","character":"CHAR-0002","topic":"自身首要短期目标","state":"KNOWS","value":"避免再次被送回药房","valid_from_chapter":6,"source_chapter":6}
 {"id":"KN-0032","character":"CHAR-0003","topic":"CH006陈缺动用残余真灵气并被点黑墨","state":"UNKNOWN","valid_from_chapter":6,"source_chapter":6}
+{"id":"KN-0033","character":"CHAR-0001","topic":"南二现实功能","state":"KNOWS-PARTIAL","value":"至少承担药材拆捆、分拣、晾制、废料记录与外运；临时工作可与二验并行","valid_from_chapter":7,"source_chapter":7}
+{"id":"KN-0034","character":"CHAR-0001","topic":"自身南二工作入口","state":"KNOWS","value":"老周已记录丙九十七并让其次日早饭后报牌号再来，先做拆药、记废料；二验照旧","valid_from_chapter":7,"source_chapter":7}
+{"id":"KN-0035","character":"CHAR-0001","topic":"TARGET-0001确实在寻找出口/转运机会","state":"KNOWS-PARTIAL","value":"亲见其利用废药外运试探南二西侧窄门，并愿牺牲部分药材收益增加开门机会；完整路线、时间、同伙与最终计划未知","valid_from_chapter":7,"source_chapter":7}
+{"id":"KN-0036","character":"CHAR-0001","topic":"南二西侧门去向","state":"KNOWS-PARTIAL","value":"至少用于废药外运，门外可见向下石阶；更远路径未知","valid_from_chapter":7,"source_chapter":7}
+{"id":"KN-0037","character":"CHAR-0003","topic":"陈缺被南二留下继续做事","state":"UNKNOWN-LAST-CONFIRMED","valid_from_chapter":7,"source_chapter":7,"note":"CH008如需升级，必须通过合理渠道取得，不能凭作者后台"}
