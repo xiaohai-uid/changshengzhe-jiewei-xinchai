@@ -1,6 +1,6 @@
 # KNOWLEDGE MATRIX
 
-**Effective after CH008**
+**Effective after CH009**
 
 | 信息 | 陈缺 | 韩鸦 | 顾长槐 | 赵石 |
 | --- | --- | --- | --- | --- |
@@ -23,20 +23,27 @@
 | “补一遍”的具体内容 | UNKNOWN | UNKNOWN/未在正文锁 | KNOWS-PARTIAL/KNOWS | UNKNOWN |
 | 陈缺被记录为白绳黑点并进入二验 | KNOWS | KNOWS（CH008亲眼看到黑点并听老周说“二验照旧”） | UNKNOWN/未在正文锁 | UNKNOWN |
 | 黑点完整制度含义 | UNKNOWN | UNKNOWN/未在正文锁 | KNOWS-PARTIAL/KNOWS | UNKNOWN |
-| 南二包含真实药材拆捆、分拣、晾制与废料外运 | KNOWS（亲历） | KNOWS-PARTIAL（CH008亲自进入并知道至少有相关工作） | KNOWS-PARTIAL/KNOWS | UNKNOWN |
-| 陈缺已被南二记录为懂药并允许次日继续工作 | KNOWS | KNOWS（CH008亲耳听老周安排） | UNKNOWN | UNKNOWN |
-| 南二西侧门至少用于废药外运、门外有向下石阶 | KNOWS-PARTIAL | KNOWS-PARTIAL（陈缺报告目标行为；韩鸦自身完整路线知识程度未锁） | KNOWS-PARTIAL/KNOWS | UNKNOWN |
-| TARGET-0001当日在南二西门随废料出去三次、曾想把可救藤算废料并观察门轴/石阶 | KNOWS（亲见） | KNOWS（CH008由陈缺报告） | UNKNOWN | UNKNOWN |
-| 韩鸦愿意为了保留陈缺南二位置调整“制造废料”的具体手段 | KNOWS（亲历） | KNOWS（自身决定） | UNKNOWN | UNKNOWN |
-| 韩鸦完整目的/为什么要TARGET死亡 | UNKNOWN / SUSPECTS其需要陈缺与南二位置 | KNOWS | UNKNOWN | UNKNOWN |
-| 赵石对黑液/药布刺激存在可重复异常 | KNOWS | UNKNOWN/可能知部分 | KNOWS-PARTIAL/KNOWS | KNOWS（亲历） |
-| 赵石主动避免再次回药房 | KNOWS（由其明确请求与言语） | UNKNOWN | UNKNOWN | KNOWS |
-| 赵石药房具体经历 | UNKNOWN | UNKNOWN/可能知更多但未锁 | UNKNOWN/可能知更多但未锁 | KNOWS-PARTIAL（其本人经历，但记忆完整度未锁） |
+| 陈缺CH009二验当前处置：暂留南二、三日后复验 | KNOWS | UNKNOWN / 尚无正文渠道 | UNKNOWN/未锁 | UNKNOWN |
+| 二验完整机制/最终分类 | UNKNOWN | UNKNOWN/未锁 | KNOWS-PARTIAL/KNOWS | UNKNOWN |
+| 南二包含真实药材处理、废料记录与外运 | KNOWS（亲历） | KNOWS-PARTIAL | KNOWS-PARTIAL/KNOWS | KNOWS-PARTIAL（CH009亲自工作） |
+| 陈缺被南二持续留用并承担木筹/废料记录 | KNOWS | KNOWS至CH008留用；CH009细化 UNKNOWN | UNKNOWN | KNOWS（CH009亲见） |
+| 南二留用记录会被二验人员作为处置参考 | KNOWS（CH009亲历） | UNKNOWN | UNKNOWN/可能知道制度但正文未锁 | UNKNOWN |
+| 南二西侧门用于废药外运、门外有向下石阶 | KNOWS-PARTIAL | KNOWS-PARTIAL/可能更多 | KNOWS-PARTIAL/KNOWS | UNKNOWN |
+| TARGET-0001此前多次试南二西门 | KNOWS | KNOWS（CH008由陈缺报告） | UNKNOWN | UNKNOWN |
+| TARGET-0001 CH009与老马从西门下去，老马已回而TARGET尚未回 | KNOWS | UNKNOWN / 尚无正文渠道 | UNKNOWN | UNKNOWN |
+| TARGET是否已经成功逃脱 | UNKNOWN | UNKNOWN/未在正文锁 | UNKNOWN | UNKNOWN |
+| 韩鸦完整目的/为何要TARGET死亡 | UNKNOWN / SUSPECTS其需要控制外山风险 | KNOWS | UNKNOWN | UNKNOWN |
+| 赵石对黑液/虫性药布存在可重复异常 | KNOWS | UNKNOWN/可能知部分 | KNOWS-PARTIAL/KNOWS | KNOWS（亲历） |
+| 赵石主动避免再次回药房 | KNOWS | UNKNOWN | UNKNOWN | KNOWS |
+| 赵石CH009当前被指为药房方向两人之一 | KNOWS（亲见/亲听） | UNKNOWN | UNKNOWN | KNOWS（亲历） |
+| 赵石主动争南二工作并被借下半日 | KNOWS | UNKNOWN | UNKNOWN | KNOWS |
+| 赵石药房具体经历 | UNKNOWN | UNKNOWN/可能知更多但未锁 | UNKNOWN/可能知更多但未锁 | KNOWS-PARTIAL（本人经历，记忆完整度未锁） |
+| 赵石午后最终处置 | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN / 尚未发生 |
 | 赵石如何知道“两文钱”借口 | UNKNOWN | UNKNOWN | UNKNOWN | KNOWS-PARTIAL/UNKNOWN（来源未揭示） |
-| 韩鸦交易目标外观与“刮掉药字”识别条件 | KNOWS | KNOWS | UNKNOWN | UNKNOWN |
-| 韩鸦交易目标确实在寻找出口/转运机会 | KNOWS-PARTIAL（CH007亲见其试探西侧门） | KNOWS-PARTIAL/KNOWS（程度未锁） | UNKNOWN | UNKNOWN |
+| 韩鸦交易目标外观与刮字条件 | KNOWS | KNOWS | UNKNOWN | UNKNOWN |
+| 韩鸦交易目标确实在寻找出口/转运机会 | KNOWS-PARTIAL（多次亲见） | KNOWS-PARTIAL/KNOWS | UNKNOWN | UNKNOWN |
 | 韩鸦交易目标姓名/完整逃亡路线/时间/同伙 | UNKNOWN | KNOWS-PARTIAL/KNOWS（程度未锁） | UNKNOWN | UNKNOWN |
-| 次日陈缺对TARGET的当前具体任务边界 | KNOWS：只观察西门次数、同行、往返；不主动制造废料/接触 | KNOWS | UNKNOWN | UNKNOWN |
+| 陈缺对TARGET的当前任务边界 | KNOWS：只观察，不主动制造机会；二验叫走则去 | KNOWS | UNKNOWN | UNKNOWN |
 | “天地亦食修士”的终极含义 | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
 | 整个修仙界是否存在更大系统性问题 | SUSPECTS-WEAK | UNKNOWN | UNKNOWN | UNKNOWN |
 
@@ -45,7 +52,7 @@
 - 角色只能使用自己栏内已拥有的信息。
 - `SUSPECTS` 只能作为怀疑与试探依据，不能写成确定事实。
 - `BELIEVES / FALSE-BELIEF` 允许角色据此做出错误决策。
-- “作者层可能知道”不等于正文角色 KNOWS；未在正文锁定韩鸦/顾长槐具体知道多少的制度细节时，不得让其为方便剧情一次性解释全部。
-- 赵石药房后的认知必须通过后续正文建立，不能沿用CH001旧认知，也不能因为他亲历药房就默认完整知道真相。
-- CH008已给出韩鸦知道陈缺南二工作入口的正文内渠道：韩鸦在南二核对四名青绳时亲耳听老周安排。以后不得改写成韩鸦早就通过后台实时知道。
-- 韩鸦在CH008看见白绳黑点并听见“二验照旧”，只足以锁定其知道陈缺要二验；不自动锁定他知道黑点完整制度含义。
+- 韩鸦CH009未出场，因此不得自动知道赵石借工、陈缺二验处置或TARGET章末未归；后续必须建立消息渠道。
+- 陈缺只知道TARGET“尚未按同伴时间返回”，不得直接写成“已经逃出白骨山”。
+- 陈缺只知道赵石在CH009当前流转中被点为药房方向，不知道午后药房将做什么，也不知道此前药房完整处理。
+- “南二留用影响二验处置”是陈缺通过自身经历确认的制度现象，但不能直接推广为所有人的固定规则。

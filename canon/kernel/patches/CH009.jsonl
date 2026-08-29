@@ -1,0 +1,17 @@
+{"kind":"fact","id":"KFACT-CH009-001","source_chapter":9,"status":"canonical","certainty":"observed","payload":{"subject":"CHAR-0001","predicate":"south_two_work_status","value":"CH009清晨继续在南二承担木筹/废料记录；实际工作入口持续有效"}}
+{"kind":"fact","id":"KFACT-CH009-002","source_chapter":9,"status":"canonical","certainty":"confirmed_by_dialogue","payload":{"subject":"CHAR-0001","predicate":"second_check_disposition","value":"验虫针仍呈极弱虫气/异常气路；白绳黑点未擦；先回南二工作，三日后复验，出现腹胀/发热/红线或无法工作则提前送回"}}
+{"kind":"fact","id":"KFACT-CH009-003","source_chapter":9,"status":"canonical","certainty":"observed","payload":{"subject":"CHAR-0001","predicate":"true_qi_use","value":"二验时未再次推动几乎耗尽的无虫真木属灵气制造反应；残余真灵气仍近空"}}
+{"kind":"fact","id":"KFACT-CH009-004","source_chapter":9,"status":"canonical","certainty":"confirmed_by_dialogue","payload":{"subject":"CHAR-0002","predicate":"current_transfer","value":"CH009当前流转中被带队灰衣明确指为送药房的两人之一"}}
+{"kind":"fact","id":"KFACT-CH009-005","source_chapter":9,"status":"canonical","certainty":"observed","payload":{"subject":"CHAR-0002","predicate":"south_two_half_day_borrow","value":"赵石主动争取南二搬运工作，老周因缺工以南二名义借其半日，午后再交人；章末仍在南二工作"}}
+{"kind":"fact","id":"KFACT-CH009-006","source_chapter":9,"status":"canonical","certainty":"observed","payload":{"subject":"TARGET-0001","predicate":"west_door_run","value":"陈缺二验期间与老马随正常废料从南二西侧门下去；章末老马已回，TARGET尚未回来"}}
+{"kind":"knowledge","id":"KKNOW-CH009-001","source_chapter":9,"status":"canonical","payload":{"knower":"CHAR-0001","state":"KNOWS","content":"赵石在CH009当前流转中被明确指为药房方向之一，并主动用南二工作争到半日借用"}}
+{"kind":"knowledge","id":"KKNOW-CH009-002","source_chapter":9,"status":"canonical","payload":{"knower":"CHAR-0001","state":"KNOWS","content":"自己的当前二验处置为先留南二、三日后复验；黑点完整制度含义仍未知"}}
+{"kind":"knowledge","id":"KKNOW-CH009-003","source_chapter":9,"status":"canonical","payload":{"knower":"CHAR-0001","state":"KNOWS","content":"TARGET与老马从西门随废料下去，老马已回而TARGET尚未回"}}
+{"kind":"relationship","id":"KREL-CH009-001","source_chapter":9,"status":"canonical","payload":{"between":["CHAR-0001","CHAR-0002"],"change":"赵石先主动争工作，陈缺用南二信用补充可证事实，促成半日借工；关系债与公开关联加深，但赵石保持独立行动"}}
+{"kind":"relationship","id":"KREL-CH009-002","source_chapter":9,"status":"canonical","payload":{"between":["CHAR-0001","LAOZHOU-SOUTH2"],"change":"老周进一步认可陈缺作为南二记录/工作对象；南二留用记录进入二验参考，但关系仍是生产价值判断"}}
+{"kind":"timeline","id":"KTL-CH009-001","source_chapter":9,"status":"canonical","payload":{"sequence":["陈缺清晨回南二记木筹","赵石随特殊流转抵达并主动争取工作","老周借赵石半日并让陈缺记账","陈缺被叫去二验","陈缺不再耗真气伪装并获三日复验/暂留南二处置","陈缺返回南二","确认老马已回而TARGET尚未回"],"end_state":"陈缺在南二，赵石半日借工仍有效，TARGET回返异常"}}
+{"kind":"plot","id":"KPLOT-CH009-001","source_chapter":9,"status":"canonical","payload":{"plot":"FP-005 赵石去向/药房变化","state":"ADVANCED","change":"赵石被点为药房方向但主动利用南二缺工窗口，被老周借下半日；午后最终处置未发生"}}
+{"kind":"plot","id":"KPLOT-CH009-002","source_chapter":9,"status":"canonical","payload":{"plot":"FP-007 七日杀人交易","state":"ADVANCED","change":"TARGET利用陈缺二验缺席窗口随废料下去，章末未按同伴回返节奏回来；是否逃脱未知"}}
+{"kind":"plot","id":"KPLOT-CH009-003","source_chapter":9,"status":"canonical","payload":{"plot":"P-003 七日考核","state":"ADVANCED","change":"二验首次形成明确阶段处置/三日复验期限；南二工作价值成为处置变量"}}
+{"kind":"info_gap","id":"KGAP-CH009-001","source_chapter":9,"status":"canonical","payload":{"subject":"TARGET-0001","unknown":["是否已经逃脱成功","下方完整路线","同伙","目的地","韩鸦为何必须其死亡"]}}
+{"kind":"info_gap","id":"KGAP-CH009-002","source_chapter":9,"status":"canonical","payload":{"subject":"CHAR-0002","unknown":["此前药房完整处理","午后最终去向","黑结完整意义"]}}
