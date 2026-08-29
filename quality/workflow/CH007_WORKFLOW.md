@@ -2,6 +2,9 @@
 
 CHAPTER: CH007
 CANON_HORIZON: CH006
+SERIES_ARCHITECTURE: SERIES_V2_8V_2M
+CURRENT_VOLUME_TARGET: ~70-75 chapters
+CURRENT_ARC_TARGET: ~CH001-CH011/12
 CURRENT_STATE: BLOCKED
 CONTEXT_RECEIPT: MISSING_FOR_REWRITE
 SCENE_CARD: MISSING_FOR_REWRITE
@@ -14,5 +17,7 @@ USER_DECISION: REWRITE_PREVIOUS_CANDIDATE
 
 - 前一版 CH007 Candidate 已明确判定为 REWRITE，未进入 Canon。
 - 旧 Candidate 中新增姓名、编号、南二具体器物/流程、运输细节均不具 Canon 权威。
+- 系列规划已从旧12卷/350—500万字重构为8卷/约200万字；旧规模规划不得驱动本章。
+- 当前第一卷目标约70—75章；七日考核Arc约CH011/12收束，但真实因果优先。
 - 在重新执行 HOT LOAD、Context Receipt、Macro Alignment、Scene Card 前，不得进入 DRAFTED。
 - 新 CH007 必须基于 CH006 已发布结尾重新起写，并遵守新的“期待 → 兑现 → 升级”质量门。
