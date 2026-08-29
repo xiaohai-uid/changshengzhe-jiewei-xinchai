@@ -3,11 +3,13 @@ name: Chapter Quality Gate
 on:
   push:
     branches:
+      - main
       - 'chapter/**'
     paths:
       - 'candidate/**'
       - 'quality/**'
       - 'tools/**'
+      - '.github/workflows/chapter-quality.yml'
       - 'MANIFEST.md'
       - 'PROJECT_RULES.md'
       - 'LOAD_ORDER.md'
@@ -17,6 +19,7 @@ on:
       - 'candidate/**'
       - 'quality/**'
       - 'tools/**'
+      - '.github/workflows/chapter-quality.yml'
       - 'MANIFEST.md'
       - 'PROJECT_RULES.md'
       - 'LOAD_ORDER.md'
@@ -61,5 +64,5 @@ jobs:
             echo "ERROR: chapter branch has no $candidate"
             exit 1
           else
-            echo "No active Candidate file; validator tests only."
+            echo "No active Candidate file on main; validator tests only."
           fi
