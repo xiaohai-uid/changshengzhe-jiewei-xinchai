@@ -1,6 +1,6 @@
 # MANIFEST
 
-SCHEMA_VERSION: V7
+SCHEMA_VERSION: V8
 PLANNING_ARCHITECTURE: SERIES_V2_8V_2M
 TARGET_TOTAL_WORDS: ~2000000_CN_CHARS
 PLANNING_RANGE_WORDS: 1900000-2100000_CN_CHARS
@@ -10,11 +10,13 @@ CURRENT_BOOK: 《长生者皆为薪柴》
 CURRENT_PHASE: PHASE_I_我为什么会被吃
 CURRENT_VOLUME: 第一卷·白骨山
 CURRENT_ARC: ARC-V01-01
-CANON_HORIZON: CH007
-CURRENT_CANON_CHAPTER: CH007
+CANON_HORIZON: CH008
+CURRENT_CANON_CHAPTER: CH008
 CURRENT_SNAPSHOT: canon/snapshots/STATE_SNAPSHOT_V2.2.md
-LATEST_STATE_DIFF: state/diffs/CH007_STATE_DIFF.md
+LATEST_STATE_DIFF: state/diffs/CH008_STATE_DIFF.md
 CANON_KERNEL: canon/kernel/
+CANON_KERNEL_COMPACTED_THROUGH: CH007
+CANON_KERNEL_PATCH_DIR: canon/kernel/patches/
 WORLD_BIBLE: canon/WORLD_BIBLE.md
 CULTIVATION_SYSTEM: canon/CULTIVATION_SYSTEM.md
 FACTIONS_GEOGRAPHY: canon/FACTIONS_GEOGRAPHY.md
@@ -26,6 +28,8 @@ TRUTH_REVEAL_LADDER: planning/TRUTH_REVEAL_LADDER.md
 CHARACTER_LONG_ARCS: planning/CHARACTER_LONG_ARCS.md
 CURRENT_CONTEXT_CARD: tracking/CONTEXT_CARD.md
 CURRENT_ROLLING_OUTLINE: planning/ROLLING_OUTLINE.md
+MEMORY_ANCHOR_SYSTEM: quality/MEMORY_ANCHOR_SYSTEM.md
+MEMORY_ANCHOR_LEDGER: tracking/MEMORY_ANCHOR_LEDGER.md
 SCENE_CARD_TEMPLATE: quality/SCENE_CARD_TEMPLATE.md
 RULE_COVERAGE_MATRIX: quality/RULE_COVERAGE_MATRIX.md
 POST_DRAFT_AUDIT: quality/POST_DRAFT_AUDIT.md
@@ -35,7 +39,7 @@ FINAL_DELIVERY_GATE: quality/FINAL_DELIVERY_GATE.md
 FAILURE_MEMORY: quality/FAILURE_MEMORY.md
 CHAPTER_GATE: quality/CHAPTER_GATE.md
 WORKFLOW_STATE_MACHINE: quality/WORKFLOW_STATE_MACHINE.md
-CURRENT_WORKFLOW: quality/workflow/CH008_WORKFLOW.md
+CURRENT_WORKFLOW: NONE_UNTIL_CH009_START
 NARRATIVE_PATTERN_LEDGER: quality/NARRATIVE_PATTERN_LEDGER.md
 COMMERCIAL_RESEARCH_BASELINE: quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md
 STYLE_GUIDE: style/STYLE_GUIDE.md
@@ -43,9 +47,9 @@ CHAPTER_VALIDATOR: tools/chapter_gate.py
 CHAPTER_VALIDATOR_TESTS: tools/test_chapter_gate.py
 CHAPTER_CI_WORKFLOW: .github/workflows/chapter-quality.yml
 CANDIDATE_PATH_PATTERN: candidate/CHxxx.md
-NEXT_CHAPTER: CH008
+NEXT_CHAPTER: CH009
 CANON_BRANCH: main
-CANDIDATE_BRANCH: chapter/CH008
+CANDIDATE_BRANCH: NONE_UNTIL_CH009_START
 TRACKING_STATE_ROLE: projection
 
 ## Series Scale Decision
@@ -60,11 +64,18 @@ TRACKING_STATE_ROLE: projection
 1. 用户在当前交互中的明确决定/修订。
 2. `main` 已确认正文 + `canon/CANON_CORE.md`。
 3. `canon/WORLD_BIBLE.md` / `canon/CULTIVATION_SYSTEM.md` 等作者层硬规则。
-4. `canon/kernel/` 规范化Canon + `state/CHAPTER_LEDGER.md`。
+4. `canon/kernel/` 压实Canon + `canon/kernel/patches/` 未压实增量 + `state/CHAPTER_LEDGER.md`。
 5. Snapshot / State Diff。
 6. state/tracking人类可读投影。
 7. planning：约束未来，不覆盖过去正文。
 8. quality/research：只校准阅读体验，不拥有Canon权威。
+
+### Canon Kernel Overlay
+
+- 压实Kernel当前截至CH007。
+- CH008及之后在下一次Compaction前，必须加载 `canon/kernel/patches/CHxxx.jsonl`。
+- patch不是第二套Canon；它是已发布正文的规范化增量。
+- 冷启动若只读取主Kernel而漏掉Horizon之后的patch，视为LOAD失败。
 
 ## Planning Authority
 
@@ -76,7 +87,7 @@ TRACKING_STATE_ROLE: projection
 
 规划层不能直接生成正文。每章必须经过：
 
-**Rolling Outline → Context Receipt → Scene Card → Published Prose Anchor → Write → Freeze Revision → Post-Draft Audit → Publication Gate → Expectation/Payoff Gate → Continuity Precommit → Final Delivery Gate → Candidate Branch Commit → External CI Success on Exact HEAD → User Review。**
+**Rolling Outline → Context Receipt → Scene Card（含Memory第9问） → Published Prose Anchor → Write → Freeze Revision → Post-Draft Audit（含Memory Anchor Audit） → Publication Gate → Expectation/Payoff Gate → Continuity Precommit → Final Delivery Gate → Candidate Branch Commit → External CI Success on Exact HEAD → User Review。**
 
 任何关键步骤缺失即FAIL CLOSED。
 
@@ -86,17 +97,19 @@ TRACKING_STATE_ROLE: projection
 
 展示完整Candidate前必须实际读取GitHub Actions，并确认：
 1. workflow=`Chapter Quality Gate`；
-2. branch=当前 `CANDIDATE_BRANCH`；
+2. branch=当前候选分支；
 3. conclusion=`success`；
 4. run.head_sha=候选分支当前HEAD；
 5. CI通过后候选正文/报告未再修改。
 
 ## Rule Audit Authority
 
-- `quality/RULE_COVERAGE_MATRIX.md`：交稿级硬规则总登记。
+- `quality/RULE_COVERAGE_MATRIX.md`：交稿级硬规则总登记，包含MEM-001~006。
 - `quality/FAILURE_MEMORY.md`：ACTIVE历史失败每章强制回归。
-- `quality/POST_DRAFT_AUDIT.md`：写后证据化自审。
+- `quality/POST_DRAFT_AUDIT.md`：写后证据化自审，含Memory Anchor Audit。
 - `quality/FINAL_DELIVERY_GATE.md`：验证最终稿就是被审版本。
+- `quality/MEMORY_ANCHOR_SYSTEM.md`：规定场面/台词/行为/物件/关系/命题锚，以及回响增值和反强造规则。
+- `tracking/MEMORY_ANCHOR_LEDGER.md`：只记录已进入Canon、值得后续保护/回响的记忆锚。
 - `tools/chapter_gate.py` + GitHub Actions：机械规则、产物、版本一致性和伪PASS拦截。
 
 ## Current Publication Safeguards
@@ -108,26 +121,30 @@ TRACKING_STATE_ROLE: projection
 - 配角必须有独立目标和行动。
 - 检查最近高层破局算法重复。
 - 每章/短周期检查“期待→兑现→升级”。
+- 每章检查Memory第9问，但允许 `NO NEW ANCHOR`；Arc收束执行MEM-006。
+- 记忆锚回响必须增值；禁止为名场面硬造金句/口头禅/象征物。
 - 代价可以污染收益，但不能习惯性清零。
 - 信息不能长期成为唯一主奖励。
 - 没有Context Receipt / Scene Card / Post-Draft / Rule Coverage / Final Delivery / exact-head CI success，不允许交正文。
 
-## Current Canon / Candidate Status
+## Current Canon / Next Status
 
-- CH007《一篓坏药》：用户已确认，已晋升Canon。
-- Canon Horizon：CH007。
-- CH007确认资产：陈缺凭药铺经验获得南二继续工作的现实入口；二验仍在，收益未归零。
+- CH008《好药不能当废料》：用户已明确表示已经发布，已晋升Canon。
+- Canon Horizon：CH008。
+- CH008确认资产：南二工作入口保留；陈缺第一次凭该组织价值争到韩鸦任务的有限执行边界；获得并持有大半包普通外敷伤膏；二验仍在，控制关系未反转。
 - TARGET-0001姓名、背景、完整逃亡计划仍未锁定。
-- 下一章：CH008。
-- CH008候选分支：`chapter/CH008`。
-- CH008必须从CH007正式结尾冷启动，不得把旧CH008章纲直接扩写。
+- 赵石CH007—CH008未出场，精确位置仍UNKNOWN。
+- Memory：MA-006已在CH008增值为ECHOED；MA-008新增PLANTED。第一Arc仍自然寻找陈缺的强行动场面，但不得硬造。
+- 下一章：CH009。
+- CH009候选分支/Workflow尚未创建；下次开始写章时从最新main创建，禁止复用旧CH008分支。
 
 ## Canon Policy
 
-- `main`只承认用户已确认正文和对应Canon。
+- `main`只承认用户已确认/已发布正文和对应Canon。
 - Candidate在用户确认前不得推进Canon Horizon。
 - 已发布正文不得因规划调整静默Retcon。
 - UNKNOWN / SUSPECTS不得自动升级成事实。
 - 作者层长期真相严格服从Truth Reveal Ladder。
+- 每章晋升先写Kernel patch；每5章Snapshot/每10章Audit可执行Kernel Compaction。
 
-核心原则：**正文决定过去；Canon描述真实世界；Tracking描述现在；Outline约束未来；Scene Card隔离后台与小说；Post-Draft Audit负责写后找错；Rule Coverage保证无孤儿规则；Failure Memory防止同错复发；Final Delivery + External CI保证交稿版本就是被审版本；200万目标防止情绪与理念过度拉长。**
+核心原则：**正文决定过去；Canon描述真实世界；Tracking描述现在；Outline约束未来；Scene Card隔离后台与小说；Post-Draft Audit负责写后找错；Expectation/Payoff保证追读与累积；Memory Anchor保证人物/场面/关系不只“发生过”而能被记住；Rule Coverage保证无孤儿规则；Failure Memory防止同错复发；Final Delivery + External CI保证交稿版本就是被审版本；200万目标防止情绪与理念过度拉长。**
