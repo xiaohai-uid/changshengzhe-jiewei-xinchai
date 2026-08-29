@@ -7,10 +7,10 @@ CANDIDATE_BRANCH: chapter/CH007-v2
 CANDIDATE_PATH: candidate/CH007.md
 CURRENT_VOLUME_TARGET: ~70-75 chapters
 CURRENT_ARC_TARGET: ~CH001-CH011/12
-CURRENT_STATE: BLOCKED
+CURRENT_STATE: SCENE_READY
 CANDIDATE_REVISION_ID: NONE
-CONTEXT_RECEIPT: MISSING_FOR_REWRITE
-SCENE_CARD: MISSING_FOR_REWRITE
+CONTEXT_RECEIPT: quality/receipts/CH007_CONTEXT_RECEIPT.md
+SCENE_CARD: quality/scene-cards/CH007_SCENE_CARD.md
 POST_DRAFT_AUDIT: PENDING
 RULE_COVERAGE: PENDING
 FAILURE_REGRESSION: PENDING
@@ -21,29 +21,32 @@ FINAL_DELIVERY_GATE: PENDING
 EXTERNAL_CI: PENDING
 USER_DECISION: REWRITE_PREVIOUS_CANDIDATE
 
+## State History
+
+- BLOCKED: previous Candidate rejected; no rewrite artifacts.
+- LOADED: HOT LOAD, Published Prose Anchors and targeted Canon Kernel recorded in Context Receipt.
+- MACRO_ALIGNED: current Arc, volume function, truth ceiling and expectation/payoff direction checked.
+- SCENE_READY: Scene Card passed character desire, obstacle, limited information, choice, durable payoff, cost and supporting-character independent-action checks.
+
 ## Required Rule Set
 
-- `quality/RULE_COVERAGE_MATRIX.md`
-- `quality/POST_DRAFT_AUDIT.md`
-- `quality/PUBLICATION_GATE.md`
-- `quality/EXPECTATION_PAYOFF_GATE.md`
-- `quality/FINAL_DELIVERY_GATE.md`
-- `quality/FAILURE_MEMORY.md`
-- `quality/WORKFLOW_STATE_MACHINE.md`
-- `tools/chapter_gate.py`
-- `.github/workflows/chapter-quality.yml`
+- quality/RULE_COVERAGE_MATRIX.md
+- quality/POST_DRAFT_AUDIT.md
+- quality/PUBLICATION_GATE.md
+- quality/EXPECTATION_PAYOFF_GATE.md
+- quality/FINAL_DELIVERY_GATE.md
+- quality/FAILURE_MEMORY.md
+- quality/WORKFLOW_STATE_MACHINE.md
+- tools/chapter_gate.py
+- .github/workflows/chapter-quality.yml
 
 ## Notes
 
-- 前一版CH007 Candidate已REWRITE，未进入Canon。
-- 旧 `chapter/CH007` 是此前失败Candidate时代的历史分支，不再作为当前候选工作面。
-- 当前工作分支固定为 `chapter/CH007-v2`，从最新main重新建立。
-- 旧Candidate新增姓名、编号、南二具体器物/流程、运输细节均不具Canon权威。
-- 系列规划为8卷/约200万字；旧12卷规模不得驱动本章。
-- 第一卷目标约70—75章；七日考核Arc约CH011/12收束，但真实因果优先。
-- 重新执行HOT LOAD、Context Receipt、Macro Alignment、Scene Card前，不得进入DRAFTED。
-- 新CH007基于CH006已发布结尾重新起写。
-- 完成正文后必须先冻结revision，生成Post-Draft Audit，并逐项执行Failure Memory回归测试。
-- Post-Draft / Publication / Expectation-Payoff / Continuity / Final Delivery全部PASS且revision/SHA一致后，把Candidate及报告提交到候选分支。
-- **提交后必须读取GitHub Actions真实运行结果；只有 `Chapter Quality Gate` 对候选分支当前精确HEAD返回 `success`，运行时才允许进入USER_REVIEW并向用户展示正文。**
-- CI通过后若候选分支HEAD再次变化，旧CI自动失效，必须重新验证。
+- Previous CH007 Candidate remains REWRITE and non-Canon.
+- Old chapter/CH007 branch is historical only; current work branch is chapter/CH007-v2.
+- Old Candidate names, numbers, South-2 layout and transport details have no authority and were not reused as Canon.
+- Series architecture remains eight volumes / about two million Chinese characters.
+- New CH007 starts directly from published CH006 ending.
+- Main solution model is professional medicine-handling practice, not hidden power, eavesdropping, or observing multiple failures before perfect clearance.
+- Draft must preserve one-to-two core events, 2800-4000 hard length, 3200-3600 normal target, and run Midwrite Capacity Check around 3000-3300.
+- Full Candidate remains forbidden from user display until all reviews PASS on one revision/SHA and exact-head GitHub Actions returns success.
