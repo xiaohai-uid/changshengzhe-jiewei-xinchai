@@ -1,4 +1,4 @@
-# LOAD ORDER V9
+# LOAD ORDER V10
 
 每次用户说“继续 / 写下一章”时采用分层冷启动。目标同时保证：上一章因果、当前Arc、当前卷终点、全书真相方向、正式小说文风、期待/兑现方向、**记忆锚与人物辨识度**，以及写后审查与可执行交稿门禁都被加载。
 
@@ -93,9 +93,9 @@ Arc切换、每5章Snapshot、每10章Audit、新世界观/境界/势力时定�
 
 ---
 
-## C. Canon Kernel 定点读取
+## C. Canon Kernel 定点读取 + Incremental Patch Overlay
 
-根据本章涉及永久ID读取：
+根据本章涉及永久ID读取压实Kernel：
 - ENTITIES
 - FACTS
 - KNOWLEDGE
@@ -105,7 +105,27 @@ Arc切换、每5章Snapshot、每10章Audit、新世界观/境界/势力时定�
 - PROMISES
 - INFO_GAPS
 
-有争议时按source_chapter/Fact ID回查正文。禁止因为“不确定”默认补全。
+然后必须读取 `MANIFEST.md`：
+- `CANON_KERNEL_COMPACTED_THROUGH`
+- `CANON_KERNEL_PATCH_DIR`
+- `CANON_HORIZON`
+
+若 `CANON_HORIZON` 晚于 `CANON_KERNEL_COMPACTED_THROUGH`，必须再读取压实点之后到当前Horizon的所有：
+
+`canon/kernel/patches/CHxxx.jsonl`
+
+这些patch与压实Kernel共同构成当前有效Canon；不得只读旧JSONL而漏掉最新已发布章节。
+
+### Patch优先级
+
+- 已发布正文仍是最高事实源；
+- patch是已发布正文的规范化增量，不拥有静默Retcon权；
+- 同一主题出现Temporal变化时，以更晚有效记录作为“当前状态”，旧事实保留历史意义；
+- UNKNOWN/SUSPECTS不会因为patch存在自动升级；必须读取knowledge状态。
+
+有争议时按source_chapter/Fact ID/patch id回查正文。禁止因为“不确定”默认补全。
+
+Kernel patch协议：`canon/kernel/patches/README.md`。
 
 ---
 
@@ -137,6 +157,7 @@ Arc切换、每5章Snapshot、每10章Audit、新世界观/境界/势力时定�
 
 至少登记：
 - Canon Horizon；
+- Kernel compacted-through与已加载patch列表；
 - SERIES_V2_8V_2M确认；
 - 当前Arc/Volume；
 - Fact/Knowledge/FP-P-S；
@@ -171,7 +192,7 @@ Scene Card像任务列表：不得进入WRITE。
 
 ## G. 完整写作流程
 
-**LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE → WRITE → MIDWRITE → FREEZE REVISION → POST-DRAFT AUDIT（含Memory Anchor Audit） → PUBLICATION → EXPECTATION/PAYOFF → CONTINUITY PRECOMMIT → FINAL DELIVERY → CANDIDATE BRANCH COMMIT → EXTERNAL CI PASS → USER REVIEW → CANON PROMOTION（含Memory Anchor Ledger Diff） → POSTCOMMIT → NEXT CAUSAL HOOK。**
+**LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE → WRITE → MIDWRITE → FREEZE REVISION → POST-DRAFT AUDIT（含Memory Anchor Audit） → PUBLICATION → EXPECTATION/PAYOFF → CONTINUITY PRECOMMIT → FINAL DELIVERY → CANDIDATE BRANCH COMMIT → EXTERNAL CI PASS → USER REVIEW → CANON PROMOTION（含Memory Anchor Ledger Diff + Canon Kernel Patch） → POSTCOMMIT → NEXT CAUSAL HOOK。**
 
 严格同步 `quality/workflow/CHxxx_WORKFLOW.md`。
 
@@ -233,7 +254,22 @@ Scene Card像任务列表：不得进入WRITE。
 
 ---
 
-## J. 可执行校验器职责边界
+## J. Canon Promotion / Compaction
+
+用户确认正文后：
+
+1. 正文写入main manuscript；
+2. 更新Chapter Ledger / State Diff / Chapter Record / projections；
+3. 对尚未压实的Canon事实写 `canon/kernel/patches/CHxxx.jsonl`；
+4. 执行Memory Anchor Diff；
+5. 更新Manifest Horizon与下一章；
+6. 每5章Snapshot或每10章Audit时可把patch压实进主Kernel JSONL，并推进 `CANON_KERNEL_COMPACTED_THROUGH`。
+
+禁止为了省事在每章重写大型Kernel JSONL导致截断/覆盖风险；也禁止创建patch后不把它纳入冷启动。
+
+---
+
+## K. 可执行校验器职责边界
 
 `tools/chapter_gate.py` 可以硬检查：
 - 架构版本；
@@ -258,8 +294,8 @@ Scene Card像任务列表：不得进入WRITE。
 
 ---
 
-## K. 冲突优先级
+## L. 冲突优先级
 
-已发布正文事实 > Canon Core / World Bible > 当前有效人物状态 > 卷级终点 > 当前Arc > Rolling Outline > 早期具体章号计划。
+已发布正文事实 > Canon Core / World Bible > 当前有效人物状态（压实Kernel + 未压实patch） > 卷级终点 > 当前Arc > Rolling Outline > 早期具体章号计划。
 
 商业节奏和记忆锚设计都不能覆盖人物利益；旧12卷规划不能覆盖SERIES_V2_8V_2M。
