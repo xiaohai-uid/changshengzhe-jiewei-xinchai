@@ -1,6 +1,6 @@
-# LOAD ORDER V8
+# LOAD ORDER V9
 
-每次用户说“继续 / 写下一章”时采用分层冷启动。目标同时保证：上一章因果、当前Arc、当前卷终点、全书真相方向、正式小说文风、期待/兑现方向，以及**写后审查与可执行交稿门禁**都被加载。
+每次用户说“继续 / 写下一章”时采用分层冷启动。目标同时保证：上一章因果、当前Arc、当前卷终点、全书真相方向、正式小说文风、期待/兑现方向、**记忆锚与人物辨识度**，以及写后审查与可执行交稿门禁都被加载。
 
 ## A. 每章必读 HOT
 
@@ -13,22 +13,24 @@
 7. 最近1—3个 `tracking/chapter-records/`；必要时回读上章结尾全文
 8. `style/STYLE_GUIDE.md`
 9. `quality/SCENE_CARD_TEMPLATE.md`
-10. `quality/CHAPTER_GATE.md`
-11. `quality/WORKFLOW_STATE_MACHINE.md`
-12. `quality/RULE_COVERAGE_MATRIX.md`
-13. `quality/POST_DRAFT_AUDIT.md`
-14. `quality/PUBLICATION_GATE.md`
-15. `quality/EXPECTATION_PAYOFF_GATE.md`
-16. `quality/FINAL_DELIVERY_GATE.md`
-17. `quality/FAILURE_MEMORY.md`
-18. `quality/NARRATIVE_PATTERN_LEDGER.md`
+10. `quality/MEMORY_ANCHOR_SYSTEM.md`
+11. `tracking/MEMORY_ANCHOR_LEDGER.md`
+12. `quality/CHAPTER_GATE.md`
+13. `quality/WORKFLOW_STATE_MACHINE.md`
+14. `quality/RULE_COVERAGE_MATRIX.md`
+15. `quality/POST_DRAFT_AUDIT.md`
+16. `quality/PUBLICATION_GATE.md`
+17. `quality/EXPECTATION_PAYOFF_GATE.md`
+18. `quality/FINAL_DELIVERY_GATE.md`
+19. `quality/FAILURE_MEMORY.md`
+20. `quality/NARRATIVE_PATTERN_LEDGER.md`
 
 当前卷发生重要商业节奏重算时，定点读取：
 `quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md`。
 
 ### HOT完整性硬规则
 
-Context Receipt必须记录上述质量规则的版本/路径。缺失 `RULE_COVERAGE / POST_DRAFT / FINAL_DELIVERY / FAILURE_MEMORY` 任一项，本章不得进入LOADED。
+Context Receipt必须记录上述质量规则的版本/路径。缺失 `MEMORY_ANCHOR_SYSTEM / MEMORY_ANCHOR_LEDGER / RULE_COVERAGE / POST_DRAFT / FINAL_DELIVERY / FAILURE_MEMORY` 任一项，本章不得进入LOADED。
 
 ---
 
@@ -58,6 +60,21 @@ Candidate出现短句瀑布、提纲扩写、研究报告腔时，必须重新�
 
 ---
 
+## A4. Memory Anchor Check（每章强制检查，不强制新增）
+
+写前读取 `quality/MEMORY_ANCHOR_SYSTEM.md` 与 `tracking/MEMORY_ANCHOR_LEDGER.md`。
+
+必须知道：
+1. 本章是否自然有记忆锚候选；
+2. 若无，Scene Card明确写 `NO NEW ANCHOR`；
+3. 若调用已有锚，为什么这次意义会增加/改变；
+4. 当前Arc还缺哪个人物/场面记忆残余；
+5. 是否存在“为了补记忆点硬造金句/口头禅/象征物”的风险。
+
+普通章节允许没有新锚；Arc收束必须执行MEM-006四项检查。
+
+---
+
 ## B. 书级 WARM / PERMANENT
 
 Arc切换、每5章Snapshot、每10章Audit、新世界观/境界/势力时定点读取：
@@ -72,7 +89,7 @@ Arc切换、每5章Snapshot、每10章Audit、新世界观/境界/势力时定�
 - `planning/TRUTH_REVEAL_LADDER.md`
 - `planning/CHARACTER_LONG_ARCS.md`
 
-原则：短期因果决定怎么发生；卷纲决定为什么值得；总纲决定最终方向；期待/兑现决定为什么继续读；Rule Coverage决定交稿前有没有漏规则；External CI证明这些产物真的被执行器检查过。
+原则：短期因果决定怎么发生；卷纲决定为什么值得；总纲决定最终方向；期待/兑现决定为什么继续读；Memory Anchor决定什么值得长期记住；Rule Coverage决定交稿前有没有漏规则；External CI证明这些产物真的被执行器检查过。
 
 ---
 
@@ -109,6 +126,9 @@ Arc切换、每5章Snapshot、每10章Audit、新世界观/境界/势力时定�
 ### 推进能力/身份/资源兑现
 检查来源、组织利益、耐久残余与成本，禁止为了“有代价”立即清零。
 
+### 调用旧记忆锚
+检查 `MEMORY_ANCHOR_LEDGER` 当前意义、最近回响和下一次回响条件。若没有新增意义，不调用。
+
 ---
 
 ## E. Context Receipt
@@ -125,6 +145,9 @@ Arc切换、每5章Snapshot、每10章Audit、新世界观/境界/势力时定�
 - 当前卷细纲；
 - 新境界/势力/真相层；
 - EXPECTATION/PAYOFF/UPGRADE；
+- Memory Anchor System版本；
+- 本章可能调用的Anchor IDs / `NO PLANNED ECHO`；
+- 当前Arc Memory Gap；
 - Rule Coverage版本；
 - Failure Memory版本；
 - Workflow当前状态；
@@ -138,15 +161,17 @@ Arc切换、每5章Snapshot、每10章Audit、新世界观/境界/势力时定�
 
 Rolling Outline不能直接展开成正文。
 
-必须先生成 `quality/scene-cards/CHxxx_SCENE_CARD.md`。Scene Card只保留人物欲望、现场阻力、有限信息、选择、现实收益、代价与净变化。
+必须先生成 `quality/scene-cards/CHxxx_SCENE_CARD.md`。Scene Card只保留人物欲望、现场阻力、有限信息、选择、现实收益、代价、净变化，以及第9问的记忆候选。
 
 Scene Card像任务列表：不得进入WRITE。
+
+`NO NEW ANCHOR`是合法答案；“为了本章一定要有一句名台词”不是合法Scene Card目标。
 
 ---
 
 ## G. 完整写作流程
 
-**LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE → WRITE → MIDWRITE → FREEZE REVISION → POST-DRAFT AUDIT → PUBLICATION → EXPECTATION/PAYOFF → CONTINUITY PRECOMMIT → FINAL DELIVERY → CANDIDATE BRANCH COMMIT → EXTERNAL CI PASS → USER REVIEW → CANON PROMOTION → POSTCOMMIT → NEXT CAUSAL HOOK。**
+**LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE → WRITE → MIDWRITE → FREEZE REVISION → POST-DRAFT AUDIT（含Memory Anchor Audit） → PUBLICATION → EXPECTATION/PAYOFF → CONTINUITY PRECOMMIT → FINAL DELIVERY → CANDIDATE BRANCH COMMIT → EXTERNAL CI PASS → USER REVIEW → CANON PROMOTION（含Memory Anchor Ledger Diff） → POSTCOMMIT → NEXT CAUSAL HOOK。**
 
 严格同步 `quality/workflow/CHxxx_WORKFLOW.md`。
 
@@ -158,6 +183,7 @@ Scene Card像任务列表：不得进入WRITE。
 4. 读者在等待什么兑现？
 5. 删掉本章会损失什么？
 6. 是否重复已经完成的证明/情绪？
+7. 本章是否自然承担某个记忆锚的建立/回响？没有也可以，但要明确。
 
 ---
 
@@ -167,12 +193,13 @@ Scene Card像任务列表：不得进入WRITE。
 
 1. 冻结 `candidate_revision_id` 与 `candidate_sha256`；
 2. 生成 `CHxxx_POST_DRAFT_AUDIT.md`；
-3. 对 `RULE_COVERAGE_MATRIX` 逐条取证；
-4. 执行 `FAILURE_MEMORY` ACTIVE回归测试；
-5. 后续Gate全部绑定同一revision/SHA；
-6. 执行Final Delivery Clean Read；
-7. 把最终Candidate及全部审计产物提交当前候选分支；
-8. 提交后不再修改，进入External CI。
+3. 对 `RULE_COVERAGE_MATRIX` 逐条取证，包含MEM类Rule IDs；
+4. 执行 Memory Anchor Audit，判断新锚候选、旧锚增值、人物辨识度和强造风险；
+5. 执行 `FAILURE_MEMORY` ACTIVE回归测试；
+6. 后续Gate全部绑定同一revision/SHA；
+7. 执行Final Delivery Clean Read；
+8. 把最终Candidate及全部审计产物提交当前候选分支；
+9. 提交后不再修改，进入External CI。
 
 正文修改后按 `FINAL_DELIVERY_GATE` 失效规则重跑。
 
@@ -186,7 +213,7 @@ Scene Card像任务列表：不得进入WRITE。
 - Context Receipt存在；
 - Scene Card存在；
 - Post-Draft Audit = PASS；
-- Rule Coverage = PASS；
+- Rule Coverage = PASS，MEM类Rule IDs无缺项；
 - Publication = PASS；
 - Expectation/Payoff = PASS；
 - Continuity = PASS；
@@ -215,15 +242,17 @@ Scene Card像任务列表：不得进入WRITE。
 - 连续一句式叙述段；
 - 后台语言泄漏；
 - Receipt/Scene/Review报告是否存在；
+- Memory Anchor System / Ledger是否存在；
 - workflow Gate状态；
 - revision/SHA是否一致；
-- Rule Coverage是否缺项或存在FAIL/UNKNOWN。
+- Rule Coverage是否缺项或存在FAIL/UNKNOWN，包括MEM类Rule IDs。
 
 它**不能100%判断**：
 - 人物是否真正立体；
 - 因果是否具有文学上的最佳自然度；
 - 爽感是否恰到好处；
-- 对话是否足够有魅力。
+- 对话是否足够有魅力；
+- 一个场面是否真的会被读者多年记住。
 
 这些仍由Post-Draft/Publication/Payoff/Final Clean Read进行判断，但报告缺失、版本不一致或自报流程未完成时，程序会阻断。
 
@@ -233,4 +262,4 @@ Scene Card像任务列表：不得进入WRITE。
 
 已发布正文事实 > Canon Core / World Bible > 当前有效人物状态 > 卷级终点 > 当前Arc > Rolling Outline > 早期具体章号计划。
 
-商业节奏不能覆盖人物利益；旧12卷规划不能覆盖SERIES_V2_8V_2M。
+商业节奏和记忆锚设计都不能覆盖人物利益；旧12卷规划不能覆盖SERIES_V2_8V_2M。
