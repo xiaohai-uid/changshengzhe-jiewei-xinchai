@@ -18,13 +18,15 @@ ROOT = Path(__file__).resolve().parents[1]
 
 RULE_ID_RE = re.compile(r"\b(?:WF|CAN|KNOW|CHAR|CAUSAL|POWER|SCENE|CAP|STYLE|END|PAY|ALG|PLOT|REV|LEN|FINAL)-\d{3}\b")
 STATUS_ROW_RE = re.compile(r"^\|\s*([A-Z]+-\d{3})\s*\|\s*(PASS|NA|FAIL|UNKNOWN)\s*\|", re.M)
+ASCII_LEFT = r"(?<![A-Za-z0-9_])"
+ASCII_RIGHT = r"(?![A-Za-z0-9_])"
 
 BACKEND_PATTERNS = {
-    "chapter_id": re.compile(r"\bCH\d{3}\b", re.I),
-    "canon": re.compile(r"\bCANON\b", re.I),
-    "ledger": re.compile(r"\bLedger\b", re.I),
+    "chapter_id": re.compile(ASCII_LEFT + r"CH\d{3}" + ASCII_RIGHT, re.I),
+    "canon": re.compile(ASCII_LEFT + r"CANON" + ASCII_RIGHT, re.I),
+    "ledger": re.compile(ASCII_LEFT + r"Ledger" + ASCII_RIGHT, re.I),
     "state_diff": re.compile(r"State\s*Diff", re.I),
-    "snapshot": re.compile(r"\bSnapshot\b", re.I),
+    "snapshot": re.compile(ASCII_LEFT + r"Snapshot" + ASCII_RIGHT, re.I),
     "author_chapter_ref": re.compile(r"(?:上一章|本章|前文|第[一二三四五六七八九十百0-9]+章)"),
 }
 
