@@ -79,13 +79,19 @@ def sha256_text(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
+def prose_without_headings(text: str) -> str:
+    """Return prose body while excluding Markdown headings/metadata titles.
+
+    Chapter titles such as ``## 第八章：...`` are allowed presentation metadata;
+    repository-language checks apply to the prose body, not the heading itself.
+    """
+    return "\n".join(
+        line for line in text.splitlines() if not line.lstrip().startswith("#")
+    )
+
+
 def body_for_count(text: str) -> str:
-    lines = []
-    for line in text.splitlines():
-        if line.lstrip().startswith("#"):
-            continue
-        lines.append(line)
-    body = "\n".join(lines)
+    body = prose_without_headings(text)
     return re.sub(r"[\s#*_>`~\-]", "", body)
 
 
@@ -170,6 +176,7 @@ def validate(chapter: str, candidate: Path, strict_delivery: bool) -> tuple[list
         return errors, warnings
 
     text = read(candidate)
+    lint_text = prose_without_headings(text)
     digest = sha256_text(text)
     wc = len(body_for_count(text))
     if wc < 2800 or wc > 4000:
@@ -183,12 +190,12 @@ def validate(chapter: str, candidate: Path, strict_delivery: bool) -> tuple[list
         errors.append(f"STYLE-001/FM-003: max consecutive one-sentence narrative paragraphs = {run}")
 
     for name, pattern in BACKEND_PATTERNS.items():
-        hits = list(pattern.finditer(text))
+        hits = list(pattern.finditer(lint_text))
         if hits:
             preview = ", ".join(repr(h.group(0)) for h in hits[:3])
             errors.append(f"STYLE-003 backend leak [{name}]: {preview}")
 
-    ai_hits = {phrase: text.count(phrase) for phrase in AI_FINGERPRINTS if phrase in text}
+    ai_hits = {phrase: lint_text.count(phrase) for phrase in AI_FINGERPRINTS if phrase in lint_text}
     if ai_hits:
         warnings.append("AI/style fingerprint hits require human context review: " + str(ai_hits))
 
