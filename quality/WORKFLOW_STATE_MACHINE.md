@@ -1,18 +1,10 @@
-# CHAPTER WORKFLOW STATE MACHINE V2
+# CHAPTER WORKFLOW STATE MACHINE V3
 
-> 目的：把“应该执行的规则”变成不可跳步的交稿状态机。避免已经写了规则，但实际写章时跳过 LOAD / Scene Card / Gate 仍把失败稿交用户。
+> 目的：把“规则很多”升级为“每一步都有产物、证据和版本绑定”。
+>
+> 总原则：**FAIL CLOSED + EVIDENCE REQUIRED + REVISION BOUND。**
 
-## 一、总原则：FAIL CLOSED
-
-任何章节默认处于 `BLOCKED`。
-
-只有前一状态存在可验证产物并通过检查，才允许进入下一状态。
-
-**不能因为作者/模型“记得自己做过”就跳状态。**
-
-如果关键文件读取失败、Receipt缺失、Scene Card缺失、任一Gate非PASS，则停在当前状态或退回 `BLOCKED/REWRITE`，不得向用户展示Candidate正文。
-
-## 二、当前系列架构硬校验
+## 一、当前系列架构硬校验
 
 HOT LOAD时必须从 `MANIFEST.md` 确认：
 
@@ -20,181 +12,193 @@ HOT LOAD时必须从 `MANIFEST.md` 确认：
 - 目标总量约200万字
 - 当前卷/Arc/Canon Horizon与Context Card一致
 
-如果任何加载到的旧规划仍以“12卷 / 350万—500万 / 第一卷110—130章”为当前有效结构，必须视为**DEPRECATED CONFLICT**：
+如果加载到旧“12卷 / 350万—500万 / 第一卷110—130章”并试图驱动当前正文，视为 `DEPRECATED CONFLICT`，保持 BLOCKED。
 
-1. 不得进入 `LOADED`；
-2. 先以Manifest → Series Master → Volume Blueprints → Current Volume Detail的权威顺序解析；
-3. 旧规划只能作为历史资料，不得驱动正文。
-
-## 三、状态链
+## 二、状态链
 
 `BLOCKED`
 → `LOADED`
 → `MACRO_ALIGNED`
 → `SCENE_READY`
 → `DRAFTED`
+→ `POST_DRAFT_PASS`
 → `PUBLICATION_PASS`
 → `EXPECTATION_PAYOFF_PASS`
 → `CONTINUITY_PASS`
+→ `FINAL_DELIVERY_PASS`
 → `USER_REVIEW`
 → `CANON`
+
+任何状态不能跳跃。
+
+## 三、版本原则
+
+每次形成完整 Candidate，必须生成 `candidate_revision_id`。
+
+所有写后审查都必须绑定同一 revision。
+
+正文发生修改：
+- 错字/标点：至少重跑 Mechanical Lint + Final Delivery；
+- 句段/对白：相关 Style checks + Publication + Final 失效；
+- 事件/动机/知识/能力/资源/关系/章尾：Post-Draft、Publication、Expectation/Payoff、Continuity、Final 全部失效。
+
+禁止“审的是A稿，交的是B稿”。
 
 ## 四、各状态进入条件
 
 ### 0. BLOCKED
 
-默认状态。
-
-常见原因：
-- 未完成HOT LOAD；
-- 关键Canon / planning源无法读取；
-- 规划架构版本冲突；
-- 上一Candidate被判REWRITE；
-- 当前Arc阶段收益/因果方向尚未厘清；
-- 用户要求重新研究/改方向，旧Candidate失效。
+默认状态。以下任一存在即保持 BLOCKED：
+- HOT LOAD 不完整；
+- 关键 Canon / planning 源失败；
+- 规划架构冲突；
+- Context Receipt 缺失；
+- 用户改方向导致旧 Candidate 失效；
+- 当前正向期待或场景因果尚未设计清楚。
 
 ### 1. LOADED
 
-必须实际生成：
+必须存在 `quality/receipts/CHxxx_CONTEXT_RECEIPT.md`。
 
-`quality/receipts/CHxxx_CONTEXT_RECEIPT.md`
-
-Receipt至少记录：
-- Canon Horizon；
-- `SERIES_V2_8V_2M`架构确认；
-- HOT文件读取结果；
-- 最近1—3 Chapter Records / 上章结尾；
-- Published Prose Anchor实际回读位置；
-- 当前Volume / Arc / Rolling Outline；
-- 当前卷容量锚与本Arc在八卷规划中的功能；
-- 相关Canon Kernel IDs；
-- 当前人物State / Knowledge / Ability；
-- `quality/EXPECTATION_PAYOFF_GATE.md`已读取。
-
-缺一关键源，不得进入LOADED。
+Receipt 至少记录：Canon Horizon、系列架构、HOT来源、最近正文、Published Prose Anchor、当前卷/Arc/Outline、相关Canon IDs、人物状态/知识/能力、Expectation/Payoff方向、质量规则版本。
 
 ### 2. MACRO_ALIGNED
 
-Receipt或工作流记录中必须回答：
-- 本章属于哪个Arc；
-- 推进卷级哪个核心问题；
-- 当前真相层允许到哪里；
-- 本章推进哪条人物长期弧；
-- 当前短周期读者正在等待什么具体兑现；
-- 如果删掉本章，Arc/卷损失什么；
-- 本章是否在重复一个已经完成主证明的世界观结论；
-- 当前Arc是否出现“为了旧章号/旧卷长继续拖”的风险。
+必须回答：
+1. 属于哪个Arc；
+2. 推进卷级哪个核心问题；
+3. 真相允许到哪层；
+4. 推进哪条人物弧；
+5. 读者正在等什么具体兑现；
+6. 删掉本章会损失什么；
+7. 是否重复已经完成主证明的结论；
+8. 是否为了旧章号/卷长继续拖。
 
-若最后两项存在明显风险，退回规划层重做。
+存在明显问题：退回规划。
 
 ### 3. SCENE_READY
 
-必须实际存在：
+必须存在 `quality/scene-cards/CHxxx_SCENE_CARD.md`。
 
-`quality/scene-cards/CHxxx_SCENE_CARD.md`
+必须通过：人物欲望、现实阻力、有限信息、信息不足处选择、现实收益、双向代价、场景净变化、配角独立行动。
 
-并通过Scene Isolation：
-- 不直接翻译Rolling Outline；
-- 不含CH/FP/Canon等后台任务语言；
-- 有人物欲望、现场阻力、有限信息、选择、后果；
-- 重要配角即使陈缺不在也有自己的行动；
-- 能回答“场景结束人物实际多了什么/少了什么”。
+Scene Card 仍像任务清单：FAIL。
 
 ### 4. DRAFTED
 
-正文Candidate已写出，但**此状态禁止交用户**。
+完整 Candidate 已写出并冻结 revision id。
 
-必须完成：
-- 2800—4000字检查；
-- 约3000—3300字MIDWRITE CAPACITY CHECK；
-- 1—2个核心事件限制；
-- prose anchor风格复核。
+此状态**绝对禁止交用户**。
 
-### 5. PUBLICATION_PASS
+必须已完成：
+- 2800—4000字初检；
+- Midwrite Capacity Check；
+- 1—2核心事件限制；
+- prose anchor 初步复核。
 
-必须执行 `quality/PUBLICATION_GATE.md` 并结论为 `PASS`。
+### 5. POST_DRAFT_PASS
 
-若 `REWRITE`：退回 `SCENE_READY` 或 `DRAFTED`。
+必须生成 `quality/reviews/CHxxx_POST_DRAFT_AUDIT.md`。
 
-若 `BLOCKED`：退回 `BLOCKED`。
+按 `quality/POST_DRAFT_AUDIT.md` 完成：
+- Mechanical Lint；
+- Rule Coverage Audit；
+- Causal/Character Falsification；
+- Knowledge/Power Claim Audit；
+- Outline Leakage Audit；
+- Expectation/Payoff资产Diff预审；
+- Anti-AI/Redundancy；
+- Reader Clean Read；
+- Failure Memory Regression Tests。
 
-### 6. EXPECTATION_PAYOFF_PASS
+报告必须 PASS 且 revision id 完全匹配。
 
-必须执行 `quality/EXPECTATION_PAYOFF_GATE.md` 并结论为 `PASS`。
+### 6. PUBLICATION_PASS
 
-必须能证明：
-- 本章/小周期期待清晰；
-- 兑现或推进不是纯增加谜题；
-- 收益有现实残余；
-- 代价没有习惯性把收益归零；
-- 主角主动性与奖励类型没有长期重复。
+执行 `quality/PUBLICATION_GATE.md`。
 
-非PASS不得交稿。
+小说质感、场景结构、段落、对话、章尾、胜利算法全部 PASS。
 
-### 7. CONTINUITY_PASS
+### 7. EXPECTATION_PAYOFF_PASS
 
-执行Precommit：
-- 正文与已发布正文/Canon Kernel/Chapter Ledger无冲突；
-- UNKNOWN/SUSPECTS未偷升事实；
-- 能力来源、进入、代价、受益者一致；
-- 伤势、位置、物品、时间、关系连续；
-- Candidate Facts/Knowledge/Timeline/Relationship/FP-P-S已可抽取。
+执行 `quality/EXPECTATION_PAYOFF_GATE.md`。
 
-### 8. USER_REVIEW
+必须证明期待/兑现/升级成立，收益有耐久残余，商业节奏没有重新掉回纯高压/纯谜题。
 
-**只有到达此状态，才允许向用户展示完整Candidate正文。**
+### 8. CONTINUITY_PASS
 
-展示时仍明确：Candidate尚未进入Canon。
+执行 Precommit：
+- Canon/正文无冲突；
+- Knowledge无越权；
+- 状态/时间/物品/伤势连续；
+- 能力来源/进入/代价/受益者一致；
+- Candidate变化可抽取。
 
-用户要求重写/否决：状态退回 `BLOCKED` 或相应阶段，旧Candidate不得作为事实使用。
+### 9. FINAL_DELIVERY_PASS
 
-### 9. CANON
+执行 `quality/FINAL_DELIVERY_GATE.md`。
 
-仅在用户明确确认正文后：
+必须确认：
+- Post-Draft / Publication / Payoff / Continuity 全部对应同一 revision；
+- `RULE_COVERAGE_MATRIX` 所有相关 Rule ID PASS/NA；
+- `FAILURE_MEMORY` ACTIVE项全部通过；
+- 最终稿完成 Clean Read；
+- Gate 后没有未审修改。
+
+### 10. USER_REVIEW
+
+**只有此状态允许向用户展示完整 Candidate。**
+
+用户否决/要求重写：旧 Candidate 失效，新增事实无权进入规划/Canon；按问题退回相应状态，重大重写直接回 BLOCKED/SCENE_READY。
+
+### 11. CANON
+
+只有用户明确确认后：
 - 固化正文；
-- Candidate状态转Canon；
-- 更新Kernel / Ledger / Chapter Record / State Projection；
-- 更新Narrative Pattern / Commercial Rhythm / Rolling Outline / Context Card；
+- Candidate Facts/Knowledge/Timeline/Relationship/Plots转Canon；
+- 更新Kernel/Ledger/Chapter Record/State Projection；
+- 更新Narrative Pattern/Commercial Rhythm/Rolling Outline/Context Card；
 - 写Commit Receipt；
-- POSTCOMMIT校验Horizon。
+- POSTCOMMIT校验Canon Horizon。
 
 ## 五、每章工作流文件
 
-每个当前Candidate必须有：
-
-`quality/workflow/CHxxx_WORKFLOW.md`
-
-建议字段：
+`quality/workflow/CHxxx_WORKFLOW.md` 至少记录：
 
 ```text
-CHAPTER: CHxxx
-CANON_HORIZON: CHxxx-1
+CHAPTER:
+CANON_HORIZON:
 SERIES_ARCHITECTURE: SERIES_V2_8V_2M
-CURRENT_STATE: BLOCKED|LOADED|...
-CONTEXT_RECEIPT: path / MISSING
-SCENE_CARD: path / MISSING
+CURRENT_STATE:
+CANDIDATE_REVISION_ID:
+CONTEXT_RECEIPT:
+SCENE_CARD:
+POST_DRAFT_AUDIT: PENDING|PASS|REWRITE|BLOCKED
 PUBLICATION_GATE: PENDING|PASS|REWRITE|BLOCKED
 EXPECTATION_PAYOFF_GATE: PENDING|PASS|REWRITE|BLOCKED
 CONTINUITY_PRECOMMIT: PENDING|PASS|REWRITE|BLOCKED
-USER_DECISION: PENDING|APPROVED|REWRITE
-NOTES:
+FINAL_DELIVERY_GATE: PENDING|PASS|REWRITE|BLOCKED
+RULE_COVERAGE: PENDING|PASS|BLOCKED
+FAILURE_REGRESSION: PENDING|PASS|BLOCKED
+USER_DECISION:
 ```
 
 ## 六、硬禁止
 
-- 没有Context Receipt就写正文；
-- 没有Scene Card就从Rolling Outline扩写正文；
-- Gate只是“脑内检查”而没有工作流状态；
-- `DRAFTED`状态直接把正文发用户；
-- 用户否决后继续把旧Candidate的姓名、事实、道具当Canon；
-- 为赶更新跳过Gate；
-- 使用已经废弃的12卷/350—500万旧规划驱动当前章节；
-- 为命中旧卷长或总字数而继续已经完成的Arc。
+- 没有Receipt写正文；
+- 没有Scene Card写正文；
+- Gate只在脑内执行；
+- `DRAFTED`直接交用户；
+- Post-Draft Audit缺失仍继续；
+- Rule Coverage只写“全部正常”而无证据；
+- Gate通过后修改正文却不重跑；
+- 用户否决后继续沿用旧Candidate新事实；
+- 为赶更新跳步；
+- 使用废弃12卷规划驱动当前章节；
+- 为命中旧卷长继续已经完成的Arc。
 
-## 七、当前 CH007
+## 七、当前CH007
 
-上一版CH007 Candidate已判 `REWRITE`，未进入Canon。
+上一版CH007已REWRITE且非Canon。
 
-因此CH007必须从CH006 Canon Horizon重新冷启动；旧Candidate中新增姓名、编号、南二细节和逃亡执行细节均不具Canon权威。
-
-当前系列宏观基线：八卷/约200万字；第一卷约70—75章；当前七日考核Arc计划约CH011/12收束，但真实因果优先。
+新CH007必须从CH006重新冷启动，并执行V3状态链。旧Candidate的姓名、编号、南二布局、运输细节均无权威。
