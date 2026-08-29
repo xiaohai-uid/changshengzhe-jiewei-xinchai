@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-RULE_ID_RE = re.compile(r"\b(?:WF|CAN|KNOW|CHAR|CAUSAL|POWER|SCENE|CAP|STYLE|END|PAY|ALG|PLOT|REV|LEN|FINAL)-\d{3}\b")
+RULE_ID_RE = re.compile(r"\b(?:WF|CAN|KNOW|CHAR|CAUSAL|POWER|SCENE|CAP|STYLE|END|PAY|ALG|MEM|PLOT|REV|LEN|FINAL)-\d{3}\b")
 STATUS_ROW_RE = re.compile(r"^\|\s*([A-Z]+-\d{3})\s*\|\s*(PASS|NA|FAIL|UNKNOWN)\s*\|", re.M)
 ASCII_LEFT = r"(?<![A-Za-z0-9_])"
 ASCII_RIGHT = r"(?![A-Za-z0-9_])"
@@ -79,13 +79,13 @@ def sha256_text(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
+def prose_text(text: str) -> str:
+    """Return prose-only text for scans that must ignore markdown titles."""
+    return "\n".join(line for line in text.splitlines() if not line.lstrip().startswith("#"))
+
+
 def body_for_count(text: str) -> str:
-    lines = []
-    for line in text.splitlines():
-        if line.lstrip().startswith("#"):
-            continue
-        lines.append(line)
-    body = "\n".join(lines)
+    body = prose_text(text)
     return re.sub(r"[\s#*_>`~\-]", "", body)
 
 
@@ -152,10 +152,12 @@ def validate(chapter: str, candidate: Path, strict_delivery: bool) -> tuple[list
     manifest_path = ROOT / "MANIFEST.md"
     workflow_path = ROOT / f"quality/workflow/{chapter}_WORKFLOW.md"
     matrix_path = ROOT / "quality/RULE_COVERAGE_MATRIX.md"
+    memory_system_path = ROOT / "quality/MEMORY_ANCHOR_SYSTEM.md"
+    memory_ledger_path = ROOT / "tracking/MEMORY_ANCHOR_LEDGER.md"
     receipt_path = ROOT / f"quality/receipts/{chapter}_CONTEXT_RECEIPT.md"
     scene_path = ROOT / f"quality/scene-cards/{chapter}_SCENE_CARD.md"
 
-    for p in (manifest_path, workflow_path, matrix_path):
+    for p in (manifest_path, workflow_path, matrix_path, memory_system_path, memory_ledger_path):
         if not p.exists():
             errors.append(f"missing required control file: {p.relative_to(ROOT)}")
     if errors:
@@ -170,6 +172,7 @@ def validate(chapter: str, candidate: Path, strict_delivery: bool) -> tuple[list
         return errors, warnings
 
     text = read(candidate)
+    scan_text = prose_text(text)
     digest = sha256_text(text)
     wc = len(body_for_count(text))
     if wc < 2800 or wc > 4000:
@@ -183,12 +186,12 @@ def validate(chapter: str, candidate: Path, strict_delivery: bool) -> tuple[list
         errors.append(f"STYLE-001/FM-003: max consecutive one-sentence narrative paragraphs = {run}")
 
     for name, pattern in BACKEND_PATTERNS.items():
-        hits = list(pattern.finditer(text))
+        hits = list(pattern.finditer(scan_text))
         if hits:
             preview = ", ".join(repr(h.group(0)) for h in hits[:3])
             errors.append(f"STYLE-003 backend leak [{name}]: {preview}")
 
-    ai_hits = {phrase: text.count(phrase) for phrase in AI_FINGERPRINTS if phrase in text}
+    ai_hits = {phrase: scan_text.count(phrase) for phrase in AI_FINGERPRINTS if phrase in scan_text}
     if ai_hits:
         warnings.append("AI/style fingerprint hits require human context review: " + str(ai_hits))
 
