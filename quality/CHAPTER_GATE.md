@@ -1,16 +1,20 @@
-# CHAPTER GATE V7
+# CHAPTER GATE V8
 
 > 每章依次通过：
 >
-> **MACRO ALIGNMENT → PREWRITE → SCENE ISOLATION → WRITE → MIDWRITE → POST-DRAFT AUDIT → PUBLICATION → EXPECTATION/PAYOFF → CONTINUITY → FINAL DELIVERY → USER REVIEW → CANON PROMOTION → POSTCOMMIT。**
+> **MACRO ALIGNMENT → PREWRITE → SCENE ISOLATION → WRITE → MIDWRITE → POST-DRAFT AUDIT → PUBLICATION → EXPECTATION/PAYOFF → CONTINUITY → FINAL DELIVERY → EXTERNAL CI → USER REVIEW → CANON PROMOTION → POSTCOMMIT。**
 >
 > 同时服从 `quality/WORKFLOW_STATE_MACHINE.md`。任何缺失步骤一律 FAIL CLOSED。
 
-## 0. 核心变化：写完以后必须重新审稿
+## 0. 核心变化：写完以后必须重新审稿，也必须检查“有没有东西留下”
 
 过去的风险是“规则都在写前提醒，但写完以后没有逐条验收”。
 
 现在 DRAFTED 后必须先执行 `quality/POST_DRAFT_AUDIT.md`，并用 `quality/RULE_COVERAGE_MATRIX.md` 逐条取证。
+
+同时加载：
+- `quality/MEMORY_ANCHOR_SYSTEM.md`
+- `tracking/MEMORY_ANCHOR_LEDGER.md`
 
 **没有 Post-Draft Audit PASS，不得进入 Publication Gate。**
 
@@ -29,6 +33,7 @@
 6. 如果删掉本章，Arc/卷结构与期待曲线损失什么？
 7. 是否在重复一个已经完成主证明的世界观结论？
 8. 是否为了旧章号/卷长拖延？
+9. 本章是否自然承担某个记忆锚的建立/回响？没有也可以，但必须明确。
 
 若答案显示本章只是“还能写”：退回规划。
 
@@ -45,6 +50,8 @@
 - 最近5章Narrative Pattern；
 - Published Prose Anchor；
 - EXPECTATION / PAYOFF / UPGRADE；
+- Memory Anchor System / Ledger；
+- 当前Arc Memory Gap；
 - Context Receipt存在；
 - workflow状态合法。
 
@@ -63,9 +70,10 @@ Scene Card必须回答：
 - 解决什么、付什么；
 - 场景结束净变化；
 - 新问题怎样从变化长出来；
+- **三个月后最可能记得什么，或明确 `NO NEW ANCHOR`；**
 - 重要配角若无陈缺仍会做什么。
 
-出现后台任务语言、样本逐项展示、纯信息奖励、任务清单感：FAIL。
+出现后台任务语言、样本逐项展示、纯信息奖励、任务清单感、为了记忆点硬造金句：FAIL。
 
 ## 4. WRITE / MIDWRITE
 
@@ -76,7 +84,8 @@ Scene Card必须回答：
 - 开始用对白/摘要赶设定 → 回退；
 - 人物为大纲改变行为 → 改大纲；
 - 已完成主要选择与后果 → 可以自然收章；
-- 为补爽点突然加打脸/资源/能力 → 删除。
+- 为补爽点突然加打脸/资源/能力 → 删除；
+- 为补记忆点突然加哲理句/怪癖/象征物 → 删除。
 
 完成全文后冻结 `candidate_revision_id`，进入 DRAFTED。
 
@@ -98,7 +107,7 @@ Scene Card必须回答：
 ### B. Rule Coverage
 读取 `quality/RULE_COVERAGE_MATRIX.md`。
 
-所有本章相关 Rule ID 必须 `PASS / NA`，并有证据；UNKNOWN即BLOCKED。
+所有delivery-critical Rule ID必须 `PASS / NA`，并有证据；UNKNOWN即BLOCKED。MEM类Rule IDs不可缺失。
 
 ### C. Falsification
 主动寻找：
@@ -123,7 +132,17 @@ Rolling Outline / Scene Card 与正文并排比较；逐项扩写则退回Scene 
 ### H. Reader Clean Read
 只看上章结尾+本章，确认人物欲望、选择、变化、继续阅读动力。
 
-### I. Regression
+### I. Memory Anchor Audit
+必须回答：
+- Scene Card第9问是什么；
+- 新Anchor Candidate有/无；
+- 旧Anchor是否回响；
+- 若回响，意义增加了什么；
+- 是否存在强造金句/口头禅/象征物风险；
+- 重要人物关键对白/选择是否有自身辨识度；
+- Arc收束时MEM-006是否满足。
+
+### J. Regression
 执行 `quality/FAILURE_MEMORY.md` 所有ACTIVE项。
 
 任一硬FAIL：REWRITE。
@@ -140,7 +159,8 @@ Post-Draft PASS 后才读取执行 `quality/PUBLICATION_GATE.md`。
 - 配角主体性；
 - 推理语言；
 - 对话；
-- 章尾。
+- 章尾；
+- Memory / Distinctiveness：新锚是否自然、旧锚是否增值、人物声音是否趋同。
 
 结论：PASS / REWRITE / BLOCKED。
 
@@ -173,7 +193,12 @@ Post-Draft PASS 后才读取执行 `quality/PUBLICATION_GATE.md`。
 - 陈缺关键决定符合人格与证据；
 - 配角按自身利益行动；
 - 本章状态变化真实；
-- 不因商业化迫使人物降智。
+- 不因商业化/记忆点设计迫使人物降智。
+
+### Memory Anchor Precommit
+- Candidate阶段仅提出Anchor Diff Proposal；
+- 不提前修改正式Memory Anchor Ledger；
+- 旧Anchor含义与Canon无冲突。
 
 结论：PASS / REWRITE / BLOCKED。
 
@@ -184,14 +209,15 @@ Post-Draft PASS 后才读取执行 `quality/PUBLICATION_GATE.md`。
 检查：
 - Post-Draft / Publication / Payoff / Continuity 是否绑定同一 `candidate_revision_id`；
 - 修改后是否重跑受影响Gate；
-- Rule Coverage是否完整；
+- Rule Coverage是否完整，含MEM类Rule IDs；
 - Failure Memory回归测试是否全部通过；
 - 最终稿是否完成脱离规划文件的Clean Read；
-- 最后300字、关键反转后解释、段落风格是否仍合格。
+- 最后300字、关键反转后解释、段落风格是否仍合格；
+- 最终稿重新独立回答“记住什么”，且没有为此强造内容。
 
-只有 `FINAL_DELIVERY = PASS`，workflow才可进入 `USER_REVIEW`。
+只有 `FINAL_DELIVERY = PASS`，才允许提交候选分支进入外部CI。
 
-## 10. USER REVIEW
+## 10. EXTERNAL CI / USER REVIEW
 
 允许展示完整 Candidate 的必要条件：
 
@@ -200,7 +226,11 @@ Post-Draft PASS 后才读取执行 `quality/PUBLICATION_GATE.md`。
 - EXPECTATION_PAYOFF = PASS
 - CONTINUITY = PASS
 - FINAL_DELIVERY = PASS
-- 所有结果 revision 一致
+- Rule Coverage无MEM缺项
+- 所有结果 revision/SHA 一致
+- 当前候选分支精确HEAD的 `Chapter Quality Gate` = success
+- validator tests + strict delivery validation = success
+- CI后没有新commit
 
 用户否决后，旧Candidate新增事实立即失去权威。
 
@@ -213,17 +243,18 @@ Post-Draft PASS 后才读取执行 `quality/PUBLICATION_GATE.md`。
 4. 追加Chapter Ledger + Chapter Record；
 5. 重建state/tracking投影；
 6. 更新Narrative Pattern / Commercial Rhythm / Rolling Outline / Context Card；
-7. 必要时同步修订Detail / ARC_MAP；
-8. 写Commit Receipt；
-9. POSTCOMMIT校验Horizon。
+7. **执行Memory Anchor Diff：新增/回响/重解释只在此时进入正式Ledger；**
+8. 必要时同步修订Detail / ARC_MAP；
+9. 写Commit Receipt；
+10. POSTCOMMIT校验Horizon。
 
 失败：不推进main。
 
 ## 12. POSTCOMMIT
 
-- 每章：State Diff + Narrative Pattern / Commercial Rhythm；
-- 每5章：Snapshot + Expectation/Payoff回顾 + Failure Pattern回顾；
-- 每10章：Continuity + Narrative Pattern + Macro Drift + Rule Coverage orphan audit；
-- Arc结束：Arc Summary + 阶段期待兑现复盘；
-- 卷末：Major Canon Version；
+- 每章：State Diff + Narrative Pattern / Commercial Rhythm + Memory Anchor Diff；
+- 每5章：Snapshot + Expectation/Payoff回顾 + Failure Pattern回顾 + Memory Anchor Review；
+- 每10章：Continuity + Narrative Pattern + Macro Drift + Rule Coverage orphan audit + 人物辨识度回顾；
+- Arc结束：Arc Summary + 阶段期待兑现复盘 + Arc Memory Audit；
+- 卷末：Major Canon Version + 跨卷Memory Anchor筛选；
 - Revision：执行Change Impact Protocol。
