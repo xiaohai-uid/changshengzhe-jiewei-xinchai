@@ -70,7 +70,7 @@
 
 写下一章/继续时必须执行：
 
-**LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE → WRITE → MIDWRITE CAPACITY CHECK → FREEZE REVISION → POST-DRAFT AUDIT → PUBLICATION GATE → EXPECTATION/PAYOFF GATE → CONTINUITY PRECOMMIT → FINAL DELIVERY GATE → USER REVIEW → 用户确认 → CANON PROMOTION → POSTCOMMIT → NEXT CAUSAL HOOK。**
+**LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE → WRITE → MIDWRITE CAPACITY CHECK → FREEZE REVISION → POST-DRAFT AUDIT → PUBLICATION GATE → EXPECTATION/PAYOFF GATE → CONTINUITY PRECOMMIT → FINAL DELIVERY GATE → CANDIDATE BRANCH COMMIT → EXTERNAL CI PASS → USER REVIEW → 用户确认 → CANON PROMOTION → POSTCOMMIT → NEXT CAUSAL HOOK。**
 
 并服从 `quality/WORKFLOW_STATE_MACHINE.md` 的 FAIL-CLOSED 状态机。
 
@@ -82,11 +82,11 @@
 
 每章至少有认知、关系、能力、身份、资源、风险或现实影响中的一项实质变化；结尾产生新的自然问题，不为悬念强行截断正常因果。
 
-## 写后检验与证据规则（新增硬门）
+## 写后检验与证据规则（硬门）
 
 ### 1. 写完不等于检查完
 
-完整 Candidate 形成后，先冻结 `candidate_revision_id`。从这一刻开始，所有写后 Gate 都必须绑定该 revision。
+完整 Candidate 形成后，先冻结 `candidate_revision_id` 与 `candidate_sha256`。从这一刻开始，所有写后 Gate 都必须绑定同一 revision 与正文SHA。
 
 ### 2. 必须生成 Post-Draft Audit
 
@@ -114,20 +114,44 @@
 
 读取 `quality/FAILURE_MEMORY.md`。
 
-所有 ACTIVE failure pattern 每章Final Delivery前必须测试。用户指出一个本应被规则拦截的问题后，不只修正文，还必须修门禁，让同一种生产错误尽量只由用户指出一次。
+所有 ACTIVE failure pattern 每章Final Delivery前必须测试。用户指出一个本应被规则拦截的问题后，不只修正文，还必须修门禁/校验器/测试，让同一种生产错误尽量只由用户指出一次。
 
 ### 5. 修改后旧PASS自动失效
 
 正文修改后按影响范围重跑：
-- 错字/标点：Mechanical Lint + Final Delivery；
+- 错字/标点：Mechanical Lint + Final Delivery，并生成新SHA；
 - 句段/对白：相关Style checks + Publication + Final；
 - 事件/动机/知识/能力/资源/关系/章尾：Post-Draft / Publication / Payoff / Continuity / Final全部重跑。
 
 禁止“审的是A稿，交的是B稿”。
 
-### 6. Final Delivery是最终交稿门
+### 6. Final Delivery不是自我毕业证
 
-只有 `quality/FINAL_DELIVERY_GATE.md = PASS`，且所有Gate绑定同一revision，workflow才允许进入 `USER_REVIEW`。
+`quality/FINAL_DELIVERY_GATE.md = PASS` 只代表稿件可以提交候选分支接受外部校验，**不等于可以直接进入USER_REVIEW**。
+
+### 7. External CI 是最终可执行门禁
+
+Final Delivery PASS 后，必须把以下内容提交到 `MANIFEST.md` 指定的当前候选分支：
+- `candidate/CHxxx.md`；
+- Context Receipt；
+- Scene Card；
+- Post-Draft / Publication / Expectation-Payoff / Continuity / Final报告；
+- Workflow状态。
+
+然后由 `.github/workflows/chapter-quality.yml` 执行 `tools/chapter_gate.py --strict-delivery`。
+
+向用户展示完整Candidate前，必须实际读取GitHub Actions结果并确认：
+- workflow = `Chapter Quality Gate`；
+- branch = 当前候选分支；
+- conclusion = `success`；
+- run.head_sha = 候选分支当前HEAD；
+- validator tests = success；
+- strict delivery validation = success；
+- CI成功后没有新commit。
+
+任一不满足：BLOCKED，不得交完整正文。
+
+外部CI不能由作者在Markdown里自行填写PASS代替。
 
 ## 期待 → 兑现 → 升级
 
@@ -193,7 +217,7 @@
 - 每10章：CONTINUITY AUDIT + Narrative Pattern + Macro Drift Audit + Rule Coverage orphan audit。
 - 每卷：重建 CANON MAJOR VERSION。
 
-审计检查：性格漂移、越权知识、境界能力冲突、伤势道具、时间线、世界规则、伏笔遗忘、重复爽点、配角工具化、无代价成功、长期负收益、纯信息奖励、主动性停滞，以及“规则存在但无人负责检查”。
+审计检查：性格漂移、越权知识、境界能力冲突、伤势道具、时间线、世界规则、伏笔遗忘、重复爽点、配角工具化、无代价成功、长期负收益、纯信息奖励、主动性停滞，以及“规则存在但无人负责检查/没有执行器”。
 
 发现问题优先修未来剧情，不偷偷重写已经发布事实。
 
@@ -249,6 +273,6 @@ Rolling Outline只规定因果方向、阶段期待与可能收益，不得逐�
 
 ## 质量优先级
 
-**逻辑连续性 > 人物真实 > 规则审计完整性 > 期待与兑现 > 情绪不过度拉长 > 强行爽 > 赶剧情 > 提前完成卷纲 > 凑字数。**
+**逻辑连续性 > 人物真实 > 规则审计与执行完整性 > 期待与兑现 > 情绪不过度拉长 > 强行爽 > 赶剧情 > 提前完成卷纲 > 凑字数。**
 
 商业化优化的目标不是降低逻辑，而是选择更有情绪回报、更能累积主动权的合理因果。
