@@ -1,6 +1,6 @@
 {
-  "spec": 2,
-  "architecture_version": "3.1",
+  "spec": 3,
+  "architecture_version": "SERIES_V2_8V_2M+EXECUTABLE_GATE_V4",
   "role": "projection",
   "authority_note": "本文件是冷启动投影，不是唯一 Canon。权威源见 MANIFEST 与 canon/kernel/README.md。",
   "canonical_sources": [
@@ -25,8 +25,15 @@
     "SCENE_CARD",
     "PUBLISHED_PROSE_ANCHOR",
     "WRITE",
+    "FREEZE_REVISION",
+    "POST_DRAFT_AUDIT",
     "PUBLICATION_GATE",
+    "EXPECTATION_PAYOFF_GATE",
     "CONTINUITY_PRECOMMIT",
+    "FINAL_DELIVERY_GATE",
+    "CANDIDATE_BRANCH_COMMIT",
+    "EXTERNAL_CI_PASS",
+    "USER_REVIEW",
     "USER_CONFIRMATION",
     "CANON_PROMOTION"
   ],
@@ -34,10 +41,10 @@
   "volume": "第一卷·白骨山",
   "current_arc": "ARC-V01-01",
   "canonical_branch": "main",
-  "candidate_branch": "chapter/CH007",
-  "canon_horizon": 6,
-  "next_chapter": 7,
-  "state_revision": 5,
+  "candidate_branch": "chapter/CH008",
+  "canon_horizon": 7,
+  "next_chapter": 8,
+  "state_revision": 6,
   "chapters": {
     "1": {"status":"canonical-published-revision","title":"入门先死三成"},
     "2": {"status":"canonical-published-revision","title":"最安全的人，往往死得最快"},
@@ -45,42 +52,43 @@
     "4": {"status":"canonical-published-revision","title":"借来的东西，总要还"},
     "5": {"status":"canonical-published","title":"先把人分开"},
     "6": {"status":"canonical-published","title":"白绳上的黑点"},
-    "7": {"status":"candidate-not-written"}
+    "7": {"status":"canonical-published","title":"一篓坏药"},
+    "8": {"status":"candidate-not-written"}
   },
   "hot_state": {
     "protagonist":"CHAR-0001",
-    "location":"白骨山外山七日考核南二复验路径",
-    "cultivation":"真正无虫引气已成功，但CH006动用残余木属灵气后几乎耗尽；无战斗术法",
-    "known_realm_order":"引气→炼身→开府；更高境界及完整机制未知",
-    "body":["无正常血虫","验虫针曾测得极弱虫气","CH006后右臂/经络疼痛加重","后腰寒意再次出现","此前修炼后曾异常饥饿"],
-    "public_assessment_mark":"白绳边缘黑墨点；进入二验；完整含义未知",
-    "immediate_pressure":"与四名青绳新人一同被点入南二，其中包括韩鸦交易目标",
-    "zhao_state":"被白绳打黑结后转入更深观察路径；明确试图避免再次回药房",
-    "active_entities":["CHAR-0002","CHAR-0003","CHAR-0004","TARGET-0001"],
+    "location":"白骨山外山南二药材处理长屋；CH007章末仍在收尾",
+    "cultivation":"真正无虫引气已成功；真木属灵气仍几乎耗尽；无战斗术法",
+    "body":["无正常血虫","验虫针曾测得极弱虫气","右臂/经络疼痛","后腰寒意"],
+    "public_assessment_mark":"白绳边缘黑墨点；二验照旧；完整含义未知",
+    "durable_asset":"老周已记录丙九十七懂药，允许次日早饭后继续来南二拆药、记废料",
+    "target_state":"TARGET-0001已被陈缺独立确认利用废药外运试探西侧门；姓名、完整路线、时间、同伙仍未知",
+    "han_state":"CH006-007未出场；截至CH007未证明其知道陈缺南二工作入口；仍握陈缺剔虫把柄",
+    "zhao_state":"CH006白绳打黑结后转入更深观察；CH007未出场；精确位置未知",
+    "active_entities":["CHAR-0002","CHAR-0003","CHAR-0004","CHAR-0006","TARGET-0001"],
     "active_plots":["FP-004","FP-005","FP-006","FP-007","FP-008","FP-009","FP-010"],
-    "active_promises":["P-002","P-003","P-004","P-005","P-007"],
     "protected_info_gaps":["S-001","S-002","S-003","S-004","S-005","S-006","S-007","S-008","S-009"]
   },
   "next_contract": {
-    "chapter":7,
-    "primary":"让TARGET-0001从‘韩鸦指定目标’进入真实人物层，并让陈缺在南二获得对其计划的第一部分证据，而不是直接站队",
+    "chapter":8,
+    "primary":"让CH007获得的南二工作价值第一次改变韩鸦与陈缺的交易结构，形成有限议价而非地位反转",
     "must":[
-      "锁定TARGET-0001姓名与最小背景，并沿用同一永久ID",
-      "解释刮掉木牌‘药’字为何未触发宗门即时惩罚：木牌前号/册籍才是主要管理依据，刮字不是骗过身份检查的技术",
-      "目标必须按自己的利益试探陈缺，不能一见面主动倾倒真相",
-      "目标逃亡方案只揭露一部分，并体现其愿意让部分不稳定新人承担风险",
-      "给目标的激进判断至少一个来自本人经历的合理证据",
-      "陈缺不立即服从韩鸦，也不立即帮助目标"
+      "韩鸦若得知陈缺南二工作入口，必须通过正文可见的合理信息渠道",
+      "陈缺仍处于明显弱势，不得突然反拿捏韩鸦",
+      "韩鸦找陈缺必须服务自己的脱控/窗口利益，不是送资源",
+      "本章至少留下关系筹码、低阶资源或执行边界中的一项耐久变化",
+      "TARGET-0001只推进一小步，不完整揭路线/同伙/背景",
+      "真木属灵气仍近空，不能恢复成解法"
     ],
     "avoid":[
-      "后台标签或章节编号进入正文",
-      "短句瀑布和提纲扩写感",
-      "目标靠神秘台词主动暴露全部底牌",
-      "韩鸦突然出现解释完整考核制度",
-      "陈缺通过看多个样本精准通关",
-      "在CH007完整揭示赵石药房经历或终极世界真相"
+      "直接把Rolling Outline扩写成谈判清单",
+      "韩鸦解释全部计划和制度",
+      "陈缺靠威胁揭发获得平等地位",
+      "无代价资源礼包",
+      "纯信息作为唯一奖励",
+      "章尾金句代替现实后果"
     ],
-    "publication_gate":"必须先生成 Scene Card，并回读至少一段已发布优质正文作为 prose anchor；Publication Gate 与 Continuity Gate 任一 FAIL 均不得交稿",
-    "length_rule":"正文2800—4000字，常规目标3200—3600字；后25%不得清仓式压缩"
+    "publication_gate":"完整执行Context Receipt→Scene Card→Post-Draft→Publication→Payoff→Continuity→Final→exact-head GitHub Actions success",
+    "length_rule":"正文2800—4000字，常规目标3200—3600字；一章优先1—2个核心事件"
   }
 }
