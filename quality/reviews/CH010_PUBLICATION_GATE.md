@@ -1,35 +1,21 @@
 # CH010 PUBLICATION GATE
 
-CANDIDATE_REVISION_ID: CH010-R2-B022BBC6
-CANDIDATE_SHA256: 2d0b55a6d18d2e1f139b57fec4b509867e144ba41e939bafa3994a3f0db9febc
+CANDIDATE_REVISION_ID: CH010-R3-TITLE-7BCD91EF
+CANDIDATE_SHA256: 7bcd91eff5282269d6972f08bce568d4b2d3a243804baecb1974b598b2d7de31
 RESULT: PASS
 
-## Scene-first
+## Title
 
-PASS. The chapter begins from the exact CH009 physical mismatch: Lao Ma is back, TARGET is not, and South-Two cannot reconcile the return.
+PASS. `这笔账得有人认` is not a bare event summary. It names the chapter's live conflict—an unresolved human return becoming an accountable record—and gains a second concrete meaning when Han Ya writes his own name beside the unclosed entry. It does not spoil whether TARGET escaped, where he went, or why Han Ya cares.
 
-## Agency / supporting cast
+## Scene / agency
 
-PASS. Chen discloses prior observable west-door behavior without calling the absence a proven escape. Lao Zhou acts for production/accountability; Lao Ma reports only what he saw; Han receives the event through a real messenger and then accepts direct operational responsibility; Zhao keeps working under his own half-day choice; TARGET's independent action remains the cause of the incident.
+PASS. The chapter begins from CH009's unmatched return. Chen chooses to disclose only observable prior behavior, changing South-Two's handling while exposing himself to accountability. Lao Zhou acts for production/accounting; Han arrives through a real handoff channel and assumes direct responsibility for his own interests; Zhao continues his half-day work independently.
 
 ## Dialogue / style
 
-PASS. Dialogue stays operational: who returned, where they separated, whether to report, who owns the unresolved interval, who leads the next search. No lore Q&A or author-level explanation.
+PASS. Dialogue is operational rather than explanatory. Body count remains 3220; max consecutive one-sentence narrative paragraphs remains 2; backend-language and listed fingerprint scans remain zero. R3 changes title only; R2 body is unchanged.
 
-Mechanical evidence: body count 3220; max consecutive one-sentence narrative paragraphs 2; backend scan 0; listed AI fingerprints 0.
+## Ending / memory
 
-## Pattern rotation
-
-PASS. The solution model is responsibility attribution + multi-party reaction, not medicine expertise, Han threat-negotiation, repeated testing, hidden power or overheard answers.
-
-## Reader experience
-
-PASS. The chapter produces real escalation: west-door waste traffic stops, South-Two pays a production cost, Chen becomes a factual participant in the responsibility chain, and Han has to put his own name/body into the retrieval action. Existing gains remain.
-
-## Ending
-
-PASS. The final image is the still-closed west door and waste physically accumulating inside South-Two. It is a direct operational consequence, not a slogan, question, author preview or second disappearance.
-
-## Memory / distinctiveness
-
-PASS. A provisional Han behavior candidate emerges naturally: he writes his name beside the unresolved return and goes down himself. The prose does not celebrate/explain it as heroism. Existing MA-005/006/008/009 are not mechanically replayed. Formal registration remains deferred until user approval.
+PASS. The ending is the west door held shut while waste physically accumulates. The potential Han behavior anchor is allowed to stand through action, not explanatory celebration.
