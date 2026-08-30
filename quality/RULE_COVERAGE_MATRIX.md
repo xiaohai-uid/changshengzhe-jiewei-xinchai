@@ -1,4 +1,4 @@
-# RULE COVERAGE MATRIX V3
+# RULE COVERAGE MATRIX V4
 
 > 目的：解决“规则存在，但没有任何 Gate 真正检查”的问题。
 >
@@ -30,7 +30,7 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | WF-002 | Scene Card 未完成不得从 Outline 进入正文 | SCENE_CARD / CHAPTER_GATE | PREWRITE | Scene Card 路径 | BLOCKED |
 | WF-003 | 所有 Gate 必须按状态机顺序执行 | WORKFLOW_STATE_MACHINE | ALL | workflow state history | BLOCKED |
 | WF-004 | Gate PASS 必须绑定同一 Candidate Revision 与正文SHA | POST_DRAFT / FINAL_DELIVERY | POSTWRITE | revision_id + candidate_sha256 | RECHECK |
-| WF-005 | 任意正文修改使受影响的下游 PASS 失效 | FINAL_DELIVERY | POSTWRITE | revision change log / SHA change | RECHECK |
+| WF-005 | 任意正文或最终标题修改使受影响的下游 PASS 失效 | FINAL_DELIVERY / CHAPTER_TITLE_STANDARD | POSTWRITE | revision change log / SHA change | RECHECK |
 | WF-006 | 完整Candidate只有在当前候选分支精确HEAD的 `Chapter Quality Gate` 外部CI成功后才能交用户 | MANIFEST / WORKFLOW / FINAL_DELIVERY | EXTERNAL CI | Actions run id + branch + head_sha=current HEAD + conclusion=success | BLOCKED |
 | CAN-001 | 已发布正文事实高于未来规划 | MANIFEST / PROJECT_RULES | CONTINUITY | source chapter / fact | REWRITE |
 | CAN-002 | 已发布事实不得静默 Retcon | CHANGE_IMPACT_PROTOCOL | CONTINUITY | no-conflict / revision receipt | BLOCKED |
@@ -62,7 +62,7 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | CAP-002 | 约3000—3300字仍有2个以上关键节点则顺延 | PROJECT_RULES | MIDWRITE | capacity check record | REWRITE |
 | CAP-003 | 后25%不得清仓式塞设定/多反转 | STYLE | POST_DRAFT | 后25%事件/新概念列表 | REWRITE |
 
-## 五、文风与 Anti-AI
+## 五、文风、标题与 Anti-AI
 
 | Rule ID | 硬规则 | 主要来源 | 检查阶段 | 最低证据 | FAIL |
 |---|---|---|---|---|---|
@@ -73,6 +73,7 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | STYLE-005 | 删除场景已表达后再次总结主题/解释的句子 | STYLE | POST_DRAFT | 重复解释位置 | REWRITE |
 | STYLE-006 | 高频万能情绪句/句式不能机械复用 | STYLE | LINT/POST | 命中计数 + 最近章节比较 | REWRITE |
 | STYLE-007 | 对话不能变成设定问答机 | STYLE | POST_DRAFT | 信息是否可由行动替代 | REWRITE |
+| STYLE-008 | **最终章节名不得只是事件摘要/流程标签；至少承载冲突、反常识、具体意象、双关回收或人物选择之一，并检查最近5章标题结构重复；标题改动视为版本改动** | CHAPTER_TITLE_STANDARD / STYLE / PUBLICATION | PUBLICATION + FINAL | 标题5问 + recent-5 compare + candidate SHA binding | REWRITE / RECHECK |
 | END-001 | 章尾来自本章现实后果，不靠金句/神秘台词/作者预告硬切 | STYLE / PUBLICATION | POST_DRAFT | 最后300字审查 | REWRITE |
 
 ## 六、爽感、成长与商业节奏
@@ -117,12 +118,12 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | FINAL-001 | Post-Draft Audit 必须存在且与最终稿 revision/SHA 一致 | POST_DRAFT_AUDIT | FINAL | report path + revision + SHA | BLOCKED |
 | FINAL-002 | 所有 delivery-critical Rule ID 都必须 PASS/NA 且 NA 有理由 | 本矩阵 | FINAL | coverage table | BLOCKED |
 | FINAL-003 | 最终稿必须脱离规划文件做一次 Clean Read | FINAL_DELIVERY_GATE | FINAL | clean-read result | REWRITE |
-| FINAL-004 | 最终稿修改后必须重跑受影响检查 | FINAL_DELIVERY_GATE | FINAL | revision history / SHA change | RECHECK |
+| FINAL-004 | 最终稿正文或标题修改后必须重跑受影响检查 | FINAL_DELIVERY_GATE / CHAPTER_TITLE_STANDARD | FINAL | revision history / SHA change | RECHECK |
 | FINAL-005 | 只有 Final Delivery PASS + WF-006 外部CI成功，运行时才可进入 USER_REVIEW | WORKFLOW / FINAL_DELIVERY | FINAL+EXTERNAL | Final report + exact-head CI success | BLOCKED |
 
 ## 十、维护规则
 
-1. `PROJECT_RULES / STYLE_GUIDE / Gate / MEMORY_ANCHOR_SYSTEM / Executable Validator` 新增硬规则时，必须同步本矩阵。
+1. `PROJECT_RULES / STYLE_GUIDE / Gate / MEMORY_ANCHOR_SYSTEM / CHAPTER_TITLE_STANDARD / Executable Validator` 新增硬规则时，必须同步本矩阵。
 2. 每条硬规则只允许一个“最终责任 Gate/执行阶段”，其他Gate可以预检，避免所有文档都模糊负责。
 3. 用户指出一个本应被规则拦截却漏出的错误时：
    - 登记到 `quality/FAILURE_MEMORY.md`；
@@ -135,3 +136,4 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 5. 每10章Audit检查一次本矩阵是否存在“规则已新增但无人负责”的orphan rule。
 6. 每Arc收束执行MEM-006，不允许靠最后一章硬塞名场面补齐。
 7. External CI规则不能由Post-Draft报告自我证明；必须读取GitHub Actions真实结果。
+8. `STYLE-008`属于人工语义Gate，不能仅靠机械关键词判定好标题；机械化只负责辅助检测重复结构/版本绑定，最终由Publication Title Review负责。
