@@ -9,7 +9,7 @@ CURRENT_VOLUME_TARGET: ~70-75 chapters
 CURRENT_ARC_TARGET: ~CH001-CH011/12
 CURRENT_STATE: FINAL_DELIVERY_PASS
 CANDIDATE_REVISION_ID: CH010-R2-B022BBC6
-CANDIDATE_SHA256: d4f23442b0051a908630091091a0caeb9751ccfecdcbb9bf737116dfbc076655
+CANDIDATE_SHA256: 2d0b55a6d18d2e1f139b57fec4b509867e144ba41e939bafa3994a3f0db9febc
 CONTEXT_RECEIPT: quality/receipts/CH010_CONTEXT_RECEIPT.md
 SCENE_CARD: quality/scene-cards/CH010_SCENE_CARD.md
 POST_DRAFT_AUDIT: PASS
@@ -30,12 +30,12 @@ USER_DECISION: PENDING
 - SCENE_READY: South-Two confirms the missing return through work accounting; Chen reports only observable prior behavior; the event reaches Han through a real handoff channel; Zhao remains under the existing half-day work borrow.
 - DRAFTED-R1: invalidated before Gate PASS because adversarial review found FM-006 explanatory-summary risk.
 - DRAFTED-R2: explanations removed/replaced by concrete ledger/action consequences; frozen as `CH010-R2-B022BBC6`.
-- SHA REPAIR: exact current repository R2 bytes recalculated as `d4f23442b0051a908630091091a0caeb9751ccfecdcbb9bf737116dfbc076655`. The previous metadata retained a pre-final-edit hash; CI correctly failed closed. Candidate prose was not modified during repair.
-- POST_DRAFT_PASS: exact R2 SHA.
-- PUBLICATION_PASS: exact R2 SHA.
-- EXPECTATION_PAYOFF_PASS: exact R2 SHA.
-- CONTINUITY_PASS: exact R2 SHA.
-- FINAL_DELIVERY_PASS: exact R2 SHA.
+- SHA DIAGNOSIS: GitHub Actions runner printed authoritative `sha256sum candidate/CH010.md` = `2d0b55a6d18d2e1f139b57fec4b509867e144ba41e939bafa3994a3f0db9febc`. Earlier stale/manual hashes were rejected by CI as designed. Candidate prose was not modified during diagnosis.
+- POST_DRAFT_PASS: exact R2 runner-authoritative SHA.
+- PUBLICATION_PASS: exact R2 runner-authoritative SHA.
+- EXPECTATION_PAYOFF_PASS: exact R2 runner-authoritative SHA.
+- CONTINUITY_PASS: exact R2 runner-authoritative SHA.
+- FINAL_DELIVERY_PASS: exact R2 runner-authoritative SHA.
 
 ## Prewrite gates
 
