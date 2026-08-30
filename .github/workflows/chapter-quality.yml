@@ -59,6 +59,7 @@ jobs:
           chapter='${{ steps.candidate.outputs.chapter }}'
           candidate='${{ steps.candidate.outputs.path }}'
           if [[ -f "$candidate" ]]; then
+            echo "candidate_sha256=$(sha256sum "$candidate" | awk '{print $1}')"
             python tools/chapter_gate.py --chapter "$chapter" --candidate "$candidate" --strict-delivery
           elif [[ "$GITHUB_REF_NAME" == chapter/* ]]; then
             echo "ERROR: chapter branch has no $candidate"
