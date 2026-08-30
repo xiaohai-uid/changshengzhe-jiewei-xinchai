@@ -1,10 +1,10 @@
-# PUBLICATION GATE V4
+# PUBLICATION GATE V5
 
 > 目标：在连续性之外，判断正文是否像真实可发布的长篇小说。
 >
 > **进入条件：Post-Draft Audit = PASS，且candidate_revision_id一致。**
 >
-> Publication PASS只代表小说质感/场景写法通过；仍必须继续通过Expectation/Payoff、Continuity与Final Delivery。
+> Publication PASS只代表小说质感/场景写法/最终章节名通过；仍必须继续通过Expectation/Payoff、Continuity与Final Delivery。
 
 ## 1. Scene First
 
@@ -139,7 +139,38 @@
 
 不足时优先回看Arc结构，不允许只在最后一章硬补。
 
-## 13. 结论
+## 13. Chapter Title Review（硬门）
+
+读取 `quality/CHAPTER_TITLE_STANDARD.md`。
+
+最终章节名必须回答：
+1. 去掉章号后，标题单独看有没有阅读欲？
+2. 它指向本章真正的核心冲突/选择/意象，还是只是在概括“发生了什么”？
+3. 读到章末后，标题是否获得第二层意义、回收或更具体的重量？若没有第二层，也必须至少有明确冲突/反常识张力。
+4. 是否泄露正文尚未确认的死亡、身份、谜底、因果？
+5. 与最近5章是否出现同构流程句式？
+
+### 默认REWRITE
+
+- 纯事件摘要，例如“少了一个人以后”“人回来了”“再验一次”；
+- 直接使用Rolling Outline/Scene Card内部功能名；
+- 连续使用“先…… / 又…… / 一……”等流程式结构却没有双关/冲突收益；
+- 普通道具名与正文核心无第二层关系；
+- 必须由作者额外解释才显得“有深意”；
+- 靠剧透关键答案制造点击。
+
+### 版本绑定
+
+**最终标题属于Candidate字节的一部分。**
+
+标题改动后：
+- candidate SHA必然变化；
+- 旧Post-Draft / Publication / Payoff / Continuity / Final Delivery绑定全部失效；
+- 必须重新绑定最终标题版本并重新跑exact-head CI。
+
+CH010的标题修订即作为标准案例：正文不变，`少了一个人以后` → `这笔账得有人认`，并重新完成全部版本绑定和CI。
+
+## 14. 结论
 
 只允许：
 - PASS：可以进入Expectation/Payoff Gate；
