@@ -1,8 +1,12 @@
 # CH010 POST-DRAFT AUDIT
 
-CANDIDATE_REVISION_ID: CH010-R2-B022BBC6
-CANDIDATE_SHA256: 2d0b55a6d18d2e1f139b57fec4b509867e144ba41e939bafa3994a3f0db9febc
+CANDIDATE_REVISION_ID: CH010-R3-TITLE-7BCD91EF
+CANDIDATE_SHA256: 7bcd91eff5282269d6972f08bce568d4b2d3a243804baecb1974b598b2d7de31
 RESULT: PASS
+
+## Revision scope
+
+R3 is a title-only revision made after explicit user approval of the body. The body text is unchanged from R2; only `第十章：少了一个人以后` was replaced with `第十章：这笔账得有人认`. All body-level checks were rerun/rebound to the exact R3 SHA. The new title is stronger because it carries the chapter's central responsibility conflict and gains a second meaning when Han Ya writes his own name beside the unresolved return record; it does not reveal TARGET's outcome or Han Ya's hidden motive.
 
 ## Frozen candidate metrics
 
@@ -13,109 +17,100 @@ RESULT: PASS
 - listed_AI_fingerprint_scan: 0 hit
 - core_events: 2
 - final_25_percent_new_major_lines: 0
-- candidate prose unchanged during SHA repair; authoritative SHA comes from GitHub Actions runner `sha256sum candidate/CH010.md`.
 
-## Revision history
+## Causal / character / knowledge audit
 
-R1 was invalidated before downstream PASS because adversarial reread found FM-006 explanatory-summary risk. R2 removed those summaries and is the only reviewed prose. Earlier audit metadata carried stale hashes; external CI correctly failed closed. This report repairs only binding metadata/evidence, not prose.
-
-## Adversarial review
-
-- Natural start: CH009 ends with Lao Ma back and TARGET not back; CH010 opens by reconciling that exact mismatch.
-- Chen's choice: disclose only observable prior west-door behavior; refuse to label escape as fact.
-- Result: South-Two halts west-door waste traffic, calls the prior green-rope handler, and records the unresolved return.
-- Lao Zhou acts for production/accountability; Lao Ma reports only what he saw; Han receives the event through an on-page messenger and acts for his own threatened interest; Zhao keeps working under his own half-day borrow; TARGET remains independently active off-page.
-- No new cultivation claim, no qi recovery, no combat solution.
-- TARGET route, location, accomplices, destination and escape outcome remain UNKNOWN.
+- CH009 ends with Lao Ma returned and TARGET not yet returned; CH010 opens on that exact unmatched-return fact.
+- Chen reports only previously observed behavior and refuses to label the absence as proven escape.
+- Lao Zhou acts for South-Two production/accountability; Han Ya learns through the on-page messenger/handoff channel and acts for his own threatened interest.
+- Zhao Shi remains under the existing half-day South-Two borrow and is not converted into a plot tool.
+- TARGET outcome, full route, accomplices and Han Ya's full motive remain unknown.
+- No new cultivation power or mechanism is introduced; Chen's near-empty true qi is not restored or used.
 
 ## Asset / agency diff
 
-Before: South-Two work access + three-day recheck + Zhao half-day borrow already exist; TARGET is overdue.
+- Chen's South-Two work/record position remains intact and now places him in a real responsibility chain.
+- His factual disclosure changes the handling path: west-door transport is held and the prior green-rope handler is called.
+- Han Ya places his own name beside the unresolved record and personally descends with Lao Ma, paying visible responsibility and bodily-risk cost.
+- South-Two pays a real production cost through held waste transport/backlog.
+- Zhao Shi's half-day work and Chen's three-day recheck remain intact.
+- TARGET's outcome remains unresolved.
 
-After: Chen's factual disclosure materially changes handling; Han writes his own name beside the unresolved record and descends with Lao Ma; South-Two pays production cost through the held door/backlog. Existing gains remain intact.
+NET AGENCY DELTA: positive but bounded.
 
-NET AGENCY DELTA: positive but bounded; Chen changes who acts and who bears risk without controlling the search.
+## Anti-AI / repetition / ending
 
-## Reader / style / memory audit
+- No backend-language leakage.
+- No listed generic AI/emotion fingerprints.
+- No explanatory-summary regression from R1; action, ledger and backlog carry the meaning.
+- Solution pattern is responsibility attribution + multi-party reaction, not medicine expertise, bargaining, testing, hidden-strength burst or overheard exposition.
+- Ending remains concrete: closed west door and accumulating waste backlog.
 
-- Main driver: ACTION + RELATIONSHIP + IMPACT.
-- R2 removes post-choice theme summaries; the ledger, shut door and backlog carry meaning.
-- Ending is concrete operational consequence, not a slogan/question/author preview.
-- Provisional memory candidate: Han writes his name into the unresolved return and descends himself. No formal Memory Ledger change before user approval.
-- Existing MA-005/006/008/009 are not mechanically replayed.
-- Arc still ongoing, so MEM-006 is NA.
+## Memory Anchor audit
 
-## Failure Memory regression
-
-- FM-001 PASS: full Receipt/HOT load exists.
-- FM-002 PASS: two causal units, not outline checklist expansion.
-- FM-003 PASS: max one-sentence narrative run = 2.
-- FM-004 PASS: Zhao afternoon/Gu/full chase not opened.
-- FM-005 PASS: no one-off custom-skilled NPC.
-- FM-006 PASS: R1 explanatory summaries removed before R2.
-- FM-007 PASS: ending is backlog/held door, not translated outline hook.
-- FM-008 PASS: prior gains remain.
-- FM-009 PASS: actual audit artifacts exist.
-- FM-010 PASS: R1 invalidated; all current reports bind R2.
-- FM-011 PASS internally; exact-head CI remains mandatory and is not self-certified.
+- Provisional anchor candidate: Han Ya writes his own name into the unresolved return record and descends himself.
+- Anchor type: BEHAVIOR + RELATIONSHIP.
+- Existing anchors are not mechanically replayed.
+- No forced philosophy/catchphrase/symbol.
+- Arc is ongoing; MEM-006 not yet due.
 
 ## Rule Coverage
 
 | Rule ID | Status | Evidence |
 |---|---|---|
-| WF-001 | PASS | Context Receipt exists with HOT sources and patches. |
+| WF-001 | PASS | Context Receipt exists and records HOT LOAD. |
 | WF-002 | PASS | Scene Card exists before draft. |
-| WF-003 | PASS | Workflow history follows required state order. |
-| WF-004 | PASS | This audit binds exact R2 revision/SHA. |
-| WF-005 | PASS | R1 invalidated after prose edit; no stale PASS reused. |
-| WF-006 | NA | External exact-head CI occurs after final artifact commit. |
-| CAN-001 | PASS | CH009 missing-return state controls opening. |
-| CAN-002 | PASS | No published fact retconned; overdue is not rewritten as escape. |
-| KNOW-001 | PASS | Han learns via messenger; Chen uses only observed facts. |
-| KNOW-002 | PASS | Unknown route/outcome/motive remain unknown or bounded suspicion. |
-| CHAR-001 | PASS | Chen acts cautiously without provocation-driven stupidity. |
-| CHAR-002 | PASS | No omniscient inference; he refuses unsupported escape label. |
-| CHAR-003 | PASS | Lao Zhou/Lao Ma/Han/Zhao/TARGET retain independent goals. |
-| CAUSAL-001 | PASS | Opening is direct consequence of CH009 final action. |
-| CAUSAL-002 | PASS | Escalation follows unmatched count + responsibility, not convenience. |
+| WF-003 | PASS | Workflow history preserved; R3 is an explicit title-only revision after R2. |
+| WF-004 | PASS | All current reports bind R3 and exact SHA. |
+| WF-005 | PASS | Title change invalidated old R2 bindings; downstream reports rerun/rebound. |
+| WF-006 | NA | External CI only after final candidate/report commit. |
+| CAN-001 | PASS | CH009 missing-return end fact controls opening. |
+| CAN-002 | PASS | No published fact retconned. |
+| KNOW-001 | PASS | Han knowledge arrives via on-page messenger; Chen states only observed facts. |
+| KNOW-002 | PASS | TARGET escape/location and Han motive remain inference/unknown. |
+| CHAR-001 | PASS | Chen accepts accountability exposure rather than chase irrationally. |
+| CHAR-002 | PASS | Chen does not infer route/success/full motive. |
+| CHAR-003 | PASS | Lao Zhou/Lao Ma/Han/Zhao/TARGET retain independent goals/actions. |
+| CAUSAL-001 | PASS | Direct continuation of CH009 unmatched return. |
+| CAUSAL-002 | PASS | Escalation arises from work accounting and handoff responsibility. |
 | POWER-001 | NA | No new power introduced. |
 | POWER-002 | NA | No cultivation upgrade. |
-| POWER-003 | PASS | Near-empty true qi is not restored or burst-used. |
+| POWER-003 | PASS | Near-empty true qi is not used/restored. |
 | SCENE-001 | PASS | Two core events only. |
-| SCENE-002 | PASS | Draft selects causal units and omits outline alternatives. |
-| SCENE-003 | NA | No test/sample montage. |
-| SCENE-004 | PASS | Chen chooses before knowing TARGET outcome or Han response. |
+| SCENE-002 | PASS | Draft selects only causal consequences, not outline checklist expansion. |
+| SCENE-003 | NA | No test/sample sequence. |
+| SCENE-004 | PASS | Chen chooses disclosure before knowing outcome or Han reaction. |
 | CAP-001 | PASS | Mechanical body count 3220. |
-| CAP-002 | PASS | Capacity threshold defers Zhao afternoon/Gu/full chase. |
-| CAP-003 | PASS | Final quarter lands consequences only; no multi-line clearout. |
+| CAP-002 | PASS | Zhao afternoon/Gu/full chase deferred. |
+| CAP-003 | PASS | Final quarter adds no new major line. |
 | STYLE-001 | PASS | Max consecutive one-sentence narrative paragraphs = 2. |
 | STYLE-002 | PASS | No short-word waterfall/artificial whitespace rhythm. |
-| STYLE-003 | PASS | Backend-language scan 0 hit in prose. |
-| STYLE-004 | PASS | Report-language fingerprints 0 hit; caution behaviorized. |
-| STYLE-005 | PASS | R1 explanatory summaries removed in R2. |
-| STYLE-006 | PASS | Listed generic AI/emotion fingerprints 0 hit. |
+| STYLE-003 | PASS | Backend scan 0 hit. |
+| STYLE-004 | PASS | Caution shown by disclosure boundary. |
+| STYLE-005 | PASS | R1 explanatory summaries remain removed. |
+| STYLE-006 | PASS | Listed generic fingerprints 0 hit. |
 | STYLE-007 | PASS | Dialogue is operational, not lore Q&A. |
-| END-001 | PASS | Ending is held door + accumulating waste caused by the choice. |
-| PAY-001 | PASS | Expectation grows from CH009 usefulness→responsibility. |
-| PAY-002 | PASS | Main reward is operational impact/relationship consequence, not information. |
-| PAY-003 | PASS | South-Two access, Zhao borrow and recheck window persist. |
-| PAY-004 | PASS | Costs add responsibility without erasing assets. |
-| PAY-005 | PASS | Chen's disclosure changes who acts and bears risk. |
-| ALG-001 | PASS | Responsibility attribution differs from recent medicine/bargain/test algorithms. |
-| ALG-002 | PASS | Lao Zhou/Han choices follow their own interests; no stupidity. |
-| MEM-001 | PASS | Scene Card Q9 answered with optional Han behavior candidate. |
-| MEM-002 | PASS | Candidate anchor is concrete action, not a pretty line. |
-| MEM-003 | PASS | No forced philosophy/catchphrase/symbol. |
-| MEM-004 | PASS | Existing anchors are not mechanically repeated. |
-| MEM-005 | PASS | Han/Lao Zhou/Chen retain distinct interest-driven voices. |
-| MEM-006 | NA | Arc ongoing; Arc Memory Audit not yet due. |
-| PLOT-001 | PASS | FP-007 advances; FP-005/P-003 remain active and preserved. |
-| PLOT-002 | PASS | No major mystery answer paid off without evidence. |
+| END-001 | PASS | Ending is held west door + waste backlog. |
+| PAY-001 | PASS | Usefulness upgrades into responsibility and reciprocal cost. |
+| PAY-002 | PASS | Main payoff is operational impact/direct Han responsibility, not information. |
+| PAY-003 | PASS | South-Two access, Zhao borrow and three-day recheck remain. |
+| PAY-004 | PASS | Costs add accountability/backlog without erasing gains. |
+| PAY-005 | PASS | Chen's disclosure changes who acts and who bears risk. |
+| ALG-001 | PASS | New model is responsibility attribution/multi-party reaction. |
+| ALG-002 | PASS | Lao Zhou/Han costs follow their own interests; no stupidity. |
+| MEM-001 | PASS | Scene Card Q9 answered. |
+| MEM-002 | PASS | Candidate anchor is a concrete signed-responsibility action. |
+| MEM-003 | PASS | No forced quote/catchphrase/symbol. |
+| MEM-004 | PASS | Existing anchors not mechanically replayed. |
+| MEM-005 | PASS | Han/Lao Zhou/Chen remain behaviorally distinct. |
+| MEM-006 | NA | Arc ongoing. |
+| PLOT-001 | PASS | FP-007 advances; FP-005 remains active/preserved. |
+| PLOT-002 | PASS | Major mystery answers remain protected. |
 | REV-001 | NA | No reversal claimed. |
-| LEN-001 | PASS | Consequence chapter; no repeated proof of prior world-view conclusion. |
-| LEN-002 | PASS | No exposition-only NPC added. |
-| FINAL-001 | PASS | Post-Draft report exists and binds final R2 SHA. |
-| FINAL-002 | PASS | Every delivery-critical Rule ID represented; no FAIL/UNKNOWN. |
-| FINAL-003 | PASS | Final clean read is recorded in CH010_FINAL_DELIVERY.md. |
-| FINAL-004 | PASS | Prose has not changed after R2 freeze; SHA repair touches reports only. |
-| FINAL-005 | NA | Requires Final Delivery PASS plus runtime exact-head external CI. |
+| LEN-001 | PASS | No repeated proof of people-as-medicine premise. |
+| LEN-002 | PASS | No viewpoint/exposition NPC added. |
+| FINAL-001 | NA | Final report generated downstream. |
+| FINAL-002 | PASS | Every current delivery-critical Rule ID covered here. |
+| FINAL-003 | NA | Final Clean Read belongs to Final Delivery stage. |
+| FINAL-004 | PASS | R3 title change forced downstream rebinding. |
+| FINAL-005 | NA | Requires Final Delivery PASS + exact-head external CI. |
