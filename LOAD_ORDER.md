@@ -1,6 +1,6 @@
-# LOAD ORDER V10
+# LOAD ORDER V11
 
-每次用户说“继续 / 写下一章”时采用分层冷启动。目标同时保证：上一章因果、当前Arc、当前卷终点、全书真相方向、正式小说文风、期待/兑现方向、**记忆锚与人物辨识度**，以及写后审查与可执行交稿门禁都被加载。
+每次用户说“继续 / 写下一章”时采用分层冷启动。目标同时保证：上一章因果、当前Arc、当前卷终点、全书真相方向、正式小说文风、期待/兑现方向、**记忆锚与人物辨识度、章节名质量**，以及写后审查与可执行交稿门禁都被加载。
 
 ## A. 每章必读 HOT
 
@@ -12,25 +12,26 @@
 6. 当前卷细纲相关部分：`planning/volumes/V01_DETAIL.md`
 7. 最近1—3个 `tracking/chapter-records/`；必要时回读上章结尾全文
 8. `style/STYLE_GUIDE.md`
-9. `quality/SCENE_CARD_TEMPLATE.md`
-10. `quality/MEMORY_ANCHOR_SYSTEM.md`
-11. `tracking/MEMORY_ANCHOR_LEDGER.md`
-12. `quality/CHAPTER_GATE.md`
-13. `quality/WORKFLOW_STATE_MACHINE.md`
-14. `quality/RULE_COVERAGE_MATRIX.md`
-15. `quality/POST_DRAFT_AUDIT.md`
-16. `quality/PUBLICATION_GATE.md`
-17. `quality/EXPECTATION_PAYOFF_GATE.md`
-18. `quality/FINAL_DELIVERY_GATE.md`
-19. `quality/FAILURE_MEMORY.md`
-20. `quality/NARRATIVE_PATTERN_LEDGER.md`
+9. `quality/CHAPTER_TITLE_STANDARD.md`
+10. `quality/SCENE_CARD_TEMPLATE.md`
+11. `quality/MEMORY_ANCHOR_SYSTEM.md`
+12. `tracking/MEMORY_ANCHOR_LEDGER.md`
+13. `quality/CHAPTER_GATE.md`
+14. `quality/WORKFLOW_STATE_MACHINE.md`
+15. `quality/RULE_COVERAGE_MATRIX.md`
+16. `quality/POST_DRAFT_AUDIT.md`
+17. `quality/PUBLICATION_GATE.md`
+18. `quality/EXPECTATION_PAYOFF_GATE.md`
+19. `quality/FINAL_DELIVERY_GATE.md`
+20. `quality/FAILURE_MEMORY.md`
+21. `quality/NARRATIVE_PATTERN_LEDGER.md`
 
 当前卷发生重要商业节奏重算时，定点读取：
 `quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md`。
 
 ### HOT完整性硬规则
 
-Context Receipt必须记录上述质量规则的版本/路径。缺失 `MEMORY_ANCHOR_SYSTEM / MEMORY_ANCHOR_LEDGER / RULE_COVERAGE / POST_DRAFT / FINAL_DELIVERY / FAILURE_MEMORY` 任一项，本章不得进入LOADED。
+Context Receipt必须记录上述质量规则的版本/路径。缺失 `CHAPTER_TITLE_STANDARD / MEMORY_ANCHOR_SYSTEM / MEMORY_ANCHOR_LEDGER / RULE_COVERAGE / POST_DRAFT / PUBLICATION_GATE / FINAL_DELIVERY / FAILURE_MEMORY` 任一项，本章不得进入LOADED。
 
 ---
 
@@ -75,6 +76,35 @@ Candidate出现短句瀑布、提纲扩写、研究报告腔时，必须重新�
 
 ---
 
+## A5. Chapter Title Review Anchor（每章强制）
+
+写前读取 `quality/CHAPTER_TITLE_STANDARD.md`，但**不得在Scene Card阶段把一个临时功能标签直接锁成最终章名**。
+
+### 写前只做方向，不强求定名
+
+可以记录：
+- 本章核心冲突；
+- 可能成为标题的具体意象/动作；
+- 是否存在自然双关/章末回收；
+- 最近5章标题结构禁区。
+
+可以暂写 `TITLE_PENDING`。
+
+### 写后才锁最终标题
+
+Publication Gate必须回答：
+1. 标题是在写“发生了什么”，还是在抓本章真正核心？
+2. 是否至少承载冲突、反常识、具体意象、双关/回收、人物选择之一？
+3. 读完章末后是否多一层含义，或至少有足够张力？
+4. 是否泄露未确认谜底？
+5. 与最近5章是否结构重复？
+
+弱标题：REWRITE TITLE。
+
+最终标题属于Candidate字节；任何Gate后改标题都必须使旧SHA/PASS失效并重新绑定、重跑exact-head CI。
+
+---
+
 ## B. 书级 WARM / PERMANENT
 
 Arc切换、每5章Snapshot、每10章Audit、新世界观/境界/势力时定点读取：
@@ -89,7 +119,7 @@ Arc切换、每5章Snapshot、每10章Audit、新世界观/境界/势力时定�
 - `planning/TRUTH_REVEAL_LADDER.md`
 - `planning/CHARACTER_LONG_ARCS.md`
 
-原则：短期因果决定怎么发生；卷纲决定为什么值得；总纲决定最终方向；期待/兑现决定为什么继续读；Memory Anchor决定什么值得长期记住；Rule Coverage决定交稿前有没有漏规则；External CI证明这些产物真的被执行器检查过。
+原则：短期因果决定怎么发生；卷纲决定为什么值得；总纲决定最终方向；期待/兑现决定为什么继续读；Memory Anchor决定什么值得长期记住；Title Review决定这一章以什么名字被读者记住；Rule Coverage决定交稿前有没有漏规则；External CI证明这些产物真的被执行器检查过。
 
 ---
 
@@ -149,6 +179,9 @@ Kernel patch协议：`canon/kernel/patches/README.md`。
 ### 调用旧记忆锚
 检查 `MEMORY_ANCHOR_LEDGER` 当前意义、最近回响和下一次回响条件。若没有新增意义，不调用。
 
+### 锁最终章节名
+检查 `CHAPTER_TITLE_STANDARD` 与最近5章已发布标题；内部功能名不得直接交稿。
+
 ---
 
 ## E. Context Receipt
@@ -169,6 +202,7 @@ Kernel patch协议：`canon/kernel/patches/README.md`。
 - Memory Anchor System版本；
 - 本章可能调用的Anchor IDs / `NO PLANNED ECHO`；
 - 当前Arc Memory Gap；
+- Chapter Title Standard版本 + 最近5章标题结构；
 - Rule Coverage版本；
 - Failure Memory版本；
 - Workflow当前状态；
@@ -188,11 +222,13 @@ Scene Card像任务列表：不得进入WRITE。
 
 `NO NEW ANCHOR`是合法答案；“为了本章一定要有一句名台词”不是合法Scene Card目标。
 
+章节名在Scene Card阶段允许 `TITLE_PENDING`；不得为了先有一个“好听名字”反过来扭曲场景因果。
+
 ---
 
 ## G. 完整写作流程
 
-**LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE → WRITE → MIDWRITE → FREEZE REVISION → POST-DRAFT AUDIT（含Memory Anchor Audit） → PUBLICATION → EXPECTATION/PAYOFF → CONTINUITY PRECOMMIT → FINAL DELIVERY → CANDIDATE BRANCH COMMIT → EXTERNAL CI PASS → USER REVIEW → CANON PROMOTION（含Memory Anchor Ledger Diff + Canon Kernel Patch） → POSTCOMMIT → NEXT CAUSAL HOOK。**
+**LOAD → MACRO ALIGNMENT → CONTEXT RECEIPT → CAUSAL CHECK → REPETITION/PATTERN CHECK → SCENE CARD → PREWRITE → WRITE → MIDWRITE → FREEZE REVISION → POST-DRAFT AUDIT（含Memory Anchor Audit） → PUBLICATION（含Title Review） → EXPECTATION/PAYOFF → CONTINUITY PRECOMMIT → FINAL DELIVERY → CANDIDATE BRANCH COMMIT → EXTERNAL CI PASS → USER REVIEW → CANON PROMOTION（含Memory Anchor Ledger Diff + Canon Kernel Patch） → POSTCOMMIT → NEXT CAUSAL HOOK。**
 
 严格同步 `quality/workflow/CHxxx_WORKFLOW.md`。
 
@@ -205,6 +241,7 @@ Scene Card像任务列表：不得进入WRITE。
 5. 删掉本章会损失什么？
 6. 是否重复已经完成的证明/情绪？
 7. 本章是否自然承担某个记忆锚的建立/回响？没有也可以，但要明确。
+8. 最近5章标题有什么结构重复风险？本章暂定标题方向是什么？允许TITLE_PENDING。
 
 ---
 
@@ -212,17 +249,19 @@ Scene Card像任务列表：不得进入WRITE。
 
 正文完成后不是“顺手看一遍”，而是必须：
 
-1. 冻结 `candidate_revision_id` 与 `candidate_sha256`；
-2. 生成 `CHxxx_POST_DRAFT_AUDIT.md`；
-3. 对 `RULE_COVERAGE_MATRIX` 逐条取证，包含MEM类Rule IDs；
-4. 执行 Memory Anchor Audit，判断新锚候选、旧锚增值、人物辨识度和强造风险；
-5. 执行 `FAILURE_MEMORY` ACTIVE回归测试；
-6. 后续Gate全部绑定同一revision/SHA；
-7. 执行Final Delivery Clean Read；
-8. 把最终Candidate及全部审计产物提交当前候选分支；
-9. 提交后不再修改，进入External CI。
+1. 先形成完整正文，再锁定最终标题；
+2. 冻结 `candidate_revision_id` 与 `candidate_sha256`；
+3. 生成 `CHxxx_POST_DRAFT_AUDIT.md`；
+4. 对 `RULE_COVERAGE_MATRIX` 逐条取证，包含MEM类与STYLE-008；
+5. 执行 Memory Anchor Audit；
+6. 执行 Chapter Title Review；
+7. 执行 `FAILURE_MEMORY` ACTIVE回归测试，包括FM-012；
+8. 后续Gate全部绑定同一revision/SHA；
+9. 执行Final Delivery Clean Read；
+10. 把最终Candidate及全部审计产物提交当前候选分支；
+11. 提交后不再修改，进入External CI。
 
-正文修改后按 `FINAL_DELIVERY_GATE` 失效规则重跑。
+正文或标题修改后按 `FINAL_DELIVERY_GATE` 失效规则重跑。
 
 ---
 
@@ -234,11 +273,11 @@ Scene Card像任务列表：不得进入WRITE。
 - Context Receipt存在；
 - Scene Card存在；
 - Post-Draft Audit = PASS；
-- Rule Coverage = PASS，MEM类Rule IDs无缺项；
-- Publication = PASS；
+- Rule Coverage = PASS，MEM类Rule IDs及STYLE-008无缺项；
+- Publication = PASS，含Title Review；
 - Expectation/Payoff = PASS；
 - Continuity = PASS；
-- Failure Regression = PASS；
+- Failure Regression = PASS，含FM-012；
 - Final Delivery = PASS；
 - 所有结果绑定同一revision/SHA；
 - Candidate与报告已提交 `MANIFEST.md` 指定候选分支；
@@ -258,12 +297,12 @@ Scene Card像任务列表：不得进入WRITE。
 
 用户确认正文后：
 
-1. 正文写入main manuscript；
+1. 正文写入main manuscript，使用用户最终确认的标题；
 2. 更新Chapter Ledger / State Diff / Chapter Record / projections；
 3. 对尚未压实的Canon事实写 `canon/kernel/patches/CHxxx.jsonl`；
 4. 执行Memory Anchor Diff；
 5. 更新Manifest Horizon与下一章；
-6. 每5章Snapshot或每10章Audit时可把patch压实进主Kernel JSONL，并推进 `CANON_KERNEL_COMPACTED_THROUGH`。
+6. 每5章Snapshot、每10章Continuity Audit；可在适当节点把patch压实进主Kernel JSONL并推进 `CANON_KERNEL_COMPACTED_THROUGH`。
 
 禁止为了省事在每章重写大型Kernel JSONL导致截断/覆盖风险；也禁止创建patch后不把它纳入冷启动。
 
@@ -281,16 +320,17 @@ Scene Card像任务列表：不得进入WRITE。
 - Memory Anchor System / Ledger是否存在；
 - workflow Gate状态；
 - revision/SHA是否一致；
-- Rule Coverage是否缺项或存在FAIL/UNKNOWN，包括MEM类Rule IDs。
+- Rule Coverage是否缺项或存在FAIL/UNKNOWN，包括MEM类Rule IDs与STYLE-008。
 
 它**不能100%判断**：
 - 人物是否真正立体；
 - 因果是否具有文学上的最佳自然度；
 - 爽感是否恰到好处；
 - 对话是否足够有魅力；
-- 一个场面是否真的会被读者多年记住。
+- 一个场面是否真的会被读者多年记住；
+- **章节名是否真正好看。**
 
-这些仍由Post-Draft/Publication/Payoff/Final Clean Read进行判断，但报告缺失、版本不一致或自报流程未完成时，程序会阻断。
+标题质量最终由Publication Title Review做语义判断；程序主要负责“STYLE-008不能漏审”以及标题改动后的SHA一致性，不能把关键词扫描冒充审美判断。
 
 ---
 
@@ -298,4 +338,4 @@ Scene Card像任务列表：不得进入WRITE。
 
 已发布正文事实 > Canon Core / World Bible > 当前有效人物状态（压实Kernel + 未压实patch） > 卷级终点 > 当前Arc > Rolling Outline > 早期具体章号计划。
 
-商业节奏和记忆锚设计都不能覆盖人物利益；旧12卷规划不能覆盖SERIES_V2_8V_2M。
+商业节奏、记忆锚和标题设计都不能覆盖人物利益/事实因果；旧12卷规划不能覆盖SERIES_V2_8V_2M。
