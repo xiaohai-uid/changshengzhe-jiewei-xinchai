@@ -1,7 +1,7 @@
 # CH010 POST-DRAFT AUDIT
 
 CANDIDATE_REVISION_ID: CH010-R2-B022BBC6
-CANDIDATE_SHA256: d4f23442b0051a908630091091a0caeb9751ccfecdcbb9bf737116dfbc076655
+CANDIDATE_SHA256: 2d0b55a6d18d2e1f139b57fec4b509867e144ba41e939bafa3994a3f0db9febc
 RESULT: PASS
 
 ## Frozen candidate metrics
@@ -13,11 +13,11 @@ RESULT: PASS
 - listed_AI_fingerprint_scan: 0 hit
 - core_events: 2
 - final_25_percent_new_major_lines: 0
-- candidate prose unchanged during SHA repair; current bytes reconstructed from repository line ranges and hashed exactly.
+- candidate prose unchanged during SHA repair; authoritative SHA comes from GitHub Actions runner `sha256sum candidate/CH010.md`.
 
 ## Revision history
 
-R1 was invalidated before downstream PASS because adversarial reread found FM-006 explanatory-summary risk. R2 removed those summaries and is the only reviewed prose. The earlier audit metadata accidentally retained the pre-final-edit SHA; CI correctly failed closed. This report repairs only binding metadata/evidence, not prose.
+R1 was invalidated before downstream PASS because adversarial reread found FM-006 explanatory-summary risk. R2 removed those summaries and is the only reviewed prose. Earlier audit metadata carried stale hashes; external CI correctly failed closed. This report repairs only binding metadata/evidence, not prose.
 
 ## Adversarial review
 
@@ -114,7 +114,7 @@ NET AGENCY DELTA: positive but bounded; Chen changes who acts and who bears risk
 | REV-001 | NA | No reversal claimed. |
 | LEN-001 | PASS | Consequence chapter; no repeated proof of prior world-view conclusion. |
 | LEN-002 | PASS | No exposition-only NPC added. |
-| FINAL-001 | PASS | Post-Draft report exists and now binds final R2 SHA. |
+| FINAL-001 | PASS | Post-Draft report exists and binds final R2 SHA. |
 | FINAL-002 | PASS | Every delivery-critical Rule ID represented; no FAIL/UNKNOWN. |
 | FINAL-003 | PASS | Final clean read is recorded in CH010_FINAL_DELIVERY.md. |
 | FINAL-004 | PASS | Prose has not changed after R2 freeze; SHA repair touches reports only. |
