@@ -1,43 +1,23 @@
 # CH011 PUBLICATION GATE
 
-CANDIDATE_REVISION_ID: CH011-R3-naturalness
-CANDIDATE_BLOB_SHA: 2edda3b89440361f0c0119de25ee04af84628b25
+CANDIDATE_REVISION_ID: CH011-R3-paragraph-clean
+CANDIDATE_SHA256: dd18166a2bba6c06510439999ac5a127dc1c463d8dbbaeefdab8e31024ce4269
 RESULT: PASS
 
 ## Scene / prose
 
-- Opening inherits CH010's fourth waste basket and closed west gate directly.
-- Main body is physical work reorganization rather than another full-chapter desk interrogation.
-- Paragraph architecture restored: no pure-narrative one-sentence paragraph; no short-word waterfall; dialogue turns remain short where speaker change requires it.
-- Ordinary work texture exists without being promoted into clues.
+Opening inherits CH010's fourth waste basket and closed west gate directly. Main body is physical work reorganization rather than another desk interrogation. Paragraph architecture is restored: 45 natural paragraphs, zero pure-narrative one-sentence paragraphs, no short-word waterfall. Ordinary work texture exists without being promoted into clues.
 
-## Character voices
+## Character / information
 
-- 陈缺：uses observable records, declines to invent the drug-room outcome, chooses accumulated work position over further intervention.
-- 赵石：asks for proof he actually worked because it may matter to his own future classification; does not become a mouthpiece for 陈缺.
-- 老周：records what happened but will not take extra drug-room responsibility.
-- 韩鸦：remains offstage below; previous signed responsibility continues to cost him time/risk.
+Chen Que uses observable records, cannot save every window, and chooses accumulated South-Two responsibility over continued intervention. Zhao Shi asks for proof of work for his own future interest. Lao Zhou remains production/accountability-driven. Han Ya remains below and pays ongoing cost. Cut green cord and limited tracks strengthen deliberate-departure suspicion; tool, route, accomplice, and final escape status remain unknown.
 
-## Information discipline
+## Naturalness
 
-- Cut blue rope and footprints increase suspicion of active departure.
-- Tool, route, accomplice, final escape status remain unknown.
-- No backstage `TARGET` label or planning language appears in prose.
+No full checklist payoff; no narrator theme summary after the rope image; no convenient complete secret tunnel; no repeated embodied-fear template; no philosophical closing line. The chapter leaves Han deal, final TARGET status, formal classification and recheck unresolved.
 
-## Anti-AI / naturalness
+## Title — 《该还的人》
 
-- No complete checklist payoff.
-- No narrator theme summary after rope image.
-- No secret-tunnel default turn.
-- No repeated embodied fear templates.
-- No closing philosophical line.
+PASS: not an event summary; names the return/ownership conflict, applies differently to the missing youth and borrowed Zhao Shi, gains its second meaning through events rather than author explanation, and does not leak escape result.
 
-## Title review — 《该还的人》
-
-1. Standalone interest: PASS.
-2. Not merely an event summary: PASS; it names the chapter's return/ownership conflict.
-3. Gains a second meaning by chapter end: PASS — the borrowed Zhao Shi is returned while the missing youth is still unreturned.
-4. Does not leak escape result: PASS.
-5. Recent-title structure repetition: PASS; not another `先…` / `一…` / process label.
-
-Publication result: PASS.
+RESULT: PASS
