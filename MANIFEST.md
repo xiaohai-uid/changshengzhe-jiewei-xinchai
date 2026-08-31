@@ -9,11 +9,11 @@ TARGET_CHAPTERS: ~580-620
 CURRENT_BOOK: 《长生者皆为薪柴》
 CURRENT_PHASE: PHASE_I_我为什么会被吃
 CURRENT_VOLUME: 第一卷·白骨山
-CURRENT_ARC: ARC-V01-01
-CANON_HORIZON: CH011
-CURRENT_CANON_CHAPTER: CH011
+CURRENT_ARC: ARC-V01-02
+CANON_HORIZON: CH012
+CURRENT_CANON_CHAPTER: CH012
 CURRENT_SNAPSHOT: canon/snapshots/STATE_SNAPSHOT_V2.3.md
-LATEST_STATE_DIFF: state/diffs/CH011_STATE_DIFF.md
+LATEST_STATE_DIFF: state/diffs/CH012_STATE_DIFF.md
 LATEST_CONTINUITY_AUDIT: quality/reviews/CONTINUITY_AUDIT_CH010.md
 CANON_KERNEL: canon/kernel/
 CANON_KERNEL_COMPACTED_THROUGH: CH007
@@ -41,7 +41,7 @@ FINAL_DELIVERY_GATE: quality/FINAL_DELIVERY_GATE.md
 FAILURE_MEMORY: quality/FAILURE_MEMORY.md
 CHAPTER_GATE: quality/CHAPTER_GATE.md
 WORKFLOW_STATE_MACHINE: quality/WORKFLOW_STATE_MACHINE.md
-CURRENT_WORKFLOW: NONE_UNTIL_CH012_START
+CURRENT_WORKFLOW: NONE_UNTIL_CH013_START
 NARRATIVE_PATTERN_LEDGER: quality/NARRATIVE_PATTERN_LEDGER.md
 COMMERCIAL_RESEARCH_BASELINE: quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md
 STYLE_GUIDE: style/STYLE_GUIDE.md
@@ -49,9 +49,9 @@ CHAPTER_VALIDATOR: tools/chapter_gate.py
 CHAPTER_VALIDATOR_TESTS: tools/test_chapter_gate.py
 CHAPTER_CI_WORKFLOW: .github/workflows/chapter-quality.yml
 CANDIDATE_PATH_PATTERN: candidate/CHxxx.md
-NEXT_CHAPTER: CH012
+NEXT_CHAPTER: CH013
 CANON_BRANCH: main
-CANDIDATE_BRANCH: NONE_UNTIL_CH012_START
+CANDIDATE_BRANCH: NONE_UNTIL_CH013_START
 TRACKING_STATE_ROLE: projection
 
 ## Series Scale Decision
@@ -75,7 +75,7 @@ TRACKING_STATE_ROLE: projection
 ### Canon Kernel Overlay
 
 - 压实Kernel当前截至CH007。
-- 未压实Canonical patches：`CH008.jsonl`、`CH009.jsonl`、`CH010.jsonl`、`CH011.jsonl`。
+- 未压实Canonical patches：`CH008.jsonl`、`CH009.jsonl`、`CH010.jsonl`、`CH011.jsonl`、`CH012.jsonl`。
 - 冷启动必须加载从 `CANON_KERNEL_COMPACTED_THROUGH` 之后到 `CANON_HORIZON` 的全部patch。
 - patch不是第二套Canon，而是已确认正文的规范化增量。
 - 只读主Kernel而漏patch，视为LOAD失败。
@@ -139,19 +139,21 @@ TRACKING_STATE_ROLE: projection
 
 ## Current Canon / Next Status
 
-- CH011《青绳拴不住人》：用户提供完整正文并明确声明“这个是我最终交的”，已按用户最高权威晋升Canon。
-- Canon manuscript：`manuscript/volume-01-baigushan/CH011-青绳拴不住人.md`。
-- Canon Horizon：CH011。
-- CH011确认变化：
-  - 老马受伤返回并带回断青绳；旧泄沟/石槽后区域成为TARGET实际逃离路径的一部分；
-  - 旧泄沟塌堵/支撑石板被撬导致南二黑水与腐药倒灌，西门废料路线暂时失效，南二转移到东棚；
-  - 韩鸦未抓到TARGET，但确认脚印已越过废沟第一道石界；是否真正逃出白骨山仍UNKNOWN；
-  - 事件进入公开上报/西坡封锁层级；巡山堂具体截捕结果仍UNKNOWN；
-  - 赵石半日借工到期，自主选择回药房，并确认南二劳动记录可作“能干活”的凭证；药房后续处置UNKNOWN；
-  - 韩鸦明确暂停但未取消七日杀人交易；
-  - 陈缺在南二搬迁东棚后仍被老周继续留用，右臂伤势、真气近空、三日复验均持续。
-- Memory：用户最终稿把“割断青绳”明确提升为标题/章尾核心意象；后续可回响但不得反向重写CH011。
-- 下一章：CH012，第一Arc收束。
+- CH012《这一畦归你》：Assistant R3 candidate通过 exact-head CI 后在聊天中完整展示；用户随后明确表示“已经提交”，视为批准并晋升Canon。
+- Canon manuscript：`manuscript/volume-01-baigushan/CH012-这一畦归你.md`。
+- Canon Horizon：CH012。
+- ARC-V01-01 · 提前的七日考核：CLOSED。
+- 当前Arc：ARC-V01-02 · 药圃与真炼身。
+- CH012确认变化：
+  - 巡线在第二处界桩外再次目击TARGET但未抓获；顾长槐正式记“外逃”并转巡山堂，完整逃出白骨山仍UNKNOWN；
+  - 旧泄沟封死，余下青绳收回内侧，西门外运停止；
+  - 韩鸦宣布考核中杀TARGET的任务作废，但《盗气残篇》的债另算；
+  - 老周公开以工作价值为陈缺背书；
+  - 陈缺选择药圃外棚三日候工，获得稳定活药资源接口，不再跟临时白绳队伍流转；
+  - 白绳黑点、每日腕检、异常症状送回、三日复验和药材损耗责任全部持续；
+  - 陈缺当晚到药圃外棚，次日起负责最外侧一畦刚移栽药苗；右臂伤势和真气近空持续；
+  - 赵石本章无新结果，CH011返回药房后的后果继续ACTIVE。
+- 下一章：CH013，药圃第一日，优先把活药接口转成真实修炼/身体推进，而不是再做一章分类或追捕。
 
 ## Canon Policy
 
