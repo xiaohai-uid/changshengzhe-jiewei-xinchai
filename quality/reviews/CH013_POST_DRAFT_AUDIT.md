@@ -69,161 +69,160 @@ CHAR-001/002: PASS.
 
 `许管事` naming channel is established only when another worker calls him that; Chen does not know the surname beforehand.
 
-If Chen were absent, Xu would still:
-- count transplant beds;
-- prevent workers from prematurely pulling viable seedlings;
-- correct watering/soil mistakes;
-- approve true dead-plant removal;
-- inspect workers' assigned beds and current abnormal symptoms.
-
-His behavior protects plant output rather than tutoring Chen's secret cultivation.
+If Chen were absent, Xu would still count transplant beds, prevent workers from prematurely pulling viable seedlings, correct watering/soil mistakes, approve true dead-plant removal, and inspect assigned beds and abnormal symptoms. His behavior protects plant output rather than tutoring Chen's secret cultivation.
 
 CHAR-003: PASS.
 
 ## D. Knowledge / continuity audit
 
-| Claim | Evidence/channel | State | Result |
-|---|---|---|---|
-| outer-shed manager is called Xu | another worker calls `许管事` on page | KNOWS surname/title only | PASS |
-| plant is `青须草` and dried root is commonly received by shops | manager tells Chen during work | new local fact | PASS |
-| 52 seedlings currently in Chen's assigned bed | Chen counts twice under manager instruction | observed | PASS |
-| dead/uprooted material has much weaker qi | Chen senses it, consistent with CH004 live/cut/dry evidence | KNOWS current observation | PASS |
-| micro-interception is safe long-term | not known; prose rejects this conclusion | UNKNOWN | PASS |
-| first touched leaf change was caused only by interception | not known; other causes remain | SUSPECTS at most | PASS |
-| Chen has learned formal body tempering | never asserted | UNKNOWN | PASS |
-| Chen's right arm is healed | explicitly false; still cannot raise above shoulder | PASS |
-| other workers know Chen is intercepting qi | no visible channel | UNKNOWN | PASS |
+- `许管事` surname/title enters through another worker's on-page address.
+- `青须草` and its work rules enter through the outer-shed manager and direct observation.
+- 52 seedlings are counted twice on page.
+- dead/uprooted material being weaker is a current observation consistent with the earlier live/cut/dry distinction.
+- long-term safety of micro-interception remains UNKNOWN.
+- cause of the first leaf-tip droop remains uncertain.
+- no formal body-tempering method is claimed.
+- right arm remains injured and cannot rise above shoulder.
+- no other worker is given knowledge of Chen's secret cultivation.
 
-R1 error corrections:
-- removed prose token `CH004`.
-- removed incorrect association between Zhao Shi and believing abdominal swelling was a `灵胎`.
-- changed over-specific `昨夜刚移` to `刚移不久`, matching CH012.
+R1 corrections: removed prose `CH004`, removed the wrong Zhao/`灵胎` association, changed over-specific transplant timing, established the manager naming channel, and merged fragmented paragraphs.
 
 CAN-001/002 / KNOW-001/002: PASS.
 
 ## E. Power-source audit
 
-### What power is gained?
-A small amount of true wood qi, enough for one controlled three-turn circulation; no combat technique and no realm breakthrough.
+Power gained: a small amount of true wood qi sufficient for one controlled three-turn circulation; no combat technique and no realm breakthrough.
 
-### Source
-Three living, rooted medicinal seedlings from Chen's assigned outer-shed bed.
+Source: three living, rooted medicinal seedlings from Chen's assigned outer-shed bed.
 
-### Entry
-Same already-established method as CH004: wood-root perception catches a passing wood-qi fluctuation, Chen intercepts only a tiny leading portion, and needle-like sensation travels from fingertip through arm toward the lower abdomen.
+Entry: the already-established wood-root perception/interception route, with needle-like sensation from fingertip through the arm toward the lower abdomen.
 
-### Cost
-- plants: at least the first touched seedling shows a subtly more drooping leaf tip by evening; long-term growth cost remains unresolved, not erased.
-- Chen: right-arm needle pain increases over repetitions; light lower-back cold returns; hunger arrives early and recurs after three-turn circulation.
-- institutional: the bed is counted/inspected and any cumulative decline can expose loss under Chen's responsibility.
+Costs: subtle plant droop; right-arm needle pain; lower-back cold; hunger; counted-bed exposure risk.
 
-### Final beneficiary
-Chen gains a small temporary qi reserve and a possible body-carrying effect. The plant/garden does not receive an equivalent benefit in this chapter.
+Immediate beneficiary: Chen gains temporary qi and possible body-carrying effect; no equivalent benefit to the plants is shown.
 
-### Ability ceiling
-At night Chen's right arm remains unable to rise above the shoulder and remains painful; the only measurable change is that at approximately the same height as the morning bamboo-support action, tightening/tremor begins later and can be held for roughly three breaths.
-
-No new verse, no fourth turn, no formal `炼身` claim.
+Ability ceiling: arm still cannot rise above shoulder; only stability at roughly the same work height improves by several breaths. No new verse, no fourth turn, no formal `炼身` claim.
 
 POWER-001/002/003: PASS.
 
 ## F. Outline leakage / QUD audit
 
-Prewrite risk chain:
-`garden rules → dead plant useless → micro-interception → success → night circulation → explanation`.
+Prewrite risk chain was `garden rules → dead plant useless → micro-interception → success → night circulation → explanation`.
 
-Actual prose is less administrative:
-- morning counting, propping and watering run as a normal work scene;
-- another worker is separately corrected and a leaking scoop provides non-plot texture;
-- uprooted weeds/dead seedling appear as routine work materials, not staged A/B/C samples;
-- first micro-interception is embedded in re-propping a replacement seedling;
-- half an hour of other work passes before Chen checks the leaf again;
-- the later two interceptions are summarized rather than separately demonstrated;
-- evening inspection and symptom check occur because CH012 already established daily responsibility;
-- night circulation provides body consequence without a concluding technique lecture.
+Actual prose runs as one workday: counting/propping/watering, ordinary worker interruptions, uprooted weeds and a genuinely dead seedling arising from work, micro-interception embedded in re-propping, delayed checking, later attempts summarized, routine evening inspection, then night body consequence. Zhao/Han/TARGET remain offstage.
 
-First-sentence test does not reconstruct a clean project outline; paragraph openings alternate work, dialogue, environment, delayed observation and body action.
+First-sentence test does not reconstruct a clean project outline.
 
 SCENE-002 / NAT-001/002: PASS.
 
 ## G. Paragraph / anti-AI audit
 
-Compared to CH004/CH007 prose anchors:
-- observation → action → judgment usually remains in the same paragraph;
-- there is no `动作独段 → 解释独段 → 结论独段` repetition;
-- 36 paragraphs for 2823 body characters yields a denser long-form page than the failed CH011 candidate;
-- no consecutive unnecessary one-sentence narrative paragraph exists;
-- dialogue breaks are natural turn units rather than blank-line speed effects.
+Observation, action and judgment usually remain inside the same paragraph. There is no repeated `动作独段 → 解释独段 → 结论独段` structure. 36 paragraphs for 2823 body characters; average ~78 characters; zero unnecessary one-sentence narrative paragraphs and zero consecutive one-sentence narrative run. Dialogue breaks are natural turns rather than blank-line speed effects.
 
 FM-003 / FM-013 / NAT-003: PASS.
 
 ## H. Theme-explanation deletion test
 
-Potentially vulnerable passages:
-- `这点变化还不足以证明他拿得足够少...` is not a theme statement; it limits an empirical claim and prevents unjustified certainty.
-- ending `叶子没有黄，至少今天没有` is a physical constraint/status check, not a statement about freedom, balance or the world.
-
-Delete-test result: no post-scene paragraph explains what the chapter 'means'. No `修士应该少拿 / 活偿 / 真正的炼身` thesis appears.
+The empirical caution after the first leaf change only limits an inference; it does not explain a theme. The ending `叶子没有黄，至少今天没有` remains a physical status check, not a statement about freedom, balance, morality or world truth. No `少拿=道德 / 活偿 / 真正炼身` thesis appears.
 
 FM-006 / NAT-006: PASS.
 
 ## I. Reader Clean Read
 
 1. Concrete want: keep the herb-garden job while recovering real qi.
-2. Complication: live plants provide useful qi but are counted; legal dead/cut material is too weak; his body is injured and monitored.
-3. Real choice: risk tiny distributed interceptions from living assigned seedlings instead of either doing nothing or taking a full damaging strand.
-4. Material ending change: true wood qi is no longer near-empty; Chen can complete one three-turn circulation; his right arm remains injured but shows a small same-day functional difference.
-5. Continue-reading driver: can repeated qi circulation make bodily changes persist while plant/accounting costs accumulate?
-6. Author-task feel: no side-line clearing; one workday remains the chapter's physical spine.
-7. If final sentence is removed, causal propulsion remains through the qi/body change; final line only preserves plant-cost uncertainty.
+2. Complication: useful qi is strongest in living counted plants; dead/cut material is too weak; Chen is injured and monitored.
+3. Real choice: risk tiny distributed interceptions from living assigned seedlings rather than do nothing or take one full damaging strand.
+4. Material change: true wood qi is no longer near-empty; one three-turn circulation becomes possible; arm still injured but shows a small same-day functional difference.
+5. Continue-reading driver: can repeated circulation make body changes persist while plant/accounting costs accumulate?
+6. No side-line clearing or author task sheet dominates.
+7. Removing the final sentence leaves the body/qi causal propulsion intact.
 
 Reader Clean Read: PASS.
 
 ## J. Asset diff
 
-Opening:
-- Ability: true qi near empty; right arm impaired.
-- Resource: live-herb access exists institutionally but has not yet been converted into power.
-- Status: three-day outer-shed trial.
-- Risk: plant losses + daily wrist check + recheck.
+Opening: true qi near empty; right arm impaired; live-herb access exists institutionally but has not yet become cultivation value; outer-shed trial and supervision active.
 
-Ending:
-- Ability: + small temporary wood-qi reserve; + limited right-arm stability after three turns; no realm change.
-- Resource technique: + first evidence that tiny distributed interception can reduce immediate visible plant damage compared with CH004 full-strand extraction.
-- Status: unchanged and preserved.
-- Cost: plant leaf-tip droop, hunger, cold, pain, cumulative exposure risk.
+Ending: small temporary wood-qi reserve; limited right-arm stability after three turns; first evidence that smaller distributed extraction reduces immediate visible damage compared with full-strand extraction; status survives; plant/body/supervision costs remain.
 
-Net: positive growth survives the chapter; cost constrains repetition without zeroing the gain.
-
-PAY pre-audit: PASS.
+Net: positive growth survives; costs constrain repetition without zeroing gain.
 
 ## K. Memory / repetition
 
-Scene Card answer remains `NO NEW ANCHOR`.
-
-- MA-005 appears only through routine wrist inspection; no black-mark explanation.
-- MA-009/010/011 remain cooling.
-- no rope, account, debt, gate or 'useful side' motif is reused as a chapter-ending slogan.
-
-Recent solution algorithms are not repeated: no medicine-recognition rescue, chase, bargaining, test queue, ledger climax or classification decision.
-
-MEM-001/003/004/005 and ALG-001/002: PASS; MEM-002 NA (no new anchor); MEM-006 NA (Arc ongoing).
+Scene Card: `NO NEW ANCHOR`. MA-005 appears only through routine wrist inspection; MA-009/010/011 cool. No rope/account/debt/gate motif is reused as a slogan. No medicine-recognition rescue, chase, bargaining, test queue, ledger climax or classification repeat.
 
 ## L. Failure Memory regression
 
-- FM-001: PASS — complete receipt and prose anchors loaded.
-- FM-002: PASS — two-event scene, not Rolling Outline serialization.
-- FM-003: PASS — no short-sentence waterfall.
-- FM-004: PASS — no third major task.
-- FM-005: PASS — Xu's horticultural behavior follows his job; no convenient secret knowledge.
-- FM-006: PASS — no post-scene thematic explanation.
-- FM-007: PASS — ending is concrete plant/body uncertainty, not outline-hook translation.
-- FM-008: PASS — qi and arm improvement are not zeroed; risks remain.
-- FM-009: PASS in progress — evidence artifacts are being written before delivery.
-- FM-010: PASS — R2 froze before this audit; any later prose change will invalidate reports.
-- FM-011: PENDING external exact-head CI after final reports/PR.
-- FM-012: provisional PASS — title undergoes separate Publication Title Review.
-- FM-013: PASS — 36 paragraphs / zero one-sentence narrative runs.
-- FM-014: PASS — no multi-line task clearing; ordinary work texture retained.
+FM-001 PASS; FM-002 PASS; FM-003 PASS; FM-004 PASS; FM-005 PASS; FM-006 PASS; FM-007 PASS; FM-008 PASS; FM-009 PASS through evidence artifacts; FM-010 PASS because R2 froze before audits; FM-011 pending only external exact-head CI; FM-012 PASS via separate title review; FM-013 PASS; FM-014 PASS.
+
+## M. Full Rule Coverage
+
+| Rule ID | Status | Evidence summary |
+|---|---|---|
+| WF-001 | PASS | complete CH013 context receipt |
+| WF-002 | PASS | scene card exists and passed |
+| WF-003 | PASS | workflow history and all internal gates recorded |
+| WF-004 | PASS | all reports bind CH013-R2 and exact candidate SHA256 |
+| WF-005 | PASS | R1 invalidated before R2 re-audit |
+| WF-006 | NA | exact-head CI is the remaining runtime condition |
+| CAN-001 | PASS | CH012 herb-garden assignment directly drives CH013 |
+| CAN-002 | PASS | no published fact retconned |
+| KNOW-001 | PASS | new names/work facts have on-page channels |
+| KNOW-002 | PASS | formal body-tempering method and long-term plant cost remain unknown |
+| CHAR-001 | PASS | Chen makes a constrained resource-risk choice |
+| CHAR-002 | PASS | no retroactive certainty; alternative causes preserved |
+| CHAR-003 | PASS | manager/workers act from production goals |
+| CAUSAL-001 | PASS | accountable plants plus near-empty true qi create conflict |
+| CAUSAL-002 | PASS | dead-material weakness extends prior live/cut/dry evidence |
+| POWER-001 | PASS | source, entry, cost and beneficiary are explicit |
+| POWER-002 | PASS | no realm jump; only small qi and limited arm feedback |
+| POWER-003 | PASS | no burst/combat solution; no fourth turn |
+| SCENE-001 | PASS | two core events maximum |
+| SCENE-002 | PASS | no Rolling Outline serialization; side lines absent |
+| SCENE-003 | NA | no sample parade/test queue |
+| SCENE-004 | PASS | choice occurs before long-term damage is known |
+| CAP-001 | PASS | 2823 characters; inside hard 2800–4000 range |
+| CAP-002 | PASS | no capacity squeeze; side lines deferred |
+| CAP-003 | PASS | final quarter only pays existing qi/body consequence |
+| STYLE-001 | PASS | one-sentence narrative run = 0 |
+| STYLE-002 | PASS | no short-word waterfall |
+| STYLE-003 | PASS | backend scan 0 after R1 correction |
+| STYLE-004 | PASS | no report-like fingerprint chain |
+| STYLE-005 | PASS | empirical caution does not become theme summary |
+| STYLE-006 | PASS | bodily sensations are cultivation costs, not generic fear template |
+| STYLE-007 | PASS | dialogue serves horticultural work/symptom supervision |
+| STYLE-008 | PASS | title is concrete constraint/double pressure, not event summary |
+| END-001 | PASS | ending stays on plant/body uncertainty, no author preview |
+| NAT-001 | PASS | continuous workday breaks administrative QUD chain |
+| NAT-002 | PASS | paragraph openings do not reconstruct outline cleanly |
+| NAT-003 | PASS | 36 paragraphs / avg ~78 / no one-sentence narrative runs |
+| NAT-004 | PASS | turn depends on prior plant damage plus new accountability |
+| NAT-005 | PASS | leaking scoop and ordinary workers preserve non-plot texture |
+| NAT-006 | PASS | no moral/philosophy explanation of micro-interception |
+| NAT-007 | PASS | tension shown through behavior and restraint |
+| NAT-008 | PASS | texture changes from placement to work/resource/body feedback |
+| PAY-001 | PASS | live-herb interface expectation pays with actual qi recovery |
+| PAY-002 | PASS | reward is ability/resource conversion, not information only |
+| PAY-003 | PASS | qi method/body result survive chapter end as usable experience |
+| PAY-004 | PASS | plant/body/supervision costs constrain but do not erase gain |
+| PAY-005 | PASS | agency increases through repeatable but risky choice |
+| ALG-001 | PASS | no recent solution algorithm repeated |
+| ALG-002 | PASS | work rules follow plant-output incentives |
+| MEM-001 | PASS | Scene Card explicitly says NO NEW ANCHOR |
+| MEM-002 | NA | no new anchor proposed |
+| MEM-003 | PASS | no forced slogan/object/mannerism |
+| MEM-004 | PASS | existing anchors remain cooling |
+| MEM-005 | PASS | Chen and manager retain distinct interests/voices |
+| MEM-006 | NA | ARC-V01-02 is ongoing |
+| PLOT-001 | PASS | herb-garden/true-cultivation advances; side plots deliberately deferred |
+| PLOT-002 | PASS | resource turn supported by prior live-plant evidence and CH012 assignment |
+| REV-001 | PASS | micro-interception extends rather than negates full-strand damage |
+| LEN-001 | PASS | no repeated human-medicine thesis proof |
+| LEN-002 | PASS | no thesis-only NPC |
+| FINAL-001 | PASS | Post-Draft report binds R2 SHA |
+| FINAL-002 | PASS | every current matrix ID appears here with PASS/NA reason |
+| FINAL-003 | PASS | Reader Clean Read completed |
+| FINAL-004 | PASS | no body/title edit after R2 audits began |
+| FINAL-005 | NA | external exact-head CI remains runtime requirement |
 
 POST-DRAFT RESULT: PASS.
