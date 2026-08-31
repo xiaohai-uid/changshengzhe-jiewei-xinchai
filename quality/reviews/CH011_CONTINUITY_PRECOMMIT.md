@@ -1,63 +1,32 @@
 # CH011 CONTINUITY PRECOMMIT
 
-CANDIDATE_REVISION_ID: CH011-R3-naturalness
-CANDIDATE_BLOB_SHA: 2edda3b89440361f0c0119de25ee04af84628b25
-CANON_HORIZON: published through CH010 / STATE_SNAPSHOT_V2.3
+CANDIDATE_REVISION_ID: CH011-R3-paragraph-clean
+CANDIDATE_SHA256: dd18166a2bba6c06510439999ac5a127dc1c463d8dbbaeefdab8e31024ce4269
+CANON_HORIZON: CH010 / STATE_SNAPSHOT_V2.3
 RESULT: PASS
 
-## Time / place
+## Continuity
 
-- Same continuous exam period as CH010.
-- Starts in South-Two with west gate still barred and waste already accumulating.
-- Noon arrives during the chapter, satisfying Zhao Shi's explicit half-day deadline.
+Time/place remain continuous with CH010. South-Two west gate stays barred and accumulated waste becomes the opening physical pressure. Noon arrives during the chapter, satisfying Zhao Shi's explicit half-day deadline.
 
-## Chen Que
+Chen Que stays in South-Two; right arm remains injured and unusable above shoulder height; true wood qi remains near empty and is not used; three-day recheck remains active; no formal status upgrade is claimed.
 
-- Still in South-Two.
-- Right arm remains injured and cannot be raised above shoulder; no healing jump.
-- True wood qi remains near empty and is not used.
-- Three-day recheck remains active and is neither canceled nor forgotten.
-- No new formal status/classification is claimed.
+Zhao Shi begins alive and working under the half-day borrow, remains only moderately capable, independently asks for his real work to be recorded, and leaves with the pharmacy-side grey disciple when the deadline expires. What happens after he leaves remains unknown to Chen Que.
 
-## Zhao Shi
+Han Ya remains below searching after Lao Ma returns. The murder arrangement is neither completed nor canceled. His exact private motive remains protected.
 
-- Starts alive and working in South-Two under half-day borrow.
-- Physical capability remains limited but sufficient for moderate basket work; no claim of full recovery.
-- Noon return consequence occurs.
-- He independently asks that real work performance be written on the transfer slip; then leaves with the drug-room-side grey disciple.
-- Drug-room experience/details remain unknown to Chen Que.
+Missing green-rope youth advances only to stronger evidence of deliberate departure from ordinary flow: abandoned/cut green cord plus disturbed mud and limited tracks. Exact tool, route, accomplice, boundary-crossing, capture/escape/death all remain UNKNOWN.
 
-## Han Ya
+Lao Zhou continues production-first logic, records only facts already observed, and takes no extra pharmacy responsibility.
 
-- CH010 ends with Han Ya and Lao Ma below the west gate.
-- CH011: Lao Ma returns injured; Han Ya remains below searching.
-- No new knowledge is assigned to Han Ya beyond what Lao Ma reports.
-- Murder transaction remains incomplete/not canceled and is not silently rewritten.
+## Candidate plot diff
 
-## Missing blue-rope youth
+- Missing-youth escape line: ACTIVE → ADVANCED, result unresolved.
+- Zhao half-day borrow: ACTIVE → PAID-OFF for the explicit noon deadline; pharmacy-return consequence becomes active.
+- Han Ya kill arrangement: ACTIVE / unchanged-delayed pending search result.
+- Chen three-day recheck: ACTIVE unchanged.
+- South-Two usefulness: ADVANCED through concrete responsibility, no formal promotion.
 
-- Prior state: unreturned, escape intent/door testing known, final route/result unknown.
-- Candidate advance: cut/abandoned blue rope + disturbed mud/limited footprints support deliberate departure from normal waste-route flow.
-- Still UNKNOWN: exact tool, exact route, accomplice, whether he crossed an outer boundary or escaped White Bone Mountain.
+No canon promotion before user approval.
 
-## Lao Zhou / South-Two
-
-- Continues production-first logic.
-- Existing closed-gate consequence naturally creates waste-space pressure.
-- He records Zhao Shi's already-observed work but refuses extra drug-room responsibility.
-
-## Knowledge matrix protection
-
-- Chen Que does not know the final escape result.
-- Chen Que does not know what happens to Zhao Shi after leaving South-Two.
-- No character uses author-only anomaly/batch/long-term truth information.
-
-## Plot ledger proposal (candidate only; not promoted)
-
-- TARGET escape line: ACTIVE → ADVANCED (deliberate departure evidence; result unresolved).
-- Zhao Shi half-day borrow: ACTIVE → PAID-OFF for the half-day deadline; new drug-room return consequence becomes ACTIVE.
-- Han Ya kill transaction: ACTIVE → DELAYED/UNCHANGED pending search result.
-- Chen Que three-day recheck: ACTIVE unchanged.
-- South-Two work value: ACTIVE/ADVANCED through concrete responsibility pressure, no formal promotion yet.
-
-No Canon promotion until user approval.
+RESULT: PASS
