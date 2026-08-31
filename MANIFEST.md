@@ -10,10 +10,10 @@ CURRENT_BOOK: 《长生者皆为薪柴》
 CURRENT_PHASE: PHASE_I_我为什么会被吃
 CURRENT_VOLUME: 第一卷·白骨山
 CURRENT_ARC: ARC-V01-02
-CANON_HORIZON: CH012
-CURRENT_CANON_CHAPTER: CH012
+CANON_HORIZON: CH013
+CURRENT_CANON_CHAPTER: CH013
 CURRENT_SNAPSHOT: canon/snapshots/STATE_SNAPSHOT_V2.3.md
-LATEST_STATE_DIFF: state/diffs/CH012_STATE_DIFF.md
+LATEST_STATE_DIFF: state/diffs/CH013_STATE_DIFF.md
 LATEST_CONTINUITY_AUDIT: quality/reviews/CONTINUITY_AUDIT_CH010.md
 CANON_KERNEL: canon/kernel/
 CANON_KERNEL_COMPACTED_THROUGH: CH007
@@ -41,7 +41,7 @@ FINAL_DELIVERY_GATE: quality/FINAL_DELIVERY_GATE.md
 FAILURE_MEMORY: quality/FAILURE_MEMORY.md
 CHAPTER_GATE: quality/CHAPTER_GATE.md
 WORKFLOW_STATE_MACHINE: quality/WORKFLOW_STATE_MACHINE.md
-CURRENT_WORKFLOW: NONE_UNTIL_CH013_START
+CURRENT_WORKFLOW: NONE_UNTIL_CH014_START
 NARRATIVE_PATTERN_LEDGER: quality/NARRATIVE_PATTERN_LEDGER.md
 COMMERCIAL_RESEARCH_BASELINE: quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md
 STYLE_GUIDE: style/STYLE_GUIDE.md
@@ -49,9 +49,9 @@ CHAPTER_VALIDATOR: tools/chapter_gate.py
 CHAPTER_VALIDATOR_TESTS: tools/test_chapter_gate.py
 CHAPTER_CI_WORKFLOW: .github/workflows/chapter-quality.yml
 CANDIDATE_PATH_PATTERN: candidate/CHxxx.md
-NEXT_CHAPTER: CH013
+NEXT_CHAPTER: CH014
 CANON_BRANCH: main
-CANDIDATE_BRANCH: NONE_UNTIL_CH013_START
+CANDIDATE_BRANCH: NONE_UNTIL_CH014_START
 TRACKING_STATE_ROLE: projection
 
 ## Series Scale Decision
@@ -75,7 +75,7 @@ TRACKING_STATE_ROLE: projection
 ### Canon Kernel Overlay
 
 - 压实Kernel当前截至CH007。
-- 未压实Canonical patches：`CH008.jsonl`、`CH009.jsonl`、`CH010.jsonl`、`CH011.jsonl`、`CH012.jsonl`。
+- 未压实Canonical patches：`CH008.jsonl`、`CH009.jsonl`、`CH010.jsonl`、`CH011.jsonl`、`CH012.jsonl`、`CH013.jsonl`。
 - 冷启动必须加载从 `CANON_KERNEL_COMPACTED_THROUGH` 之后到 `CANON_HORIZON` 的全部patch。
 - patch不是第二套Canon，而是已确认正文的规范化增量。
 - 只读主Kernel而漏patch，视为LOAD失败。
@@ -90,7 +90,7 @@ TRACKING_STATE_ROLE: projection
 
 默认每章必须经过：
 
-**Rolling Outline → Context Receipt → Scene Card（含Memory第9问） → Published Prose Anchor → Write → Freeze Revision → Post-Draft Audit（含Memory） → Publication Gate（含Title Review） → Expectation/Payoff Gate → Continuity Precommit → Final Delivery Gate → Candidate Branch Commit → External CI Success on Exact HEAD → User Review。**
+**Rolling Outline → Context Receipt → Scene Card（含Memory第9问） → Published Prose Anchor → Write → Freeze Revision → Post-Draft Audit（含Memory） → Book Identity Gate → Publication Gate（含Title Attraction Review） → Expectation/Payoff Gate → Continuity Precommit → Final Delivery Gate → Candidate Branch Commit → External CI Success on Exact HEAD → User Review。**
 
 任何关键步骤缺失即FAIL CLOSED。
 
@@ -117,7 +117,7 @@ TRACKING_STATE_ROLE: projection
 - `quality/FINAL_DELIVERY_GATE.md`：验证最终稿就是被审版本。
 - `quality/MEMORY_ANCHOR_SYSTEM.md`：记忆锚与反强造规则。
 - `tracking/MEMORY_ANCHOR_LEDGER.md`：只记录已进入Canon、值得保护/回响的锚。
-- `quality/CHAPTER_TITLE_STANDARD.md`：章节名质量与反事件摘要规则；最终标题属于交稿版本的一部分。
+- `quality/CHAPTER_TITLE_STANDARD.md`：章节名质量与商业点击欲；最终标题属于交稿版本的一部分。
 - `tools/chapter_gate.py` + GitHub Actions：机械规则、产物、版本一致性和伪PASS拦截。
 
 ## Current Publication Safeguards
@@ -131,29 +131,28 @@ TRACKING_STATE_ROLE: projection
 - 每章/短周期检查“期待→兑现→升级”。
 - 每章检查Memory第9问，允许 `NO NEW ANCHOR`；Arc收束执行MEM-006。
 - 记忆锚回响必须增值；禁止为名场面硬造金句/口头禅/象征物。
-- **章节名不得只概括“本章发生了什么”；最终标题必须单独Title Review。**
+- **章节名不得只概括“本章发生了什么”；最终标题必须至少生成8个跨家族候选并执行Title Attraction Review。**
 - 代价可以污染收益，但不能习惯性清零。
 - 信息不能长期成为唯一主奖励。
+- Book Identity Gate：去掉专名后仍应明显承载本书的成长/生存博弈/规则破解/世界真相中的至少两项，核心冲突应来自本世界既有规则。
 - Assistant Candidate没有Context Receipt / Scene Card / Post-Draft / Rule Coverage / Final Delivery / exact-head CI success，不允许交正文。
 - 用户最终定稿可以覆盖上述交稿偏好，但覆盖只对该已明确章节有效，不自动修改未来写作标准。
 
 ## Current Canon / Next Status
 
-- CH012《这一畦归你》：Assistant R3 candidate通过 exact-head CI 后在聊天中完整展示；用户随后明确表示“已经提交”，视为批准并晋升Canon。
-- Canon manuscript：`manuscript/volume-01-baigushan/CH012-这一畦归你.md`。
-- Canon Horizon：CH012。
-- ARC-V01-01 · 提前的七日考核：CLOSED。
+- CH013《药也要吃》：Book-Identity重写版通过 exact-head CI 后在聊天中完整展示；用户随后明确表示“已经上传”，视为批准并晋升Canon。
+- Canon manuscript：`manuscript/volume-01-baigushan/CH013-药也要吃.md`。
+- Canon Horizon：CH013。
 - 当前Arc：ARC-V01-02 · 药圃与真炼身。
-- CH012确认变化：
-  - 巡线在第二处界桩外再次目击TARGET但未抓获；顾长槐正式记“外逃”并转巡山堂，完整逃出白骨山仍UNKNOWN；
-  - 旧泄沟封死，余下青绳收回内侧，西门外运停止；
-  - 韩鸦宣布考核中杀TARGET的任务作废，但《盗气残篇》的债另算；
-  - 老周公开以工作价值为陈缺背书；
-  - 陈缺选择药圃外棚三日候工，获得稳定活药资源接口，不再跟临时白绳队伍流转；
-  - 白绳黑点、每日腕检、异常症状送回、三日复验和药材损耗责任全部持续；
-  - 陈缺当晚到药圃外棚，次日起负责最外侧一畦刚移栽药苗；右臂伤势和真气近空持续；
-  - 赵石本章无新结果，CH011返回药房后的后果继续ACTIVE。
-- 下一章：CH013，药圃第一日，优先把活药接口转成真实修炼/身体推进，而不是再做一章分类或追捕。
+- CH013确认变化：
+  - 陈缺在候工第一整日保住一畦因踩踏板结而发软的青须草，许管事保留其畦牌并让其次日继续；
+  - 陈缺观察到浇水后木气变化先从根部出现再向叶片扩散，确认木气会随根部吸收发生流动，但外部来源仍UNKNOWN；
+  - 陈缺在根部吸收初段进行三次分散微量截取，恢复一小股真木属灵气，当日未出现CH004式迅速卷黄，长期损耗UNKNOWN；
+  - 夜间仍只运行三转；真气经过右臂后减少，但酸热与功能改善比真气本身更持久；
+  - 右臂第一次可抬至与肩大致平齐并维持约两息，仍受伤、仍疼、未正式突破炼身；
+  - 陈缺开始怀疑部分“消失”的真气可能被肉身消耗/留下变化，但机制UNKNOWN；
+  - 赵石、TARGET、韩鸦本章无新结果。
+- 下一章：CH014。最自然的因果不是继续重复偷药实验，而是让“肉身变化真实存在”与“白骨山会观察并记录异常恢复”发生碰撞，同时继续确认真气如何转成可积累身体能力。
 
 ## Canon Policy
 
@@ -165,4 +164,4 @@ TRACKING_STATE_ROLE: projection
 - 每章晋升写Kernel patch；每5章Snapshot；每10章Continuity Audit。
 - 已发布旧章标题不因风格统一批量追改，除非用户明确要求。
 
-核心原则：**正文决定过去；用户明确最终文本拥有最高发布权威；Canon描述真实世界；Tracking描述现在；Outline约束未来；Scene Card隔离后台与小说；Post-Draft Audit负责写后找错；Expectation/Payoff保证追读与累积；Memory Anchor保证人物/场面/关系能被记住；Chapter Title Standard保证标题本身有冲突与记忆价值；Rule Coverage保证无孤儿规则；Failure Memory防止同错复发；Final Delivery + External CI保证Assistant交稿版本就是被审版本。**
+核心原则：**正文决定过去；用户明确最终文本拥有最高发布权威；Canon描述真实世界；Tracking描述现在；Outline约束未来；Scene Card隔离后台与小说；Book Identity保证每章仍然属于《长生者皆为薪柴》；Title Attraction保证目录本身有追读欲；Post-Draft/Payoff/Continuity/Final Delivery/External CI共同保证交付质量。**
