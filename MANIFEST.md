@@ -10,10 +10,10 @@ CURRENT_BOOK: 《长生者皆为薪柴》
 CURRENT_PHASE: PHASE_I_我为什么会被吃
 CURRENT_VOLUME: 第一卷·白骨山
 CURRENT_ARC: ARC-V01-01
-CANON_HORIZON: CH010
-CURRENT_CANON_CHAPTER: CH010
+CANON_HORIZON: CH011
+CURRENT_CANON_CHAPTER: CH011
 CURRENT_SNAPSHOT: canon/snapshots/STATE_SNAPSHOT_V2.3.md
-LATEST_STATE_DIFF: state/diffs/CH010_STATE_DIFF.md
+LATEST_STATE_DIFF: state/diffs/CH011_STATE_DIFF.md
 LATEST_CONTINUITY_AUDIT: quality/reviews/CONTINUITY_AUDIT_CH010.md
 CANON_KERNEL: canon/kernel/
 CANON_KERNEL_COMPACTED_THROUGH: CH007
@@ -41,7 +41,7 @@ FINAL_DELIVERY_GATE: quality/FINAL_DELIVERY_GATE.md
 FAILURE_MEMORY: quality/FAILURE_MEMORY.md
 CHAPTER_GATE: quality/CHAPTER_GATE.md
 WORKFLOW_STATE_MACHINE: quality/WORKFLOW_STATE_MACHINE.md
-CURRENT_WORKFLOW: NONE_UNTIL_CH011_START
+CURRENT_WORKFLOW: NONE_UNTIL_CH012_START
 NARRATIVE_PATTERN_LEDGER: quality/NARRATIVE_PATTERN_LEDGER.md
 COMMERCIAL_RESEARCH_BASELINE: quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md
 STYLE_GUIDE: style/STYLE_GUIDE.md
@@ -49,9 +49,9 @@ CHAPTER_VALIDATOR: tools/chapter_gate.py
 CHAPTER_VALIDATOR_TESTS: tools/test_chapter_gate.py
 CHAPTER_CI_WORKFLOW: .github/workflows/chapter-quality.yml
 CANDIDATE_PATH_PATTERN: candidate/CHxxx.md
-NEXT_CHAPTER: CH011
+NEXT_CHAPTER: CH012
 CANON_BRANCH: main
-CANDIDATE_BRANCH: NONE_UNTIL_CH011_START
+CANDIDATE_BRANCH: NONE_UNTIL_CH012_START
 TRACKING_STATE_ROLE: projection
 
 ## Series Scale Decision
@@ -75,7 +75,7 @@ TRACKING_STATE_ROLE: projection
 ### Canon Kernel Overlay
 
 - 压实Kernel当前截至CH007。
-- 未压实Canonical patches：`CH008.jsonl`、`CH009.jsonl`、`CH010.jsonl`。
+- 未压实Canonical patches：`CH008.jsonl`、`CH009.jsonl`、`CH010.jsonl`、`CH011.jsonl`。
 - 冷启动必须加载从 `CANON_KERNEL_COMPACTED_THROUGH` 之后到 `CANON_HORIZON` 的全部patch。
 - patch不是第二套Canon，而是已确认正文的规范化增量。
 - 只读主Kernel而漏patch，视为LOAD失败。
@@ -88,22 +88,26 @@ TRACKING_STATE_ROLE: projection
 
 ## Writing Authority
 
-每章必须经过：
+默认每章必须经过：
 
 **Rolling Outline → Context Receipt → Scene Card（含Memory第9问） → Published Prose Anchor → Write → Freeze Revision → Post-Draft Audit（含Memory） → Publication Gate（含Title Review） → Expectation/Payoff Gate → Continuity Precommit → Final Delivery Gate → Candidate Branch Commit → External CI Success on Exact HEAD → User Review。**
 
 任何关键步骤缺失即FAIL CLOSED。
 
+**用户直接提供并明确声明为最终定稿的完整章节文本属于 Authority Order 第1级。此时正文不得被Gate静默改写；质量系统只记录偏离与未来回归风险，Canonical promotion以用户明确最终文本为准。**
+
 所有写后PASS必须绑定同一 `candidate_revision_id` 与 `candidate_sha256`；正文或最终标题改动后旧PASS失效。
 
 ### External CI
 
-展示完整Candidate前必须实际确认：
+展示完整Assistant Candidate前必须实际确认：
 1. workflow=`Chapter Quality Gate`；
 2. branch=当前候选分支；
 3. conclusion=`success`；
 4. run.head_sha=候选分支当前HEAD；
 5. CI通过后候选正文/报告未再修改。
+
+用户直接提供最终正文时，该CI规则不用于否决用户已经明确发布的文字；但应在记录中标记 `USER_FINAL_OVERRIDE`，后续章节继续恢复正常Gate。
 
 ## Rule Audit Authority
 
@@ -130,35 +134,33 @@ TRACKING_STATE_ROLE: projection
 - **章节名不得只概括“本章发生了什么”；最终标题必须单独Title Review。**
 - 代价可以污染收益，但不能习惯性清零。
 - 信息不能长期成为唯一主奖励。
-- 没有Context Receipt / Scene Card / Post-Draft / Rule Coverage / Final Delivery / exact-head CI success，不允许交正文。
+- Assistant Candidate没有Context Receipt / Scene Card / Post-Draft / Rule Coverage / Final Delivery / exact-head CI success，不允许交正文。
+- 用户最终定稿可以覆盖上述交稿偏好，但覆盖只对该已明确章节有效，不自动修改未来写作标准。
 
 ## Current Canon / Next Status
 
-- CH010《这笔账得有人认》：用户明确回复“我已经确认了”，已晋升Canon。
-- Canon manuscript：`manuscript/volume-01-baigushan/CH010-这笔账得有人认.md`。
-- Canon Horizon：CH010。
-- CH010确认变化：
-  - 南二确认TARGET未归并暂停西门外运；
-  - 陈缺只报告可见旧行为，没有把未归偷升成逃脱；
-  - 韩鸦通过真实消息渠道得知事件，在未归记录旁写名接手一刻钟，并与老马亲自下去寻找；
-  - 陈缺工作位置进一步进入事实记录/责任链；
-  - 赵石半日借工继续有效，午后最终处置仍未发生；
-  - 陈缺三日复验继续有效；
-  - TARGET位置/结果仍UNKNOWN。
-- Memory：新增MA-010，韩鸦写名并亲自下去；短期冷却，不英雄化。
-- 第10章节点已完成Snapshot V2.3与Continuity Audit。
-- 十章审计无须回滚正文；主要未来警报：CH011换场景动力、赵石半日落地、TARGET状态在CH011—12发生实质变化。
-- 用户指出近期章节名质量下降；CH010从弱标题《少了一个人以后》修订为《这笔账得有人认》，并建立 `quality/CHAPTER_TITLE_STANDARD.md`。
-- 下一章：CH011。
+- CH011《青绳拴不住人》：用户提供完整正文并明确声明“这个是我最终交的”，已按用户最高权威晋升Canon。
+- Canon manuscript：`manuscript/volume-01-baigushan/CH011-青绳拴不住人.md`。
+- Canon Horizon：CH011。
+- CH011确认变化：
+  - 老马受伤返回并带回断青绳；旧泄沟/石槽后区域成为TARGET实际逃离路径的一部分；
+  - 旧泄沟塌堵/支撑石板被撬导致南二黑水与腐药倒灌，西门废料路线暂时失效，南二转移到东棚；
+  - 韩鸦未抓到TARGET，但确认脚印已越过废沟第一道石界；是否真正逃出白骨山仍UNKNOWN；
+  - 事件进入公开上报/西坡封锁层级；巡山堂具体截捕结果仍UNKNOWN；
+  - 赵石半日借工到期，自主选择回药房，并确认南二劳动记录可作“能干活”的凭证；药房后续处置UNKNOWN；
+  - 韩鸦明确暂停但未取消七日杀人交易；
+  - 陈缺在南二搬迁东棚后仍被老周继续留用，右臂伤势、真气近空、三日复验均持续。
+- Memory：用户最终稿把“割断青绳”明确提升为标题/章尾核心意象；后续可回响但不得反向重写CH011。
+- 下一章：CH012，第一Arc收束。
 
 ## Canon Policy
 
 - `main`只承认用户已确认/已发布正文和对应Canon。
-- Candidate在用户确认前不得推进Canon Horizon。
+- Candidate在用户确认前不得推进Canon Horizon；用户直接提供并明确标注最终正文除外。
 - 已发布正文不得因规划调整静默Retcon。
 - UNKNOWN / SUSPECTS不得自动升级成事实。
 - 作者层长期真相严格服从Truth Reveal Ladder。
 - 每章晋升写Kernel patch；每5章Snapshot；每10章Continuity Audit。
 - 已发布旧章标题不因风格统一批量追改，除非用户明确要求。
 
-核心原则：**正文决定过去；Canon描述真实世界；Tracking描述现在；Outline约束未来；Scene Card隔离后台与小说；Post-Draft Audit负责写后找错；Expectation/Payoff保证追读与累积；Memory Anchor保证人物/场面/关系能被记住；Chapter Title Standard保证标题本身有冲突与记忆价值；Rule Coverage保证无孤儿规则；Failure Memory防止同错复发；Final Delivery + External CI保证交稿版本就是被审版本。**
+核心原则：**正文决定过去；用户明确最终文本拥有最高发布权威；Canon描述真实世界；Tracking描述现在；Outline约束未来；Scene Card隔离后台与小说；Post-Draft Audit负责写后找错；Expectation/Payoff保证追读与累积；Memory Anchor保证人物/场面/关系能被记住；Chapter Title Standard保证标题本身有冲突与记忆价值；Rule Coverage保证无孤儿规则；Failure Memory防止同错复发；Final Delivery + External CI保证Assistant交稿版本就是被审版本。**
