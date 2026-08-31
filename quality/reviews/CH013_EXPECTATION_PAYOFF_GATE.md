@@ -1,7 +1,7 @@
 # CH013 EXPECTATION / PAYOFF GATE
 
 CANDIDATE_REVISION_ID: CH013-R3-MEDICINE-MUST-EAT
-CANDIDATE_SHA256: 2c29c795884ef64c3d2c06895f95ea2c13c372747323dd84fdb1fcfd0cbda25c
+CANDIDATE_SHA256: ed8ffd9b8b2416913214573adf42d1933a4add358fd1de93c05c68f1a2255c88
 RESULT: PASS
 
 Opening expectation inherited from CH012: the herb-garden live-resource interface must become actual growth rather than scenery.
