@@ -1,4 +1,4 @@
-# RULE COVERAGE MATRIX V4
+# RULE COVERAGE MATRIX V5
 
 > 目的：解决“规则存在，但没有任何 Gate 真正检查”的问题。
 >
@@ -31,11 +31,13 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | WF-003 | 所有 Gate 必须按状态机顺序执行 | WORKFLOW_STATE_MACHINE | ALL | workflow state history | BLOCKED |
 | WF-004 | Gate PASS 必须绑定同一 Candidate Revision 与正文SHA | POST_DRAFT / FINAL_DELIVERY | POSTWRITE | revision_id + candidate_sha256 | RECHECK |
 | WF-005 | 任意正文或最终标题修改使受影响的下游 PASS 失效 | FINAL_DELIVERY / CHAPTER_TITLE_STANDARD | POSTWRITE | revision change log / SHA change | RECHECK |
-| WF-006 | 完整Candidate只有在当前候选分支精确HEAD的 `Chapter Quality Gate` 外部CI成功后才能交用户 | MANIFEST / WORKFLOW / FINAL_DELIVERY | EXTERNAL CI | Actions run id + branch + head_sha=current HEAD + conclusion=success | BLOCKED |
+| WF-006 | 完整Assistant Candidate只有在当前候选分支精确HEAD的 `Chapter Quality Gate` 外部CI成功后才能交用户 | MANIFEST / WORKFLOW / FINAL_DELIVERY | EXTERNAL CI | Actions run id + branch + head_sha=current HEAD + conclusion=success | BLOCKED |
 | CAN-001 | 已发布正文事实高于未来规划 | MANIFEST / PROJECT_RULES | CONTINUITY | source chapter / fact | REWRITE |
 | CAN-002 | 已发布事实不得静默 Retcon | CHANGE_IMPACT_PROTOCOL | CONTINUITY | no-conflict / revision receipt | BLOCKED |
 | KNOW-001 | 角色不得使用不该知道的信息 | KNOWLEDGE MATRIX | CONTINUITY | claim → knowledge source | REWRITE |
 | KNOW-002 | UNKNOWN/SUSPECTS/BELIEVES 不得偷升为事实 | PROJECT_RULES | CONTINUITY | claim classification | REWRITE |
+
+**User-final boundary:** 用户直接提供完整章节并明确声明为最终正文时，Authority Order 第1级覆盖Candidate交稿Gate；该章偏离项记录但不反向改字，后续Assistant Candidate继续执行本矩阵。
 
 ## 三、人物、因果与力量
 
@@ -76,7 +78,20 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | STYLE-008 | **最终章节名不得只是事件摘要/流程标签；至少承载冲突、反常识、具体意象、双关回收或人物选择之一，并检查最近5章标题结构重复；标题改动视为版本改动** | CHAPTER_TITLE_STANDARD / STYLE / PUBLICATION | PUBLICATION + FINAL | 标题5问 + recent-5 compare + candidate SHA binding | REWRITE / RECHECK |
 | END-001 | 章尾来自本章现实后果，不靠金句/神秘台词/作者预告硬切 | STYLE / PUBLICATION | POST_DRAFT | 最后300字审查 | REWRITE |
 
-## 六、爽感、成长与商业节奏
+## 六、Narrative Naturalness / 段落与结构自然度
+
+| Rule ID | 硬规则 | 主要来源 | 检查阶段 | 最低证据 | FAIL |
+|---|---|---|---|---|---|
+| NAT-001 | 主要段落/场景不得形成连续行政式QUD链 | NARRATIVE_NATURALNESS_GATE | PREWRITE/POST_DRAFT | 隐含问题列表 + 断链证据 | REWRITE |
+| NAT-002 | 段首句/事件序列不得几乎完整复原Rolling Outline | NARRATIVE_NATURALNESS_GATE | POST_DRAFT | First-Sentence Test + Outline compare | REWRITE |
+| NAT-003 | 分段必须服务完整局部叙事单位；禁止提示词式短段节拍 | NARRATIVE_NATURALNESS_GATE / FM-013 | LINT/POST_DRAFT | 总段数、单句段/两句段、最长连续短段、平均段长、Anchor对照 | REWRITE |
+| NAT-004 | 核心转折若属于高概率默认答案，必须由本书既有具体事实支撑 | NARRATIVE_NATURALNESS_GATE | PREWRITE/POST_DRAFT | Echo Test + prior fact source | REPLAN/REWRITE |
+| NAT-005 | 不把所有事件、道具、配角都过度工程化为主线功能 | NARRATIVE_NATURALNESS_GATE | POST_DRAFT | 非伏笔纹理实例 + core-event count | REWRITE |
+| NAT-006 | 场景/象征已表达后不得再用旁白解释主题意义 | NARRATIVE_NATURALNESS_GATE | POST_DRAFT | 关键转折后3段 + 章尾300字删除测试 | REWRITE |
+| NAT-007 | 强情绪不能长期只靠身体化模板；应混用行为/直说/回避/身体反应 | NARRATIVE_NATURALNESS_GATE | POST_DRAFT | emotion mode sample | REWRITE |
+| NAT-008 | 相邻章节/场景纸面纹理不能长期单一：问答、观察推理、桌边流程、短句加速等需轮换 | NARRATIVE_NATURALNESS_GATE / NARRATIVE_PATTERN | POST_DRAFT | recent-5 compare | REWRITE |
+
+## 七、爽感、成长与商业节奏
 
 | Rule ID | 硬规则 | 主要来源 | 检查阶段 | 最低证据 | FAIL |
 |---|---|---|---|---|---|
@@ -88,7 +103,7 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | ALG-001 | 最近高层破局算法不得机械重复 | NARRATIVE_PATTERN / STYLE | POST_DRAFT | 最近5章 compare | REWRITE |
 | ALG-002 | 对手吃亏必须来自合理利益选择，不靠集体降智 | PROJECT_RULES | POST_DRAFT | opponent goal/choice consequence | REWRITE |
 
-## 七、记忆锚、人物辨识度与回响
+## 八、记忆锚、人物辨识度与回响
 
 | Rule ID | 硬规则 | 主要来源 | 检查阶段 | 最低证据 | FAIL |
 |---|---|---|---|---|---|
@@ -101,7 +116,7 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 
 说明：`MEM-001~005` 每章必须在Post-Draft Rule Coverage中出现；没有新锚时可以PASS/NA，但必须有明确证据和理由。`MEM-006` 非Arc收束章可标NA，理由写明“Arc ongoing”。
 
-## 八、伏笔、反转与长篇压缩
+## 九、伏笔、反转与长篇压缩
 
 | Rule ID | 硬规则 | 主要来源 | 检查阶段 | 最低证据 | FAIL |
 |---|---|---|---|---|---|
@@ -111,7 +126,7 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | LEN-001 | 一个世界观结论主证明完成后，不换地图重复证明 | PROJECT_RULES 2M | MACRO/POST | prior proof + new function | REPLAN |
 | LEN-002 | 不新增只负责讲观点的NPC/重复副本凑长度 | PROJECT_RULES 2M | MACRO/POST | character independent function | REPLAN |
 
-## 九、交稿前最终规则
+## 十、交稿前最终规则
 
 | Rule ID | 硬规则 | 主要来源 | 检查阶段 | 最低证据 | FAIL |
 |---|---|---|---|---|---|
@@ -121,7 +136,7 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 | FINAL-004 | 最终稿正文或标题修改后必须重跑受影响检查 | FINAL_DELIVERY_GATE / CHAPTER_TITLE_STANDARD | FINAL | revision history / SHA change | RECHECK |
 | FINAL-005 | 只有 Final Delivery PASS + WF-006 外部CI成功，运行时才可进入 USER_REVIEW | WORKFLOW / FINAL_DELIVERY | FINAL+EXTERNAL | Final report + exact-head CI success | BLOCKED |
 
-## 十、维护规则
+## 十一、维护规则
 
 1. `PROJECT_RULES / STYLE_GUIDE / Gate / MEMORY_ANCHOR_SYSTEM / CHAPTER_TITLE_STANDARD / Executable Validator` 新增硬规则时，必须同步本矩阵。
 2. 每条硬规则只允许一个“最终责任 Gate/执行阶段”，其他Gate可以预检，避免所有文档都模糊负责。
@@ -137,3 +152,4 @@ PASS 不能只写“已检查”。必须至少留下以下一种证据：
 6. 每Arc收束执行MEM-006，不允许靠最后一章硬塞名场面补齐。
 7. External CI规则不能由Post-Draft报告自我证明；必须读取GitHub Actions真实结果。
 8. `STYLE-008`属于人工语义Gate，不能仅靠机械关键词判定好标题；机械化只负责辅助检测重复结构/版本绑定，最终由Publication Title Review负责。
+9. `NAT-001~008`属于自然度Gate：统计只作证据，不能把“低AI值”机械当成文学质量；最终仍需语义审查。
