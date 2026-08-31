@@ -1,188 +1,105 @@
 # CH011 POST-DRAFT AUDIT
 
-chapter: CH011《该还的人》
-candidate_revision_id: CH011-R3-naturalness
-candidate_blob_sha: 2edda3b89440361f0c0119de25ee04af84628b25
-canon_horizon: through published CH010 / STATE_SNAPSHOT_V2.3
-scene_card: quality/scene-cards/CH011_SCENE_CARD.md
+CHAPTER: CH011《该还的人》
+CANDIDATE_REVISION_ID: CH011-R3-paragraph-clean
+CANDIDATE_SHA256: dd18166a2bba6c06510439999ac5a127dc1c463d8dbbaeefdab8e31024ce4269
+CANON_HORIZON: CH010 / STATE_SNAPSHOT_V2.3
+SCENE_CARD: quality/scene-cards/CH011_SCENE_CARD.md
+RESULT: PASS
 
-## Mechanical lint
+## Mechanical evidence
 
--正文字符数（含标题/Markdown）：约3178；正文主体约3150，处于2800—4000硬区间，接近常规3200下沿。
-- 正文自然段：45。
-- 单句段（含必要对话回合）：6。
-- **无引号纯叙述单句段：0。**
-- 无引号纯叙述两句以下段：4。
-- 最大连续无必要单句叙述段：0。
-- 平均正文段长：约68字符；最短约9，最长约137；段长有明显起伏，不是等长节拍。
-- `砰/砰/砰`、`一声/两声/三声`、`白的/青的`式短词瀑布：0。
-- 后台泄漏扫描：`CH0 / Canon / CANON / Ledger / State Diff / Snapshot / 上一章 / 本章 / 前文 / TARGET` 均0命中。
-- 高频AI句扫描：`陈缺心里一沉 / 他忽然明白 / 原来如此 / 真正的问题是 / 深吸一口气 / 这不能证明 / 这只能证明 / 至少说明 / 这不代表` 均0命中。
+- Candidate body count by executable validator: 3062; inside hard band 2800–4000, deliberately below normal 3200–3600 because adding another settlement would recreate the overpacked R1 failure.
+- Body natural paragraphs: 45.
+- Pure narrative one-sentence paragraphs: 0.
+- Maximum consecutive unnecessary one-sentence narrative paragraphs: 0.
+- Short-word waterfall patterns from rejected R1 (`砰/砰/砰`, `一声/两声/三声`, `白的/青的`): 0.
+- Backend/planning-language scan: 0 hits in prose.
+- Listed high-frequency AI fingerprint scan: 0 hits requiring rewrite.
 
-### Paragraph anchor comparison
+## Causal / character findings
 
-对照CH007南二开场：当前稿恢复“观察—动作—即时反应”在同一自然段内完成，工作场景段落约60—130字符为主；不再依赖空行切出速度。去掉空行后不会明显变得“更像小说”，说明空行不再承担主要节奏功能。
+Two core events only: (1) Lao Ma returns with partial physical evidence while Han Ya remains below; the already-closed west door forces South-Two to reorganize accumulated waste. (2) Zhao Shi's half-day borrow expires; he independently asks that his completed work be recorded, while Chen Que chooses the East-side responsibility Lao Zhou just gave him rather than continuing to intervene.
 
-Mechanical lint: PASS.
+Chen Que acts on known facts and accepts loss of reach rather than solving both pressures. Zhao Shi retains independent agency. Lao Zhou remains production/accountability-driven. Han Ya remains offstage paying the cost of his prior signed responsibility.
 
-## Core event count
+Knowledge remains bounded: the green cord and limited footprints strengthen deliberate-departure suspicion, but cutting tool, exact route, accomplice, capture/escape/death, and whether the youth left White Bone Mountain all remain UNKNOWN.
 
-1. 老马带回青绳与下方痕迹，韩鸦仍未归；西门继续封，既有废料积压迫使南二重排工作空间。
-2. 午时赵石借工到期；赵石主动要求把“能干活”的既成事实写进木签后返回药房，陈缺选择服从东头职责而不继续跟进。
+## Naturalness / anti-outline findings
 
-No third core settlement. 韩鸦交易、TARGET最终位置、陈缺正式分类均未结算。
+The rejected default turn of a newly convenient complete secret passage is removed. The chapter does not settle Han Ya's murder arrangement, Chen Que's formal classification, or the missing youth's final result. QUD flow is interrupted by physical work and Zhao Shi's independent deadline rather than following `result → explanation → consequence → meaning`. Ordinary work texture is allowed to remain non-foreshadowing. No narrator paragraph explains the green cord as freedom or turns the title into a thesis.
 
-SCENE-001/CAP-003: PASS.
+## Asset diff
 
-## Claim audit
+- Information: modest +; active departure evidence stronger, final result unresolved.
+- Status/impact: South-Two responsibility becomes more real but no formal promotion is granted.
+- Relationship/freedom: −; Zhao Shi returns to the pharmacy side and Chen Que chooses not to keep intervening.
+- Resource/ability: 0; no qi recovery, new medicine, combat method, or free reward.
 
-- `青绳断口整齐`：可见事实。
-- `绳大概率与失踪青绳少年有关`：基于“这一趟下去的青绳只有他”+发现位置，为强推断；正文明确“不把话说死”。
-- `TARGET具体去向`：UNKNOWN；正文仅到石槽后泥地/脚印中断。
-- `TARGET是否逃出白骨山`：UNKNOWN，未偷升。
-- `具体割绳工具`：UNKNOWN；正文不指定小刀或其他工具。
-- `韩鸦仍在下面继续找`：来源为老马转述。
-- `赵石半日干活可被南二记录`：承接CH009借工记录与CH010持续工作事实。
-- `陈缺正式身份升级`：未发生。
+## Rule Coverage
 
-KNOW-001/002: PASS.
+| Rule ID | Status | Evidence |
+|---|---|---|
+| WF-001 | PASS | `quality/receipts/CH011_CONTEXT_RECEIPT.md` exists and records HOT load/prose anchors. |
+| WF-002 | PASS | `quality/scene-cards/CH011_SCENE_CARD.md` exists. |
+| WF-003 | PASS | Context → Scene → Draft → Post-Draft → Naturalness → Publication → Payoff → Continuity → Final reports exist. |
+| WF-004 | PASS | All required reports are rebound to `CH011-R3-paragraph-clean` + exact SHA256. |
+| WF-005 | PASS | R2→R3 paragraph edit invalidated prior checks; affected gates rerun. |
+| WF-006 | NA | External exact-head CI is evaluated after final candidate commit, not inside Post-Draft. |
+| CAN-001 | PASS | Opening follows published CH010 west-door closure, fourth waste basket, Han/Lao descent. |
+| CAN-002 | PASS | No published fact is retconned. |
+| KNOW-001 | PASS | New claims come from visible cord/tracks or Lao Ma's on-page report. |
+| KNOW-002 | PASS | Tool/route/final TARGET result remain UNKNOWN. |
+| CHAR-001 | PASS | Chen protects accumulated South-Two position instead of impulsive chase. |
+| CHAR-002 | PASS | No unsupported omniscient inference; uncertainty remains explicit in action. |
+| CHAR-003 | PASS | Zhao independently demands work evidence; Lao Zhou/Han pursue own interests. |
+| CAUSAL-001 | PASS | CH010 sealed gate naturally creates CH011 waste-space pressure. |
+| CAUSAL-002 | PASS | Turns come from gate pressure, noon deadline, and character choices, not author convenience. |
+| POWER-001 | NA | No new power is introduced or used. |
+| POWER-002 | NA | No cultivation upgrade occurs. |
+| POWER-003 | PASS | No burst power or realm-gap bypass. |
+| SCENE-001 | PASS | Exactly two core events. |
+| SCENE-002 | PASS | Rolling Outline is not checklist-expanded; Han deal/formal status/final escape are not settled. |
+| SCENE-003 | NA | Not a test/sample demonstration chapter. |
+| SCENE-004 | PASS | Chen chooses with Zhao/pharmacy and missing-youth outcomes unresolved. |
+| CAP-001 | PASS | Validator count 3062, within 2800–4000. |
+| CAP-002 | PASS | No additional major node is opened near 3000; chapter closes on existing consequences. |
+| CAP-003 | PASS | Final quarter does not clear multiple plots or introduce a new mechanism. |
+| STYLE-001 | PASS | 45 natural paragraphs; pure narrative one-sentence paragraphs 0. |
+| STYLE-002 | PASS | No short-word waterfall or empty-line manufactured rhythm. |
+| STYLE-003 | PASS | Executable backend-language scan passes. |
+| STYLE-004 | PASS | No report-like repeated `这不能证明/至少说明/真正的问题` scaffolding. |
+| STYLE-005 | PASS | Scene meaning is not re-explained after the cord/choice beats. |
+| STYLE-006 | PASS | No repeated heart/cold-sweat/breath-catch emotion template. |
+| STYLE-007 | PASS | Dialogue is about work/return/accountability, not exposition Q&A. |
+| STYLE-008 | PASS | 《该还的人》 carries return/ownership conflict and double application without leaking result. |
+| END-001 | PASS | Ending is the physical unresolved west-door consequence, not a slogan/preview. |
+| PAY-001 | PASS | Positive expectation remains Chen's useful position becoming consequential. |
+| PAY-002 | PASS | Main value is impact/choice + durable Zhao work record, not only information. |
+| PAY-003 | PASS | No major gain is immediately zeroed. |
+| PAY-004 | PASS | Zhao's work record and Chen's real responsibility remain after cost. |
+| PAY-005 | PASS | Chen gains limited agency by choosing which asset to protect, not total control. |
+| ALG-001 | PASS | Different from recent recognition/test/record-query solutions; physical pressure + deadline collision. |
+| ALG-002 | PASS | Lao Zhou/grey disciple decisions follow their accountabilities; no opponent stupidity. |
+| MEM-001 | PASS | Scene Card explicitly says `NO NEW ANCHOR`. |
+| MEM-002 | NA | No new memory anchor is claimed. |
+| MEM-003 | PASS | No forced philosophical line, catchphrase, or explained symbol. |
+| MEM-004 | PASS | MA-010 gains consequence: Han's signed descent now costs ongoing absence/gate closure. |
+| MEM-005 | PASS | Zhao's voice centers proof of usefulness; Lao Zhou's on production/accountability. |
+| MEM-006 | NA | Arc is still ongoing; arc-memory requirement belongs to its closing chapter. |
+| PLOT-001 | PASS | Missing-youth line advances unresolved; Zhao half-day pays off; retest/Han deal remain active. |
+| PLOT-002 | PASS | New departure evidence is preceded by CH007–CH010 west-door behavior. |
+| REV-001 | PASS | New evidence reinterprets `未归` without declaring prior facts false. |
+| LEN-001 | PASS | Does not repeat the already-proven human-medicine thesis. |
+| LEN-002 | PASS | No new thesis-delivery NPC. |
+| FINAL-001 | PASS | Post-Draft Audit exists and is bound to final candidate revision/SHA. |
+| FINAL-002 | PASS | Every delivery-critical Rule ID in matrix is represented here as PASS/NA. |
+| FINAL-003 | PASS | Final Delivery report records clean read using CH010 ending + Candidate only. |
+| FINAL-004 | PASS | No body/title change after R3 paragraph-clean freeze. |
+| FINAL-005 | NA | Exact-head external CI is the next runtime check; this row does not self-certify it. |
 
-## Character falsification
+## Regression conclusion
 
-### 陈缺
+FM-002 outline expansion PASS; FM-003 short-paragraph waterfall PASS; FM-004 overpacked chapter PASS; FM-006 theme summary PASS; FM-007 outline-translated ending PASS; FM-009 evidence files now present; FM-010 changed-text rebinding PASS; FM-012 title PASS; FM-013 paragraph distortion PASS; FM-014 over-tidy narrative PASS.
 
-关键选择：赵石索回时，陈缺不继续留在桌边介入，而去处理老周刚交给自己的东头分药职责。
-
-当时知道：
-- 赵石借工记录已存在；
-- 南二位置依赖自己当前可用性；
-- 药房午后会索人；
-- 东头第一批已经出现混篓风险。
-
-不知道：
-- 药房具体如何处置赵石；
-- 失踪少年的最终去向；
-- 韩鸦搜索结果。
-
-选择不是最优通关，而是保住可累积位置，只给赵石可证事实。CHAR-001/002/SCENE-004: PASS.
-
-### 赵石
-
-若陈缺不存在，赵石仍会因药房时限被索回，也仍有动机要求把“能干活”写清。他的理由来自自身未来流转风险，不写“跟陈缺学的”。CHAR-003: PASS.
-
-### 老周
-
-仍以生产、损耗、责任为核心：愿意记录已发生事实，不为赵石主动去药房多认一层责任。PASS.
-
-### 韩鸦
-
-本章不回场解释交易，上一章“签名下去”的现实成本继续存在。PASS.
-
-## Causal falsification
-
-上章末：西门封、废料已堆到第四只、韩鸦/老马下去。
-
-本章起点：第四只废篓靠墙后老马返回；西门继续封使废料自然挤占空间。没有新增“完整秘密隧道/突然大事故”来完成Outline。
-
-CAUSAL-001/002: PASS.
-
-## Outline leakage / QUD
-
-Rolling Outline高危序列：
-`下方结果 → TARGET状态 → 赵石到期 → 陈缺留用 → 韩鸦交易变化`。
-
-Draft实际：
-`老马带回局部证据 + 西门继续封 → 既有废料积压迫使生产重排 → 陈缺进入东头职责 → 赵石到期并自己争取记录 → 陈缺选择职责 → 韩鸦仍未归`。
-
-- 下方结果与TARGET状态合并为同一局部证据事件；
-- 正式留用不结算；
-- 韩鸦交易变化不结算；
-- 中段由生产空间和人物独立时限打断行政式问答链。
-
-段首句抽读存在工作动作、局部纹理、对话拾取，不能直接还原完整Outline。
-
-SCENE-002 / NAT-001 / NAT-002: PASS.
-
-## Echo Test
-
-旧稿高危默认转折：“逃亡者恰好发现完整秘密通道”。
-
-本稿移除。只确认：石槽后烂藤被动过、青绳出现、短暂脚印在乱石处消失。依赖既有西门、石阶、废料外运、TARGET多次踩点和回返较慢。
-
-NAT-004: PASS.
-
-## Over-determination / texture
-
-- 韩鸦未归；
-- TARGET最终位置未知；
-- 杀人交易未调整；
-- 陈缺正式分类未落；
-- 三日复验仍存在。
-
-普通纹理：铺席少年抱怨破草鞋、木铲不能冲水等，不承担伏笔。
-
-NAT-005/008: PASS.
-
-## Theme explanation / redundancy
-
-关键转折后与章尾均未解释“青绳象征自由”“白骨山拴不住人”等意义。章尾只留下：赵石借工记录已勾、失踪木筹仍未收、西门无新脚步。
-
-删除测试：若删掉最后一句，未归状态仍由前句木闩/木筹成立；最后一句只是现场听觉落点，不承担作者解释。
-
-STYLE-005 / NAT-006 / END-001: PASS.
-
-## Emotion mode
-
-主要情绪通过行为/回避呈现：陈缺不问赵石回药房后怎么办、赵石替他换掉篓把、陈缺在桌边与东头之间作选择。身体反应只保留既有伤势和劳动疲劳，不作为万能恐惧模板。
-
-NAT-007 / STYLE-006: PASS.
-
-## Payoff / cost
-
-Opening:
-- Status：南二持续留用但非正式分类；
-- Impact：已进入未归事件责任链；
-- Relationship：赵石半日借工未结；
-- Information：TARGET未归。
-
-Ending:
-- Information +：主动脱离普通流转的证据增强，但最终位置未知；
-- Status/Impact +0~+：陈缺承担东头具体职责，但没有被奖励成正式身份；
-- Relationship/Freedom cost：赵石返回药房，陈缺选择不继续跟进；
-- Resource：无新增。
-
-本章不是重大爽点章，但兑现两个长期悬着的时限，不把代价再补成即时升级。
-
-## Memory anchor
-
-Scene Card: `NO NEW ANCHOR`。
-
-MA-010“韩鸦写名下去”产生现实后果：韩鸦至章末仍未归，西门仍为此封锁；没有复制新的“签名担责”场面。未强造哲理金句/象征物。
-
-MEM-001~005: PASS / MEM-006: NA（Arc ongoing）。
-
-## Title review
-
-《该还的人》：
-- 第一层：上一章少了一个按理应回来的青绳；
-- 第二层：赵石是南二“借半日”的人，午时必须交还；
-- 章末一条借工记录已勾，另一根未归木筹仍在。
-- 不剧透TARGET是否逃脱，不使用“先/又/一……”流程标题结构。
-
-STYLE-008: PASS.
-
-## Regression
-
-- FM-002 Outline逐项扩写：PASS。
-- FM-003短句瀑布：PASS。
-- FM-004一章任务过多：PASS（2 core events）。
-- FM-006主题总结：PASS。
-- FM-007大纲钩子翻译：PASS。
-- FM-008重大获得立即归零：NA，本章无重大升级。
-- FM-009 Gate证据：本报告存在；仍需Final/CI。
-- FM-010修改后未重检：已因R2→R3重跑本报告。
-- FM-012弱标题：PASS。
-- FM-013分段失真：PASS（纯叙述单句段0，平均段长约68）。
-- FM-014叙事过度整齐：PASS。
-
-result: PASS — may proceed to Publication / Payoff / Continuity / Final Delivery.
+RESULT: PASS
