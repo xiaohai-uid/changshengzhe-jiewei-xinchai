@@ -10,10 +10,10 @@ CURRENT_BOOK: 《长生者皆为薪柴》
 CURRENT_PHASE: PHASE_I_我为什么会被吃
 CURRENT_VOLUME: 第一卷·白骨山
 CURRENT_ARC: ARC-V01-02
-CANON_HORIZON: CH014
-CURRENT_CANON_CHAPTER: CH014
-CURRENT_SNAPSHOT: canon/snapshots/STATE_SNAPSHOT_V2.3.md
-LATEST_STATE_DIFF: state/diffs/CH014_STATE_DIFF.md
+CANON_HORIZON: CH015
+CURRENT_CANON_CHAPTER: CH015
+CURRENT_SNAPSHOT: canon/snapshots/STATE_SNAPSHOT_V2.4.md
+LATEST_STATE_DIFF: state/diffs/CH015_STATE_DIFF.md
 LATEST_CONTINUITY_AUDIT: quality/reviews/CONTINUITY_AUDIT_CH010.md
 CANON_KERNEL: canon/kernel/
 CANON_KERNEL_COMPACTED_THROUGH: CH007
@@ -29,6 +29,8 @@ TRUTH_REVEAL_LADDER: planning/TRUTH_REVEAL_LADDER.md
 CHARACTER_LONG_ARCS: planning/CHARACTER_LONG_ARCS.md
 CURRENT_CONTEXT_CARD: tracking/CONTEXT_CARD.md
 CURRENT_ROLLING_OUTLINE: planning/ROLLING_OUTLINE.md
+CHAPTER_LEDGER_BASE: state/CHAPTER_LEDGER.md
+CHAPTER_LEDGER_APPEND_DIR: state/ledger-appends/
 MEMORY_ANCHOR_SYSTEM: quality/MEMORY_ANCHOR_SYSTEM.md
 MEMORY_ANCHOR_LEDGER: tracking/MEMORY_ANCHOR_LEDGER.md
 CHAPTER_TITLE_STANDARD: quality/CHAPTER_TITLE_STANDARD.md
@@ -41,7 +43,7 @@ FINAL_DELIVERY_GATE: quality/FINAL_DELIVERY_GATE.md
 FAILURE_MEMORY: quality/FAILURE_MEMORY.md
 CHAPTER_GATE: quality/CHAPTER_GATE.md
 WORKFLOW_STATE_MACHINE: quality/WORKFLOW_STATE_MACHINE.md
-CURRENT_WORKFLOW: NONE_UNTIL_CH015_START
+CURRENT_WORKFLOW: NONE_UNTIL_CH016_START
 NARRATIVE_PATTERN_LEDGER: quality/NARRATIVE_PATTERN_LEDGER.md
 COMMERCIAL_RESEARCH_BASELINE: quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md
 STYLE_GUIDE: style/STYLE_GUIDE.md
@@ -49,9 +51,9 @@ CHAPTER_VALIDATOR: tools/chapter_gate.py
 CHAPTER_VALIDATOR_TESTS: tools/test_chapter_gate.py
 CHAPTER_CI_WORKFLOW: .github/workflows/chapter-quality.yml
 CANDIDATE_PATH_PATTERN: candidate/CHxxx.md
-NEXT_CHAPTER: CH015
+NEXT_CHAPTER: CH016
 CANON_BRANCH: main
-CANDIDATE_BRANCH: NONE_UNTIL_CH015_START
+CANDIDATE_BRANCH: NONE_UNTIL_CH016_START
 TRACKING_STATE_ROLE: projection
 
 ## Series Scale Decision
@@ -66,7 +68,7 @@ TRACKING_STATE_ROLE: projection
 1. 用户当前明确决定/修订。
 2. `main` 已确认正文 + `canon/CANON_CORE.md`。
 3. `canon/WORLD_BIBLE.md` / `canon/CULTIVATION_SYSTEM.md` 等作者层硬规则。
-4. `canon/kernel/` 压实Canon + `canon/kernel/patches/` 未压实增量 + `state/CHAPTER_LEDGER.md`。
+4. `canon/kernel/` 压实Canon + `canon/kernel/patches/` 未压实增量 + `state/CHAPTER_LEDGER.md` + `state/ledger-appends/`。
 5. Snapshot / State Diff。
 6. state/tracking人类可读投影。
 7. planning：约束未来，不覆盖过去正文。
@@ -75,10 +77,11 @@ TRACKING_STATE_ROLE: projection
 ### Canon Kernel Overlay
 
 - 压实Kernel当前截至CH007。
-- 未压实Canonical patches：`CH008.jsonl`、`CH009.jsonl`、`CH010.jsonl`、`CH011.jsonl`、`CH012.jsonl`、`CH013.jsonl`、`CH014.jsonl`。
+- 未压实Canonical patches：`CH008.jsonl`、`CH009.jsonl`、`CH010.jsonl`、`CH011.jsonl`、`CH012.jsonl`、`CH013.jsonl`、`CH014.jsonl`、`CH015.jsonl`。
 - 冷启动必须加载从 `CANON_KERNEL_COMPACTED_THROUGH` 之后到 `CANON_HORIZON` 的全部patch。
 - patch不是第二套Canon，而是已确认正文的规范化增量。
-- 只读主Kernel而漏patch，视为LOAD失败。
+- `state/CHAPTER_LEDGER.md` 为早期基础Ledger；CH012以后新增不可撤销事实使用 `state/ledger-appends/CHxxx.md` 追加，逻辑上仍是同一Append-Only Chapter Ledger。
+- 只读主Kernel而漏patch，或只读基础Ledger而漏append，均视为LOAD失败。
 
 ## Planning Authority
 
@@ -131,29 +134,31 @@ TRACKING_STATE_ROLE: projection
 - 每章/短周期检查“期待→兑现→升级”。
 - 每章检查Memory第9问，允许 `NO NEW ANCHOR`；Arc收束执行MEM-006。
 - 记忆锚回响必须增值；禁止为名场面硬造金句/口头禅/象征物。
-- **章节名不得只概括“本章发生了什么”；最终标题必须至少生成8个跨家族候选并执行Title Attraction Review。默认优先危险台词、异常事实、冲突结果、具体悬念或直接问句。**
+- **章节名不得只概括“本章发生了什么”；最终标题必须至少生成8个跨家族候选并执行Title Attraction Review。默认优先危险台词、异常事实、冲突结果、具体悬念或直接问句。用户已明确要求后续标题持续采用CH014/CH015这种更具点击欲的方向。**
 - 代价可以污染收益，但不能习惯性清零。
 - 信息不能长期成为唯一主奖励。
 - Book Identity Gate：去掉专名后仍应明显承载本书的成长/生存博弈/规则破解/世界真相中的至少两项，核心冲突应来自本世界既有规则。
 - Assistant Candidate没有Context Receipt / Scene Card / Post-Draft / Rule Coverage / Final Delivery / exact-head CI success，不允许交正文。
-- 用户最终定稿可以覆盖上述交稿偏好，但覆盖只对该已明确章节有效，不自动修改未来写作标准。
+- 用户最终定稿可以覆盖上述交稿偏好，但覆盖只对该已明确章节有效，不自动修改未来写作标准；用户明确提出的长期标题方向除外，已写入Title标准和本Manifest。
 
 ## Current Canon / Next Status
 
-- CH014《你昨晚偷吃药了？》：Assistant R3通过 exact-head CI 后完整展示；用户明确回复“可以”，视为批准并晋升Canon。
-- Canon manuscript：`manuscript/volume-01-baigushan/CH014-你昨晚偷吃药了？.md`。
-- Canon Horizon：CH014。
+- CH015《虫没长，伤倒先好了》：Assistant候选通过 exact-head CI 后，用户提供完整改写版并明确声明“最终版，把它提交了”。因此以**用户最终文本**作为唯一Canonical正文，Assistant候选不得覆盖。
+- Canon manuscript：`manuscript/volume-01-baigushan/CH015-虫没长，伤倒先好了.md`。
+- Canon Horizon：CH015。
+- Latest Snapshot：`canon/snapshots/STATE_SNAPSHOT_V2.4.md`（CH015五章边界Snapshot）。
 - 当前Arc：ARC-V01-02 · 药圃与真炼身。
-- CH014确认变化：
-  - 陈缺的右臂改善在腹中真气近空后仍持续，出现第一层可积累肉身收益；
-  - 挡风架倾倒时他被迫公开用右臂托住横竹，许管事因此怀疑其偷药并核对药畦/药柜；
-  - 药物无缺后偷药嫌疑暂未成立，但右臂异常恢复被写入候工木片：“右臂可举肩，负重仍弱”；
-  - 真气三转经过旧伤与白天劳损最重的前臂时均明显变薄，而酸热/功能变化更持久，陈缺仅SUSPECTS部分真气被肉身消耗；
-  - 夜间右手第一次可高过肩头一点，仍疼、仍弱、未正式突破炼身；
-  - 饥饿需求继续上升，候工身份暂不能获得正式药工加饭；
-  - 白绳黑点和三日复验仍有效，且复验现已到期；
-  - 赵石、TARGET、韩鸦本章无新结果。
-- 下一章：CH015。三日复验必须真实执行；核心压力是“虫气仍异常弱”与“肉身恢复却加快”的矛盾被制度看见。赵石药房后果可通过复验/药房真实流转重新进入，但不得成为专程送情报的工具人。
+- CH015确认变化：
+  - 三日复验正式执行，银针两次仍只有极轻微反应，延续“体内动静极弱但非完全无反应”；
+  - 陈缺右臂可举过肩约半寸，筋肉恢复被顾长槐亲自确认，重负能力仍弱；
+  - 顾长槐没有把陈缺扣回药房里间，而是将其从三日候工正式转为药圃外棚药工；
+  - 陈缺获得带“外棚”字样与药房暗红印的小木牌，以及正式药工食额；午时已实际吃到新增粗面饼与温热药粥；
+  - 白绳不摘、黑点保留，未来七日改由药圃连续记录腕检与伤势脉案并送药房；
+  - 赵石较此前更枯瘦，黑陶罐经过时右腕暗痕加深、右手明显抽搐；具体刺激物/机制仍UNKNOWN；
+  - 赵石主动用南二借工记录争取离开药房里间，被准去西侧药渣棚三日试用，仍受药房控制；
+  - 赵石“南二半日抬过几十只重药篓”为角色当场自述，不升级为客观精确数量事实；
+  - 陈缺无虫真修、活木截气和真气→肉身工作假设仍未被药房确认。
+- 下一章：CH016。最自然因果是处理“正式药工身份 + 稳定食额 + 七日连续恢复记录”形成的新资源闭环与暴露矛盾；不再重复三日复验、同类微截实验或单纯右臂再抬高一点。
 
 ## Canon Policy
 
@@ -161,6 +166,7 @@ TRACKING_STATE_ROLE: projection
 - Candidate在用户确认前不得推进Canon Horizon；用户直接提供并明确标注最终正文除外。
 - 已发布正文不得因规划调整静默Retcon。
 - UNKNOWN / SUSPECTS不得自动升级成事实。
+- 人物自述与客观事实分层记录；角色说出的精确数字不因进入最终正文自动升级为作者层事实，除非叙事/其他证据确认。
 - 作者层长期真相严格服从Truth Reveal Ladder。
 - 每章晋升写Kernel patch；每5章Snapshot；每10章Continuity Audit。
 - 已发布旧章标题不因风格统一批量追改，除非用户明确要求。
