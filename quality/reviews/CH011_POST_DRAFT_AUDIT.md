@@ -1,99 +1,188 @@
 # CH011 POST-DRAFT AUDIT
 
 chapter: CH011《该还的人》
-candidate_revision_id: CH011-R2-naturalness
+candidate_revision_id: CH011-R3-naturalness
+candidate_blob_sha: 2edda3b89440361f0c0119de25ee04af84628b25
 canon_horizon: through published CH010 / STATE_SNAPSHOT_V2.3
 scene_card: quality/scene-cards/CH011_SCENE_CARD.md
-status: INITIAL AUDIT — pending final mechanical metrics and final-delivery binding
+
+## Mechanical lint
+
+-正文字符数（含标题/Markdown）：约3178；正文主体约3150，处于2800—4000硬区间，接近常规3200下沿。
+- 正文自然段：45。
+- 单句段（含必要对话回合）：6。
+- **无引号纯叙述单句段：0。**
+- 无引号纯叙述两句以下段：4。
+- 最大连续无必要单句叙述段：0。
+- 平均正文段长：约68字符；最短约9，最长约137；段长有明显起伏，不是等长节拍。
+- `砰/砰/砰`、`一声/两声/三声`、`白的/青的`式短词瀑布：0。
+- 后台泄漏扫描：`CH0 / Canon / CANON / Ledger / State Diff / Snapshot / 上一章 / 本章 / 前文 / TARGET` 均0命中。
+- 高频AI句扫描：`陈缺心里一沉 / 他忽然明白 / 原来如此 / 真正的问题是 / 深吸一口气 / 这不能证明 / 这只能证明 / 至少说明 / 这不代表` 均0命中。
+
+### Paragraph anchor comparison
+
+对照CH007南二开场：当前稿恢复“观察—动作—即时反应”在同一自然段内完成，工作场景段落约60—130字符为主；不再依赖空行切出速度。去掉空行后不会明显变得“更像小说”，说明空行不再承担主要节奏功能。
+
+Mechanical lint: PASS.
 
 ## Core event count
 
-1. 老马带回青绳与下方痕迹，韩鸦仍未归；西门继续封锁，南二因废料积压被迫重排工作空间。
+1. 老马带回青绳与下方痕迹，韩鸦仍未归；西门继续封，既有废料积压迫使南二重排工作空间。
 2. 午时赵石借工到期；赵石主动要求把“能干活”的既成事实写进木签后返回药房，陈缺选择服从东头职责而不继续跟进。
 
-No third core settlement. 韩鸦交易、TARGET最终位置、陈缺正式分类均未在本章结算。
+No third core settlement. 韩鸦交易、TARGET最终位置、陈缺正式分类均未结算。
+
+SCENE-001/CAP-003: PASS.
 
 ## Claim audit
 
-- `青绳断口整齐 → 主动脱离可能性极高`：SAFE as inference/visible evidence；正文不指定具体工具。
+- `青绳断口整齐`：可见事实。
+- `绳大概率与失踪青绳少年有关`：基于“这一趟下去的青绳只有他”+发现位置，为强推断；正文明确“不把话说死”。
 - `TARGET具体去向`：UNKNOWN；正文仅到石槽后泥地/脚印中断。
 - `TARGET是否逃出白骨山`：UNKNOWN，未偷升。
+- `具体割绳工具`：UNKNOWN；正文不指定小刀或其他工具。
 - `韩鸦仍在下面继续找`：来源为老马转述。
-- `赵石半日干活可被南二记录`：承接CH009既有借工记录与CH010持续工作事实。
-- `陈缺南二正式身份升级`：未发生。
+- `赵石半日干活可被南二记录`：承接CH009借工记录与CH010持续工作事实。
+- `陈缺正式身份升级`：未发生。
+
+KNOW-001/002: PASS.
 
 ## Character falsification
 
 ### 陈缺
-- 选择：在赵石索回时不留在桌边继续介入，而去处理老周刚交给自己的东头分药职责。
-- 知道：赵石借工记录已存在；南二位置依赖其当前可用性；药房午后会索人。
-- 不知道：药房具体将如何处置赵石；TARGET去向；韩鸦结果。
-- 风险逻辑：保住可累积的工作位置，只给赵石可证事实，不替赵石作选择。符合谨慎/风险意识。
+
+关键选择：赵石索回时，陈缺不继续留在桌边介入，而去处理老周刚交给自己的东头分药职责。
+
+当时知道：
+- 赵石借工记录已存在；
+- 南二位置依赖自己当前可用性；
+- 药房午后会索人；
+- 东头第一批已经出现混篓风险。
+
+不知道：
+- 药房具体如何处置赵石；
+- 失踪少年的最终去向；
+- 韩鸦搜索结果。
+
+选择不是最优通关，而是保住可累积位置，只给赵石可证事实。CHAR-001/002/SCENE-004: PASS.
 
 ### 赵石
-- 若陈缺不存在：仍会因药房到期被索回，并有动机要求南二把这半日工作写清；其行为服务自己未来避免被判“不能干活”的现实利益。
-- 未写“跟陈缺学的”，不把其判断归功于主角。
+
+若陈缺不存在，赵石仍会因药房时限被索回，也仍有动机要求把“能干活”写清。他的理由来自自身未来流转风险，不写“跟陈缺学的”。CHAR-003: PASS.
 
 ### 老周
-- 核心仍是生产/损耗/责任，不为陈缺或赵石承担额外慈善风险。
+
+仍以生产、损耗、责任为核心：愿意记录已发生事实，不为赵石主动去药房多认一层责任。PASS.
 
 ### 韩鸦
-- 不回场做第二次解释/交易结算；其下去搜索的成本继续存在。
 
-## Outline leakage
+本章不回场解释交易，上一章“签名下去”的现实成本继续存在。PASS.
 
-Rolling Outline原高危序列：
+## Causal falsification
+
+上章末：西门封、废料已堆到第四只、韩鸦/老马下去。
+
+本章起点：第四只废篓靠墙后老马返回；西门继续封使废料自然挤占空间。没有新增“完整秘密隧道/突然大事故”来完成Outline。
+
+CAUSAL-001/002: PASS.
+
+## Outline leakage / QUD
+
+Rolling Outline高危序列：
 `下方结果 → TARGET状态 → 赵石到期 → 陈缺留用 → 韩鸦交易变化`。
 
 Draft实际：
-`老马回场带局部证据 + 西门继续封 → 生产空间被废料积压扰动 → 陈缺转入东头职责 → 赵石到期并自行争取记录 → 陈缺选择职责 → 韩鸦仍未归`。
+`老马带回局部证据 + 西门继续封 → 既有废料积压迫使生产重排 → 陈缺进入东头职责 → 赵石到期并自己争取记录 → 陈缺选择职责 → 韩鸦仍未归`。
 
-- “下方结果 + TARGET状态”合并为同一局部证据事件；
-- “正式留用”不结算；
-- “韩鸦交易变化”不结算；
-- 事件链被生产后果与人物选择打断。
+- 下方结果与TARGET状态合并为同一局部证据事件；
+- 正式留用不结算；
+- 韩鸦交易变化不结算；
+- 中段由生产空间和人物独立时限打断行政式问答链。
 
-Provisional: PASS.
+段首句抽读存在工作动作、局部纹理、对话拾取，不能直接还原完整Outline。
 
-## Naturalness notes
+SCENE-002 / NAT-001 / NAT-002: PASS.
 
-### QUD
-避免完整回答“TARGET到底去哪”；中段主要回答南二如何被既有封门后果挤乱，不继续解释逃亡路线。
+## Echo Test
 
-### Echo Test
-未采用“恰好出现完整秘密隧道”。转折依赖既有：西门、石阶、石槽、废料外运、TARGET多次踩点、回返较慢；新增信息只到烂藤底青绳与短暂脚印。
+旧稿高危默认转折：“逃亡者恰好发现完整秘密通道”。
 
-### Theme explanation
-章尾只保留账面/空间事实：赵石借工已勾、未归木筹仍在、西门无脚步。不解释“绳意味着自由”等主题。
+本稿移除。只确认：石槽后烂藤被动过、青绳出现、短暂脚印在乱石处消失。依赖既有西门、石阶、废料外运、TARGET多次踩点和回返较慢。
 
-### Paragraph architecture
-需要最终机械扫描后确认。当前已主动避免连续`砰/一声/白的青的`式短词独段；仍有少量单句强调段，必须逐一说明功能，不通过则合并。
+NAT-004: PASS.
+
+## Over-determination / texture
+
+- 韩鸦未归；
+- TARGET最终位置未知；
+- 杀人交易未调整；
+- 陈缺正式分类未落；
+- 三日复验仍存在。
+
+普通纹理：铺席少年抱怨破草鞋、木铲不能冲水等，不承担伏笔。
+
+NAT-005/008: PASS.
+
+## Theme explanation / redundancy
+
+关键转折后与章尾均未解释“青绳象征自由”“白骨山拴不住人”等意义。章尾只留下：赵石借工记录已勾、失踪木筹仍未收、西门无新脚步。
+
+删除测试：若删掉最后一句，未归状态仍由前句木闩/木筹成立；最后一句只是现场听觉落点，不承担作者解释。
+
+STYLE-005 / NAT-006 / END-001: PASS.
+
+## Emotion mode
+
+主要情绪通过行为/回避呈现：陈缺不问赵石回药房后怎么办、赵石替他换掉篓把、陈缺在桌边与东头之间作选择。身体反应只保留既有伤势和劳动疲劳，不作为万能恐惧模板。
+
+NAT-007 / STYLE-006: PASS.
 
 ## Payoff / cost
 
-Opening assets:
-- Status: 南二持续留用但非正式分类；
-- Impact: 已进入未归事件责任链；
-- Relationship: 赵石半日借工未结；
-- Information: TARGET未归。
+Opening:
+- Status：南二持续留用但非正式分类；
+- Impact：已进入未归事件责任链；
+- Relationship：赵石半日借工未结；
+- Information：TARGET未归。
 
-Ending delta:
-- Information +：TARGET主动脱离普通流转的证据明显增强，但最终位置仍未知；
-- Impact +/0：陈缺在南二职责更真实，但未升级正式身份；
-- Relationship cost：赵石被带回药房，陈缺选择不继续介入；
-- Freedom cost：陈缺用工作位置换掉了跟进赵石的机会；
-- Reward未被额外新资源补偿。
+Ending:
+- Information +：主动脱离普通流转的证据增强，但最终位置未知；
+- Status/Impact +0~+：陈缺承担东头具体职责，但没有被奖励成正式身份；
+- Relationship/Freedom cost：赵石返回药房，陈缺选择不继续跟进；
+- Resource：无新增。
 
-Net: small positive information/status reality + concrete relationship/freedom cost.
+本章不是重大爽点章，但兑现两个长期悬着的时限，不把代价再补成即时升级。
+
+## Memory anchor
+
+Scene Card: `NO NEW ANCHOR`。
+
+MA-010“韩鸦写名下去”产生现实后果：韩鸦至章末仍未归，西门仍为此封锁；没有复制新的“签名担责”场面。未强造哲理金句/象征物。
+
+MEM-001~005: PASS / MEM-006: NA（Arc ongoing）。
+
+## Title review
+
+《该还的人》：
+- 第一层：上一章少了一个按理应回来的青绳；
+- 第二层：赵石是南二“借半日”的人，午时必须交还；
+- 章末一条借工记录已勾，另一根未归木筹仍在。
+- 不剧透TARGET是否逃脱，不使用“先/又/一……”流程标题结构。
+
+STYLE-008: PASS.
 
 ## Regression
 
-- FM-002 Outline逐项扩写：provisional PASS。
-- FM-003短句瀑布：pending metrics。
+- FM-002 Outline逐项扩写：PASS。
+- FM-003短句瀑布：PASS。
 - FM-004一章任务过多：PASS（2 core events）。
 - FM-006主题总结：PASS。
-- FM-007大纲钩子翻译：PASS provisional。
-- FM-013分段失真：pending metrics + anchor comparison。
-- FM-014叙事过度整齐：provisional PASS。
+- FM-007大纲钩子翻译：PASS。
+- FM-008重大获得立即归零：NA，本章无重大升级。
+- FM-009 Gate证据：本报告存在；仍需Final/CI。
+- FM-010修改后未重检：已因R2→R3重跑本报告。
+- FM-012弱标题：PASS。
+- FM-013分段失真：PASS（纯叙述单句段0，平均段长约68）。
+- FM-014叙事过度整齐：PASS。
 
-result: PENDING MECHANICAL + NATURALNESS FINAL
+result: PASS — may proceed to Publication / Payoff / Continuity / Final Delivery.
