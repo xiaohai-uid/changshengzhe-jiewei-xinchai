@@ -8,7 +8,7 @@ CANDIDATE_BRANCH: quality/sepia-naturalness-ch011-rewrite
 FINAL_MANUSCRIPT: PENDING_USER_APPROVAL
 CURRENT_VOLUME_TARGET: ~70-75 chapters
 CURRENT_ARC_TARGET: ~CH001-CH011/12
-CURRENT_STATE: FINAL_REVIEW
+CURRENT_STATE: FINAL_DELIVERY_PASS
 CANDIDATE_REVISION_ID: CH011-R3-paragraph-clean
 CANDIDATE_SHA256: dd18166a2bba6c06510439999ac5a127dc1c463d8dbbaeefdab8e31024ce4269
 CONTEXT_RECEIPT: quality/receipts/CH011_CONTEXT_RECEIPT.md
@@ -21,28 +21,35 @@ PUBLICATION_GATE: PASS
 EXPECTATION_PAYOFF_GATE: PASS
 CONTINUITY_PRECOMMIT: PASS
 FINAL_DELIVERY_GATE: PASS
-EXTERNAL_CI: PENDING
+EXTERNAL_CI: PENDING_RUNTIME_VERIFICATION
 USER_DECISION: PENDING
 CANON_PROMOTION: PENDING
 
 ## State History
 
 - LOADED from canon horizon CH010 / STATE_SNAPSHOT_V2.3.
-- First CH011 candidate rejected before delivery for paragraph fragmentation, outline leakage, overpacked chapter functions, unsupported knowledge claim, and theme-explanation tail.
-- Sepia-inspired selective naturalness layer integrated on candidate branch: QUD sequence, Echo Test, over-determination, theme explanation, texture variance, and paragraph architecture.
-- DRAFTED-R2: structural rewrite reduced chapter to two core events and removed the complete-secret-route convenience.
-- DRAFTED-R3-PARAGRAPH: residual one-sentence narrative paragraphs merged; frozen body approximately 3150 Chinese characters / 45 natural paragraphs / 0 pure one-sentence narrative paragraphs.
-- Post-Draft, Naturalness, Publication, Expectation/Payoff, Continuity and Final Delivery reports bind to CH011-R3-paragraph-clean.
-- External exact-head CI required before full Candidate delivery.
+- R1 rejected before canon for paragraph fragmentation, outline leakage, overpacked functions, unsupported knowledge claim and thematic explanation tail.
+- Sepia-inspired selective naturalness checks integrated: QUD sequence, Echo Test, over-determination, theme explanation, texture variance and paragraph architecture.
+- R2 structural rewrite reduced the chapter to two core events and removed the convenient complete-secret-route turn.
+- R3 paragraph-clean merged residual one-sentence narrative emphasis lines. Frozen candidate SHA256 is `dd18166a2bba6c06510439999ac5a127dc1c463d8dbbaeefdab8e31024ce4269`.
+- Context Receipt, Scene Card, Post-Draft, Naturalness, Publication, Expectation/Payoff, Continuity and Final Delivery all PASS on the frozen candidate.
+- Exact-head external CI remains the runtime check immediately before USER_REVIEW delivery.
+
+## Frozen metrics
+
+- Executable prose body count: 3062.
+- Natural body paragraphs: 45.
+- Pure narrative one-sentence paragraphs: 0.
+- Short-word waterfall: 0.
+- Core events: 2.
 
 ## Canon protection
 
-- TARGET remains unreturned; no confirmation of escape, capture, injury or death.
-- Evidence only supports deliberate departure from ordinary circulation more strongly: cut/clean-ended green cord and limited fresh tracks near the established west-door area.
-- No specific cutting tool is asserted.
-- Han Ya remains below searching at chapter end and does not return to renegotiate the murder arrangement in this chapter.
-- Zhao Shi is retrieved when the half-day borrow expires and independently asks for his completed South-Two work to be recorded.
-- Chen Que chooses to keep his assigned South-Two responsibility rather than continue intervening in Zhao Shi's return; he does not decide for Zhao Shi.
-- Chen Que gains no sudden true-qi recovery, combat ability, formal status promotion, or free resource.
+- Missing green-rope youth remains unreturned; no confirmation of escape, capture, injury or death.
+- Evidence only strengthens deliberate-departure suspicion through abandoned/cut cord and limited tracks; no specific cutting tool or complete route is asserted.
+- Han Ya remains below at chapter end; murder arrangement is not renegotiated in this chapter.
+- Zhao Shi is retrieved when the half-day borrow expires and independently secures a record of completed South-Two work.
+- Chen Que chooses his assigned South-Two responsibility rather than continuing to intervene in Zhao Shi's return; he does not decide for Zhao.
+- No true-qi recovery, combat ability, formal status promotion or free resource.
 
 CH011 remains Candidate only until explicit user approval. No canon promotion before approval.
