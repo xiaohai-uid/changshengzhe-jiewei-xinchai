@@ -1,66 +1,54 @@
 # KNOWLEDGE MATRIX
 
-**Effective after CH010《这笔账得有人认》**
+**Effective after CH019《干得快，就再多干一畦》**
 
-| 信息 | 陈缺 | 韩鸦 | 顾长槐 | 赵石 |
-| --- | --- | --- | --- | --- |
-| 新人是人体药材 | KNOWS | KNOWS | KNOWS | UNKNOWN / 当前正文未锁死 |
-| 引气丹存在血虫 | KNOWS | KNOWS | KNOWS | UNKNOWN / 当前正文未锁死 |
-| 血虫导致口渴等症状 | KNOWS | KNOWS | KNOWS | 旧认知曾为 FALSE-BELIEF；药房后当前认知未锁 |
-| 无血虫也能真正修炼 | KNOWS（亲证） | KNOWS | UNKNOWN | UNKNOWN |
-| 《盗气残篇》存在 | KNOWS | KNOWS | UNKNOWN | UNKNOWN |
-| 《盗气残篇》前半真实可用 | KNOWS-PARTIAL | BELIEVES/KNOWS（程度未完全锁死） | UNKNOWN | UNKNOWN |
-| 《盗气残篇》长期安全 | UNKNOWN / SUSPECTS-RISK | UNKNOWN | UNKNOWN | UNKNOWN |
-| 本批血虫异常 | KNOWS-PARTIAL | KNOWS | KNOWS | 当前认知 UNKNOWN |
-| 周玄因药材成熟死亡 | KNOWS | KNOWS | KNOWS | UNKNOWN |
-| 陈缺真正无虫引气 | KNOWS | UNKNOWN | UNKNOWN | UNKNOWN |
-| 陈缺真正木属灵气来自活草 | KNOWS | UNKNOWN | UNKNOWN | UNKNOWN |
-| 真灵气推动会造成经络痛/衰减并伴随后腰寒意 | KNOWS（现象） | UNKNOWN | UNKNOWN | UNKNOWN |
-| 七日考核第一阶段按既往身体/虫反应记录分流 | KNOWS-PARTIAL | KNOWS | KNOWS | 至少知道自己被按异常记录处理，但完整认知未锁 |
-| 白绳/青绳/红绳完整用途 | UNKNOWN | KNOWS-PARTIAL/KNOWS（具体程度未锁） | KNOWS | UNKNOWN |
-| 白绳第一轮包含药布、负重、调息和腕/脉检查 | KNOWS | KNOWS/职责相关 | KNOWS | KNOWS（亲历） |
-| 完全无反应者可能被要求“补一遍” | KNOWS（见证） | UNKNOWN/职责相关 | KNOWS-PARTIAL/KNOWS | UNKNOWN |
-| “补一遍”的具体内容 | UNKNOWN | UNKNOWN/未在正文锁 | KNOWS-PARTIAL/KNOWS | UNKNOWN |
-| 陈缺被记录为白绳黑点并进入二验 | KNOWS | KNOWS（CH008亲眼看到并听老周说“二验照旧”） | UNKNOWN/未在正文锁 | UNKNOWN |
-| 黑点完整制度含义 | UNKNOWN | UNKNOWN/未在正文锁 | KNOWS-PARTIAL/KNOWS | UNKNOWN |
-| 陈缺CH009二验当前处置：暂留南二、三日后复验 | KNOWS | UNKNOWN / 尚无正文明确渠道 | UNKNOWN/未锁 | UNKNOWN |
-| 二验完整机制/最终分类 | UNKNOWN | UNKNOWN/未锁 | KNOWS-PARTIAL/KNOWS | UNKNOWN |
-| 南二包含真实药材处理、废料记录与外运 | KNOWS（亲历） | KNOWS-PARTIAL | KNOWS-PARTIAL/KNOWS | KNOWS-PARTIAL（亲自工作） |
-| 陈缺被南二持续留用并承担木筹/废料记录 | KNOWS | KNOWS至CH008留用；CH010可见其仍在记录位置 | UNKNOWN | KNOWS |
-| 南二留用记录会被二验人员作为处置参考 | KNOWS（CH009亲历） | UNKNOWN | UNKNOWN/可能知道制度但正文未锁 | UNKNOWN |
-| 南二西侧门用于废药外运、门外有向下石阶 | KNOWS-PARTIAL | KNOWS-PARTIAL/可能更多 | KNOWS-PARTIAL/KNOWS | UNKNOWN |
-| TARGET-0001此前多次试南二西门 | KNOWS | KNOWS（CH008由陈缺报告；CH010再次从老周/陈缺确认） | UNKNOWN | UNKNOWN |
-| TARGET-0001 CH009与老马从西门下去，老马已回而TARGET未回 | KNOWS | KNOWS（CH010由南二派人通知并现场核对） | UNKNOWN | UNKNOWN |
-| TARGET是否已经成功逃脱 | UNKNOWN | UNKNOWN / 不得因韩鸦行动自动升级 | UNKNOWN | UNKNOWN |
-| TARGET当前位置/完整路线/同伙/目的地 | UNKNOWN | KNOWS-PARTIAL或UNKNOWN程度未锁；正文不能替其宣布 | UNKNOWN | UNKNOWN |
-| 韩鸦完整目的/为何要TARGET死亡 | UNKNOWN / SUSPECTS其有自身利益 | KNOWS | UNKNOWN | UNKNOWN |
-| 韩鸦签名并亲自下去说明此事触及其自身利益 | SUSPECTS（CH010观察） | KNOWS自身动机 | UNKNOWN | UNKNOWN |
-| 赵石对黑液/虫性药布存在可重复异常 | KNOWS | UNKNOWN/可能知部分 | KNOWS-PARTIAL/KNOWS | KNOWS（亲历） |
-| 赵石主动避免再次回药房 | KNOWS | UNKNOWN | UNKNOWN | KNOWS |
-| 赵石CH009当前被指为药房方向两人之一 | KNOWS（亲见/亲听） | UNKNOWN | UNKNOWN | KNOWS（亲历） |
-| 赵石主动争南二工作并被借下半日 | KNOWS | CH010只见赵石在南二；完整借工背景未锁 | UNKNOWN | KNOWS |
-| 赵石药房具体经历 | UNKNOWN | UNKNOWN/可能知更多但未锁 | UNKNOWN/可能知更多但未锁 | KNOWS-PARTIAL（本人经历，记忆完整度未锁） |
-| 赵石午后最终处置 | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN / 尚未发生 |
-| 赵石如何知道“两文钱”借口 | UNKNOWN | UNKNOWN | UNKNOWN | KNOWS-PARTIAL/UNKNOWN（来源未揭示） |
-| 韩鸦交易目标外观与刮字条件 | KNOWS | KNOWS | UNKNOWN | UNKNOWN |
-| 韩鸦交易目标确实在寻找出口/转运机会 | KNOWS-PARTIAL（多次亲见） | KNOWS-PARTIAL/KNOWS | UNKNOWN | UNKNOWN |
-| 韩鸦交易目标姓名/完整逃亡路线/时间/同伙 | UNKNOWN | KNOWS-PARTIAL/KNOWS（程度未锁） | UNKNOWN | UNKNOWN |
-| 陈缺对TARGET的当前任务边界 | KNOWS：此前只观察、不主动制造机会；当前事件已进入公开责任链 | KNOWS | UNKNOWN | UNKNOWN |
-| “天地亦食修士”的终极含义 | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
-| 整个修仙界是否存在更大系统性问题 | SUSPECTS-WEAK | UNKNOWN | UNKNOWN | UNKNOWN |
+> 只记录当前仍影响后续连续性的知识差。`KNOWS`=已确认；`SUSPECTS`=怀疑/工作假设；`UNKNOWN`=正文无权使用；人物自述不自动升级为客观事实。
 
-## CH010 新增知识渠道
+| 信息 | 陈缺 | 韩鸦 | 顾长槐 | 赵石 | 许管事 |
+| --- | --- | --- | --- | --- | --- |
+| 白骨山新人被作为人体药材培养 | KNOWS | KNOWS | KNOWS | UNKNOWN/未锁 | KNOWS-PARTIAL/职位相关，不要求正文讲透 |
+| 引气丹中存在白骨山人为植入的血虫 | KNOWS | KNOWS | KNOWS | UNKNOWN/未锁 | UNKNOWN/未锁 |
+| 无正常血虫也能真正引气 | KNOWS（亲证） | KNOWS一般可能性/程度未锁 | UNKNOWN | UNKNOWN | UNKNOWN |
+| 陈缺已经真正无虫引气 | KNOWS | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
+| 《盗气残篇》在陈缺手中且前半可用 | KNOWS | KNOWS/曾交付 | UNKNOWN | UNKNOWN | UNKNOWN |
+| 陈缺可从活木截取木属真气 | KNOWS | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
+| 青须草浇水后可感木气由根部先活跃、再向上流动 | KNOWS | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
+| 极微截取短期可无即时可见植株变化，但长期损耗 | KNOWS-PARTIAL；长期仍UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
+| 真气三转后会在旧伤/当日劳损处变薄，酸热与恢复优势留得更久 | KNOWS-PARTIAL（多次亲证） | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
+| 真气可能在受负荷肉身部位被消耗并留下较持久变化 | SUSPECTS-STRONGER | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
+| 完整炼身法/真气固定肉身的完整机制 | UNKNOWN | UNKNOWN | UNKNOWN/可能懂正规体系但不知道陈缺情况 | UNKNOWN | UNKNOWN |
+| 陈缺已正式成为药圃外棚药工 | KNOWS | 不得无渠道自动知道 | KNOWS（CH015亲自决定） | KNOWS-PARTIAL（CH015见木牌/流转，未锁完整后续） | KNOWS |
+| 正式药工食额能实际支撑更高劳动/部分真修饥饿成本 | KNOWS | UNKNOWN | KNOWS制度层面/不知陈缺真修用途 | UNKNOWN | KNOWS制度层面 |
+| 陈缺处于CH015起七日连续腕检/伤势记录 | KNOWS | UNKNOWN/无新渠道 | KNOWS（制定） | UNKNOWN | KNOWS（执行接口） |
+| 陈缺主动压慢右臂公开恢复速度 | KNOWS | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
+| 陈缺右臂公开高度仍约过肩半寸，恢复速度近期放慢 | KNOWS | UNKNOWN | CH015只知当时状态；CH016—19新变化尚无渠道 | UNKNOWN | KNOWS |
+| 陈缺整体工作效率/腰腿耐力在CH019开始明显提高 | KNOWS | UNKNOWN | UNKNOWN | UNKNOWN | KNOWS-PARTIAL（只见工作变快，不知原因） |
+| “活得旺/木气旺”不自动等于“当前值得进东畦” | KNOWS（CH017单株证据） | UNKNOWN | UNKNOWN | UNKNOWN | KNOWS-PARTIAL/职业经验 |
+| 后棚有一株木气旺、苦味淡、当前未进东畦的青须草 | KNOWS | UNKNOWN | UNKNOWN | UNKNOWN | KNOWS其作为普通退苗存在，不知陈缺木气感知 |
+| 该后棚旺木气苗已被陈缺极微截取一次 | KNOWS | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
+| 青须草药性/成熟度与木气之间的完整关系 | UNKNOWN | UNKNOWN | UNKNOWN/未在正文使用 | UNKNOWN | KNOWS-PARTIAL/职业经验但未完整公开 |
+| CH017七株青签残苗次晨两死五活并记陈缺损耗 | KNOWS | UNKNOWN | UNKNOWN | UNKNOWN | KNOWS |
+| 赵石右手/右腕异常持续 | KNOWS | UNKNOWN | KNOWS-PARTIAL/CH015已见异常 | KNOWS | UNKNOWN/无必要渠道 |
+| 黑陶罐/湿药渣车的苦腥刺激会显著加剧赵石右手异常 | KNOWS（两次见证） | UNKNOWN | KNOWS-PARTIAL（CH015对相关环境异常知情；CH018具体湿渣车未锁渠道） | KNOWS（亲历） | UNKNOWN |
+| 湿渣桶真实成分、是否与CH015黑陶罐同物、赵石体内具体状态 | UNKNOWN | UNKNOWN | KNOWS程度未锁，不得代填 | UNKNOWN/本人也明确称不知道桶内物 | UNKNOWN |
+| 赵石药渣棚三日试用结果 | KNOWS：有条件先留 | UNKNOWN | UNKNOWN/是否收到结果尚无正文渠道 | KNOWS | UNKNOWN |
+| 赵石留药渣棚的条件：避开特定湿渣车，但以其他重活补工量 | KNOWS | UNKNOWN | UNKNOWN/未锁 | KNOWS | UNKNOWN |
+| TARGET-0001此前越过第二处界桩、进入山腰林子后追丢 | KNOWS（既有公开/可见信息层） | KNOWS-PARTIAL/参与追捕 | KNOWS/制度层可能更多 | UNKNOWN | UNKNOWN |
+| TARGET是否真正逃出整个白骨山/生死/同伙/目的地 | UNKNOWN | UNKNOWN/程度未锁 | UNKNOWN/未锁 | UNKNOWN | UNKNOWN |
+| 韩鸦完整目的与《盗气残篇》长期代价 | UNKNOWN/SUSPECTS-RISK | KNOWS自身目的 | UNKNOWN | UNKNOWN | UNKNOWN |
+| “天地亦食修士”的终极含义 | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
+| 整个修仙世界是否等同白骨山养殖场 | UNKNOWN；不得外推 | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN |
 
-- 南二先通过木筹/人数确认少一人，再由守门灰衣去叫昨晚负责青绳交接者；韩鸦因此获得TARGET未归信息。
-- 韩鸦到场后听老周复述陈缺此前观察，并直接询问老马；不存在魔法全知。
-- 陈缺看到韩鸦把名字写进未归记录并亲自下去，只能据此形成“此事触及韩鸦自身利益”的怀疑，不能知道具体利益。
+## CH016—CH019 新增知识渠道保护
+
+- 许管事只通过日常劳动、腕检和工作结果知道陈缺“右臂恢复放慢、整体做活变快”；他没有木气感知，也不知道陈缺夜间三转。
+- 顾长槐自CH015后没有再次直接出场；CH016—CH019任何新身体变化不得自动写成他已知，除非后续通过七日上报或其他正文渠道获得。
+- 韩鸦CH013—CH019无新出场；不得自动得知陈缺正式药工后的新权限、后棚资源或炼身进展。
+- 赵石只知道自己的症状与工作选择，不知道陈缺无虫真修/木气截取/炼身假设。
+- 陈缺关于药材价值目前只有纵向局部证据：旺木气苗“现在不值东畦”但仍被缓养。不得升级为完整计价公式。
 
 ## 使用规则
 
-- 角色只能使用自己栏内已拥有的信息。
-- `SUSPECTS` 只能作为怀疑与试探依据，不能写成确定事实。
-- `BELIEVES / FALSE-BELIEF` 允许角色据此做出错误决策。
-- TARGET截至CH010只是“未归”；不得直接写成“已经逃出白骨山”。
-- 韩鸦可能掌握比陈缺更多的TARGET背景，但未锁死的部分必须在正文建立使用证据，不能由作者层代填。
-- 陈缺只知道赵石当前半日借工仍在执行，不知道午后最终去向与药房下一步。
-- “南二留用影响二验处置”是陈缺通过自身经历确认的现象，不能推广为所有人的固定规则。
+- `SUSPECTS` 只能推动试探和选择，不能在叙述中写成已确认真相。
+- 角色只能使用表内已拥有的信息或正文新建立的信息渠道。
+- 任何“药性=灵气=生命力”“湿渣=黑陶罐内容物”“三转=完整炼身法”之类等式，当前均禁止确认。
