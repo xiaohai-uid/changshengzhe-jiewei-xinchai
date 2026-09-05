@@ -10,11 +10,11 @@ CURRENT_BOOK: 《长生者皆为薪柴》
 CURRENT_PHASE: PHASE_I_我为什么会被吃
 CURRENT_VOLUME: 第一卷·白骨山
 CURRENT_ARC: ARC-V01-02
-CANON_HORIZON: CH019
-CURRENT_CANON_CHAPTER: CH019
-CURRENT_SNAPSHOT: canon/snapshots/STATE_SNAPSHOT_V2.4.md
-LATEST_STATE_DIFF: state/diffs/CH019_STATE_DIFF.md
-LATEST_CONTINUITY_AUDIT: quality/reviews/CONTINUITY_AUDIT_CH010.md
+CANON_HORIZON: CH020
+CURRENT_CANON_CHAPTER: CH020
+CURRENT_SNAPSHOT: canon/snapshots/STATE_SNAPSHOT_V2.5.md
+LATEST_STATE_DIFF: state/diffs/CH020_STATE_DIFF.md
+LATEST_CONTINUITY_AUDIT: quality/reviews/CONTINUITY_AUDIT_CH020.md
 CANON_KERNEL: canon/kernel/
 CANON_KERNEL_COMPACTED_THROUGH: CH007
 CANON_KERNEL_PATCH_DIR: canon/kernel/patches/
@@ -43,7 +43,7 @@ FINAL_DELIVERY_GATE: quality/FINAL_DELIVERY_GATE.md
 FAILURE_MEMORY: quality/FAILURE_MEMORY.md
 CHAPTER_GATE: quality/CHAPTER_GATE.md
 WORKFLOW_STATE_MACHINE: quality/WORKFLOW_STATE_MACHINE.md
-CURRENT_WORKFLOW: NONE_UNTIL_CH020_START
+CURRENT_WORKFLOW: NONE_UNTIL_CH021_START
 NARRATIVE_PATTERN_LEDGER: quality/NARRATIVE_PATTERN_LEDGER.md
 COMMERCIAL_RESEARCH_BASELINE: quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md
 STYLE_GUIDE: style/STYLE_GUIDE.md
@@ -51,9 +51,9 @@ CHAPTER_VALIDATOR: tools/chapter_gate.py
 CHAPTER_VALIDATOR_TESTS: tools/test_chapter_gate.py
 CHAPTER_CI_WORKFLOW: .github/workflows/chapter-quality.yml
 CANDIDATE_PATH_PATTERN: candidate/CHxxx.md
-NEXT_CHAPTER: CH020
+NEXT_CHAPTER: CH021
 CANON_BRANCH: main
-CANDIDATE_BRANCH: NONE_UNTIL_CH020_START
+CANDIDATE_BRANCH: NONE_UNTIL_CH021_START
 TRACKING_STATE_ROLE: projection
 
 ## Series Scale Decision
@@ -77,7 +77,7 @@ TRACKING_STATE_ROLE: projection
 ### Canon Kernel Overlay
 
 - 压实Kernel当前截至CH007。
-- 未压实Canonical patches：`CH008.jsonl`、`CH009.jsonl`、`CH010.jsonl`、`CH011.jsonl`、`CH012.jsonl`、`CH013.jsonl`、`CH014.jsonl`、`CH015.jsonl`、`CH016.jsonl`、`CH017.jsonl`、`CH018.jsonl`、`CH019.jsonl`。
+- 未压实Canonical patches：`CH008.jsonl`、`CH009.jsonl`、`CH010.jsonl`、`CH011.jsonl`、`CH012.jsonl`、`CH013.jsonl`、`CH014.jsonl`、`CH015.jsonl`、`CH016.jsonl`、`CH017.jsonl`、`CH018.jsonl`、`CH019.jsonl`、`CH020.jsonl`。
 - 冷启动必须加载从 `CANON_KERNEL_COMPACTED_THROUGH` 之后到 `CANON_HORIZON` 的全部patch。
 - patch不是第二套Canon，而是已确认正文的规范化增量。
 - `state/CHAPTER_LEDGER.md` 为早期基础Ledger；CH012以后新增不可撤销事实使用 `state/ledger-appends/CHxxx.md` 追加，逻辑上仍是同一Append-Only Chapter Ledger。
@@ -147,19 +147,22 @@ TRACKING_STATE_ROLE: projection
 - CH017《现在不值这块地》：以用户亲自改写并明确“以这个为正文”的全文为唯一Canonical正文，标记 `USER_FINAL_OVERRIDE`。
 - CH018《这车，我不碰》：以用户亲自改写并明确“以这个作为第十八章正文”的全文为唯一Canonical正文，标记 `USER_FINAL_OVERRIDE`；标题随后由用户确认采用。
 - CH019《干得快，就再多干一畦》：Assistant版本经用户明确结束当日工作并要求全部提交后晋升Canonical。
-- Canon manuscript最新：`manuscript/volume-01-baigushan/CH019-干得快，就再多干一畦.md`。
-- Canon Horizon：CH019。
-- Latest Snapshot：`canon/snapshots/STATE_SNAPSHOT_V2.4.md`（CH015五章边界；CH020完成后必须生成下一次Snapshot）。
+- CH020《这点力气，已经记进去了》：以用户亲自改写并明确“以这一版为准，把它设置为正文”的全文为唯一Canonical正文，标记 `USER_FINAL_OVERRIDE`；不得用此前Assistant候选覆盖。
+- Canon manuscript最新：`manuscript/volume-01-baigushan/CH020-这点力气，已经记进去了.md`。
+- Canon Horizon：CH020。
+- Latest Snapshot：`canon/snapshots/STATE_SNAPSHOT_V2.5.md`（CH020五章边界）。
+- Latest Continuity Audit：`quality/reviews/CONTINUITY_AUDIT_CH020.md`。
 - 当前Arc：ARC-V01-02 · 药圃与真炼身。
-- CH016—CH019核心变化：
+- CH016—CH020核心变化：
   - 陈缺第一次为控制七日连续记录主动压慢公开恢复速度，并真实放弃一夜修炼；
   - 正式药工权限扩展到新苗分棚/青签损耗与后棚缓苗管理；
-  - 同一株青须草出现“木气旺、苦味淡、现在不值东畦但继续缓养”的纵向证据，完整药性机制仍UNKNOWN；
   - 七株青签残苗次晨两死五活，两株死亡成为陈缺正式药工第一笔挑苗损耗；
-  - 赵石药渣棚三日试用完成阶段结算：湿渣车/苦腥气强烈诱发右手异常，赵石用额外干渣重活换取避开该车，最终被有条件‘先留’；
-  - 陈缺在后棚旺木气苗上进行一次极微截取，严格三转后普通腰腿劳损次晨恢复明显快于仅休息对照；真炼身工作假设显著加强但未正式破境；
-  - 右臂公开恢复暂时稳住，但整体劳动效率上升成为新暴露面，许管事已直接以更多工作量吸收这部分增长。
-- 下一章：CH020。最自然因果是处理“低效炼身闭环已经开始改变整体工作效率 + 后棚旺木气苗接近再次筛选 + 七日连续记录逐渐逼近”造成的选择与后果；不得重复完整劳损→截气→三转→次晨测试流程。
+  - 赵石药渣棚三日试用完成阶段结算：湿渣车/苦腥气强烈诱发右手异常，赵石用额外干渣重活换取避开该车，最终被有条件“先留”；
+  - CH019极微木气三转后，普通腰腿劳损次晨恢复明显快于仅休息对照；真炼身工作假设显著加强但未正式破境；
+  - 身体效率提高已被药圃直接换算成更高工量，CH020许管事明确次日按三畦派工；
+  - CH017关键青须草由“木气旺、苦味淡、现在不值东畦”推进为CH020“木气略收敛、苦味/药性加深、迁入东畦”，确认木气强度与当前药性/价值不等同，完整机制仍UNKNOWN；
+  - CH015起的七日连续记录已在CH020实际收取，陈缺记录因“右臂恢复停滞、整体耐劳/工量上升”的组合被灰衣药房弟子单独扣下带走；后续处置UNKNOWN。
+- 下一章：CH021。最自然因果是兑现“七日底账被单独抽走”的现实后果，并迫使陈缺处理“工量本身也是监控渠道”的新暴露问题；不得重复完整劳损→截气→三转→次晨测试，也不得把简单装慢继续当主要解法。
 
 ## Canon Policy
 
@@ -170,7 +173,7 @@ TRACKING_STATE_ROLE: projection
 - 人物自述与客观事实分层记录；角色说出的精确数字不因进入最终正文自动升级为作者层事实，除非叙事/其他证据确认。
 - 作者层长期真相严格服从Truth Reveal Ladder。
 - 每章晋升写Kernel patch；每5章Snapshot；每10章Continuity Audit。
-- CH020完成后必须执行5章Snapshot；同时CH020也是下一次10章Continuity Audit边界。
+- 下一次5章Snapshot边界：CH025；下一次10章Continuity Audit边界：CH030。
 - 已发布旧章标题不因风格统一批量追改，除非用户明确要求。
 
 核心原则：**正文决定过去；用户明确最终文本拥有最高发布权威；Canon描述真实世界；Tracking描述现在；Outline约束未来；Scene Card隔离后台与小说；Book Identity保证每章仍然属于《长生者皆为薪柴》；Title Attraction保证目录本身有追读欲；Post-Draft/Payoff/Continuity/Final Delivery/External CI共同保证交付质量。**
