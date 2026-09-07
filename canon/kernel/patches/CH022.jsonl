@@ -1,0 +1,10 @@
+{"kind":"fact","id":"KFACT-CH022-001","source_chapter":22,"status":"canonical","certainty":"observed","payload":{"subject":"CHAR-0001","predicate":"three_day_isolation_result","value":"三日无活苗、无后棚、无药粥、无新截气后，陈缺右臂旧伤仍在但腰腿/整体耐劳没有退回早期水平。"}}
+{"kind":"fact","id":"KFACT-CH022-002","source_chapter":22,"status":"canonical","certainty":"observed","payload":{"subject":"CHAR-0001","predicate":"south_slope_inspection_role","value":"顾长槐结算三日观察后恢复陈缺药圃/后棚/活苗与原药粥份例，并把借工木片改为背写‘验’的长期牌；以后每三日抽半日到南坡做入库前验工。"}}
+{"kind":"fact","id":"KFACT-CH022-003","source_chapter":22,"status":"canonical","certainty":"observed","payload":{"subject":"CHAR-0001","predicate":"dual_work_interface","value":"陈缺同时保留外棚木牌与南坡验工牌；南坡半日从外棚工量折除，不要求两头做满。"}}
+{"kind":"fact","id":"KFACT-CH022-004","source_chapter":22,"status":"canonical","certainty":"observed","payload":{"subject":"SOUTH-SLOPE-INSPECTION","predicate":"traceability","value":"经陈缺手验过的药篓单独留签；返潮、混料、错收可先查孙婆再顺签追到陈缺。"}}
+{"kind":"knowledge","id":"KKNOW-CH022-001","source_chapter":22,"status":"canonical","payload":{"knower":"CHAR-0001","state":"KNOWS","content":"既有身体耐劳变化至少在三日无新增活木/药粥/截气条件下不会立刻归零；正式炼身机制仍UNKNOWN。"}}
+{"kind":"knowledge","id":"KKNOW-CH022-002","source_chapter":22,"status":"canonical","payload":{"knower":"CHAR-0001","state":"KNOWS","content":"至少到入库前成药环节，白骨山价值判断不以活木气旺盛为优先，而认晒成后的药性表现；木气去向及转化关系UNKNOWN。"}}
+{"kind":"relationship","id":"KREL-CH022-001","source_chapter":22,"status":"canonical","payload":{"between":["CHAR-0001","PHARMACY-SYSTEM"],"change":"三日观察后没有清退或降级，而把异常稳定产出重新定价为周期性验工用途；资源恢复同时责任追踪加深。"}}
+{"kind":"plot","id":"KPLOT-CH022-001","source_chapter":22,"status":"canonical","payload":{"plot":"三日隔离观察线","state":"PAID-OFF","change":"观察结算为保留正式药工身份并新增南坡验工接口。"}}
+{"kind":"plot","id":"KPLOT-CH022-002","source_chapter":22,"status":"canonical","payload":{"plot":"药圃职业价值/资源闭环","state":"ADVANCED","change":"新增入库前验工权限与更接近药房流程的工作接口，同时形成按签追责的新暴露面。"}}
+{"kind":"timeline","id":"KTL-CH022-001","source_chapter":22,"status":"canonical","payload":{"sequence":["南坡第二日筛返潮根","第三日参与入库前复验并留签","三日无新增修炼资源仍保持耐劳","顾长槐结算观察","恢复药圃资源并授予周期性南坡验工牌"],"end_state":"陈缺成为外棚药工+南坡周期验工；资源/权限升级与监督/责任升级同时成立。"}}
