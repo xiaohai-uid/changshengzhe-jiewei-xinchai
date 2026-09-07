@@ -1,0 +1,10 @@
+{"kind":"fact","id":"KFACT-CH023-001","source_chapter":23,"status":"canonical","certainty":"observed","payload":{"subject":"HERB-QINGXU-001","predicate":"harvest_state","value":"此前后棚→东畦的关键青须草被正式起收；木气较后棚峰值明显收敛，根部苦味/药性更重。"}}
+{"kind":"fact","id":"KFACT-CH023-002","source_chapter":23,"status":"canonical","certainty":"observed","payload":{"subject":"MEDICINE-GARDEN-SORTING","predicate":"white_vs_green_basket","value":"白篓装可入药主根/合格侧根；青篓装过细、折断、发黑等边损，二者分流。"}}
+{"kind":"fact","id":"KFACT-CH023-003","source_chapter":23,"status":"canonical","certainty":"observed","payload":{"subject":"CHAR-0001","predicate":"fresh_cut_root_qi","value":"陈缺亲证刚剪离活株的断须仍残留木气且会随时间快速衰散；从一根青篓断须极微截取可引气，但来源比活苗更散、更短，并引发右臂近肘弯细密针痛。"}}
+{"kind":"fact","id":"KFACT-CH023-004","source_chapter":23,"status":"canonical","certainty":"observed","payload":{"subject":"GREEN-BASKET-EDGE-LOSS","predicate":"destination","value":"药圃青篓边损由西山药渣棚专人收走；西山杂役要求边根放阴处并用湿麻布盖住，明确要求保持湿润。用途UNKNOWN。"}}
+{"kind":"knowledge","id":"KKNOW-CH023-001","source_chapter":23,"status":"canonical","payload":{"knower":"CHAR-0001","state":"KNOWS","content":"新断边根存在短暂残余木气窗口，极微量可按残篇引入但更散、更易衰减；长期稳定性和安全性UNKNOWN。"}}
+{"kind":"knowledge","id":"KKNOW-CH023-002","source_chapter":23,"status":"canonical","payload":{"knower":"CHAR-0001","state":"KNOWS","content":"青篓边损不是无人管理的废物，而会保持湿润送往西山药渣棚。"}}
+{"kind":"knowledge","id":"KKNOW-CH023-003","source_chapter":23,"status":"canonical","payload":{"knower":"CHAR-0001","state":"SUSPECTS","content":"青篓湿边损与赵石在西山对湿渣/苦腥刺激的右手异常可能有关；具体触发物和机制UNKNOWN。"}}
+{"kind":"plot","id":"KPLOT-CH023-001","source_chapter":23,"status":"canonical","payload":{"plot":"真炼身资源线","state":"ADVANCED","change":"发现刚剪边损也可提供极微木气，但气更散、更短且存在经络针痛；尚未成为稳定资源方案。"}}
+{"kind":"plot","id":"KPLOT-CH023-002","source_chapter":23,"status":"canonical","payload":{"plot":"赵石湿渣线","state":"ADVANCED","change":"药圃青篓边损被建立为流向西山药渣棚的真实物料通道。"}}
+{"kind":"timeline","id":"KTL-CH023-001","source_chapter":23,"status":"canonical","payload":{"sequence":["陈缺回药圃","关键青须草正式起收","正药与青篓边损分流","陈缺从一根刚断边须极微取气并发现更散/更短","西山杂役收走青篓且要求湿着送"],"end_state":"陈缺获得边损木气的初步可行证据，但同时知道青篓有明确西山下游用途，不能视为无主资源。"}}
