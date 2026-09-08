@@ -1,0 +1,38 @@
+# CH026 WORKFLOW
+
+CHAPTER: CH026
+CANON_HORIZON: CH025
+CURRENT_STATE: FINAL_DELIVERY_PASS
+CANDIDATE_REVISION_ID: CH026-R1-5C14075E
+CANDIDATE_SHA256: 5c14075ef1a1a799abe86eab058aee85a4172a4d74a31685af0c0f4d2a031e8e
+
+CONTEXT_RECEIPT: PASS
+SCENE_CARD: PASS
+NATURALNESS_PRECHECK: PASS
+DRAFT_FREEZE: PASS
+POST_DRAFT_AUDIT: PASS
+RULE_COVERAGE: PASS
+FAILURE_REGRESSION: PASS
+NARRATIVE_NATURALNESS: PASS
+BOOK_IDENTITY_GATE: PASS
+PUBLICATION_GATE: PASS
+EXPECTATION_PAYOFF_GATE: PASS
+CONTINUITY_PRECOMMIT: PASS
+FINAL_DELIVERY_GATE: PASS
+EXTERNAL_CI: PENDING
+USER_REVIEW: PENDING
+CANON_PROMOTION: PENDING
+
+## State History
+
+1. PREWRITE_READY — complete HOT LOAD through CH025, including all uncompacted Kernel patches.
+2. SCENE_READY — scene card completed; growth payoff and resource-choice contract isolated.
+3. DRAFTED — R1 frozen as `CH026-R1-5C14075E`.
+4. POST_DRAFT_PASS — mechanical/rule/falsification/naturalness/failure-memory review PASS.
+5. PUBLICATION_PASS — novel quality, book identity and title review PASS.
+6. PAYOFF_PASS — durable growth payoff/cost/agency PASS.
+7. CONTINUITY_PASS — Canon/Knowledge/Power/Timeline PASS.
+8. FINAL_DELIVERY_PASS — exact R1/SHA clean-read and version binding PASS.
+9. EXTERNAL_CI pending on final `chapter/CH026` exact HEAD.
+
+No Candidate bytes or title changed after R1 freeze.
