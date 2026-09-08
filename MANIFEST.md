@@ -9,7 +9,7 @@ TARGET_CHAPTERS: ~580-620
 CURRENT_BOOK: 《长生者皆为薪柴》
 CURRENT_PHASE: PHASE_I_我为什么会被吃
 CURRENT_VOLUME: 第一卷·白骨山
-CURRENT_ARC: ARC-V01-02
+CURRENT_ARC: ARC-V01-03_WORKING_AFTER_CH026_CANDIDATE
 CANON_HORIZON: CH025
 CURRENT_CANON_CHAPTER: CH025
 CURRENT_SNAPSHOT: canon/snapshots/STATE_SNAPSHOT_V3.0.md
@@ -43,7 +43,7 @@ FINAL_DELIVERY_GATE: quality/FINAL_DELIVERY_GATE.md
 FAILURE_MEMORY: quality/FAILURE_MEMORY.md
 CHAPTER_GATE: quality/CHAPTER_GATE.md
 WORKFLOW_STATE_MACHINE: quality/WORKFLOW_STATE_MACHINE.md
-CURRENT_WORKFLOW: NONE_UNTIL_CH026_START
+CURRENT_WORKFLOW: quality/workflow/CH027_WORKFLOW.md
 NARRATIVE_PATTERN_LEDGER: quality/NARRATIVE_PATTERN_LEDGER.md
 COMMERCIAL_RESEARCH_BASELINE: quality/research/FANQIE_ZHIHU_COMMERCIAL_RESEARCH_2026-08-29.md
 STYLE_GUIDE: style/STYLE_GUIDE.md
@@ -51,9 +51,9 @@ CHAPTER_VALIDATOR: tools/chapter_gate.py
 CHAPTER_VALIDATOR_TESTS: tools/test_chapter_gate.py
 CHAPTER_CI_WORKFLOW: .github/workflows/chapter-quality.yml
 CANDIDATE_PATH_PATTERN: candidate/CHxxx.md
-NEXT_CHAPTER: CH026
+NEXT_CHAPTER: CH027
 CANON_BRANCH: main
-CANDIDATE_BRANCH: NONE_UNTIL_CH026_START
+CANDIDATE_BRANCH: chapter/CH027
 TRACKING_STATE_ROLE: projection
 
 ## Series Scale Decision
@@ -136,35 +136,28 @@ TRACKING_STATE_ROLE: projection
 - CH018《这车，我不碰》：用户直接改写最终版，Canonical。
 - CH019《干得快，就再多干一畦》：Assistant版本经用户结束当日工作并要求提交后晋升Canonical。
 - CH020《这点力气，已经记进去了》：用户直接改写最终版，Canonical。
-- CH021《看他能撑多久》：原Candidate文本在后续连续写作中作为上一章基线使用，并于本次用户明确“今天的任务结束了，把它们都提交了”后晋升Canonical。
-- CH022《这块牌，不必还了》：Assistant按用户审阅意见修订后的版本，用户继续后续章节并于本次结束工作指令中正式晋升Canonical。
-- CH023《废根也得湿着送》：Assistant版本经用户继续后续章节并在本次结束工作指令中晋升Canonical。
-- CH024《雨水没这个味》：Assistant版本经用户继续后续章节并在本次结束工作指令中晋升Canonical。
-- CH025《别让这筐死透了》：Assistant版本经用户结束当日工作并要求全部提交后晋升Canonical。
+- CH021《看他能撑多久》：原Candidate文本在后续连续写作中作为上一章基线使用，并于用户明确结束工作并要求提交后晋升Canonical。
+- CH022《这块牌，不必还了》：Assistant修订版随后晋升Canonical。
+- CH023《废根也得湿着送》：Canonical。
+- CH024《雨水没这个味》：Canonical。
+- CH025《别让这筐死透了》：Canonical。
+- CH026《第九趟》：当前会话已展示、exact-head CI通过的Working Candidate；用户已要求继续下一章，因此作为CH027直接工作前章，但尚未写入main Canon。
 
 ### Canon manuscript latest
 
 `manuscript/volume-01-baigushan/CH025-别让这筐死透了.md`
 
-### CH021—CH025 核心变化
+### Working predecessor
 
-- CH020七日底账后果兑现：顾长槐已看记录，并通过灰衣弟子启动三日南坡资源隔离观察。
-- 三日不碰活苗/后棚、暂停药粥且无新截气，陈缺已有腰腿/整体耐劳仍未退回早期水平；累计性身体资产成立，但正式炼身机制仍UNKNOWN。
-- 顾长槐没有清退陈缺，而把异常稳定产出重新定价为周期性南坡验工用途；陈缺现持外棚木牌+“验”牌，南坡半日从外棚折工。
-- 南坡验工形成真实签单追责；CH024陈缺首次验出返软根并触发整篓返工。
-- 关键青须草完成后棚→东畦→起收纵向链：木气逐步收敛、苦味/药性变重；木气强度≠当前药性价值已确认，完整机制仍UNKNOWN。
-- 新鲜青篓边损仍短暂保留木气；CH025多株分散微取可勉强聚出极薄一层，但气散、难收束、会分神/针麻并险些造成工作错分。
-- 青篓边损有明确西山下游用途，要求保持湿润；黑盆死透腐料无木气且直接倒坑。
-- CH024亲见黑陶壶苦腥液用于重新浇湿青料；CH025反证其不是赵石反应唯一条件：未新浇黑壶液的隔夜湿边根也会让赵石轻度右手僵紧。
-- “西山怕湿料死透”目前只是反复出现的生产事实/赵石工作解释；最终用途、触发成分、是否涉及木气全部UNKNOWN。
+`candidate/CH026.md` on `chapter/CH026`, revision CH026-R1-5C14075E, external CI run 34177034887 success on exact head fc327787bd3c1b6442d9c71164ae38f5878e28bf.
 
 ## Current Arc / Next Status
 
-- 当前Arc：ARC-V01-02 · 药圃与真炼身，接近阶段收束。
-- CH026主驱动力：GROWTH + PAYOFF + STATUS。
-- 最自然下一步：把已有累计性真炼身兑现成第一项更具体、可持续使用的身体能力/工作阈值，同时保留食物、经络、资源或监督成本。
-- CH026不得连续第四章追黑壶/湿料；赵石湿料发作、南坡纯验货、完整三转实验均进入短期冷却。
-- 若CH026自然完成“真炼身可见、可持续但不安全”的阶段兑现，可收束ARC-V01-02并向ARC-V01-03《坏掉的虫种》过渡。
+- main Canon仍处于ARC-V01-02末段，Canon Horizon=CH025。
+- 连续写作工作状态：CH026 Candidate已经完成“无新气也能越过旧第六趟衰竭阈值”的阶段兑现，并以三包同日青须根在药房出现不同虫反应开启ARC-V01-03接口。
+- CH027主驱动力：MYSTERY + IMPACT + STATUS USE。
+- CH027只允许把异常推进到一个可追溯生产差异进入正式封样；禁止确认石缸水为元凶、灵脉衰竭、返灵/归息或母虫根因。
+- 西山湿料、赵石再次发作、完整三转实验、南坡纯验货继续冷却。
 - 下一次Snapshot边界：CH030。
 - 下一次Continuity Audit边界：CH030。
 
@@ -177,5 +170,6 @@ TRACKING_STATE_ROLE: projection
 - 作者层长期真相严格服从Truth Reveal Ladder。
 - 每章晋升写Kernel patch；每5章Snapshot；每10章Continuity Audit。
 - 已发布旧章标题不因风格统一批量追改，除非用户明确要求。
+- Working Candidate可作为用户明确“继续”后的下一章直接因果基线，但不得在用户最终发布前伪装成main Canon；若前章Candidate被否决/重写，所有依赖它的后续Candidate必须失效重算。
 
 核心原则：**正文决定过去；用户明确最终发布拥有最高权威；Canon描述真实世界；Tracking描述现在；Outline约束未来；人物只知道他们该知道的东西。**
