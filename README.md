@@ -2,6 +2,10 @@
 
 本仓库是长篇小说《长生者皆为薪柴》的唯一事实与生产规划库（Source of Truth）。
 
+**从正文开始读**　[第一章《入门先死三成》](manuscript/volume-01-baigushan/CH001-入门先死三成.md) → [第二章《最安全的人往往死得最快》](manuscript/volume-01-baigushan/CH002-最安全的人往往死得最快.md) → [第一卷目录](manuscript/volume-01-baigushan/)
+
+下方是作者工作区，规划、人物状态和设定包含后续剧情。
+
 ## 当前系列目标
 
 - 目标总量：约200万中文字
@@ -24,15 +28,7 @@
 
 ## 当前进度
 
-- 当前卷：第一卷·白骨山
-- 当前Arc：提前的七日考核
-- 已定稿正文：CH001—CH006
-- Canon Horizon：CH006
-- 当前Snapshot：`canon/snapshots/STATE_SNAPSHOT_V2.2.md`
-- 最新增量：`state/diffs/CH006_STATE_DIFF.md`
-- 下一章：CH007
-- CH007前一Candidate：REWRITE，未进入Canon
-- CH007当前工作流：BLOCKED
+[生产清单](MANIFEST.md) 的 `CANON_HORIZON` 记录已确认章节，`CURRENT_SNAPSHOT` 和 `LATEST_STATE_DIFF` 指向对应的状态记录。读者可直接按[第一卷正文](manuscript/volume-01-baigushan/)的章号顺序阅读。
 
 ## 第一卷容量
 
